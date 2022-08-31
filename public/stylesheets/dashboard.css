@@ -1,0 +1,132 @@
+body {
+  font-size: .875rem;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  background-color: var(--bs-body-bg);
+  position: fixed;
+  top: 0;
+  /* rtl:raw:
+  right: 0;
+  */
+  bottom: 0;
+  /* rtl:remove */
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 48px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(var(--bs-light-rgb),var(--bs-bg-opacity))!important;
+  
+}
+
+ .btn-grey {
+  
+  background-color: var(--bs-border-color-translucent); 
+  
+}  
+
+.btn-grey:hover {
+  background-color: var(--bs-btn-hover-border-color);
+  border-color: #ADB5BD;
+}
+
+.btn-grey:focus {
+  color: #fff;
+  background-color: #CC2229;
+  border-color: var(--bs-btn-hover-border-color);
+}
+
+.margin-5 {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: -2rem;
+  }
+  .margin-5 {
+    margin-top: -3px;
+    margin-right: -4px;
+  }
+
+  .row>* {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .Data-detail {
+    margin-top: 1.5rem;
+  }
+}
+
+.sidebar-sticky {
+  height: calc(100vh - 48px);
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  
+  margin-right: 4px;
+  color: #727272;
+}
+
+.sidebar .nav-link.active {
+  color: #2470dc;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-top: .43rem;
+  /* box-shadow: inset -1px 0 0 rgb(255, 255, 255); */
+}
+
+.navbar .navbar-toggler {
+  border: 1.5px var(--bs-border-color-translucent) solid;
+  top: .25rem;
+  right: 1rem;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.15)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar .form-control {
+  padding: 1rem 1rem;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(255, 255, 255);
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255,0);
+}

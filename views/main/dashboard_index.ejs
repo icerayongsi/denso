@@ -1,0 +1,333 @@
+<%- include('../partials/header') -%>
+<style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    
+  </style>
+<link href="/stylesheets/dashboard.css" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar sticky-top flex-md-nowrap p-0">
+
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 fs-6" style="padding-left: 12px;" href="/"><img src="/images/denso-logo.png" alt="" width="150px" height="27.438px"></a>
+
+        <button class="navbar-toggler position-absolute d-md-none collapsed" style="margin-top: .5rem;" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- <div class="input-group date" id="from">
+          <input type="text" name="fromdate" class="form-control w-100 rounded-0 border-0" placeholder="<%= from %>" required />
+        </div>
+
+        <div class="input-group date" id="to">
+          <input type="text" name="todate" class="form-control w-100 rounded-0 border-0" placeholder="<%= to %>" required />
+        </div>
+
+            <div class="input-group">
+              <button class="btn btn-denger" type="submit">Search</button>
+          </div> -->
+
+      </header>
+      
+      <div class="container-fluid">
+        <div class="row">
+          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse" style="margin-bottom: 0px">
+            <div class="position-sticky pt-4 sidebar-sticky">
+
+              <ul class="nav flex-column">
+
+                
+
+                <li class="nav-item">
+                  <div class="d-grid gap-2 nav-link" style="margin-top: 1rem;">
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center mt-4 mb-1 text-muted text-uppercase">
+                      <span>Vibrators</span>
+                    </h6>
+                    <button class="btn btn-dark btn-grey" type="button">Vibrator 1</button>
+                    <button class="btn btn-dark btn-grey" type="button">Vibrator 2</button>
+                    <button class="btn btn-dark btn-grey" type="button">Vibrator 3</button>
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center mt-4 mb-1 text-muted text-uppercase">
+                      <span>Temp</span>
+                    </h6>
+                    <button class="btn btn-dark btn-grey" type="button">Temp 1</button>
+                    <button class="btn btn-dark btn-grey" type="button">Temp 2</button>
+                    <button class="btn btn-dark btn-grey" type="button">Temp 3</button>
+
+                  </div>
+                </li>
+
+                <!-- <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">
+                    <i class="bi bi-hypnotize"></i>
+                    Vibrator 1
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">
+                    <i class="bi bi-hypnotize"></i>
+                    Vibrator 2
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">
+                    <i class="bi bi-hypnotize"></i>
+                    Vibrator 3
+                  </a>
+                </li> -->
+                
+              </ul>
+      
+            </div>
+          </nav>
+      
+          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="card card-body margin-5">
+              <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 style="font-weight: 700;">Vibrator 1</h1>
+                
+                <div class="btn-toolbar mb-2 mb-md-0">
+                  <div class="btn-group me-2">
+                    <a type="button" class="btn btn-sm btn-outline-secondary" href="/Dashboard/last-30">Last 30 day</a>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Share</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Export</button>
+                  </div>
+                  <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" disabled>
+                    <span data-feather="calendar" class="align-text-bottom"></span>
+                    This week
+                  </button>
+                </div>
+                
+              </div>
+              <h6 class="text-secondary">From : <%= from %> To : <%= to %></h6>
+              
+              
+              
+            <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+
+                
+            </div>
+
+            <div class="card card-body margin-5 Data-detail">
+              <h1 style="font-weight: 700;">Details</h1>
+              <div class="table-responsive">
+                <table class="table table-striped table-sm" data-toggle="table" data-pagination-v-align="top" data-buttons-class="outline-secondary" data-pagination="true"  data-search="true">
+
+                  <thead>
+                    <tr>
+                      <th scope="col">Date / time</th>
+                      <th scope="col">X-Axis</th>
+                      <th scope="col">Z-Axis</th>
+                    </tr>
+                  </thead>
+                    <% let details = JSON.parse(data) %> 
+                    <% details.forEach(element => { %>
+
+                      <tr>
+                        <td><%= new Date(element.times).toLocaleString("en-US", {timeZone: "Asia/Bangkok",hour12: false}) %></td>
+                        <td><%= element.data[0].Vibrator_1_1 %></td>
+                        <td><%= element.data[0].Vibrator_1_3 %></td>
+                      </tr>
+                      
+                    <% }); %> 
+                  <tbody>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+              
+            
+            
+
+          </main>
+        </div>
+      </div>
+
+
+<script type='text/javascript'>
+
+  
+
+  const cut_3_digit = (data) => {
+    data = data.toString();
+    data = data.slice(0, -3);
+    return parseInt(data)
+  }
+  let count = 0;
+
+  let label_30 = [];
+  let data_x_zxis_30 = [];
+  let data_z_zxis_30 = [];
+
+  let label_ = [];
+  let data_x_zxis = [];
+  let data_z_zxis = [];
+  const data_chart_1 = JSON.parse('<%- data %>');
+  data_chart_1.forEach(element => {
+    count += 1;
+    label_.push(new Date(element.times).toLocaleString("en-US", {timeZone: "Asia/Bangkok",hour12: false}));
+    data_x_zxis.push(element.data[0].Vibrator_1_1);
+    data_z_zxis.push(element.data[0].Vibrator_1_3);
+    if (count == 30) {
+      data_x_zxis_30 = data_x_zxis;
+      data_z_zxis_30 = data_z_zxis;
+    }
+  });
+  
+  const ctx = document.getElementById('myChart');
+
+  const last30day = () => {
+    day = 31;
+    month = 7;
+    for (let i = 0; i < 30; i++) {
+        if (day > 31) {
+          day = 1;
+          month = 8;
+        }
+        label_30.push(month.toString() + '/' + day.toString() + '/' + '2022');
+        day++;
+    }
+
+    label_ = label_30;
+    data_x_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, null, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998,null, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]
+    data_z_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, null, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998, null, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]
+
+    console.log(label_)
+    
+    }
+
+
+      const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: label_,
+          datasets: [{
+            label: 'X-Axis',
+            data: data_x_zxis,
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#177D94',
+            borderWidth: 4,
+            pointBackgroundColor: '#177D94'
+          },
+          {
+            label: 'Z-Axis',
+            data: data_z_zxis,
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#91BA75',
+            borderWidth: 4,
+            pointBackgroundColor: '#91BA75'
+          }
+        ]
+        },
+      options: {
+        scales: {
+          x: {
+              min: 0,
+              max: 30,
+          },
+          yAxes: [{
+            ticks: {
+              beginAtZero: false
+            }
+          }]
+        },
+        legend: {
+          display: false
+        },
+        responsive: true,
+        plugins: {
+          annotation: {
+            annotations: [
+              {
+                type: 'line',
+                scaleID: 'y',
+                value: 1.7,
+                borderColor: 'rgb(255, 65, 65)',
+                label: {
+                  enabled: true, 
+                  content: 'Alert',
+                  borderWidth: 2,
+                  borderColor: 'transparent',
+                  position: 'end',
+                }
+              },
+              {
+                type: 'line',
+                scaleID: 'y',
+                value: 1.5,
+                borderColor: 'rgb(255, 192, 65)',
+                label: { 
+                  enabled: true, 
+                  content: 'Warning',
+                  borderWidth: 2,
+                  borderColor: 'transparent',
+                  position: 'end',
+                }
+              }
+            ]
+          }
+        }
+      }
+    })
+
+
+  
+ 
+</script>
+<%- include('../partials/footer') -%>
