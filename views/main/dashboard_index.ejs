@@ -1,157 +1,184 @@
 <%- include('../partials/header') -%>
+
 <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
     }
+  }
 
-    .b-example-divider {
-      height: 3rem;
-      background-color: rgba(0, 0, 0, .1);
-      border: solid rgba(0, 0, 0, .15);
-      border-width: 1px 0;
-      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-    }
+  .b-example-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+  }
 
-    .b-example-vr {
-      flex-shrink: 0;
-      width: 1.5rem;
-      height: 100vh;
-    }
+  .b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+  }
 
-    .bi {
-      vertical-align: -.125em;
-      fill: currentColor;
-    }
+  .bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+  }
 
-    .nav-scroller {
-      position: relative;
-      z-index: 2;
-      height: 2.75rem;
-      overflow-y: hidden;
-    }
+  .nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+  }
 
-    .nav-scroller .nav {
-      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      display: flex;
-      flex-wrap: nowrap;
-      padding-bottom: 1rem;
-      margin-top: -1px;
-      overflow-x: auto;
-      text-align: center;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-    }
+  .nav-scroller .nav {
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
 
-    
-  </style>
+  
+</style>
 <link href="/stylesheets/dashboard.css" rel="stylesheet">
 </head>
 <body>
 
-    <header class="navbar sticky-top flex-md-nowrap p-0">
+  <header class="navbar sticky-top flex-md-nowrap p-0">
 
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 fs-6" style="padding-left: 12px;" href="/"><img src="/images/denso-logo.png" alt="" width="150px" height="27.438px"></a>
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 fs-6" style="padding-left: 12px;" href="/layout"><img src="/images/denso-logo.png" alt="" width="150px" height="27.438px"></a>
 
-        <button class="navbar-toggler position-absolute d-md-none collapsed" style="margin-top: .5rem;" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" style="margin-top: .5rem;" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <!-- <div class="input-group date" id="from">
-          <input type="text" name="fromdate" class="form-control w-100 rounded-0 border-0" placeholder="<%= from %>" required />
-        </div>
 
-        <div class="input-group date" id="to">
-          <input type="text" name="todate" class="form-control w-100 rounded-0 border-0" placeholder="<%= to %>" required />
-        </div>
+    </header>
+    
+    <div class="container-fluid">
+      <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse" style="margin-bottom: 0px">
+          <div class="position-sticky pt-4 sidebar-sticky">
 
-            <div class="input-group">
-              <button class="btn btn-denger" type="submit">Search</button>
-          </div> -->
+            <ul class="nav flex-column">
 
-      </header>
-      
-      <div class="container-fluid">
-        <div class="row">
-          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse" style="margin-bottom: 0px">
-            <div class="position-sticky pt-4 sidebar-sticky">
+              <li class="nav-item">
+                <div class="d-grid gap-2 nav-link" style="margin-top: 2rem;">
 
-              <ul class="nav flex-column">
-
-                
-
-                <li class="nav-item">
-                  <div class="d-grid gap-2 nav-link" style="margin-top: 1rem;">
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center mt-4 mb-1 text-muted text-uppercase">
-                      <span>Vibrators</span>
-                    </h6>
-                    <button class="btn btn-dark btn-grey" type="button">Vibrator 1</button>
-                    <button class="btn btn-dark btn-grey" type="button">Vibrator 2</button>
-                    <button class="btn btn-dark btn-grey" type="button">Vibrator 3</button>
-
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center mt-4 mb-1 text-muted text-uppercase">
-                      <span>Temp</span>
-                    </h6>
-                    <button class="btn btn-dark btn-grey" type="button">Temp 1</button>
-                    <button class="btn btn-dark btn-grey" type="button">Temp 2</button>
-                    <button class="btn btn-dark btn-grey" type="button">Temp 3</button>
-
-                  </div>
-                </li>
-
-                <!-- <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">
-                    <i class="bi bi-hypnotize"></i>
-                    Vibrator 1
+                  <a href="/">
+                    <button class="btn btn-dark btn-grey w-100 btn-lg" type="submit">
+                      <i class="bi bi-arrow-left-short"></i>
+                      Back
+                    </button>
                   </a>
-                </li>
+                  
+                  <button class="btn btn-dark btn-grey w-100 btn-lg" type="submit">
+                    <i class="bi bi-sliders2"></i>
+                    Setting
+                  </button>
 
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">
-                    <i class="bi bi-hypnotize"></i>
-                    Vibrator 2
-                  </a>
-                </li>
 
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">
-                    <i class="bi bi-hypnotize"></i>
-                    Vibrator 3
-                  </a>
-                </li> -->
-                
-              </ul>
-      
-            </div>
-          </nav>
+                  <h6 class="sidebar-heading d-flex justify-content-between align-items-center mt-4 mb-1 text-muted text-uppercase">
+                    <span><%= header %></span>
+                  </h6>
+
+                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi1&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 1</button></form>
+                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi2&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 2</button></form>
+                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi3&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 3</button></form>
+                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi4&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 4</button></form>
+                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi5&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 5</button></form>
+                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi6&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 6</button></form>
+                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi7&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 7</button></form>
+                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi8&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 8</button></form>
+                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi9&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 9</button></form>
+
+                  <h6 class="sidebar-heading d-flex justify-content-between align-items-center mt-4 mb-1 text-muted text-uppercase">
+                    <span>Temp</span>
+                  </h6>
+                  <button class="btn btn-dark btn-grey" type="button" disabled>Temp 1</button>
+                  <button class="btn btn-dark btn-grey" type="button" disabled>Temp 2</button>
+                  <button class="btn btn-dark btn-grey" type="button" disabled>Temp 3</button>
+
+                </div>
+              </li>
+
+              <!-- <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                  <i class="bi bi-hypnotize"></i>
+                  Vibrator 1
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                  <i class="bi bi-hypnotize"></i>
+                  Vibrator 2
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                  <i class="bi bi-hypnotize"></i>
+                  Vibrator 3
+                </a>
+              </li> -->
+              
+            </ul>
+    
+          </div>
+        </nav>
+
       
           <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="card card-body margin-5">
               <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 style="font-weight: 700;">Vibrator 1</h1>
+                <h1 style="font-weight: 700;"><%= header %></h1>
                 
                 <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group me-2">
-                    <a type="button" class="btn btn-sm btn-outline-secondary" href="/Dashboard/last-30">Last 30 day</a>
+                  <form action="/Dashboard/?category=<%= category %>" method="POST">
+
+                    <div class="input-group mb-3 date">
+                      <span class="input-group-text">From</span>
+                      <input id="from" type="text" name="fromdate" class="form-control" required>
+                      <span class="input-group-text">To</span>
+                      <input id="to" type="text" name="todate" class="form-control" required>
+                      <button class="btn btn-outline-secondary btn-grey" type="submit" id="button-addon2" style="color: var(--bs-body-color)">Confirm</button>
+                    </div>
+
+                  </form>
+                 
+
+                  <!-- <div class="btn-group me-2">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" href="/Dashboard/last-30" disabled>Last 30 day</button>
                     <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Share</button>
                     <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Export</button>
                   </div>
                   <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" disabled>
                     <span data-feather="calendar" class="align-text-bottom"></span>
                     This week
-                  </button>
+                  </button> -->
+
+
                 </div>
                 
               </div>
+
+
               <h6 class="text-secondary">From : <%= from %> To : <%= to %></h6>
               
               
@@ -173,16 +200,25 @@
                       <th scope="col">Z-Axis</th>
                     </tr>
                   </thead>
-                    <% let details = JSON.parse(data) %> 
+
+                    <% let details = JSON.parse(data) %>
+                    <% 
+
+                    let keys_ = Object.keys(details);
+                    let keys_1 = Object.keys(details[keys_[0]])[1];
+                    let subkey = Object.keys(details[0][keys_1][0]);
+                    
+                    %> 
                     <% details.forEach(element => { %>
 
                       <tr>
                         <td><%= new Date(element.times).toLocaleString("en-US", {timeZone: "Asia/Bangkok",hour12: false}) %></td>
-                        <td><%= element.data[0].Vibrator_1_1 %></td>
-                        <td><%= element.data[0].Vibrator_1_3 %></td>
+                        <td><%= element.data[0][subkey[0].toString()] %></td>
+                        <td><%= element.data[0][subkey[1].toString()] %></td>
                       </tr>
                       
                     <% }); %> 
+
                   <tbody>
                     
                   </tbody>
@@ -190,9 +226,6 @@
               </div>
             </div>
               
-            
-            
-
           </main>
         </div>
       </div>
@@ -216,12 +249,18 @@
   let label_ = [];
   let data_x_zxis = [];
   let data_z_zxis = [];
-  const data_chart_1 = JSON.parse('<%- data %>');
+  let data_chart_1 = JSON.parse('<%- data %>');
+  var keys = Object.keys(data_chart_1);
+  var keys = Object.keys(data_chart_1[keys[0]])[1];
+  var subkey = Object.keys(data_chart_1[0][keys][0]);
+  console.log(subkey[0]);
+
   data_chart_1.forEach(element => {
     count += 1;
+    
     label_.push(new Date(element.times).toLocaleString("en-US", {timeZone: "Asia/Bangkok",hour12: false}));
-    data_x_zxis.push(element.data[0].Vibrator_1_1);
-    data_z_zxis.push(element.data[0].Vibrator_1_3);
+    data_x_zxis.push(element.data[0][subkey[0].toString()]);
+    data_z_zxis.push(element.data[0][subkey[1].toString()]);
     if (count == 30) {
       data_x_zxis_30 = data_x_zxis;
       data_z_zxis_30 = data_z_zxis;
@@ -269,27 +308,37 @@
             data: data_z_zxis,
             lineTension: 0,
             backgroundColor: 'transparent',
-            borderColor: '#91BA75',
+            borderColor: '#28BEE0',
             borderWidth: 4,
-            pointBackgroundColor: '#91BA75'
+            pointBackgroundColor: '#28BEE0'
           }
         ]
         },
       options: {
+        legend: {
+            display: false,
+            labels: {
+                fontColor: 'rgb(255, 99, 132)'
+            }
+        },
         scales: {
+          y: {
+            ticks: {
+              color: '#ADB5BD',
+              beginAtZero: false
+            }
+          },
           x: {
+            ticks: {
+              color: '#ADB5BD',
+              beginAtZero: false
+            },
               min: 0,
               max: 30,
           },
-          yAxes: [{
-            ticks: {
-              beginAtZero: false
-            }
-          }]
+          
         },
-        legend: {
-          display: false
-        },
+        
         responsive: true,
         plugins: {
           annotation: {
@@ -297,11 +346,11 @@
               {
                 type: 'line',
                 scaleID: 'y',
-                value: 1.7,
+                value: 15,
                 borderColor: 'rgb(255, 65, 65)',
                 label: {
                   enabled: true, 
-                  content: 'Alert',
+                  content: 'Alarm',
                   borderWidth: 2,
                   borderColor: 'transparent',
                   position: 'end',
@@ -310,7 +359,7 @@
               {
                 type: 'line',
                 scaleID: 'y',
-                value: 1.5,
+                value: 6,
                 borderColor: 'rgb(255, 192, 65)',
                 label: { 
                   enabled: true, 

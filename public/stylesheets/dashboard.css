@@ -44,6 +44,11 @@ body {
   border-color: var(--bs-btn-hover-border-color);
 }
 
+.btn-grey:active {
+  color: #fff;
+  background-color: #CC2229;
+}
+
 .margin-5 {
   margin-top: 1.5rem;
 }

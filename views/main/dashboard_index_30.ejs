@@ -1,5 +1,6 @@
 <%- include('../partials/header') -%>
 <style>
+  
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -8,7 +9,7 @@
       user-select: none;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 768px) { 
       .bd-placeholder-img-lg {
         font-size: 3.5rem;
       }
@@ -86,8 +87,6 @@
             <div class="position-sticky pt-4 sidebar-sticky">
 
               <ul class="nav flex-column">
-
-                
 
                 <li class="nav-item">
                   <div class="d-grid gap-2 nav-link" style="margin-top: 1rem;">
@@ -228,13 +227,19 @@
   data_chart_label.forEach(element => {
     label_.push(element + Math.floor(Math.random() * 6) / 10);
   });
+
+  label = []
+
+  for (var i = 0; i < 30; i++) {
+    label.push(i);
+  }
   
   const ctx = document.getElementById('myChart');
 
       const chart = new Chart(ctx, {
       type: 'line',
       data: {
-          labels: label_,
+          labels: label,
           datasets: [{
             label: 'X-Axis',
             data: data_x_zxis,
@@ -252,7 +257,8 @@
             borderColor: '#858585',
             borderWidth: 4,
             pointBackgroundColor: '#858585'
-          }
+          } 
+          
         ]
         },
       options: {
@@ -277,7 +283,7 @@
               {
                 type: 'line',
                 scaleID: 'y',
-                value: 1.7,
+                value: 15,
                 borderColor: 'rgb(255, 65, 65)',
                 label: {
                   enabled: true, 
@@ -290,7 +296,7 @@
               {
                 type: 'line',
                 scaleID: 'y',
-                value: 1.5,
+                value: 6,
                 borderColor: 'rgb(255, 192, 65)',
                 label: { 
                   enabled: true, 
@@ -307,7 +313,6 @@
     })
 
 
-  
- 
 </script>
+
 <%- include('../partials/footer') -%>

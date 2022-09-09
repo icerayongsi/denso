@@ -1,4 +1,18 @@
 <!-- <script src="/javascripts/dashboard.js"></script> -->
+<script>
+
+        function refreshTime() {
+            var dateString = new Date()
+            var ampm = dateString.getHours( ) >= 12 ? ' PM' : ' AM';
+            var date = dateString.getMonth() + 1 + "/" + dateString.getDate() + "/" + dateString.getFullYear(); 
+            var time = dateString.getHours() + ":" +  dateString.getMinutes() + ":" +  dateString.getSeconds() + " : " + ampm;;
+            document.getElementById('date').innerHTML = date;
+            document.getElementById('time').innerHTML = time;
+        }
+
+        setInterval(refreshTime, 100);
+
+</script>
 <script src="https://unpkg.com/bootstrap-table@1.21.0/dist/bootstrap-table.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>

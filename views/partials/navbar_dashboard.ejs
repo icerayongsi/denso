@@ -1,0 +1,142 @@
+<style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    
+  </style>
+<link href="/stylesheets/dashboard.css" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar sticky-top flex-md-nowrap p-0">
+
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 fs-6" style="padding-left: 12px;" href="/layout"><img src="/images/denso-logo.png" alt="" width="150px" height="27.438px"></a>
+
+        <button class="navbar-toggler position-absolute d-md-none collapsed" style="margin-top: .5rem;" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+      </header>
+      
+      <div class="container-fluid">
+        <div class="row">
+          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse" style="margin-bottom: 0px">
+            <div class="position-sticky pt-4 sidebar-sticky">
+
+              <ul class="nav flex-column">
+
+                <li class="nav-item">
+                  <div class="d-grid gap-2 nav-link" style="margin-top: 2rem;">
+
+                    <a href="/">
+                      <button class="btn btn-dark btn-grey w-100 btn-lg" type="submit">
+                        <i class="bi bi-arrow-left-short"></i>
+                        Back
+                      </button>
+                    </a>
+                    
+                    <button class="btn btn-dark btn-grey w-100 btn-lg" type="submit">
+                      <i class="bi bi-sliders2"></i>
+                      Setting
+                    </button>
+
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center mt-4 mb-1 text-muted text-uppercase">
+                      <span><%= header %></span>
+                    </h6>
+
+                    <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi1&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 1</button></form>
+                    <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi2&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 2</button></form>
+                    <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi3&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 3</button></form>
+                    <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi4&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 4</button></form>
+                    <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi5&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 5</button></form>
+                    <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi6&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 6</button></form>
+                    <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi7&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 7</button></form>
+                    <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi8&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 8</button></form>
+                    <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi9&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 9</button></form>
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center mt-4 mb-1 text-muted text-uppercase">
+                      <span>Temp</span>
+                    </h6>
+                    <button class="btn btn-dark btn-grey" type="button" disabled>Temp 1</button>
+                    <button class="btn btn-dark btn-grey" type="button" disabled>Temp 2</button>
+                    <button class="btn btn-dark btn-grey" type="button" disabled>Temp 3</button>
+
+                  </div>
+                </li>
+
+                <!-- <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">
+                    <i class="bi bi-hypnotize"></i>
+                    Vibrator 1
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">
+                    <i class="bi bi-hypnotize"></i>
+                    Vibrator 2
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">
+                    <i class="bi bi-hypnotize"></i>
+                    Vibrator 3
+                  </a>
+                </li> -->
+                
+              </ul>
+      
+            </div>
+          </nav>

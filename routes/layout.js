@@ -13,31 +13,19 @@ mongoose.connect('mongodb+srv://icerayongsi:poo14789630@cluster0.c1fr4nt.mongodb
 
 const data = [{}];
 
-router.get('/test', async (req, res) => {
-  
-  res.json(product);
+router.get('/', function(req, res, next) {
+  res.render('layout', { title: 'Denso' ,header : 'Mechine layout'});
 });
 
-router.get('/', function (req, res, next) {
-  res.render('history', { title: 'Denso' ,header : 'History'});
+router.get('/BrazingGIC1', function(req, res, next) {
+  res.render('BrazingGIC_1', { title: 'Denso' ,header : 'BrazingGIC 1'});
 });
 
-data_x_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, null, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998,null, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]
-data_z_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, null, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998, null, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]
-label = ['7/31/2022', '8/1/2022', '8/2/2022', '8/3/2022', '8/4/2022', '8/5/2022', '8/6/2022', '8/7/2022', '8/8/2022', '8/9/2022', '8/10/2022', '8/11/2022', '8/12/2022', '8/13/2022', '8/14/2022', '8/15/2022', '8/16/2022', '8/17/2022', '8/18/2022', '8/19/2022', '8/20/2022', '8/21/2022', '8/22/2022', '8/23/2022', '8/24/2022', '8/25/2022', '8/26/2022', '8/27/2022', '8/28/2022', '8/29/2022']
+router.get('/BrazingGIC1/history', function(req, res, next) {
+  res.render('history', { title: 'Denso' ,header : 'BrazingGIC 1'});
+});
 
-router.get('/Dashboard/last-30', encodeUrl, async (req, res, next) => {
-  res.render('main/dashboard_index_30', { title: 'Dashboard last 30 day',
-                                          data_x_zxis_j : JSON.stringify(data_x_zxis),
-                                          data_x_zxis : data_x_zxis,
-                                          data_z_zxis_j : JSON.stringify(data_z_zxis),
-                                          data_z_zxis : data_z_zxis,
-                                          label_j : JSON.stringify(label),
-                                          label : label
-                                        });
-  });
-
-router.post('/Dashboard', encodeUrl, async (req, res, next) => {
+router.post('/BrazingGIC1/history/Dashboard', encodeUrl, async (req, res, next) => {
 
   let select_query = [];
   let header = "";
