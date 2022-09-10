@@ -19,7 +19,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/BrazingGIC1', function(req, res, next) {
-  res.render('BrazingGIC_1', { title: 'Denso' ,header : 'BrazingGIC 1'});
+  console.log(req.query.page);
+  res.render('BrazingGIC_1', { title: 'Denso' ,header : 'BrazingGIC 1',page : req.query.page});
 });
 
 router.get('/BrazingGIC1/history', function(req, res, next) {

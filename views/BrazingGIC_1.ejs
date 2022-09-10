@@ -1,6 +1,26 @@
 <%- include('partials/header') -%>
 
+<% if (page == 'vibrator' || page == 'index') { %> 
 
-<%- include('dashboard/BrazingGIC_1_index') -%>
+    <%- include('dashboard/BrazingGIC_1_index') -%>
+
+<% } else if (page == 'temp') { %>
+
+    <%- include('dashboard/BrazingGIC_1_temp') -%>
+
+<% } else if (page == 'current') { %> 
+
+    <%- include('dashboard/BrazingGIC_1_current') -%>
+
+<% } else if (page == 'tempChamber') { %> 
+
+    <%- include('dashboard/BrazingGIC_1_temp_chamber') -%>
+
+<% } else if (page == 'otherSensor') { %>
+
+    <%- include('dashboard/BrazingGIC_1_other_sensor') -%>
+
+<% } %> 
+
 
 <%- include('partials/footer') -%>
