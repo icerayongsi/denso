@@ -1,6 +1,6 @@
 <%- include('BrazingGIC_1_header') -%>
 
-<%- include('../partials/navbar_dashboard') -%>
+  <%- include('../partials/navbar_dashboard') -%>
 
     <!-- MAIN CONTENT -->
 
@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      <!-- SELECTOR 1 : TEMP GAUGE -->
+
 
       <div class="card card-body margin-5">
 
@@ -28,9 +28,203 @@
 
         </div>
 
+        <!-- SELECTOR 1 : TEMP GAUGE -->
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 1</div>
+                <div class="card-body">
+
+                  <canvas id="temp1" 
+                    data-type="linear-gauge"
+                    data-units="°C"
+                    data-min-value="0"
+                    data-value-box="false"
+                    data-max-value="100"
+                    data-minor-ticks="2"
+                    data-stroke-ticks="true"
+                    data-color-plate="rgba(0,255,255,0)"
+                    data-border-shadow-width="0"
+                    data-borders="false"
+                    data-needle-type="arrow"
+                    data-needle-width="2"
+                    data-needle-circle-size="7"
+                    data-needle-circle-outer="true"
+                    data-needle-circle-inner="false"
+                    data-animation-duration="1500"
+                    data-animation-rule="linear"
+                    data-bar-width="10"
+                    data-value="50"
+                    style="width: 100%;height: 100%;rotate: -90deg;"
+                ></canvas>
+      
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0">C</p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 2</div>
+                <div class="card-body">
+
+                  <canvas id="temp2" 
+                    data-type="linear-gauge"
+                    data-units="°C"
+                    data-min-value="0"
+                    data-value-box="false"
+                    data-max-value="100"
+                    data-minor-ticks="2"
+                    data-stroke-ticks="true"
+                    data-color-plate="rgba(0,255,255,0)"
+                    data-border-shadow-width="0"
+                    data-borders="false"
+                    data-needle-type="arrow"
+                    data-needle-width="2"
+                    data-needle-circle-size="7"
+                    data-needle-circle-outer="true"
+                    data-needle-circle-inner="false"
+                    data-animation-duration="1500"
+                    data-animation-rule="linear"
+                    data-bar-width="10"
+                    data-value="50"
+                    style="width: 100%;height: 100%;rotate: -90deg;"
+                ></canvas>
+                  
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0">C</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 3</div>
+                <div class="card-body">
+                </div>
+                <div class="card-body">
+    
+      
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0">C</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 4</div>
+                <div class="card-body">
+                </div>
+                <div class="card-body">
+    
+      
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0">C</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 5</div>
+                <div class="card-body">
+                </div>
+                <div class="card-body">
+    
+      
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0">C</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 6</div>
+                <div class="card-body">
+                </div>
+                <div class="card-body">
+    
+      
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0">C</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 7</div>
+                <div class="card-body">
+                </div>
+                <div class="card-body">
+    
+      
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0">C</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 8</div>
+                <div class="card-body">
+                </div>
+                <div class="card-body">
+    
+      
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0">C</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 9</div>
+                <div class="card-body">
+                </div>
+                <div class="card-body">
+    
+      
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0">C</p>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        
+
+        <!-- END SELECTOR 1 : TEMP GAUGE -->
+
       </div>
 
-      <!-- END SELECTOR 1 : TEMP GAUGE -->
+
 
     </main>
 
@@ -49,6 +243,53 @@
 
     <!-- END WIP NOTIFY  -->
 
-<script>
+    <script>
 
-</script>
+var temp1 = new LinearGauge({
+        renderTo: 'temp1',
+        valueBox: false,
+        majorTicks: [10,30,50,60,80,100],
+        highlights: [ 
+            {"from": 0, "to": 10, "color": "rgba(50, 50, 200)"},
+            {"from": 10, "to": 20, "color": "rgba(50, 200, 200, .75)"},
+            {"from": 20, "to": 30, "color": "rgba(50, 200, 50, .75)"},
+            {"from": 30, "to": 50, "color": "rgba(200, 200, 50, .75)"},
+            {"from": 50, "to": 100, "color": "rgba(200, 50, 50, .75)"}
+            ],
+        barWidth: 10,
+        colorPlate: "rgba(0,0,0,0)",
+        units: "°C",
+        borderShadowWidth: 0,
+        
+        borders: false,
+        value: 35
+    }).draw();
+
+    var temp2 = new LinearGauge({
+        renderTo: 'temp2',
+        valueBox: false,
+        majorTicks: [10,30,50,60,80,100],
+        highlights: [ 
+            {"from": 0, "to": 10, "color": "rgba(50, 50, 200)"},
+            {"from": 10, "to": 20, "color": "rgba(50, 200, 200, .75)"},
+            {"from": 20, "to": 30, "color": "rgba(50, 200, 50, .75)"},
+            {"from": 30, "to": 50, "color": "rgba(200, 200, 50, .75)"},
+            {"from": 50, "to": 100, "color": "rgba(200, 50, 50, .75)"}
+            ],
+        barWidth: 10,
+        colorPlate: "rgba(0,0,0,0)",
+        units: "°C",
+        borderShadowWidth: 0,
+        
+        borders: false,
+        value: 35
+    }).draw();
+
+        setInterval(() => {
+            temp1.value = Math.floor(Math.random() * 50) + 1;
+            temp2.value = Math.floor(Math.random() * 50) + 1;
+            temp1.draw();
+            temp2.draw();
+        },1000);
+
+    </script>
