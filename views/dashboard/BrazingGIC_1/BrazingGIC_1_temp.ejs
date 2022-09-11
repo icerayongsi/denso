@@ -2,6 +2,12 @@
 
 <%- include('../../partials/navbar_dashboard') -%>
 
+<style>
+  :root {
+    --temp-gauge-wh : 16vh;
+  }
+</style>
+
     <!-- MAIN CONTENT -->
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
@@ -36,10 +42,9 @@
               <div class="card text-bg-dark mb-3">
                 <div class="card-header text-center">RC Fan 1</div>
                 <div class="card-body">
-
-                  <canvas id="temp1" 
+                  <div class="">
+                    <canvas id="temp1" 
                     data-type="linear-gauge"
-                    data-units="°C"
                     data-min-value="0"
                     data-value-box="false"
                     data-max-value="100"
@@ -57,12 +62,14 @@
                     data-animation-rule="linear"
                     data-bar-width="10"
                     data-value="50"
-                    style="width: 100%;height: 100%;rotate: -90deg;"
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
                 ></canvas>
       
+                  </div>
+                  
                 </div>
                 <div class="card-footer">
-                  <p class="text-center m-0">C</p>
+                  <h3 class="text-center m-0 temp1-value"></h3>
                 </div>
               </div>
             </div>
@@ -72,10 +79,9 @@
               <div class="card text-bg-dark mb-3">
                 <div class="card-header text-center">RC Fan 2</div>
                 <div class="card-body">
-
-                  <canvas id="temp2" 
+                  <div>
+                    <canvas id="temp2" 
                     data-type="linear-gauge"
-                    data-units="°C"
                     data-min-value="0"
                     data-value-box="false"
                     data-max-value="100"
@@ -93,12 +99,14 @@
                     data-animation-rule="linear"
                     data-bar-width="10"
                     data-value="50"
-                    style="width: 100%;height: 100%;rotate: -90deg;"
-                ></canvas>
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                    ></canvas>
+                  </div>
+                  
                   
                 </div>
                 <div class="card-footer">
-                  <p class="text-center m-0">C</p>
+                  <h3 class="text-center m-0 temp2-value"></h3>
                 </div>
               </div>
             </div>
@@ -109,9 +117,9 @@
                 <div class="card-header text-center">RC Fan 3</div>
                 <div class="card-body">
                   
-                  <canvas id="temp3" 
+                  <div>
+                    <canvas id="temp3" 
                     data-type="linear-gauge"
-                    data-units="°C"
                     data-min-value="0"
                     data-value-box="false"
                     data-max-value="100"
@@ -129,11 +137,13 @@
                     data-animation-rule="linear"
                     data-bar-width="10"
                     data-value="50"
-                    style="width: 100%;height: 100%;rotate: -90deg;"></canvas>
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                    ></canvas>
+                  </div>
       
                 </div>
                 <div class="card-footer">
-                  <p class="text-center m-0">C</p>
+                  <h3 class="text-center m-0 temp3-value"></h3>
                 </div>
               </div>
             </div>
@@ -144,9 +154,9 @@
                 <div class="card-header text-center">RC Fan 4</div>
                 <div class="card-body">
                   
-                  <canvas id="temp4" 
+                  <div>
+                    <canvas id="temp4" 
                     data-type="linear-gauge"
-                    data-units="°C"
                     data-min-value="0"
                     data-value-box="false"
                     data-max-value="100"
@@ -164,12 +174,13 @@
                     data-animation-rule="linear"
                     data-bar-width="10"
                     data-value="50"
-                    style="width: 100%;height: 100%;rotate: -90deg;"
-                ></canvas>
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                    ></canvas>
+                  </div>
       
                 </div>
                 <div class="card-footer">
-                  <p class="text-center m-0">C</p>
+                  <h3 class="text-center m-0 temp4-value"></h3>
                 </div>
               </div>
             </div>
@@ -180,9 +191,9 @@
                 <div class="card-header text-center">RC Fan 5</div>
                 <div class="card-body">
                   
-                  <canvas id="temp5" 
+                  <div>
+                    <canvas id="temp5" 
                     data-type="linear-gauge"
-                    data-units="°C"
                     data-min-value="0"
                     data-value-box="false"
                     data-max-value="100"
@@ -200,12 +211,13 @@
                     data-animation-rule="linear"
                     data-bar-width="10"
                     data-value="50"
-                    style="width: 100%;height: 100%;rotate: -90deg;"
-                ></canvas>
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                    ></canvas>
+                  </div>
       
                 </div>
                 <div class="card-footer">
-                  <p class="text-center m-0">C</p>
+                  <h3 class="text-center m-0 temp5-value"></h3>
                 </div>
               </div>
             </div>
@@ -217,9 +229,9 @@
 
                 <div class="card-body">
                   
-                  <canvas id="temp6" 
+                  <div>
+                    <canvas id="temp6" 
                     data-type="linear-gauge"
-                    data-units="°C"
                     data-min-value="0"
                     data-value-box="false"
                     data-max-value="100"
@@ -237,12 +249,13 @@
                     data-animation-rule="linear"
                     data-bar-width="10"
                     data-value="50"
-                    style="width: 100%;height: 100%;rotate: -90deg;"
-                ></canvas>
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                    ></canvas>
+                  </div>
       
                 </div>
                 <div class="card-footer">
-                  <p class="text-center m-0">C</p>
+                  <h3 class="text-center m-0 temp6-value"></h3>
                 </div>
               </div>
             </div>
@@ -253,9 +266,9 @@
                 <div class="card-header text-center">RC Fan 7</div>
                 <div class="card-body">
                   
-                  <canvas id="temp7" 
+                  <div>
+                    <canvas id="temp7" 
                     data-type="linear-gauge"
-                    data-units="°C"
                     data-min-value="0"
                     data-value-box="false"
                     data-max-value="100"
@@ -273,12 +286,13 @@
                     data-animation-rule="linear"
                     data-bar-width="10"
                     data-value="50"
-                    style="width: 100%;height: 100%;rotate: -90deg;"
-                ></canvas>
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                    ></canvas>
+                  </div>
       
                 </div>
                 <div class="card-footer">
-                  <p class="text-center m-0">C</p>
+                  <h3 class="text-center m-0 temp7-value"></h3>
                 </div>
               </div>
             </div>
@@ -290,9 +304,9 @@
 
                 <div class="card-body">
                   
-                  <canvas id="temp8" 
+                  <div>
+                    <canvas id="temp8" 
                     data-type="linear-gauge"
-                    data-units="°C"
                     data-min-value="0"
                     data-value-box="false"
                     data-max-value="100"
@@ -310,12 +324,13 @@
                     data-animation-rule="linear"
                     data-bar-width="10"
                     data-value="50"
-                    style="width: 100%;height: 100%;rotate: -90deg;"
-                ></canvas>
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                    ></canvas>
+                  </div>
       
                 </div>
                 <div class="card-footer">
-                  <p class="text-center m-0">C</p>
+                  <h3 class="text-center m-0 temp8-value"></h3>
                 </div>
               </div>
             </div>
@@ -327,9 +342,9 @@
 
                 <div class="card-body">
                   
-                  <canvas id="temp9" 
+                  <div>
+                    <canvas id="temp9" 
                     data-type="linear-gauge"
-                    data-units="°C"
                     data-min-value="0"
                     data-value-box="false"
                     data-max-value="100"
@@ -347,12 +362,13 @@
                     data-animation-rule="linear"
                     data-bar-width="10"
                     data-value="50"
-                    style="width: 100%;height: 100%;rotate: -90deg;"
-                ></canvas>
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                    ></canvas>
+                  </div>
       
                 </div>
                 <div class="card-footer">
-                  <p class="text-center m-0">C</p>
+                  <h3 class="text-center m-0 temp9-value"></h3>
                 </div>
               </div>
             </div>
@@ -366,7 +382,7 @@
 
         <!-- SELECTOR 2 : TEMP CHART -->
 
-        <div class="card card-body margin-5 ps-1 pe-1" style="height: 27vh;">
+        <div class="card card-body margin-4 ps-1 pe-1" style="height: 27vh;">
           <canvas class="my-4 w-100" id="myChart" style="width: 100%;height: 100%"></canvas>
         </div>
 
@@ -409,10 +425,10 @@ var temp1 = new LinearGauge({
             {"from": 50, "to": 100, "color": "rgba(200, 50, 50, .75)"}
             ],
         barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
         colorPlate: "rgba(0,0,0,0)",
-        units: "°C",
         borderShadowWidth: 0,
-        
         borders: false,
         value: 35
     }).draw();
@@ -429,10 +445,10 @@ var temp1 = new LinearGauge({
             {"from": 50, "to": 100, "color": "rgba(200, 50, 50, .75)"}
             ],
         barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
         colorPlate: "rgba(0,0,0,0)",
-        units: "°C",
         borderShadowWidth: 0,
-        
         borders: false,
         value: 35
     }).draw();
@@ -449,8 +465,9 @@ var temp1 = new LinearGauge({
             {"from": 50, "to": 100, "color": "rgba(200, 50, 50, .75)"}
             ],
         barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
         colorPlate: "rgba(0,0,0,0)",
-        units: "°C",
         borderShadowWidth: 0,
         
         borders: false,
@@ -469,10 +486,10 @@ var temp1 = new LinearGauge({
             {"from": 50, "to": 100, "color": "rgba(200, 50, 50, .75)"}
             ],
         barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
         colorPlate: "rgba(0,0,0,0)",
-        units: "°C",
         borderShadowWidth: 0,
-        
         borders: false,
         value: 35
     }).draw();
@@ -489,10 +506,10 @@ var temp1 = new LinearGauge({
             {"from": 50, "to": 100, "color": "rgba(200, 50, 50, .75)"}
             ],
         barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
         colorPlate: "rgba(0,0,0,0)",
-        units: "°C",
         borderShadowWidth: 0,
-        
         borders: false,
         value: 35
     }).draw();
@@ -509,8 +526,9 @@ var temp1 = new LinearGauge({
             {"from": 50, "to": 100, "color": "rgba(200, 50, 50, .75)"}
             ],
         barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
         colorPlate: "rgba(0,0,0,0)",
-        units: "°C",
         borderShadowWidth: 0,
         
         borders: false,
@@ -529,10 +547,10 @@ var temp1 = new LinearGauge({
             {"from": 50, "to": 100, "color": "rgba(200, 50, 50, .75)"}
             ],
         barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
         colorPlate: "rgba(0,0,0,0)",
-        units: "°C",
         borderShadowWidth: 0,
-        
         borders: false,
         value: 35
     }).draw();
@@ -549,10 +567,10 @@ var temp1 = new LinearGauge({
             {"from": 50, "to": 100, "color": "rgba(200, 50, 50, .75)"}
             ],
         barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
         colorPlate: "rgba(0,0,0,0)",
-        units: "°C",
         borderShadowWidth: 0,
-        
         borders: false,
         value: 35
     }).draw();
@@ -569,24 +587,35 @@ var temp1 = new LinearGauge({
             {"from": 50, "to": 100, "color": "rgba(200, 50, 50, .75)"}
             ],
         barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
         colorPlate: "rgba(0,0,0,0)",
-        units: "°C",
         borderShadowWidth: 0,
-        
         borders: false,
         value: 35
     }).draw();
 
         setInterval(() => {
+
+            
             temp1.value = Math.floor(Math.random() * 50) + 1;
+            $(".temp1-value").html(temp1.value + " °C");
             temp2.value = Math.floor(Math.random() * 50) + 1;
+            $(".temp2-value").html(temp2.value + " °C");
             temp3.value = Math.floor(Math.random() * 50) + 1;
+            $(".temp3-value").html(temp3.value + " °C");
             temp4.value = Math.floor(Math.random() * 50) + 1;
+            $(".temp4-value").html(temp4.value + " °C");
             temp5.value = Math.floor(Math.random() * 50) + 1;
+            $(".temp5-value").html(temp5.value + " °C");
             temp6.value = Math.floor(Math.random() * 50) + 1;
+            $(".temp6-value").html(temp6.value + " °C");
             temp7.value = Math.floor(Math.random() * 50) + 1;
+            $(".temp7-value").html(temp7.value + " °C");
             temp8.value = Math.floor(Math.random() * 50) + 1;
+            $(".temp8-value").html(temp8.value + " °C");
             temp9.value = Math.floor(Math.random() * 50) + 1;
+            $(".temp9-value").html(temp9.value + " °C");
 
             temp1.draw();
             temp2.draw();

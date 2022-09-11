@@ -148,4 +148,132 @@ router.post('/BrazingGIC1/history', encodeUrl, async (req, res, next) => {
 
 });
 
+router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
+  data_x_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, 0.737, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998,0.998, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]
+  data_z_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, 0.737, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998, 0.998, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]
+  label_day = ['8/13/2022', '8/14/2022', '8/15/2022', '8/16/2022', '8/17/2022', '8/18/2022', '8/19/2022', '8/20/2022', '8/21/2022', '8/22/2022', '8/23/2022', '8/24/2022', '8/25/2022', '8/26/2022', '8/27/2022', '8/28/2022', '8/29/2022', '8/30/2022', '8/31/2022', '9/1/2022', '9/2/2022', '9/3/2022', '9/4/2022', '9/5/2022', '9/6/2022', '9/7/2022', '9/8/2022', '9/9/2022', '9/10/2022', '9/11/2022']
+  label_week = ['1/23/2022', '1/30/2022', '2/6/2022', '2/13/2022', '2/20/2022', '2/27/2022', '3/13/2022', '3/20/2022', '3/27/2022', '4/3/2022', '4/10/2022', '4/17/2022', '4/24/2022', '5/1/2022', '5/8/2022', '5/15/2022', '5/22/2022', '5/29/2022', '6/5/2022', '6/12/2022', '6/19/2022', '6/26/2022', '7/10/2022', '7/17/2022', '7/24/2022', '8/7/2022', '8/14/2022', '8/28/2022', '9/4/2022', '9/11/2022']
+  label_month = ['4/11/2020', '5/11/2020', '6/11/2020', '7/11/2020', '8/11/2020', '9/11/2020', '10/11/2020', '11/11/2020', '12/11/2020', '1/11/2021', '2/11/2021', '3/11/2021', '4/11/2021', '5/11/2021', '6/11/2021', '7/11/2021', '8/11/2021', '9/11/2021', '10/11/2021', '11/11/2021', '12/11/2021', '1/11/2022', '2/11/2022', '3/11/2022', '4/11/2022', '5/11/2022', '6/11/2022', '7/11/2022', '8/11/2022', '9/11/2022']
+
+  var x_0 = [];
+  var x_1 = [];
+  var x_2 = [];
+  var x_3 = [];
+  var x_4 = [];
+  var x_5 = [];
+  var x_6 = [];
+  var x_7 = [];
+  var x_8 = [];
+
+  var z_0 = [];
+  var z_1 = [];
+  var z_2 = [];
+  var z_3 = [];
+  var z_4 = [];
+  var z_5 = [];
+  var z_6 = [];
+  var z_7 = [];
+  var z_8 = [];
+
+  data_x_zxis.forEach((element,i) => {
+    x_0.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+    z_0.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+
+    x_1.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+    z_1.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+
+    x_2.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+    z_2.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+
+    x_3.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+    z_3.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+
+    x_4.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+    z_4.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+
+    x_5.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+    z_5.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+
+    x_6.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+    z_6.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+
+    x_7.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+    z_7.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+
+    x_8.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+    z_8.push(data_z_zxis[i] + (Math.floor(Math.random() * 300 )) / 1000);
+  });
+
+    // console.log(x_0)
+    // console.log(req.body.type)
+
+  if (req.body.type == 'days') {
+    res.status(200).send({ 
+      x_0 : x_0 , 
+      z_0 : z_0 ,
+      x_1 : x_1 , 
+      z_1 : z_1 ,
+      x_2 : x_2 , 
+      z_2 : z_2 ,
+      x_3 : x_3 , 
+      z_3 : z_3 ,
+      x_4 : x_4 , 
+      z_4 : z_4 ,
+      x_5 : x_5 , 
+      z_5 : z_5 ,
+      x_6 : x_6 , 
+      z_6 : z_6 ,
+      x_7 : x_7 , 
+      z_7 : z_7 ,
+      x_8 : x_8 , 
+      z_8 : z_8 ,
+      label : label_day});
+  } else if (req.body.type == 'weeks') {
+    res.status(200).send({ 
+      x_0 : x_0 , 
+      z_0 : z_0 ,
+      x_1 : x_1 , 
+      z_1 : z_1 ,
+      x_2 : x_2 , 
+      z_2 : z_2 ,
+      x_3 : x_3 , 
+      z_3 : z_3 ,
+      x_4 : x_4 , 
+      z_4 : z_4 ,
+      x_5 : x_5 , 
+      z_5 : z_5 ,
+      x_6 : x_6 , 
+      z_6 : z_6 ,
+      x_7 : x_7 , 
+      z_7 : z_7 ,
+      x_8 : x_8 , 
+      z_8 : z_8 , 
+      label : label_week});
+  } else if (req.body.type == 'month') {
+    res.status(200).send({ 
+      x_0 : x_0 , 
+      z_0 : z_0 ,
+      x_1 : x_1 , 
+      z_1 : z_1 ,
+      x_2 : x_2 , 
+      z_2 : z_2 ,
+      x_3 : x_3 , 
+      z_3 : z_3 ,
+      x_4 : x_4 , 
+      z_4 : z_4 ,
+      x_5 : x_5 , 
+      z_5 : z_5 ,
+      x_6 : x_6 , 
+      z_6 : z_6 ,
+      x_7 : x_7 , 
+      z_7 : z_7 ,
+      x_8 : x_8 , 
+      z_8 : z_8 ,
+      label : label_month});
+  } 
+  
+
+});
+
+
 module.exports = router;

@@ -18,13 +18,17 @@
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="text-uppercase" style="font-weight: 700;">COND NB 1 / vibrator rc fan </h1>
-          <div class="btn-toolbar mb-2 mb-md-0"></div>
+          
         </div>
+
+        
 
         <!-- SELECTOR 1 : GAUGE -->
 
         <div class="container-fluid">
           <div class="row">
+
+            
 
             <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
 
@@ -207,8 +211,48 @@
 
         <!-- SELECTOR 2 : CHART -->
 
-        <div class="card card-body margin-5 ps-1 pe-1" style="height: 27vh;">
-          <canvas class="my-4 w-100" id="myChart" style="width: 100%;height: 100%"></canvas>
+        <div class="card card-body margin-4 ps-1 pe-1" style="height: 27vh;">
+
+          <div class="w-100">
+            <h3 class="ps-2" id="sort-header">
+              Daily maximum
+            </h3>
+          </div>
+          <div class="btn-toolbar mb-2 me-3 mb-md-0 flex-row-reverse">
+
+            
+            
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+              <span data-feather="calendar" class="align-text-bottom"></span>
+              <span id="sort-dropdown-title">By days</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <form method="POST" id="sort-chart-days">
+                  <button class="dropdown-item" type="submit" id="sort-days">By days</button>
+                </form> 
+              </li>
+              <li>
+                <form method="POST" id="sort-chart-weeks">
+                  <button class="dropdown-item" type="submit" id="sort-weeks">By weeks</button>
+                </form> 
+              </li>
+              <li>
+                <form method="POST" id="sort-chart-month">
+                  <button class="dropdown-item" type="submit" id="sort-month">By month</button>
+                </form> 
+              </li>
+            </ul>
+            <p class="mb-0 me-2" style="margin-top: 0.4rem;">| Data sort</p>
+            
+              <div class="form-check form-switch" style="margin-top: 0.4rem;">
+                
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+              </div>
+              <p class="mb-0 me-2" style="margin-top: 0.4rem;">Alarm/Warning line</p>
+          </div>
+          
+          <canvas class="my-1 w-100" id="myChart" style="width: 100%;height: 100%"></canvas>
         </div>
 
         <!-- END SELECTOR 2 : CHART -->
@@ -223,6 +267,9 @@
         </div>
       </div>
     </div>
+
+
+
 
     <script>
       var opts = {
@@ -367,33 +414,188 @@
 
       }, 1000)
 
+      data_x_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, 0.737, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998,0.998, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]
+      data_z_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, 0.737, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998, 0.998, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]
+      label_day = ['8/13/2022', '8/14/2022', '8/15/2022', '8/16/2022', '8/17/2022', '8/18/2022', '8/19/2022', '8/20/2022', '8/21/2022', '8/22/2022', '8/23/2022', '8/24/2022', '8/25/2022', '8/26/2022', '8/27/2022', '8/28/2022', '8/29/2022', '8/30/2022', '8/31/2022', '9/1/2022', '9/2/2022', '9/3/2022', '9/4/2022', '9/5/2022', '9/6/2022', '9/7/2022', '9/8/2022', '9/9/2022', '9/10/2022', '9/11/2022']
+
       const ctx = document.getElementById('myChart');
 
       const chart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: [],
+          labels: label_day,
           datasets: [{
-            label: 'X-Axis',
-            data: [],
+            label: 'RC Fan 1 (X-Axis)',
+            data: data_x_zxis,
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#177D94',
-            borderWidth: 4,
+            borderWidth: 1,
             pointBackgroundColor: '#177D94'
           },
           {
-            label: 'Z-Axis',
-            data: [],
+            label: 'RC Fan 1 (Z-Axis)',
+            data: data_z_zxis.reverse(),
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#28BEE0',
-            borderWidth: 4,
+            borderWidth: 1,
             pointBackgroundColor: '#28BEE0'
+          },
+          {
+            label: 'RC Fan 2 (X-Axis)',
+            data: data_z_zxis.reverse(),
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#179458',
+            borderWidth: 1,
+            pointBackgroundColor: '#179458'
+          },
+          {
+            label: 'RC Fan 2 (Z-Axis)',
+            data: data_z_zxis.reverse(),
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#28E087',
+            borderWidth: 1,
+            pointBackgroundColor: '#28E087'
+          },
+          {
+            label: 'RC Fan 3 (X-Axis)',
+            data: data_z_zxis.reverse(),
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#D1E028',
+            borderWidth: 1,
+            pointBackgroundColor: '#D1E028'
+          },
+          {
+            label: 'RC Fan 3 (Z-Axis)',
+            data: data_z_zxis.reverse(),
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#199D60',
+            borderWidth: 1,
+            pointBackgroundColor: '#199D60'
+          },
+          {
+            label: 'RC Fan 4 (X-Axis)',
+            data: data_z_zxis.reverse(),
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#C6D430',
+            borderWidth: 1,
+            pointBackgroundColor: '#C6D430'
+          },
+          {
+            label: 'RC Fan 4 (Z-Axis)',
+            data: data_z_zxis.reverse(),
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#949C36',
+            borderWidth: 1,
+            pointBackgroundColor: '#949C36'
+          },
+          {
+            label: 'RC Fan 5 (X-Axis)',
+            data: data_z_zxis.reverse(),
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#CE872C',
+            borderWidth: 1,
+            pointBackgroundColor: '#CE872C'
+          },
+          {
+            label: 'RC Fan 5 (Z-Axis)',
+            data: data_z_zxis.reverse(),
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#7F5723',
+            borderWidth: 1,
+            pointBackgroundColor: '#7F5723'
+          },
+          {
+            label: 'RC Fan 6 (X-Axis)',
+            data: data_z_zxis.reverse(),
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#C92626',
+            borderWidth: 1,
+            pointBackgroundColor: '#C92626'
+          },
+          {
+            label: 'RC Fan 6 (Z-Axis)',
+            data: data_z_zxis.reverse(),
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#842525',
+            borderWidth: 1,
+            pointBackgroundColor: '#842525'
+          },
+          {
+            label: 'RC Fan 7 (X-Axis)',
+            data: data_z_zxis.reverse(),
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#C62881',
+            borderWidth: 1,
+            pointBackgroundColor: '#C62881'
+          },
+          {
+            label: 'RC Fan 7 (Z-Axis)',
+            data: data_z_zxis.reverse(),
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#7F2257',
+            borderWidth: 1,
+            pointBackgroundColor: '#7F2257'
+          },
+          {
+            label: 'RC Fan 8 (X-Axis)',
+            data: data_z_zxis.reverse(),
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#8D2FC9',
+            borderWidth: 1,
+            pointBackgroundColor: '#8D2FC9'
+          },
+          {
+            label: 'RC Fan 8 (Z-Axis)',
+            data: data_z_zxis.reverse(),
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#541C77',
+            borderWidth: 1,
+            pointBackgroundColor: '#541C77'
+          },
+          {
+            label: 'RC Fan 9 (X-Axis)',
+            data: data_z_zxis.reverse(),
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#28BEE0',
+            borderWidth: 1,
+            pointBackgroundColor: '#28BEE0'
+          },
+          {
+            label: 'RC Fan 9 (Z-Axis)',
+            data: data_z_zxis.reverse(),
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#2D25D9',
+            borderWidth: 1,
+            pointBackgroundColor: '#231E90'
           }
           ]
         },
         options: {
+          elements:{
+                point:{
+                    borderWidth: 0,
+                    radius: 0,
+                    backgroundColor: 'rgba(0,0,0,0)'
+                }
+              },
           legend: {
             display: false,
             labels: {
@@ -419,39 +621,211 @@
           },
 
           responsive: true,
-          // plugins: {
-          //   annotation: {
-          //     annotations: [
-          //       {
-          //         type: 'line',
-          //         scaleID: 'y',
-          //         value: 15,
-          //         borderColor: 'rgb(255, 65, 65)',
-          //         label: {
-          //           enabled: true, 
-          //           content: 'Alarm',
-          //           borderWidth: 2,
-          //           borderColor: 'transparent',
-          //           position: 'end',
-          //         }
-          //       },
-          //       {
-          //         type: 'line',
-          //         scaleID: 'y',
-          //         value: 6,
-          //         borderColor: 'rgb(255, 192, 65)',
-          //         label: { 
-          //           enabled: true, 
-          //           content: 'Warning',
-          //           borderWidth: 2,
-          //           borderColor: 'transparent',
-          //           position: 'end',
-          //         }
-          //       }
-          //     ]
-          //   }
-          // }
+          plugins: {
+            legend : {
+              labels : {
+                usePointStyle : true,
+                pointStyle : 'line'                
+              }
+            },
+            annotation: {
+              annotations: [
+                {
+                  type: 'line',
+                  scaleID: 'y',
+                  value: 0,
+                  borderColor: 'rgb(255, 65, 65)',
+                  label: {
+                    enabled: true, 
+                    content: 'Alarm',
+                    borderWidth: 1,
+                    borderColor: 'transparent',
+                    position: 'end',
+                  }
+                },
+                {
+                  type: 'line',
+                  scaleID: 'y',
+                  value: 0,
+                  borderColor: 'rgb(255, 192, 65)',
+                  label: { 
+                    enabled: true, 
+                    content: 'Warning',
+                    borderWidth: 1,
+                    borderColor: 'transparent',
+                    position: 'end',
+                  }
+                }
+              ]
+            }
+          }
         }
       })
 
     </script>
+
+        <!-- CHART AJAX -->
+
+        <script>
+
+          $("#sort-days").click(() => {
+            $("#sort-dropdown-title").html("By days");
+            $("#sort-header").html("Daily maximun");
+          });
+
+          $("#sort-weeks").click(() => {
+            $("#sort-dropdown-title").html("By weeks");
+            $("#sort-header").html("Weekly maximun");
+          });
+
+          $("#sort-month").click(() => {
+            $("#sort-dropdown-title").html("By month");
+            $("#sort-header").html("Monthly maximun");
+          });
+
+          $("#flexSwitchCheckDefault").change(function(){
+              if($(this).prop("checked") == true){
+                chart.options.plugins.annotation.annotations[0].value = 12;
+                chart.options.plugins.annotation.annotations[1].value = 4;
+                chart.update();
+              }else{
+                chart.options.plugins.annotation.annotations[0].value = 0;
+                chart.options.plugins.annotation.annotations[1].value = 0;
+                chart.update();
+              }
+          });
+
+          $("#sort-chart-days").submit((e) => {
+            e.preventDefault();
+            $.ajax({
+                url: "/layout/BrazingGIC1/sort-chart",
+                type: "POST",
+                data: {
+                    'type': 'days'
+                },
+                success: (data) => {
+                    chart.data.datasets[0].data = data.x_0;
+                    chart.data.datasets[1].data = data.z_0;
+
+                    chart.data.datasets[2].data = data.x_1;
+                    chart.data.datasets[3].data = data.z_1;
+
+                    chart.data.datasets[4].data = data.x_2;
+                    chart.data.datasets[5].data = data.z_2;
+
+                    chart.data.datasets[6].data = data.x_3;
+                    chart.data.datasets[7].data = data.z_3;
+
+                    chart.data.datasets[8].data = data.x_4;
+                    chart.data.datasets[9].data = data.z_4;
+
+                    chart.data.datasets[10].data = data.x_5;
+                    chart.data.datasets[11].data = data.z_5;
+
+                    chart.data.datasets[12].data = data.x_6;
+                    chart.data.datasets[13].data = data.z_6;
+
+                    chart.data.datasets[14].data = data.x_7;
+                    chart.data.datasets[15].data = data.z_7;
+
+                    chart.data.datasets[16].data = data.x_8;
+                    chart.data.datasets[17].data = data.z_8;
+
+
+                    chart.data.labels = data.label;
+                    chart.update();
+                    
+                }
+          });
+      });
+
+      
+
+      $("#sort-chart-weeks").submit((e) => {
+            e.preventDefault();
+            $.ajax({
+                url: "/layout/BrazingGIC1/sort-chart",
+                type: "POST",
+                data: {
+                    'type': 'weeks'
+                },
+                success: (data) => {
+                  chart.data.datasets[0].data = data.x_0;
+                    chart.data.datasets[1].data = data.z_0;
+
+                    chart.data.datasets[2].data = data.x_1;
+                    chart.data.datasets[3].data = data.z_1;
+
+                    chart.data.datasets[4].data = data.x_2;
+                    chart.data.datasets[5].data = data.z_2;
+
+                    chart.data.datasets[6].data = data.x_3;
+                    chart.data.datasets[7].data = data.z_3;
+
+                    chart.data.datasets[8].data = data.x_4;
+                    chart.data.datasets[9].data = data.z_4;
+
+                    chart.data.datasets[10].data = data.x_5;
+                    chart.data.datasets[11].data = data.z_5;
+
+                    chart.data.datasets[12].data = data.x_6;
+                    chart.data.datasets[13].data = data.z_6;
+
+                    chart.data.datasets[14].data = data.x_7;
+                    chart.data.datasets[15].data = data.z_7;
+
+                    chart.data.datasets[16].data = data.x_8;
+                    chart.data.datasets[17].data = data.z_8;
+
+                    chart.data.labels = data.label;
+                    chart.update();
+                    
+                }
+          });
+      });
+
+      $("#sort-chart-month").submit((e) => {
+            e.preventDefault();
+            $.ajax({
+                url: "/layout/BrazingGIC1/sort-chart",
+                type: "POST",
+                data: {
+                    'type': 'month'
+                },
+                success: (data) => {
+                    chart.data.datasets[0].data = data.x_0;
+                    chart.data.datasets[1].data = data.z_0;
+
+                    chart.data.datasets[2].data = data.x_1;
+                    chart.data.datasets[3].data = data.z_1;
+
+                    chart.data.datasets[4].data = data.x_2;
+                    chart.data.datasets[5].data = data.z_2;
+
+                    chart.data.datasets[6].data = data.x_3;
+                    chart.data.datasets[7].data = data.z_3;
+
+                    chart.data.datasets[8].data = data.x_4;
+                    chart.data.datasets[9].data = data.z_4;
+
+                    chart.data.datasets[10].data = data.x_5;
+                    chart.data.datasets[11].data = data.z_5;
+
+                    chart.data.datasets[12].data = data.x_6;
+                    chart.data.datasets[13].data = data.z_6;
+
+                    chart.data.datasets[14].data = data.x_7;
+                    chart.data.datasets[15].data = data.z_7;
+
+                    chart.data.datasets[16].data = data.x_8;
+                    chart.data.datasets[17].data = data.z_8;
+
+                    chart.data.labels = data.label;
+                    chart.update();
+                    
+                }
+          });
+      });
+      </script>
+  
+      <!-- END CHART AJAX -->
