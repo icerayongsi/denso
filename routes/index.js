@@ -19,7 +19,7 @@ router.get('/test', async (req, res) => {
 });
 
 router.get('/', function (req, res, next) {
-  res.render('history', { title: 'Denso' ,header : 'History'});
+  res.redirect('/layout');
 });
 
 data_x_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, null, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998,null, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]

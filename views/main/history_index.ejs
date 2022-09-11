@@ -1,140 +1,141 @@
 <style>
-    .nav-link{
+    .nav-link {
         color: var(--bs-body-color);
     }
 </style>
 
 </head>
+
 <body>
-<div class="container">
+    <div class="container">
 
-    <div class="row">
+        <div class="row">
 
-        <!-- Header label -->
+            <!-- Header label -->
 
-        <div class="col-lg-12 col-md-12 col-sm-12 text-cen">
-            <h1 class="fw-bold">Search history</h1>
-            <p>Fill in the date,time as required</p>
-            <div style="margin-bottom: 30px;"></div>
-        </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 text-cen">
+                <h1 class="fw-bold">Search history</h1>
+                <p>Fill in the date,time as required</p>
+                <div style="margin-bottom: 30px;"></div>
+            </div>
 
-        <!-- End Header label -->
+            <!-- End Header label -->
 
-        <!-- Content -->
+            <!-- Content -->
 
-        <div class="col-12 col-md-12 col-sm-12">
-            <div class="card">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">All</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Daily maximum</button>
-                    </li>
-                  </ul>
+            <div class="col-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane"
+                                aria-selected="true">All</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#profile-tab-pane" type="button" role="tab"
+                                aria-controls="profile-tab-pane" aria-selected="false">Daily maximum</button>
+                        </li>
+                    </ul>
 
-                  <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
+                            aria-labelledby="home-tab" tabindex="0">
 
-                        <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi1" method="POST">
-                            <div class="card-body">
-        
-                                <div class="mb-3">
-                                    <label for="disabledTextInput" class="form-label">From : </label>
-        
-                                    <div class="input-group date" id="from">
-                                        <input type="text" name="fromdate" class="form-control" required />
-                                        <span class="input-group-text" id="basic-addon2">
-                                            <i class="bi bi-calendar"></i>
-                                        </span>
-        
+                            <form action="/layout/BrazingGIC1/history?category=vi1" method="POST">
+                                <div class="card-body">
+
+                                    <div class="mb-3">
+                                        <label for="disabledTextInput" class="form-label">From : </label>
+
+                                        <div class="input-group date" id="from">
+                                            <input type="text" name="fromdate" class="form-control" required />
+                                            <span class="input-group-text" id="basic-addon2">
+                                                <i class="bi bi-calendar"></i>
+                                            </span>
+
+                                        </div>
+
                                     </div>
-        
-                                </div>
-        
-                                <div class="mb-3">
-                                    <label for="disabledTextInput" class="form-label">To : </label>
-        
-                                    <div class="input-group date" id="to">
-                                        <input type="text" name="todate" class="form-control" required />
-                                        <span class="input-group-text" id="basic-addon2">
-                                            <i class="bi bi-calendar"></i>
-                                        </span>
-        
+
+                                    <div class="mb-3">
+                                        <label for="disabledTextInput" class="form-label">To : </label>
+
+                                        <div class="input-group date" id="to">
+                                            <input type="text" name="todate" class="form-control" required />
+                                            <span class="input-group-text" id="basic-addon2">
+                                                <i class="bi bi-calendar"></i>
+                                            </span>
+
+                                        </div>
+
                                     </div>
-                                    
+
                                 </div>
-        
-                            </div>
-        
-                            <div class="card-footer text-right">
-                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button class="btn btn-dark btn-grey" type="submit">Confirm</button>
-                                </form>
-                                    <a href="/layout/BrazingGIC1" class="btn btn-dark btn-grey">Back</a>
+
+                                <div class="card-footer text-right">
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <button class="btn btn-dark btn-grey" type="submit">Confirm</button>
+                                    </div>
                                 </div>
-                            </div>
-        
-                        
+
+                            </form>
+
+                        </div>
+
+                        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                            tabindex="0">
+                            <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi1" method="POST">
+                                <div class="card-body">
+
+                                    <div class="mb-3">
+                                        <label for="disabledTextInput" class="form-label">From : </label>
+
+                                        <div class="input-group date" id="from">
+                                            <input type="text" name="fromdate" class="form-control" required />
+                                            <span class="input-group-text" id="basic-addon2">
+                                                <i class="bi bi-calendar"></i>
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="disabledTextInput" class="form-label">To : </label>
+
+                                        <div class="input-group date" id="to">
+                                            <input type="text" name="todate" class="form-control" required />
+                                            <span class="input-group-text" id="basic-addon2">
+                                                <i class="bi bi-calendar"></i>
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="card-footer text-right">
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <button class="btn btn-dark btn-grey" type="submit" disabled>Confirm</button>
+
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
 
                     </div>
 
-                    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                        <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi1" method="POST">
-                            <div class="card-body">
-        
-                                <div class="mb-3">
-                                    <label for="disabledTextInput" class="form-label">From : </label>
-        
-                                    <div class="input-group date" id="from">
-                                        <input type="text" name="fromdate" class="form-control" required />
-                                        <span class="input-group-text" id="basic-addon2">
-                                            <i class="bi bi-calendar"></i>
-                                        </span>
-        
-                                    </div>
-        
-                                </div>
-        
-                                <div class="mb-3">
-                                    <label for="disabledTextInput" class="form-label">To : </label>
-        
-                                    <div class="input-group date" id="to">
-                                        <input type="text" name="todate" class="form-control" required />
-                                        <span class="input-group-text" id="basic-addon2">
-                                            <i class="bi bi-calendar"></i>
-                                        </span>
-        
-                                    </div>
-                                    
-                                </div>
-        
-                            </div>
-        
-                            <div class="card-footer text-right">
-                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button class="btn btn-dark btn-grey" type="submit" disabled>Confirm</button>
-                                </form>
-                                <a href="/layout/BrazingGIC1" class="btn btn-dark btn-grey">Back</a>
-                                </div>
-                            </div>
-        
-                        
+                </div>
 
-                    </div>
-
-                  </div>
-
-               
-                
 
             </div>
 
+            <!-- End Content -->
 
         </div>
 
-        <!-- End Content -->
-
     </div>
-
-</div>

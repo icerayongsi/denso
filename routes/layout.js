@@ -33,7 +33,7 @@ router.get('/BrazingGIC1/history', function(req, res, next) {
   res.render('history', { title: 'Denso' ,header : 'BrazingGIC 1'});
 });
 
-router.post('/BrazingGIC1/history/Dashboard', encodeUrl, async (req, res, next) => {
+router.post('/BrazingGIC1/history', encodeUrl, async (req, res, next) => {
 
   let select_query = [];
   let header = "";
@@ -135,7 +135,7 @@ router.post('/BrazingGIC1/history/Dashboard', encodeUrl, async (req, res, next) 
   
   const obj = {title: 'Dashboard',from: fromdate_, to: todate_};
   //res.render('main/dashboard_index', JSON.stringify(obj));
-  res.render('main/dashboard_index', {  title: 'Dashboard',
+  res.render('dashboard/BrazingGIC_1/BrazingGIC_1_history/history_index', {  title: 'Dashboard',
                                         header: header,
                                         category : req.query.category,
                                         from: fromdate_, 

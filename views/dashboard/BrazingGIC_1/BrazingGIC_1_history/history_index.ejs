@@ -1,4 +1,4 @@
-<%- include('../partials/header') -%>
+<%- include('../../../partials/header') -%>
 
 <style>
   .bd-placeholder-img {
@@ -59,7 +59,7 @@
 </head>
 <body>
 
-  <header class="navbar sticky-top flex-md-nowrap p-0">
+  <!-- <header class="navbar sticky-top flex-md-nowrap p-0">
 
       <a class="navbar-brand col-md-3 col-lg-2 me-0 fs-6" style="padding-left: 12px;" href="/layout"><img src="/images/denso-logo.png" alt="" width="150px" height="27.438px"></a>
 
@@ -68,7 +68,9 @@
       </button>
 
 
-    </header>
+    </header> -->
+
+<%- include('../../../partials/navbar') %> 
     
     <div class="container-fluid">
       <div class="row">
@@ -80,7 +82,7 @@
               <li class="nav-item">
                 <div class="d-grid gap-2 nav-link" style="margin-top: 2rem;">
 
-                  <a href="/">
+                  <a href="/layout/BrazingGIC1?page=history">
                     <button class="btn btn-dark btn-grey w-100 btn-lg" type="submit">
                       <i class="bi bi-arrow-left-short"></i>
                       Back
@@ -97,15 +99,15 @@
                     <span><%= header %></span>
                   </h6>
 
-                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi1&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 1</button></form>
-                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi2&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 2</button></form>
-                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi3&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 3</button></form>
-                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi4&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 4</button></form>
-                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi5&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 5</button></form>
-                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi6&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 6</button></form>
-                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi7&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 7</button></form>
-                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi8&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 8</button></form>
-                  <form action="/layout/BrazingGIC1/history/Dashboard/?category=vi9&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 9</button></form>
+                  <form action="/layout/BrazingGIC1/history?category=vi1&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 1</button></form>
+                  <form action="/layout/BrazingGIC1/history?category=vi2&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 2</button></form>
+                  <form action="/layout/BrazingGIC1/history?category=vi3&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 3</button></form>
+                  <form action="/layout/BrazingGIC1/history?category=vi4&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 4</button></form>
+                  <form action="/layout/BrazingGIC1/history?category=vi5&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 5</button></form>
+                  <form action="/layout/BrazingGIC1/history?category=vi6&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 6</button></form>
+                  <form action="/layout/BrazingGIC1/history?category=vi7&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 7</button></form>
+                  <form action="/layout/BrazingGIC1/history?category=vi8&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 8</button></form>
+                  <form action="/layout/BrazingGIC1/history?category=vi9&fromdate=<%= raw_fromdate %>&todate=<%= raw_todate %>" method="POST"><button class="btn btn-dark btn-grey w-100" type="submit">Vibrator 9</button></form>
 
                   <h6 class="sidebar-heading d-flex justify-content-between align-items-center mt-4 mb-1 text-muted text-uppercase">
                     <span>Temp</span>
@@ -150,7 +152,7 @@
                 <h1 style="font-weight: 700;"><%= header %></h1>
                 
                 <div class="btn-toolbar mb-2 mb-md-0">
-                  <form action="/Dashboard/?category=<%= category %>" method="POST">
+                  <form action="?category=<%= category %>" method="POST">
 
                     <div class="input-group mb-3 date">
                       <span class="input-group-text">From</span>
@@ -379,4 +381,4 @@
   
  
 </script>
-<%- include('../partials/footer') -%>
+<%- include('../../../partials/footer') -%>
