@@ -7,7 +7,7 @@ const Data_Schema = require('../models/Schema');
 
 let encodeUrl = express.urlencoded({ extended: false });
 
-mongoose.connect('mongodb://localhost:27017/TPM', {
+mongoose.connect('mongodb+srv://icerayongsi:poo14789630@cluster0.c1fr4nt.mongodb.net/TPM', {
   useNewUrlParser: true
 });
 
