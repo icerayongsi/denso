@@ -28,9 +28,88 @@
 
         </div>
 
-      <!-- SELECTOR 1 :  -->
+      <!-- SELECTOR 1 :  CURRENT GAUGE -->
 
-      <!-- END SELECTOR 1 : -->
+        <div class="container-fluid">
+          <div class="row">
+             
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 1</div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-1-X" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0">0 A</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 2</div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-2-X" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0">0 A</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 3</div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-3-X" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0">0 A</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 4</div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-4-X" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0">0 A</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 5</div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-5-X" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0">0 A</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      <!-- END SELECTOR 1 : CURRENT GAUGE -->
+
+      <!-- SELECTOR 2 : CURRENT CHART -->
+
+      <div class="card card-body margin-5 ps-1 pe-1" style="height: 27vh;">
+        <canvas class="my-4 w-100" id="myChart" style="width: 100%;height: 100%"></canvas>
+      </div>
+
+      <!-- END SELECTOR 2 : CURRENT CHART -->
 
       </div>
 
@@ -53,5 +132,189 @@
     <!-- END WIP NOTIFY  -->
 
 <script>
+      var opts = {
+
+        colorStart: "#6fadcf",
+        colorStop: void 0,
+        gradientType: 0,
+        strokeColor: "#e0e0e0",
+        generateGradient: true,
+        percentColors: [[0.0, "#a9d70b"], [0.50, "#f9c802"], [1.0, "#ff0000"]],
+
+        pointer: {
+          length: 0.8,
+          strokeWidth: 0.035,
+          iconScale: 1.0,
+          color: '#FFF'
+        },
+
+        staticLabels: {
+          font: "10px sans-serif",
+          labels: [0, 2, 4, 6, 8, 10],
+          color: "#fff",
+          fractionDigits: 0
+        },
+
+        staticZones: [
+          // {strokeStyle: "#F03E3E", min: 0, max: 200},
+          // {strokeStyle: "#FFDD00", min: 200, max: 500},
+          { strokeStyle: "#30B32D", min: 0, max: 4 },
+          { strokeStyle: "#FFDD00", min: 4, max: 6 },
+          { strokeStyle: "#F03E3E", min: 6, max: 10 }
+        ],
+
+        renderTicks: {
+          divisions: 6,
+          divWidth: 1.1,
+          divLength: 0.7,
+          divColor: "#333333",
+          subDivisions: 3,
+          subLength: 0.5,
+          subWidth: 0.6,
+          subColor: "#666666"
+        },
+
+        angle: 0,
+
+        lineWidth: 0.44,
+
+        radiusScale: 1.0,
+
+        fontSize: 40,
+
+        limitMax: false,
+
+        limitMin: false,
+
+        highDpiSupport: true
+
+      };
+
+      var RC_Fan_1_X = new Gauge(document.getElementById('RC-Fan-1-X')).setOptions(opts);
+
+      var RC_Fan_2_X = new Gauge(document.getElementById('RC-Fan-2-X')).setOptions(opts);
+
+      var RC_Fan_3_X = new Gauge(document.getElementById('RC-Fan-3-X')).setOptions(opts);
+
+      var RC_Fan_4_X = new Gauge(document.getElementById('RC-Fan-4-X')).setOptions(opts);
+
+      var RC_Fan_5_X = new Gauge(document.getElementById('RC-Fan-5-X')).setOptions(opts);
+
+
+      RC_Fan_1_X.maxValue = 10;
+
+      RC_Fan_2_X.maxValue = 10;
+
+      RC_Fan_3_X.maxValue = 10;
+
+      RC_Fan_4_X.maxValue = 10;
+
+      RC_Fan_5_X.maxValue = 10;
+
+
+      setInterval(() => {
+        RC_Fan_1_X.set(Math.floor(Math.random() * 10) + 1);
+
+        RC_Fan_2_X.set(Math.floor(Math.random() * 10) + 1);
+
+        RC_Fan_3_X.set(Math.floor(Math.random() * 10) + 1);
+
+        RC_Fan_4_X.set(Math.floor(Math.random() * 10) + 1);
+
+        RC_Fan_5_X.set(Math.floor(Math.random() * 10) + 1);
+
+      }, 1000)
+
+</script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+const chart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: [],
+    datasets: [{
+      label: 'X-Axis',
+      data: [],
+      lineTension: 0,
+      backgroundColor: 'transparent',
+      borderColor: '#177D94',
+      borderWidth: 4,
+      pointBackgroundColor: '#177D94'
+    },
+    {
+      label: 'Z-Axis',
+      data: [],
+      lineTension: 0,
+      backgroundColor: 'transparent',
+      borderColor: '#28BEE0',
+      borderWidth: 4,
+      pointBackgroundColor: '#28BEE0'
+    }
+    ]
+  },
+  options: {
+    legend: {
+      display: false,
+      labels: {
+        fontColor: 'rgb(255, 99, 132)'
+      }
+    },
+    scales: {
+      y: {
+        ticks: {
+          color: '#ADB5BD',
+          beginAtZero: false
+        }
+      },
+      x: {
+        ticks: {
+          color: '#ADB5BD',
+          beginAtZero: false
+        },
+        min: 0,
+        max: 30,
+      },
+
+    },
+
+    responsive: true,
+    // plugins: {
+    //   annotation: {
+    //     annotations: [
+    //       {
+    //         type: 'line',
+    //         scaleID: 'y',
+    //         value: 15,
+    //         borderColor: 'rgb(255, 65, 65)',
+    //         label: {
+    //           enabled: true, 
+    //           content: 'Alarm',
+    //           borderWidth: 2,
+    //           borderColor: 'transparent',
+    //           position: 'end',
+    //         }
+    //       },
+    //       {
+    //         type: 'line',
+    //         scaleID: 'y',
+    //         value: 6,
+    //         borderColor: 'rgb(255, 192, 65)',
+    //         label: { 
+    //           enabled: true, 
+    //           content: 'Warning',
+    //           borderWidth: 2,
+    //           borderColor: 'transparent',
+    //           position: 'end',
+    //         }
+    //       }
+    //     ]
+    //   }
+    // }
+  }
+
+})
+
 
 </script>

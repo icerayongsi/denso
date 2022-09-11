@@ -1,6 +1,6 @@
 <%- include('BrazingGIC_1_partials/BrazingGIC_1_header') -%>
 
-<%- include('../../partials/navbar_dashboard') -%>
+  <%- include('../../partials/navbar_dashboard') -%>
 
     <!-- MAIN CONTENT -->
 
@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      
+
 
       <div class="card card-body margin-5">
 
@@ -28,9 +28,107 @@
 
         </div>
 
-      <!-- SELECTOR 1 :  -->
+        <!-- SELECTOR 1 : TEMP C. CHART  -->
 
-      <!-- END SELECTOR 1 : -->
+        <div class="card card-body margin-5 ps-1 pe-1 mb-4" style="height: 35vh;">
+          <canvas class="my-4 w-100" id="myChart" style="width: 100%;height: 100%"></canvas>
+        </div>
+
+        <!-- END SELECTOR 1 : TEMP C. CHART  -->
+
+        <!-- SELECTOR 2 : TEMP C. VALUES -->
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">BZ 1 UPPER</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">BZ 2 UPPER</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">BZ 3 UPPER</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">BZ 4 UPPER</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">BZ 5 UPPER</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">PRE HEAT 1</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">PRE HEAT 2</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <!-- END SELECTOR 2 : TEMP C. VALUES -->
 
       </div>
 
@@ -51,6 +149,92 @@
 
     <!-- END WIP NOTIFY  -->
 
-<script>
+    <script>
 
-</script>
+      const ctx = document.getElementById('myChart');
+
+      const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'X-Axis',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#177D94',
+            borderWidth: 4,
+            pointBackgroundColor: '#177D94'
+          },
+          {
+            label: 'Z-Axis',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#28BEE0',
+            borderWidth: 4,
+            pointBackgroundColor: '#28BEE0'
+          }
+          ]
+        },
+        options: {
+          legend: {
+            display: false,
+            labels: {
+              fontColor: 'rgb(255, 99, 132)'
+            }
+          },
+          scales: {
+            y: {
+              ticks: {
+                color: '#ADB5BD',
+                beginAtZero: false
+              }
+            },
+            x: {
+              ticks: {
+                color: '#ADB5BD',
+                beginAtZero: false
+              },
+              min: 0,
+              max: 30,
+            },
+
+          },
+
+          responsive: true,
+          // plugins: {
+          //   annotation: {
+          //     annotations: [
+          //       {
+          //         type: 'line',
+          //         scaleID: 'y',
+          //         value: 15,
+          //         borderColor: 'rgb(255, 65, 65)',
+          //         label: {
+          //           enabled: true, 
+          //           content: 'Alarm',
+          //           borderWidth: 2,
+          //           borderColor: 'transparent',
+          //           position: 'end',
+          //         }
+          //       },
+          //       {
+          //         type: 'line',
+          //         scaleID: 'y',
+          //         value: 6,
+          //         borderColor: 'rgb(255, 192, 65)',
+          //         label: { 
+          //           enabled: true, 
+          //           content: 'Warning',
+          //           borderWidth: 2,
+          //           borderColor: 'transparent',
+          //           position: 'end',
+          //         }
+          //       }
+          //     ]
+          //   }
+          // }
+        }
+      })
+    </script>
