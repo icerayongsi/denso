@@ -10,8 +10,8 @@
       <div class="card card-body margin-5">
 
         <div
-          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="text-uppercase" style="font-weight: 700;">COND NB 1 / vibrator rc fan </h1>
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
+          <h3 class="text-uppercase" style="font-weight: 700;">COND NB 1 / vibrator rc fan </h3>
           
         </div>
 
@@ -205,12 +205,12 @@
 
         <!-- SELECTOR 2 : CHART -->
 
-        <div class="card card-body margin-4 ps-1 pe-1" style="height: 27vh;">
+        <div class="card card-body margin-4 ps-1 pe-1" style="height: var(--main-h);">
 
           <div class="w-100">
-            <h3 class="ps-2" id="sort-header">
+            <h4 class="ps-2" id="sort-header">
               Daily maximum
-            </h3>
+            </h4>
           </div>
           <div class="btn-toolbar mb-2 me-3 mb-md-0 flex-row-reverse">
 
@@ -241,7 +241,7 @@
             
               <div class="form-check form-switch" style="margin-top: 0.4rem;">
                 
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
               </div>
               <p class="mb-0 me-2" style="margin-top: 0.4rem;">Alarm/Warning line</p>
           </div>
@@ -253,14 +253,14 @@
 
     </main>
 
-    <div class="toast align-items-center show position-fixed bottom-0 end-0 text-bg-warning m-2" role="alert"
+    <!-- <div class="toast align-items-center show position-fixed bottom-0 end-0 text-bg-warning m-2" role="alert"
       aria-live="assertive" aria-atomic="true">
       <div class="d-flex">
         <div class="toast-body">
           (WIP) THIS PAGE WORKING IN PROCESS....
         </div>
       </div>
-    </div>
+    </div> -->
 
 
 
@@ -406,32 +406,41 @@
       RC_Fan_9_Z.set(Math.floor(Math.random() * 3) + 1);
 
       setInterval(() => {
-        RC_Fan_1_X.set(Math.floor(Math.random() * 2) + 1);
-        RC_Fan_1_Z.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_1_X.set(getRandomFloat(0.6, 1.5, 2));
+        RC_Fan_1_Z.set(getRandomFloat(0.6, 1.5, 2));
+        $(".badge-rc-1").html("RC Fan 1<br>X : " + RC_Fan_1_X.value + "<br> Z : " + RC_Fan_1_Z.value);
 
-        RC_Fan_2_X.set(Math.floor(Math.random() * 2) + 1);
-        RC_Fan_2_Z.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_2_X.set(getRandomFloat(0.6, 1.5, 2));
+        RC_Fan_2_Z.set(getRandomFloat(0.6, 1.5, 2));
+        $(".badge-rc-2").html("RC Fan 2<br>X : " + RC_Fan_2_X.value + "<br> Z : " + RC_Fan_2_Z.value);
 
-        RC_Fan_3_X.set(Math.floor(Math.random() * 2) + 1);
-        RC_Fan_3_Z.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_3_X.set(getRandomFloat(0.6, 1.5, 2));
+        RC_Fan_3_Z.set(getRandomFloat(0.6, 1.5, 2));
+        $(".badge-rc-3").html("RC Fan 3<br>X : " + RC_Fan_3_X.value + "<br> Z : " + RC_Fan_3_Z.value);
 
-        RC_Fan_4_X.set(Math.floor(Math.random() * 2) + 1);
-        RC_Fan_4_Z.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_4_X.set(getRandomFloat(0.6, 1.5, 2));
+        RC_Fan_4_Z.set(getRandomFloat(0.6, 1.5, 2));
+        $(".badge-rc-4").html("RC Fan 4<br>X : " + RC_Fan_4_X.value + "<br> Z : " + RC_Fan_4_Z.value);
 
-        RC_Fan_5_X.set(Math.floor(Math.random() * 2) + 1);
-        RC_Fan_5_Z.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_5_X.set(getRandomFloat(0.6, 1.5, 2));
+        RC_Fan_5_Z.set(getRandomFloat(0.6, 1.5, 2));
+        $(".badge-rc-5").html("RC Fan 5<br>X : " + RC_Fan_5_X.value + "<br> Z : " + RC_Fan_5_Z.value);
 
-        RC_Fan_6_X.set(Math.floor(Math.random() * 2) + 1);
-        RC_Fan_6_Z.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_6_X.set(getRandomFloat(0.6, 1.5, 2));
+        RC_Fan_6_Z.set(getRandomFloat(0.6, 1.5, 2));
+        $(".badge-rc-6").html("RC Fan 6<br>X : " + RC_Fan_6_X.value + "<br> Z : " + RC_Fan_6_Z.value);
 
-        RC_Fan_7_X.set(Math.floor(Math.random() * 2) + 1);
-        RC_Fan_7_Z.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_7_X.set(getRandomFloat(0.6, 1.5, 2));
+        RC_Fan_7_Z.set(getRandomFloat(0.6, 1.5, 2));
+        $(".badge-rc-7").html("RC Fan 7<br>X : " + RC_Fan_7_X.value + "<br> Z : " + RC_Fan_7_Z.value);
 
-        RC_Fan_8_X.set(Math.floor(Math.random() * 2) + 1);
-        RC_Fan_8_Z.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_8_X.set(getRandomFloat(0.6, 1.5, 2));
+        RC_Fan_8_Z.set(getRandomFloat(0.6, 1.5, 2));
+        $(".badge-rc-8").html("RC Fan 8<br>X : " + RC_Fan_8_X.value + "<br> Z : " + RC_Fan_8_Z.value);
 
-        RC_Fan_9_X.set(Math.floor(Math.random() * 2) + 1);
-        RC_Fan_9_Z.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_9_X.set(getRandomFloat(0.6, 1.5, 2));
+        RC_Fan_9_Z.set(getRandomFloat(0.6, 1.5, 2));
+        $(".badge-rc-9").html("RC Fan 9<br>X : " + RC_Fan_9_X.value + "<br> Z : " + RC_Fan_9_Z.value);
 
       }, 3000)
 
@@ -618,9 +627,9 @@
                 }
               },
           legend: {
-            display: false,
+            display: true,
             labels: {
-              fontColor: 'rgb(255, 99, 132)'
+              color: '#adb5bd',
             }
           },
           scales: {
@@ -646,7 +655,8 @@
             legend : {
               labels : {
                 usePointStyle : true,
-                pointStyle : 'line'                
+                pointStyle : 'line',
+                color: '#adb5bd'              
               }
             },
             annotation: {
@@ -689,6 +699,10 @@
 
         <script>
 
+          chart.options.plugins.annotation.annotations[0].value = 6;
+          chart.options.plugins.annotation.annotations[1].value = 4;
+          chart.update();
+
           $("#sort-days").click(() => {
             $("#sort-dropdown-title").html("By days");
             $("#sort-header").html("Daily maximun");
@@ -715,6 +729,49 @@
                 chart.update();
               }
           });
+
+          $(document).ready(() => {
+            $.ajax({
+                url: "/layout/BrazingGIC1/sort-chart",
+                type: "POST",
+                data: {
+                    'type': 'days'
+                },
+                success: (data) => {
+                    chart.data.datasets[0].data = data.x_0;
+                    chart.data.datasets[1].data = data.z_0;
+
+                    chart.data.datasets[2].data = data.x_1;
+                    chart.data.datasets[3].data = data.z_1;
+
+                    chart.data.datasets[4].data = data.x_2;
+                    chart.data.datasets[5].data = data.z_2;
+
+                    chart.data.datasets[6].data = data.x_3;
+                    chart.data.datasets[7].data = data.z_3;
+
+                    chart.data.datasets[8].data = data.x_4;
+                    chart.data.datasets[9].data = data.z_4;
+
+                    chart.data.datasets[10].data = data.x_5;
+                    chart.data.datasets[11].data = data.z_5;
+
+                    chart.data.datasets[12].data = data.x_6;
+                    chart.data.datasets[13].data = data.z_6;
+
+                    chart.data.datasets[14].data = data.x_7;
+                    chart.data.datasets[15].data = data.z_7;
+
+                    chart.data.datasets[16].data = data.x_8;
+                    chart.data.datasets[17].data = data.z_8;
+
+
+                    chart.data.labels = data.label;
+                    chart.update();
+                    
+                }
+          });
+      });
 
           $("#sort-chart-days").submit((e) => {
             e.preventDefault();

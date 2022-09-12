@@ -97,4 +97,9 @@
 
   :root {
     --w-12: 12rem;
+    --main-h : 32vh;
+  }
+  
+  .list-group-item {
+    padding: 0.0rem
   }

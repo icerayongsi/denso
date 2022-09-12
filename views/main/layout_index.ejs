@@ -1,14 +1,19 @@
 <style>
+    html,
+    body {
+        height: 100vh;
+    }
 
-html, body {
-    height: 100vh;
-}
     nav {
         margin-bottom: 0;
     }
-    table, th, td {
+
+    table,
+    th,
+    td {
         border: 1px solid;
     }
+
     .card-body {
         padding: 0.3rem;
     }
@@ -17,7 +22,7 @@ html, body {
         margin: 0;
     }
 
-    @media screen and (max-width: 575.98px) { 
+    @media screen and (max-width: 575.98px) {
         p {
             font-size: 0.45rem;
             margin: 0;
@@ -30,14 +35,15 @@ html, body {
         .tr-th-height {
             height: 5.5rem;
         }
-     }
+    }
 
 
-    @media screen and (min-width: 575.98px) { 
+    @media screen and (min-width: 575.98px) {
         p {
             font-size: 0.45rem;
             margin: 0;
         }
+
         .btn-grey {
             font-size: 0.6rem
         }
@@ -45,30 +51,34 @@ html, body {
         .tr-th-height {
             height: 5.5rem;
         }
-     }
+    }
 
-    @media screen and (min-width: 767.98px) { 
+    @media screen and (min-width: 767.98px) {
         p {
             font-size: 0.45rem;
             margin: 0;
         }
+
         .btn-grey {
             font-size: 0.8rem
         }
+
         .tr-th-height {
             height: 5.5rem;
         }
-     }
-     
+    }
+
 
     @media screen and (min-width: 991.98px) {
         p {
             font-size: 0.45rem;
             margin: 0;
         }
+
         .btn-grey {
             font-size: 1rem
         }
+
         .tr-th-height {
             height: 5.5rem;
         }
@@ -79,29 +89,35 @@ html, body {
             font-size: 0.8rem;
             margin: 0;
         }
+
         .btn-grey {
             font-size: 1rem
         }
+
         .tr-th-height {
             height: 5.5rem;
         }
     }
 
-    @media screen and (min-height: 1080.98px) { 
+    @media screen and (min-height: 1080.98px) {
         p {
-            font-size: 1rem!important;
+            font-size: 1rem !important;
             margin: 0;
         }
+
         .btn-grey {
             font-size: 1rem
         }
+
         .tr-th-height {
             height: 6.5rem;
         }
-     }
+    }
 
-    
-    table, th, td {
+
+    table,
+    th,
+    td {
         border: 0px solid;
     }
 
@@ -109,824 +125,847 @@ html, body {
         --bs-bg-opacity: 0;
     }
 
-     .bgth{
-        background-color: var(--bs-tertiary-bg)!important;
+    .bgth {
+        background-color: var(--bs-tertiary-bg) !important;
         font-weight: bold;
-     }
+    }
 
-     .btn-grey {
-  
-  background-color: var(--bs-border-color-translucent); 
-  
-}  
+    .btn-grey {
 
-.btn-grey:hover {
-  background-color: var(--bs-btn-hover-border-color);
-  border-color: #ADB5BD;
-}
+        background-color: var(--bs-border-color-translucent);
 
-.btn-grey:focus {
-  color: #fff;
-  background-color: #CC2229;
-  border-color: var(--bs-btn-hover-border-color);
-}
+    }
 
-.btn-grey:active {
-  color: #fff;
-  background-color: #CC2229;
-}
- table, th, td {
-      /* border: 0px solid rgb(255, 255, 255);
+    .btn-grey:hover {
+        background-color: var(--bs-btn-hover-border-color);
+        border-color: #ADB5BD;
+    }
+
+    .btn-grey:focus {
+        color: #fff;
+        background-color: #CC2229;
+        border-color: var(--bs-btn-hover-border-color);
+    }
+
+    .btn-grey:active {
+        color: #fff;
+        background-color: #CC2229;
+    }
+
+    table,
+    th,
+    td {
+        /* border: 0px solid rgb(255, 255, 255);
       border-collapse: collapse; */
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    } 
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
 
-    td,th {
+    td,
+    th {
         padding: 0.15rem;
     }
 
-.rotage-90 {
-    transform: rotate(-90deg);
-}
+    .rotage-90 {
+        transform: rotate(-90deg);
+    }
+
+    .text-bg-success {
+        background-color: var(--color-normal-a4)!important;
+    }
 </style>
 </head>
+
 <body>
 
-<div class="container-fluid" style="height: 92.4vh;">
+    <div class="container-fluid" style="height: 92.4vh;">
 
-    <div class="row ms-2 me-2" style="margin-top: 0.2%;">
+        <div class="row ms-2 me-2" style="margin-top: 0.2%;">
 
-        <div class="col-xxl-1 col-lg-12 col-md-12 col-sm-12 d-flex align-items-center justify-content-center" style="padding: 0;">
-            <img src="../images/map.png" alt="" height="70%">
-        </div>
-
-        <div class="col-xxl-8 col-lg-12 col-md-12 col-sm-12 text-cen" style="margin-top:1rem;margin-bottom:1rem;padding: 0;">
-            <h1 class="fw-bold">
-                Machine Performance WGR. Plant
-            </h1>
-        </div>
-
-        <div class="col-xxl-3 col-lg-12 col-md-12 col-sm-12 text-cen mt-2 mb-2 pe-2" style="padding: 0;">
-            <div class="card h-100 w-100">
-                <div class="card-body d-flex align-items-center justify-content-center">
-                    <div class="d-inline">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="currentColor" class="bi-square-fill" viewBox="0 0 16 16">
-                            <path style="fill:#98D659;" d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"></path>
-                        </svg>
-                        <span class="pe-3 ps-3" style="font-size: 1.3rem;">Normal</span>
-                    </div>
-
-                    <div class="d-inline">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="currentColor" class="bi-square-fill" viewBox="0 0 16 16">
-                            <path style="fill:#ffe000;" d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"></path>
-                        </svg>
-                        <span class="pe-3 ps-3" style="font-size: 1.3rem;">Warning</span>
-                    </div>
-
-                    <div class="d-inline">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="currentColor" class="bi-square-fill" viewBox="0 0 16 16">
-                            <path style="fill:#f00000;" d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"></path>
-                        </svg>
-                        <span class="pe-3 ps-3" style="font-size: 1.3rem;">Abnormal</span>
-                    </div>
-                    
-                    
-                </div>
+            <div class="col-xxl-1 col-lg-12 col-md-12 col-sm-12 d-flex align-items-center justify-content-center"
+                style="padding: 0;">
+                <img src="../images/map.png" alt="" height="70%">
             </div>
-            
-        </div>
-        
-        <!-- <div class="col-1" style="padding: 0;"></div> -->
 
-        <div class="col-10" style="padding: 0;">
-            <!-- 87.401610937vh -->
-            <table style="table-layout: fixed;width: 100%;height: 60vh;">
-                <thead>
-                  <tr class="tr-th-height">
-                    <th colspan="7">
-                        <div class="card bg-light bgth h-100">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p>SPACE AREA</p>
-                            </div>
+            <div class="col-xxl-8 col-lg-12 col-md-12 col-sm-12 text-cen"
+                style="margin-top:1rem;margin-bottom:1rem;padding: 0;">
+                <h1 class="fw-bold">
+                    Machine Performance WGR. Plant
+                </h1>
+            </div>
+
+            <div class="col-xxl-3 col-lg-12 col-md-12 col-sm-12 text-cen mt-2 mb-2 pe-2" style="padding: 0;">
+                <div class="card h-100 w-100">
+                    <div class="card-body d-flex align-items-center justify-content-center">
+                        <div class="d-inline">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="currentColor"
+                                class="bi-square-fill" viewBox="0 0 16 16">
+                                <path style="fill:#98D659;"
+                                    d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"></path>
+                            </svg>
+                            <span class="pe-3 ps-3" style="font-size: 1.3rem;">Normal</span>
                         </div>
-                    </th>
-                    <th colspan="4">
-                        <div class="card bg-light bgth h-100">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p>MEF SHOP</p>
-                            </div>
+
+                        <div class="d-inline">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="currentColor"
+                                class="bi-square-fill" viewBox="0 0 16 16">
+                                <path style="fill:#ffe000;"
+                                    d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"></path>
+                            </svg>
+                            <span class="pe-3 ps-3" style="font-size: 1.3rem;">Warning</span>
                         </div>
-                    </th>
-                    <th colspan="10">
-                        <div class="card bg-light bgth h-100">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p>DELIVERY</p>
-                            </div>
+
+                        <div class="d-inline">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="currentColor"
+                                class="bi-square-fill" viewBox="0 0 16 16">
+                                <path style="fill:#f00000;"
+                                    d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"></path>
+                            </svg>
+                            <span class="pe-3 ps-3" style="font-size: 1.3rem;">Abnormal</span>
                         </div>
-                    </th>
-                    <th colspan="2">
-                        <div class="card bg-light bgth h-100">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p>ECM</p>
-                            </div>
-                        </div>
-                    </th>
-                    <th colspan="2">
-                        <div class="card bg-light bgth h-100">
-                            <div class="card-body d-flex align-items-center justify-content-center rotage-90">
-                                <p>PACKING</p>
-                            </div>
-                        </div>
-                    </th>
-                    <th colspan="2">
-                        <div class="card bg-light bgth h-100">
-                            <div class="card-body d-flex align-items-center justify-content-center rotage-90">
-                                <p>RESERVE</p>
-                            </div>
-                        </div>
-                    </th>
-                    <th>
-                        <div class="card bg-light bgth h-100">
-                            <div class="card-body d-flex align-items-center justify-content-center rotage-90">
-                                <p>HINO</p>
-                            </div>
-                        </div>
-                    </th>
-                    <th>
-                        <div class="card bg-light bgth h-100">
-                            <div class="card-body d-flex align-items-center justify-content-center rotage-90">
-                                <p>BOX TYPE</p>
-                            </div>
-                        </div>
-                    </th>
-                    <th colspan="4">
-                        <div class="card bg-light bgth h-100">
-                            <div class="card-body d-flex align-items-center justify-content-center rotage-90">
-                                <p>SPACE AREA</p>
-                            </div>
-                        </div>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td colspan="3" rowspan="18">
-                        <div class="card bg-light bgth h-100">
-                            <div class="card-body d-flex align-items-center justify-content-center rotage-90">
-                                <p>MAIN OFFICE</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">GCAC 1</p>
-                            </div>
-                      </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">SIR</p>
-                            </div>
-                      </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">WCAC</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">MPOC</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">HLOC</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="12">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">BRAZING INTER</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="12">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">BRAZING OIL</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="4">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">HELIUMRS</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">SURFACE BRS</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="12">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">BRAZING BRS</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="8">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">CORE BRS 6</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="8">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">GIC 1</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="8">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">GIC 3</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="8">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">BRAZING GIC 2</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="8">
-                        <a href="/layout/BrazingGIC1?page=index">
-                            <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                                <div class="card-body d-flex align-items-center justify-content-center">
-                                    <p class="rotage-90">BRAZING GIC 1</p>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- <div class="col-1" style="padding: 0;"></div> -->
+
+            <div class="col-10" style="padding: 0;">
+                <!-- 87.401610937vh -->
+                <table style="table-layout: fixed;width: 100%;height: 60vh;">
+                    <thead>
+                        <tr class="tr-th-height">
+                            <th colspan="7">
+                                <div class="card bg-light bgth h-100">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p>SPACE AREA</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </td>
-                    <td rowspan="8">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">BRAZING GSR 1</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">ASSY GSR 1</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">ASSY GSR 2</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2" rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">RADIATOR CENTOR</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">ASSY GSR 4</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">ASSY GSR 5</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">ASSY GSR 6</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="8">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">BRAZING GSR 2</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#1</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2" rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">PRESS300T GIC</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2" rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">PRESS300T BSR</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#2</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#3</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#4</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td rowspan="8">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">BRAZING RS</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#5</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#6</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">O/F SIR</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">I/F SIR</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">I/F OF GAGC</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">WASHING SIR</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">FLUX INTER</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">HELIUM BRS</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">CORE GSR 1</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">CORE GSR 2</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">CORE GSR 3</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">CORE GSR 4</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">CORE GSR 6</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">CORE GSR 7</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">ASSY STEP 4</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#7</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2" rowspan="6">
-                        <div class="card bg-light bgth"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">DIE MAINT</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2" rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">PRESS500T</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#8</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td rowspan="4">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">O/F BRS</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2" rowspan="4">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">FIN GIC</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2" rowspan="4">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">HELIUM GIC</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="4">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">FLUX GSR 1</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="4">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">FLUX GSR 2,3</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#9</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#10</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#11</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#12</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="5" rowspan="6">
-                        <div class="card bg-light bgth"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="rotage-90">SPACE AREA</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2" rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">COND MF4</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">CORE RS</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2" rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">PLASMA BRS</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2" rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">I/F BRS</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">PLASMA GIC</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2" rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">I/F GIC</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2" rowspan="6">
-                        <div class="card bg-light bgth"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">RECEIVING</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">TUBE 27D</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">CORE STEP 4</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">TUBE 11.5</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">INSERT</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">WASHING</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">TUBE 16D</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td rowspan="6">
-                        <div class="card bg-light bgth"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">SPACE AREA</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#13</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2" rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">PRESS200T</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2" rowspan="6">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p class="rotage-90">PRESS300T GRS</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#14</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#15</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#16</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#17</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                        <div class="card text-bg-success"  style="width: 100%;height: 100%;">
-                            <div class="card-body d-flex align-items-center justify-content-center ">
-                                <p>Inj.#18</p>
-                            </div>
-                        </div>
-                    </td>
-                  </tr>
-                </tbody>
+                            </th>
+                            <th colspan="4">
+                                <div class="card bg-light bgth h-100">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p>MEF SHOP</p>
+                                    </div>
+                                </div>
+                            </th>
+                            <th colspan="10">
+                                <div class="card bg-light bgth h-100">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p>DELIVERY</p>
+                                    </div>
+                                </div>
+                            </th>
+                            <th colspan="2">
+                                <div class="card bg-light bgth h-100">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p>ECM</p>
+                                    </div>
+                                </div>
+                            </th>
+                            <th colspan="2">
+                                <div class="card bg-light bgth h-100">
+                                    <div class="card-body d-flex align-items-center justify-content-center rotage-90">
+                                        <p>PACKING</p>
+                                    </div>
+                                </div>
+                            </th>
+                            <th colspan="2">
+                                <div class="card bg-light bgth h-100">
+                                    <div class="card-body d-flex align-items-center justify-content-center rotage-90">
+                                        <p>RESERVE</p>
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="card bg-light bgth h-100">
+                                    <div class="card-body d-flex align-items-center justify-content-center rotage-90">
+                                        <p>HINO</p>
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="card bg-light bgth h-100">
+                                    <div class="card-body d-flex align-items-center justify-content-center rotage-90">
+                                        <p>BOX TYPE</p>
+                                    </div>
+                                </div>
+                            </th>
+                            <th colspan="4">
+                                <div class="card bg-light bgth h-100">
+                                    <div class="card-body d-flex align-items-center justify-content-center rotage-90">
+                                        <p>SPACE AREA</p>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3" rowspan="18">
+                                <div class="card bg-light bgth h-100">
+                                    <div class="card-body d-flex align-items-center justify-content-center rotage-90">
+                                        <p>MAIN OFFICE</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">GCAC 1</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">SIR</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">WCAC</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">MPOC</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">HLOC</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="12">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">BRAZING INTER</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="12">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">BRAZING OIL</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="4">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">HELIUMRS</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">SURFACE BRS</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="12">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">BRAZING BRS</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="8">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">CORE BRS 6</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="8">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">GIC 1</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="8">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">GIC 3</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="8">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">BRAZING GIC 2</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="8">
+                                <a href="/layout/BrazingGIC1?page=index">
+                                    <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                        <div class="card-body d-flex align-items-center justify-content-center">
+                                            <p class="rotage-90">BRAZING GIC 1</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </td>
+                            <td rowspan="8">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">BRAZING GSR 1</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">ASSY GSR 1</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">ASSY GSR 2</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2" rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">RADIATOR CENTOR</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">ASSY GSR 4</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">ASSY GSR 5</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">ASSY GSR 6</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="8">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">BRAZING GSR 2</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#1</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2" rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">PRESS300T GIC</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2" rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">PRESS300T BSR</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#2</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#3</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#4</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="8">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">BRAZING RS</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#5</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#6</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">O/F SIR</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">I/F SIR</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">I/F OF GAGC</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">WASHING SIR</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">FLUX INTER</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">HELIUM BRS</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">CORE GSR 1</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">CORE GSR 2</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">CORE GSR 3</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">CORE GSR 4</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">CORE GSR 6</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">CORE GSR 7</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">ASSY STEP 4</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#7</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2" rowspan="6">
+                                <div class="card bg-light bgth" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">DIE MAINT</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2" rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">PRESS500T</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#8</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="4">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">O/F BRS</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2" rowspan="4">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">FIN GIC</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2" rowspan="4">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">HELIUM GIC</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="4">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">FLUX GSR 1</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="4">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">FLUX GSR 2,3</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#9</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#10</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#11</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#12</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" rowspan="6">
+                                <div class="card bg-light bgth" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <p class="rotage-90">SPACE AREA</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2" rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">COND MF4</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">CORE RS</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2" rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">PLASMA BRS</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2" rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">I/F BRS</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">PLASMA GIC</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2" rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">I/F GIC</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2" rowspan="6">
+                                <div class="card bg-light bgth" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">RECEIVING</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">TUBE 27D</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">CORE STEP 4</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">TUBE 11.5</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">INSERT</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">WASHING</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">TUBE 16D</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="6">
+                                <div class="card bg-light bgth" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">SPACE AREA</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#13</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2" rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">PRESS200T</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2" rowspan="6">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p class="rotage-90">PRESS300T GRS</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#14</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#15</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#16</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#17</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="card text-bg-success" style="width: 100%;height: 100%;">
+                                    <div class="card-body d-flex align-items-center justify-content-center ">
+                                        <p>Inj.#18</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
-        </div>
-
-        <div class="col-2" style="padding-left: 0.3rem;padding-right: 0.3rem;">
-            <div class="h-100">
-                <button class="btn btn-dark btn-grey w-100" type="submit" style="height: calc(100% / 6);padding-bottom: 0.3rem;">HOME</button>
-                <button class="btn btn-dark btn-grey w-100" type="submit" style="height: calc(100% / 6);">CMMS</button>
-                <button class="btn btn-dark btn-grey w-100" type="submit" style="height: calc(100% / 6);">CBM</button>
-                <button class="btn btn-dark btn-grey w-100" type="submit" style="height: calc(100% / 6);">ENERGY</button>
-                <button class="btn btn-dark btn-grey w-100" type="submit" style="height: calc(100% / 6);">SUPPORT</button>
-                <button class="btn btn-dark btn-grey w-100" type="submit" style="height: calc(100% / 6);">-</button>
             </div>
-            
-        </div>
-        
 
-  
-    </div> <!-- Main Row -->
-    <div class="row ms-2 me-2">
-        <div class="col" style="margin-top: 0.5rem;padding: 0;">
-            <div class="card">
-                <div class="card-body">
-                    <p><marquee behavior="" direction="">test</marquee></p>
+            <div class="col-2" style="padding-left: 0.3rem;padding-right: 0.3rem;">
+                <div class="h-100">
+                    <button class="btn btn-dark btn-grey w-100 fs-3 fw-bold" type="submit"
+                        style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/home.png);background-repeat: no-repeat;background-size: cover;">HOME</button>
+                    <button class="btn btn-dark btn-grey w-100 fs-3 fw-bold" type="submit"
+                        style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/cmms.png);background-repeat: no-repeat;background-size: cover;">CMMS</button>
+                    <button class="btn btn-dark btn-grey w-100 fs-3 fw-bold" type="submit"
+                        style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/cbm.png);background-repeat: no-repeat;background-size: cover;">CBM</button>
+                    <button class="btn btn-dark btn-grey w-100 fs-3 fw-bold" type="submit"
+                        style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/energy.png);background-repeat: no-repeat;background-size: cover;">ENERGY</button>
+                    <button class="btn btn-dark btn-grey w-100 fs-3 fw-bold" type="submit"
+                        style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/support.png);background-repeat: no-repeat;background-size: cover;">SUPPORT</button>
+                    <button class="btn btn-dark btn-grey w-100 fs-3 fw-bold" type="submit" style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/last.png);background-repeat: no-repeat;background-size: cover;">-</button>
+                </div>
+
+            </div>
+
+
+
+        </div> <!-- Main Row -->
+        <div class="row ms-2 me-2 pe-1" style="height: var(--bottom-label-layout);">
+            <div class="col" style="margin-top: 0.5rem;padding: 0;">
+                <div class="card h-100">
+                    <div class="card-body d-flex align-items-center">
+                        <h1 class="w-100" style="color: var(--color-normal);font-weight: 700;">
+                            <marquee behavior="" direction="">Normal</marquee>
+                        </h1>
+
+                        <!-- <marquee behavior="" direction="">test</marquee> -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-  
-  </div> <!-- Main Container -->
 
-  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-  <script>
+    </div> <!-- Main Container -->
 
-      $(document).ready(function() {
-  $(window).on('resize', function(){
-    if(screen.width === window.innerWidth){
-        $('#buttongic3').show();
-      } else {
-            $('#buttongic3').hide();
-      }
-  });
-});
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
 
-  </script>
-  
-  
-  
+        $(document).ready(function () {
+            $(window).on('resize', function () {
+                if (screen.width === window.innerWidth) {
+                    $('#buttongic3').show();
+                } else {
+                    $('#buttongic3').hide();
+                }
+            });
+        });
+
+    </script>
