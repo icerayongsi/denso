@@ -6,15 +6,7 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
 
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <img src="../../images/BrazingGIC1_layout.png" width="100%">
-          </div>
-        </div>
-      </div>
-
-      
+      <%- include('BrazingGIC_1_partials/BrazingGIC_1_mechine_img')  %> 
 
       <div class="card card-body margin-5">
 
@@ -200,7 +192,6 @@
 
       var RC_Fan_5_X = new Gauge(document.getElementById('RC-Fan-5-X')).setOptions(opts);
 
-
       RC_Fan_1_X.maxValue = 10;
 
       RC_Fan_2_X.maxValue = 10;
@@ -211,19 +202,29 @@
 
       RC_Fan_5_X.maxValue = 10;
 
+      RC_Fan_1_X.set(Math.floor(Math.random() * 3) + 1);
+
+      RC_Fan_2_X.set(Math.floor(Math.random() * 3) + 1);
+
+      RC_Fan_3_X.set(Math.floor(Math.random() * 3) + 1);
+
+      RC_Fan_4_X.set(Math.floor(Math.random() * 3) + 1);
+
+      RC_Fan_5_X.set(Math.floor(Math.random() * 3) + 1);
+
 
       setInterval(() => {
-        RC_Fan_1_X.set(Math.floor(Math.random() * 10) + 1);
+        RC_Fan_1_X.set(Math.floor(Math.random() * 3) + 1);
 
-        RC_Fan_2_X.set(Math.floor(Math.random() * 10) + 1);
+        RC_Fan_2_X.set(Math.floor(Math.random() * 3) + 1);
 
-        RC_Fan_3_X.set(Math.floor(Math.random() * 10) + 1);
+        RC_Fan_3_X.set(Math.floor(Math.random() * 3) + 1);
 
-        RC_Fan_4_X.set(Math.floor(Math.random() * 10) + 1);
+        RC_Fan_4_X.set(Math.floor(Math.random() * 3) + 1);
 
-        RC_Fan_5_X.set(Math.floor(Math.random() * 10) + 1);
+        RC_Fan_5_X.set(Math.floor(Math.random() * 3) + 1);
 
-      }, 1000)
+      }, 3000)
 
 </script>
 
