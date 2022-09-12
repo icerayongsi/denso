@@ -406,32 +406,32 @@
       RC_Fan_9_Z.set(Math.floor(Math.random() * 3) + 1);
 
       setInterval(() => {
-        RC_Fan_1_X.set(Math.floor(Math.random() * 3) + 1);
-        RC_Fan_1_Z.set(Math.floor(Math.random() * 3) + 1);
+        RC_Fan_1_X.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_1_Z.set(Math.floor(Math.random() * 2) + 1);
 
-        RC_Fan_2_X.set(Math.floor(Math.random() * 3) + 1);
-        RC_Fan_2_Z.set(Math.floor(Math.random() * 3) + 1);
+        RC_Fan_2_X.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_2_Z.set(Math.floor(Math.random() * 2) + 1);
 
-        RC_Fan_3_X.set(Math.floor(Math.random() * 3) + 1);
-        RC_Fan_3_Z.set(Math.floor(Math.random() * 3) + 1);
+        RC_Fan_3_X.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_3_Z.set(Math.floor(Math.random() * 2) + 1);
 
-        RC_Fan_4_X.set(Math.floor(Math.random() * 3) + 1);
-        RC_Fan_4_Z.set(Math.floor(Math.random() * 3) + 1);
+        RC_Fan_4_X.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_4_Z.set(Math.floor(Math.random() * 2) + 1);
 
-        RC_Fan_5_X.set(Math.floor(Math.random() * 3) + 1);
-        RC_Fan_5_Z.set(Math.floor(Math.random() * 3) + 1);
+        RC_Fan_5_X.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_5_Z.set(Math.floor(Math.random() * 2) + 1);
 
-        RC_Fan_6_X.set(Math.floor(Math.random() * 3) + 1);
-        RC_Fan_6_Z.set(Math.floor(Math.random() * 3) + 1);
+        RC_Fan_6_X.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_6_Z.set(Math.floor(Math.random() * 2) + 1);
 
-        RC_Fan_7_X.set(Math.floor(Math.random() * 3) + 1);
-        RC_Fan_7_Z.set(Math.floor(Math.random() * 3) + 1);
+        RC_Fan_7_X.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_7_Z.set(Math.floor(Math.random() * 2) + 1);
 
-        RC_Fan_8_X.set(Math.floor(Math.random() * 3) + 1);
-        RC_Fan_8_Z.set(Math.floor(Math.random() * 3) + 1);
+        RC_Fan_8_X.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_8_Z.set(Math.floor(Math.random() * 2) + 1);
 
-        RC_Fan_9_X.set(Math.floor(Math.random() * 3) + 1);
-        RC_Fan_9_Z.set(Math.floor(Math.random() * 3) + 1);
+        RC_Fan_9_X.set(Math.floor(Math.random() * 2) + 1);
+        RC_Fan_9_Z.set(Math.floor(Math.random() * 2) + 1);
 
       }, 3000)
 
@@ -706,7 +706,7 @@
 
           $("#flexSwitchCheckDefault").change(function(){
               if($(this).prop("checked") == true){
-                chart.options.plugins.annotation.annotations[0].value = 12;
+                chart.options.plugins.annotation.annotations[0].value = 6;
                 chart.options.plugins.annotation.annotations[1].value = 4;
                 chart.update();
               }else{
