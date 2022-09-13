@@ -40,7 +40,7 @@
                 <div class="card-header text-center">BZ 1 UPPER</div>
                 <div class="card-body">
     
-                   <h1 class="text-center">0 °C</h1>
+                   <h1 class="text-center bz-1">0 °C</h1>
     
                 </div>
               </div>
@@ -52,7 +52,7 @@
                 <div class="card-header text-center">BZ 2 UPPER</div>
                 <div class="card-body">
     
-                   <h1 class="text-center">0 °C</h1>
+                   <h1 class="text-center bz-2">0 °C</h1>
     
                 </div>
               </div>
@@ -64,7 +64,7 @@
                 <div class="card-header text-center">BZ 3 UPPER</div>
                 <div class="card-body">
     
-                   <h1 class="text-center">0 °C</h1>
+                   <h1 class="text-center bz-3">0 °C</h1>
     
                 </div>
               </div>
@@ -76,7 +76,7 @@
                 <div class="card-header text-center">BZ 4 UPPER</div>
                 <div class="card-body">
     
-                   <h1 class="text-center">0 °C</h1>
+                   <h1 class="text-center bz-4">0 °C</h1>
     
                 </div>
               </div>
@@ -88,7 +88,7 @@
                 <div class="card-header text-center">BZ 5 UPPER</div>
                 <div class="card-body">
     
-                   <h1 class="text-center">0 °C</h1>
+                   <h1 class="text-center bz-5">0 °C</h1>
     
                 </div>
               </div>
@@ -100,7 +100,7 @@
                 <div class="card-header text-center">PRE HEAT 1</div>
                 <div class="card-body">
     
-                   <h1 class="text-center">0 °C</h1>
+                   <h1 class="text-center pre-1">0 °C</h1>
     
                 </div>
               </div>
@@ -112,7 +112,7 @@
                 <div class="card-header text-center">PRE HEAT 2</div>
                 <div class="card-body">
     
-                   <h1 class="text-center">0 °C</h1>
+                   <h1 class="text-center pre-2">0 °C</h1>
     
                 </div>
               </div>
@@ -143,6 +143,24 @@
 
     <!-- END WIP NOTIFY  -->
 
+  <script>
+    
+    
+    // setInterval(() => {
+    //   $(document).ready(() => {
+    //         $.ajax({
+    //             url: "/layout/BrazingGIC1/get-temp-chamber",
+    //             type: "POST",
+    //             success: (data) => {
+    //               console.log(data.topic)
+    //             }
+    //       });
+    //   });
+    // },3000);
+    
+
+  </script>
+
     <script>
 
       const ctx = document.getElementById('myChart');
@@ -152,23 +170,69 @@
         data: {
           labels: [],
           datasets: [{
-            label: 'X-Axis',
+            label: 'BZ 1 UPPER',
             data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#177D94',
-            borderWidth: 4,
+            borderWidth: 3,
             pointBackgroundColor: '#177D94'
           },
           {
-            label: 'Z-Axis',
+            label: 'BZ 2 UPPER',
             data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#28BEE0',
-            borderWidth: 4,
+            borderWidth: 3,
             pointBackgroundColor: '#28BEE0'
-          }
+          },
+          {
+            label: 'BZ 3 UPPER',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#179458',
+            borderWidth: 3,
+            pointBackgroundColor: '#179458'
+          },
+          {
+            label: 'BZ 4 UPPER',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#28E087',
+            borderWidth: 3,
+            pointBackgroundColor: '#28E087'
+          },
+          {
+            label: 'BZ 5 UPPER',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#D1E028',
+            borderWidth: 3,
+            pointBackgroundColor: '#D1E028'
+          },
+          {
+            label: 'PRE HEAT 1',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#199D60',
+            borderWidth: 3,
+            pointBackgroundColor: '#199D60'
+          },
+          {
+            label: 'PRE HEAT 2',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#C6D430',
+            borderWidth: 1,
+            pointBackgroundColor: '#C6D430'
+          },
+          
           ]
         },
         options: {
@@ -230,5 +294,95 @@
           //   }
           // }
         }
-      })
+      });
+
+
+    let chart_labels = [];
+    let bz_1_data = [];
+    let bz_2_data = [];
+    let bz_3_data = [];
+    let bz_4_data = [];
+    let bz_5_data = [];
+    let pre_1_data = [];
+    let pre_2_data = [];
+    
+    const socket = io('http://localhost:5000' , { transports : ['websocket'] });
+      socket.on('temp-chamber', (res) => {
+        if (res.data[1] != '0') {
+          chart_labels.push(getlabelTime());
+          switch (res.data[0]) {
+            case "bz1":
+              $(".bz-1").html(res.data[1] + " °C");
+              
+              removeData(bz_1_data.length,chart);
+              
+              bz_1_data.push(res.data[1]);
+              chart.data.datasets[0].data = bz_1_data;
+              chart.data.labels = chart_labels;
+              chart.update();
+            break;
+            case "bz2":
+              $(".bz-2").html(res.data[1] + " °C");
+
+              removeData(bz_2_data.length,chart);
+
+              bz_2_data.push(res.data[1]);
+              chart.data.datasets[1].data = bz_2_data;
+              chart.data.labels = chart_labels;
+              chart.update();
+            break;
+            case "bz3":
+              $(".bz-3").html(res.data[1] + " °C");
+
+              removeData(bz_3_data.length,chart);
+
+              bz_3_data.push(res.data[1]);
+              chart.data.datasets[2].data = bz_3_data;
+              chart.data.labels = chart_labels;
+              chart.update();
+            break;
+            case "bz3":
+              $(".bz-3").html(res.data[1] + " °C");
+
+              removeData(bz_4_data.length,chart);
+
+              bz_4_data.push(res.data[1]);
+              chart.data.datasets[3].data = bz_4_data;
+              chart.data.labels = chart_labels;
+              chart.update();
+            break;
+            case "bz4":
+              $(".bz-4").html(res.data[1] + " °C");
+
+              removeData(bz_5_data.length,chart);
+
+              bz_5_data.push(res.data[1]);
+              chart.data.datasets[4].data = bz_5_data;
+              chart.data.labels = chart_labels;
+              chart.update();
+            break;
+            case "pre1":
+              $(".pre-1").html(res.data[1] + " °C");
+
+              removeData(pre_1_data.length,chart);
+
+              pre_1_data.push(res.data[1]);
+              chart.data.datasets[5].data = pre_1_data;
+              chart.data.labels = chart_labels;
+              chart.update();
+            break;
+            case "pre2":
+              $(".pre-2").html(res.data[1] + " °C");
+
+              removeData(pre_2_data.length,chart);
+
+              pre_2_data.push(res.data[1]);
+              chart.data.datasets[6].data = pre_2_data;
+              chart.data.labels = chart_labels;
+              chart.update();
+            break;
+          } 
+        }
+    });
+
     </script>

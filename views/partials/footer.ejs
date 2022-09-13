@@ -1,14 +1,22 @@
 <!-- <script src="/javascripts/dashboard.js"></script> -->
 <script>
+    
+        const refreshTime = () => {
+            const dateString = new Date();
 
+            let addzeroHour = "";
+            let addzeroMinute = "";
+            let addzeroSecond = "";
+            if (dateString.getHours().toString().length == 1) addzeroHour = "0";
+            if (dateString.getMinutes().toString().length == 1) addzeroMinute = "0";
+            if (dateString.getSeconds().toString().length == 1) addzeroSecond = "0";
 
-        function refreshTime() {
-            var dateString = new Date()
-            var ampm = dateString.getHours( ) >= 12 ? ' PM' : ' AM';
-            var date = dateString.getMonth() + 1 + "/" + dateString.getDate() + "/" + dateString.getFullYear(); 
-            var time = dateString.getHours() + ":" +  dateString.getMinutes() + ":" +  dateString.getSeconds() + " : " + ampm;;
-            document.getElementById('date').innerHTML = date;
-            document.getElementById('time').innerHTML = time;
+            let ampm = dateString.getHours( ) >= 12 ? ' PM' : ' AM';
+            let date = dateString.getMonth() + 1 + "/" + dateString.getDate() + "/" + dateString.getFullYear(); 
+
+            let time = addzeroHour + dateString.getHours() + ":" + addzeroMinute +  dateString.getMinutes() + ":" + addzeroSecond + dateString.getSeconds() + " : " + ampm;
+            $("#date").html(date);
+            $("#time").html(time);
         }
 
         setInterval(refreshTime, 100);

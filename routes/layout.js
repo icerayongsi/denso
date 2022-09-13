@@ -1,9 +1,13 @@
 const { json } = require('express');
 const express = require('express');
 const app = express();
+const server = require('http').createServer();
 const mongoose = require("mongoose");
 const router = express.Router();
 const Data_Schema = require('../models/Schema');
+const mqtt = require('mqtt')
+const client  = mqtt.connect('mqtt://broker.hivemq.com')
+const io = require('socket.io')(5000);
 
 let encodeUrl = express.urlencoded({ extended: false });
 
@@ -17,6 +21,22 @@ let encodeUrl = express.urlencoded({ extended: false });
 
 // mongodb+srv://icerayongsi:poo14789630@cluster0.c1fr4nt.mongodb.net/
 
+client.on('connect', () => {
+  client.subscribe('22060001/#');
+});
+
+io.on("connection", (socket) => {
+
+  console.log("Websocket connected!!");
+
+  client.on('message', (topic, message) => {
+    socket.emit('temp-chamber', {
+      data: [topic.toString().substring(9),message.toString()]
+    });
+  });
+
+  
+});
 
 const data = [{}];
 

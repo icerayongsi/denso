@@ -31,11 +31,34 @@
   <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.0/dist/bootstrap-table.min.css">
   <script src="/javascripts/gauge.min.js"></script>
   <script src="/javascripts/tempgauge.min.js"></script>
+  <script src="/javascripts/socket.io.js"></script>
+
 
   <script>
-    function getRandomFloat(min, max, decimals) {
-      const str = (Math.random() * (max - min) + min).toFixed(decimals);
 
+    const getRandomFloat = (min, max, decimals) => {
+      let str = (Math.random() * (max - min) + min).toFixed(decimals);
       return parseFloat(str);
     }
+    
+    const removeData = (length,chart) => {
+      if (length > chart.options.scales.x.max) {
+        chart.data.labels.shift();
+        chart.data.datasets.forEach((dataset) => {
+          dataset.data.shift();
+        });
+      }
+    }
+
+    const getlabelTime = () => {
+      const dateString = new Date();
+      let addzeroHour = "";
+      let addzeroMinute = "";
+      let addzeroSecond = "";
+      if (dateString.getHours().toString().length == 1) addzeroHour = "0";
+      if (dateString.getMinutes().toString().length == 1) addzeroMinute = "0";
+      if (dateString.getSeconds().toString().length == 1) addzeroSecond = "0";
+      return addzeroHour + dateString.getHours() + ":" + addzeroMinute +  dateString.getMinutes() + ":" + addzeroSecond + dateString.getSeconds();
+    }
+
   </script>
