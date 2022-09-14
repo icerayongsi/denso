@@ -31,7 +31,7 @@ io.on("connection", (socket) => {
 
   client.on('message', (topic, message) => {
     socket.emit('temp-chamber', {
-      data: [topic.toString().substring(9),message.toString()]
+      data : [topic.toString().substring(9),message.toString()]
     });
   });
 
