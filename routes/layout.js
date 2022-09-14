@@ -44,6 +44,10 @@ router.get('/', function(req, res, next) {
   res.render('layout', { title: 'Denso' ,header : 'Mechine layout'});
 });
 
+router.post('/', encodeUrl, async (req, res, next) => {
+  console.log(req.body.sw);
+});
+
 router.get('/BrazingGIC1', function(req, res, next) {
   console.log(req.query.page);
   res.render('dashboard/BrazingGIC_1/BrazingGIC_1', { title: 'Denso' ,header : 'BrazingGIC 1',page : req.query.page});

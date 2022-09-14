@@ -187,11 +187,19 @@
                 <img src="../images/map.png" alt="" height="70%">
             </div>
 
-            <div class="col-xxl-8 col-lg-12 col-md-12 col-sm-12 text-cen"
+            <div class="col-xxl-6 col-lg-12 col-md-12 col-sm-12 text-cen"
                 style="margin-top:1rem;margin-bottom:1rem;padding: 0;">
                 <h1 class="fw-bold">
                     Machine Performance WGR. Plant
                 </h1>
+            </div>
+
+            <div class="col-xxl-2 col-lg-12 col-md-12 col-sm-12 text-cen"
+                style="margin-top:1rem;margin-bottom:1rem;padding: 0;">
+                <div class="form-check form-switch" style="margin-top: 1rem;">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+                    <p class="mb-0 me-2" style="margin-top: 0.4rem;">wellgrow/samrong layout</p>
+                </div>
             </div>
 
             <div class="col-xxl-3 col-lg-12 col-md-12 col-sm-12 text-cen mt-2 mb-2 pe-2" style="padding: 0;">
@@ -234,7 +242,13 @@
 
             <div class="col-10" style="padding: 0;">
                 <!-- 87.401610937vh -->
-                <%- include('layout_samrong')  %> 
+                <div id="wellgrow">
+                    <%- include('layout_wellgrow')  %> 
+                </div>
+                <div id="samrong" >
+                    <%- include('layout_samrong')  %> 
+                </div>
+                
             </div>
 
             <div class="col-2" style="padding-left: 0.3rem;padding-right: 0.3rem;">
@@ -275,6 +289,42 @@
     </div> <!-- Main Container -->
 
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        $('#wellgrow').css({'display' : 'none'});
+        $("#flexSwitchCheckDefault").change(function(){
+              if($(this).prop("checked") == true){
+                $(document).ready(() => {
+                    $.ajax({
+                        url: "/layout",
+                        type: "POST",
+                        data: {
+                            'sw': 'samrong'
+                        },
+                        success: (data) => {
+
+                        }
+                    });
+                });
+                $('#samrong').css({'display' : 'block'});
+                $('#wellgrow').css({'display' : 'none'});
+              }else{
+                $(document).ready(() => {
+                    $.ajax({
+                        url: "/layout",
+                        type: "POST",
+                        data: {
+                            'sw': 'wellgrow'
+                        },
+                        success: (data) => {
+                            
+                        }
+                    });
+                });
+                $('#samrong').css({'display' : 'none'});
+                $('#wellgrow').css({'display' : 'block'});
+              }
+          });
+    </script>
     <script>
 
         $(document).ready(function () {
