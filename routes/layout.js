@@ -21,18 +21,73 @@ let encodeUrl = express.urlencoded({ extended: false });
 
 // mongodb+srv://icerayongsi:poo14789630@cluster0.c1fr4nt.mongodb.net/
 
+
+var title = 'Denso';
+
 client.on('connect', () => {
   client.subscribe('22060001/#');
+  client.subscribe('22060050/#');
 });
+
+// client.on('message', (topic, message) => {
+//   console.log(JSON.parse(message.toString()));
+// });
 
 io.on("connection", (socket) => {
 
   console.log("Websocket connected!!");
-
+  
   client.on('message', (topic, message) => {
-    socket.emit('temp-chamber', {
-      data : [topic.toString().substring(9),message.toString()]
-    });
+    // console.log(topic.substring(0,8));
+
+    if (topic.substring(0,8) == '22060001') {
+      message = JSON.parse(message.toString());
+      socket.emit('temp-chamber', {
+        bz1 : message.data[0].Z1_Atmosphere_R,
+        bz2 : message.data[0].Z2_Atmosphere_R,
+        bz3 : message.data[0].Z3_Atmosphere_R,
+        bz4 : message.data[0].Z4_Atmosphere_R,
+        bz5 : message.data[0].Z4_Atmosphere_L,
+        pre1 : message.data[0].Front_Heater,
+        pre2 : message.data[0].Exit_Chamber_Heater,
+      });
+    }
+
+    if (topic.substring(0,8) == '22060050') {
+      message = JSON.parse(message.toString());
+      socket.emit('vibrator', {
+        vi1_Z : message.data[0].Vibrator_1_1,
+        vi1_X : message.data[0].Vibrator_1_3,
+        vi2_Z : message.data[0].Vibrator_2_1,
+        vi2_X : message.data[0].Vibrator_2_3,
+        vi3_Z : message.data[0].Vibrator_3_1,
+        vi3_X : message.data[0].Vibrator_3_3,
+        vi4_Z : message.data[0].Vibrator_4_1,
+        vi4_X : message.data[0].Vibrator_4_3,
+        vi5_Z : message.data[0].Vibrator_5_1,
+        vi5_X : message.data[0].Vibrator_5_3,
+        vi6_Z : message.data[0].Vibrator_6_1,
+        vi6_X : message.data[0].Vibrator_6_3,
+        vi7_Z : message.data[0].Vibrator_7_1,
+        vi7_X : message.data[0].Vibrator_7_3,
+        vi8_Z : message.data[0].Vibrator_8_1,
+        vi8_X : message.data[0].Vibrator_8_3,
+        vi9_Z : message.data[0].Vibrator_9_1,
+        vi9_X : message.data[0].Vibrator_9_3,
+      });
+      socket.emit('temp', {
+        temp_1 : message.data[0].temp_1,
+        temp_3 : message.data[0].temp_3,
+        temp_3 : message.data[0].temp_3,
+        temp_4 : message.data[0].temp_4,
+        temp_5 : message.data[0].temp_5,
+        temp_6 : message.data[0].temp_6,
+        temp_7 : message.data[0].temp_7,
+        temp_8 : message.data[0].temp_8,
+        temp_9 : message.data[0].temp_9,
+      });
+    } 
+    
   });
 
   
@@ -41,7 +96,7 @@ io.on("connection", (socket) => {
 const data = [{}];
 
 router.get('/', function(req, res, next) {
-  res.render('layout', { title: 'Denso' ,header : 'Mechine layout'});
+  res.render('layout', { title: title ,header : 'Mechine layout',sw : 1});
 });
 
 router.post('/', encodeUrl, async (req, res, next) => {
@@ -50,11 +105,11 @@ router.post('/', encodeUrl, async (req, res, next) => {
 
 router.get('/BrazingGIC1', function(req, res, next) {
   console.log(req.query.page);
-  res.render('dashboard/BrazingGIC_1/BrazingGIC_1', { title: 'Denso' ,header : 'BrazingGIC 1',page : req.query.page});
+  res.render('dashboard/BrazingGIC_1/BrazingGIC_1', { title: title ,header : 'BrazingGIC 1',page : req.query.page});
 });
 
 router.get('/BrazingGIC1/history', function(req, res, next) {
-  res.render('history', { title: 'Denso' ,header : 'BrazingGIC 1'});
+  res.render('history', { title: title ,header : 'BrazingGIC 1'});
 });
 
 router.post('/BrazingGIC1/history', encodeUrl, async (req, res, next) => {

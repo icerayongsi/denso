@@ -308,81 +308,173 @@
     
     const socket = io('http://localhost:5000' , { transports : ['websocket'] });
       socket.on('temp-chamber', (res) => {
-        if (res.data[1] != '0') {
-          chart_labels.push(getlabelTime());
-          switch (res.data[0]) {
-            case "bz1":
-              $(".bz-1").html(res.data[1] + " °C");
-              
-              removeData(bz_1_data.length,chart);
-              
-              bz_1_data.push(res.data[1]);
-              chart.data.datasets[0].data = bz_1_data;
-              chart.data.labels = chart_labels;
-              chart.update();
-            break;
-            case "bz2":
-              $(".bz-2").html(res.data[1] + " °C");
 
-              removeData(bz_2_data.length,chart);
+        chart_labels.push(getlabelTime());
+        chart.data.labels = chart_labels;
 
-              bz_2_data.push(res.data[1]);
-              chart.data.datasets[1].data = bz_2_data;
-              chart.data.labels = chart_labels;
-              chart.update();
-            break;
-            case "bz3":
-              $(".bz-3").html(res.data[1] + " °C");
-
-              removeData(bz_3_data.length,chart);
-
-              bz_3_data.push(res.data[1]);
-              chart.data.datasets[2].data = bz_3_data;
-              chart.data.labels = chart_labels;
-              chart.update();
-            break;
-            case "bz3":
-              $(".bz-3").html(res.data[1] + " °C");
-
-              removeData(bz_4_data.length,chart);
-
-              bz_4_data.push(res.data[1]);
-              chart.data.datasets[3].data = bz_4_data;
-              chart.data.labels = chart_labels;
-              chart.update();
-            break;
-            case "bz4":
-              $(".bz-4").html(res.data[1] + " °C");
-
-              removeData(bz_5_data.length,chart);
-
-              bz_5_data.push(res.data[1]);
-              chart.data.datasets[4].data = bz_5_data;
-              chart.data.labels = chart_labels;
-              chart.update();
-            break;
-            case "pre1":
-              $(".pre-1").html(res.data[1] + " °C");
-
-              removeData(pre_1_data.length,chart);
-
-              pre_1_data.push(res.data[1]);
-              chart.data.datasets[5].data = pre_1_data;
-              chart.data.labels = chart_labels;
-              chart.update();
-            break;
-            case "pre2":
-              $(".pre-2").html(res.data[1] + " °C");
-
-              removeData(pre_2_data.length,chart);
-
-              pre_2_data.push(res.data[1]);
-              chart.data.datasets[6].data = pre_2_data;
-              chart.data.labels = chart_labels;
-              chart.update();
-            break;
-          } 
+        removeData(bz_1_data.length,chart);
+        
+        if (res.bz1 <= 5 && bz_1_data != []) {
+          $(".bz-1").html(bz_1_data[bz_1_data.length - 1] + " °C");
+          bz_1_data.push(bz_1_data[bz_1_data.length - 1]);
+          chart.data.datasets[0].data = bz_1_data;
+        } else {
+          $(".bz-1").html(res.bz1 + " °C");
+          bz_1_data.push(res.bz1);
+          chart.data.datasets[0].data = bz_1_data;
         }
+
+        if (res.bz2 <= 5 && bz_2_data != []) {
+          $(".bz-2").html(bz_2_data[bz_2_data.length - 1] + " °C");
+          bz_2_data.push(bz_2_data[bz_2_data.length - 1]);
+          chart.data.datasets[1].data = bz_2_data;
+        } else {
+          $(".bz-2").html(res.bz2 + " °C");
+          bz_2_data.push(res.bz2);
+          chart.data.datasets[1].data = bz_2_data;
+        }
+
+        if (res.bz3 <= 5 && bz_3_data != []) {
+          $(".bz-3").html(bz_3_data[bz_3_data.length - 1] + " °C");
+          bz_3_data.push(bz_3_data[bz_3_data.length - 1]);
+          chart.data.datasets[2].data = bz_3_data;
+        } else {
+          $(".bz-3").html(res.bz3 + " °C");
+          bz_3_data.push(res.bz3);
+          chart.data.datasets[2].data = bz_3_data;
+        }
+
+        if (res.bz4 <= 5 && bz_4_data != []) {
+          $(".bz-4").html(bz_4_data[bz_4_data.length - 1] + " °C");
+          bz_4_data.push(bz_4_data[bz_4_data.length - 1]);
+          chart.data.datasets[3].data = bz_4_data;
+        } else {
+          $(".bz-4").html(res.bz4 + " °C");
+          bz_4_data.push(res.bz4);
+          chart.data.datasets[3].data = bz_4_data;
+        }
+
+        if (res.bz5 <= 5 && bz_5_data != []) {
+          $(".bz-5").html(bz_5_data[bz_5_data.length - 1] + " °C");
+          bz_5_data.push(bz_5_data[bz_5_data.length - 1]);
+          chart.data.datasets[4].data = bz_5_data;
+        } else {
+          $(".bz-5").html(res.bz5 + " °C");
+          bz_5_data.push(res.bz5);
+          chart.data.datasets[4].data = bz_5_data;
+        }
+
+
+        if (res.pre1 <= 5 && pre_1_data != []) {
+          $(".pre-1").html(pre_1_data[pre_1_data.length - 1] + " °C");
+          pre_1_data.push(pre_1_data[pre_1_data.length - 1]);
+          chart.data.datasets[5].data = pre_1_data;
+        } else {
+          $(".pre-1").html(res.pre1 + " °C");
+          pre_1_data.push(res.pre1);
+          chart.data.datasets[5].data = pre_1_data;
+        }
+
+        if (res.pre2 <= 5 && pre_2_data != []) {
+          $(".pre-2").html(pre_1_data[pre_1_data.length - 1] + " °C");
+          pre_2_data.push(pre_2_data[pre_2_data.length - 1]);
+          chart.data.datasets[6].data = pre_2_data;
+        } else {
+          $(".pre-2").html(res.pre2 + " °C");
+          pre_2_data.push(res.pre2);
+          chart.data.datasets[6].data = pre_2_data;
+        }
+
+        
+        
+        chart.update();
+
+        // if (res.data[1] != '0') {
+          
+        //   switch (res.data[0]) {
+        //     case "bz1":
+        //       $(".bz-1").html(res.data[1] + " °C");
+              
+        //       removeData(bz_1_data.length,chart,0);
+        //       chart_labels.push(getlabelTime());
+        //       bz_1_data.push(res.data[1]);
+        //       chart.data.datasets[0].data = bz_1_data;
+        //       chart.data.labels = chart_labels;
+        //       chart.update();
+        //     break;
+        //     case "bz2":
+        //       $(".bz-2").html(res.data[1] + " °C");
+
+        //       removeData(bz_2_data.length,chart,1);
+
+        //       bz_2_data.push(res.data[1]);
+        //       chart.data.datasets[1].data = bz_2_data;
+        //       //chart.data.labels = chart_labels;
+        //       chart.update();
+        //     break;
+        //     case "bz3":
+        //       $(".bz-3").html(res.data[1] + " °C");
+
+        //       removeData(bz_3_data.length,chart,2);
+
+        //       bz_3_data.push(res.data[1]);
+        //       chart.data.datasets[2].data = bz_3_data;
+        //       //chart.data.labels = chart_labels;
+        //       chart.update();
+        //     break;
+        //     case "bz4":
+        //       $(".bz-4").html(res.data[1] + " °C");
+
+        //       removeData(bz_4_data.length,chart,3);
+
+        //       bz_4_data.push(res.data[1]);
+        //       chart.data.datasets[3].data = bz_4_data;
+        //       //chart.data.labels = chart_labels;
+        //       chart.update();
+        //     break;
+        //     case "bz5":
+        //       $(".bz-5").html(res.data[1] + " °C");
+
+        //       removeData(bz_5_data.length,chart,4);
+
+        //       bz_5_data.push(res.data[1]);
+        //       chart.data.datasets[4].data = bz_5_data;
+        //       //chart.data.labels = chart_labels;
+        //       chart.update();
+        //     break;
+        //     case "pre1":
+        //       if (res.data[1] == '5') {
+        //         $(".pre-1").html(pre_1_data[pre_1_data.length - 1] + " °C");
+
+        //         removeData(pre_1_data.length,chart,5);
+
+        //         pre_1_data.push(pre_1_data[pre_1_data.length - 1]);
+        //         chart.data.datasets[5].data = pre_1_data;
+        //         //chart.data.labels = chart_labels;
+        //         chart.update();
+        //       } else {
+        //         $(".pre-1").html(res.data[1] + " °C");
+
+        //         removeData(pre_1_data.length,chart,6);
+
+        //         pre_1_data.push(res.data[1]);
+        //         chart.data.datasets[5].data = pre_1_data;
+        //         //chart.data.labels = chart_labels;
+        //         chart.update();
+        //       }
+        //     break;
+        //     case "pre2":
+        //       $(".pre-2").html(res.data[1] + " °C");
+
+        //       removeData(pre_2_data.length,chart,7);
+
+        //       pre_2_data.push(res.data[1]);
+        //       chart.data.datasets[6].data = pre_2_data;
+        //       //chart.data.labels = chart_labels;
+        //       chart.update();
+        //     break;
+        //   } 
+        // }
     });
 
     </script>

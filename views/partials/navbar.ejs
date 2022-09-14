@@ -6,7 +6,18 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/layout"><button type="button" class="btn btn-light" style="color:var(--bs-body-bg)">Mechine layout</button></a>
         </li>
+        <% try { if (sw == 1) { %> 
+        <li class="ms-3">
+          <div class="form-check form-switch" style="margin-top: 0.75rem;">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="width: 2.5em;height: 1.5em;">
+            <p class="mb-0 mt-0 pt-1 me-2 ms-3" style="margin-top: 0.4rem;">wellgrow/samrong layout</p>
+        </div>
+        </li>
+        <% } } catch { 
+          
+        } %> 
       </ul>
+      
       <button class="navbar-toggler position-absolute d-md-none collapsed" style="margin-top: .5rem;" type="button"
       data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
       aria-label="Toggle navigation">
