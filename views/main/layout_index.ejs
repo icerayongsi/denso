@@ -293,33 +293,9 @@
         $('#wellgrow').css({'display' : 'none'});
         $("#flexSwitchCheckDefault").change(function(){
               if($(this).prop("checked") == true){
-                $(document).ready(() => {
-                    $.ajax({
-                        url: "/layout",
-                        type: "POST",
-                        data: {
-                            'sw': 'samrong'
-                        },
-                        success: (data) => {
-
-                        }
-                    });
-                });
                 $('#samrong').css({'display' : 'block'});
                 $('#wellgrow').css({'display' : 'none'});
               }else{
-                $(document).ready(() => {
-                    $.ajax({
-                        url: "/layout",
-                        type: "POST",
-                        data: {
-                            'sw': 'wellgrow'
-                        },
-                        success: (data) => {
-                            
-                        }
-                    });
-                });
                 $('#samrong').css({'display' : 'none'});
                 $('#wellgrow').css({'display' : 'block'});
               }
