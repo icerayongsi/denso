@@ -261,38 +261,45 @@
           },
 
           responsive: true,
-          // plugins: {
-          //   annotation: {
-          //     annotations: [
-          //       {
-          //         type: 'line',
-          //         scaleID: 'y',
-          //         value: 15,
-          //         borderColor: 'rgb(255, 65, 65)',
-          //         label: {
-          //           enabled: true, 
-          //           content: 'Alarm',
-          //           borderWidth: 2,
-          //           borderColor: 'transparent',
-          //           position: 'end',
-          //         }
-          //       },
-          //       {
-          //         type: 'line',
-          //         scaleID: 'y',
-          //         value: 6,
-          //         borderColor: 'rgb(255, 192, 65)',
-          //         label: { 
-          //           enabled: true, 
-          //           content: 'Warning',
-          //           borderWidth: 2,
-          //           borderColor: 'transparent',
-          //           position: 'end',
-          //         }
-          //       }
-          //     ]
-          //   }
-          // }
+          plugins: {
+            legend : {
+              labels : {
+                usePointStyle : true,
+                pointStyle : 'line',
+                color: '#adb5bd'              
+              }
+            },
+            // annotation: {
+            //   annotations: [
+            //     {
+            //       type: 'line',
+            //       scaleID: 'y',
+            //       value: 15,
+            //       borderColor: 'rgb(255, 65, 65)',
+            //       label: {
+            //         enabled: true, 
+            //         content: 'Alarm',
+            //         borderWidth: 2,
+            //         borderColor: 'transparent',
+            //         position: 'end',
+            //       }
+            //     },
+            //     {
+            //       type: 'line',
+            //       scaleID: 'y',
+            //       value: 6,
+            //       borderColor: 'rgb(255, 192, 65)',
+            //       label: { 
+            //         enabled: true, 
+            //         content: 'Warning',
+            //         borderWidth: 2,
+            //         borderColor: 'transparent',
+            //         position: 'end',
+            //       }
+            //     }
+            //   ]
+            // }
+          }
         }
       });
 

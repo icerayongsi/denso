@@ -203,12 +203,12 @@
                     </tr>
                   </thead>
 
-                    <% let details = JSON.parse(data) %>
                     <% 
+                    try { let details = JSON.parse(data)  
 
-                    let keys_ = Object.keys(details);
-                    let keys_1 = Object.keys(details[keys_[0]])[1];
-                    let subkey = Object.keys(details[0][keys_1][0]);
+                          let keys_ = Object.keys(details);
+                          let keys_1 = Object.keys(details[keys_[0]])[1];
+                          let subkey = Object.keys(details[0][keys_1][0]);
                     
                     %> 
                     <% details.forEach(element => { %>
@@ -219,7 +219,7 @@
                         <td><%= element.data[0][subkey[1].toString()] %></td>
                       </tr>
                       
-                    <% }); %> 
+                    <% }); } catch (ex) { console.log(ex)} %> 
 
                   <tbody>
                     
