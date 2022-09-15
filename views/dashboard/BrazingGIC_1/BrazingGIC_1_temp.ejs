@@ -375,8 +375,48 @@
 
         <!-- SELECTOR 2 : TEMP CHART -->
 
-        <div class="card card-body margin-4 ps-1 pe-1" style="height: 27vh;">
-          <canvas class="my-4 w-100" id="myChart" style="width: 100%;height: 100%"></canvas>
+        <div class="card card-body margin-4 ps-1 pe-1" style="height: var(--main-h);">
+
+          <div class="w-100">
+            <h4 class="ps-2" id="sort-header">
+              Daily maximum
+            </h4>
+          </div>
+          <div class="btn-toolbar mb-2 me-3 mb-md-0 flex-row-reverse">
+
+            
+            
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+              <span data-feather="calendar" class="align-text-bottom"></span>
+              <span id="sort-dropdown-title">By days</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <form method="POST" id="sort-chart-days">
+                  <button class="dropdown-item" type="submit" id="sort-days">By days</button>
+                </form> 
+              </li>
+              <li>
+                <form method="POST" id="sort-chart-weeks">
+                  <button class="dropdown-item" type="submit" id="sort-weeks">By weeks</button>
+                </form> 
+              </li>
+              <li>
+                <form method="POST" id="sort-chart-month">
+                  <button class="dropdown-item" type="submit" id="sort-month">By month</button>
+                </form> 
+              </li>
+            </ul>
+            <p class="mb-0 me-2" style="margin-top: 0.4rem;">| Data sort</p>
+            
+              <div class="form-check form-switch" style="margin-top: 0.4rem;">
+                
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+              </div>
+              <p class="mb-0 me-2" style="margin-top: 0.4rem;">Alarm/Warning line</p>
+          </div>
+          
+          <canvas class="my-1 w-100" id="myChart" style="width: 100%;height: 100%"></canvas>
         </div>
 
         <!-- END SELECTOR 2 : TEMP CHART -->
@@ -393,14 +433,14 @@
 
     <!-- WIP NOTIFY  -->
 
-    <div class="toast align-items-center show position-fixed bottom-0 end-0 text-bg-warning m-2" role="alert"
+    <!-- <div class="toast align-items-center show position-fixed bottom-0 end-0 text-bg-warning m-2" role="alert"
       aria-live="assertive" aria-atomic="true">
       <div class="d-flex">
         <div class="toast-body">
           (WIP) THIS PAGE WORKING IN PROCESS....
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- END WIP NOTIFY  -->
 
@@ -640,7 +680,7 @@ var temp1 = new LinearGauge({
     //         temp9.draw();
     //     },3000);
 
-    const socket = io('http://localhost:5000' , { transports : ['websocket'] });
+    const socket = io('http://78e7-2405-9800-b870-3a44-a818-f3a5-604c-7e34.ngrok.io' , { transports : ['websocket'] });
     socket.on('temp', (res) => {
       temp1.value = res.temp_1;
       $(".temp1-value").html(res.temp_1 + " °C");
@@ -692,32 +732,102 @@ const chart = new Chart(ctx, {
   data: {
     labels: [],
     datasets: [{
-      label: 'X-Axis',
-      data: [],
-      lineTension: 0,
-      backgroundColor: 'transparent',
-      borderColor: '#177D94',
-      borderWidth: 4,
-      pointBackgroundColor: '#177D94'
-    },
-    {
-      label: 'Z-Axis',
-      data: [],
-      lineTension: 0,
-      backgroundColor: 'transparent',
-      borderColor: '#28BEE0',
-      borderWidth: 4,
-      pointBackgroundColor: '#28BEE0'
-    }
+            label: 'Temp 1',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#CE872C',
+            borderWidth: 1,
+            pointBackgroundColor: '#CE872C'
+          },
+          {
+            label: 'Temp 2',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#7F5723',
+            borderWidth: 1,
+            pointBackgroundColor: '#7F5723'
+          },
+          {
+            label: 'Temp 3',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#C92626',
+            borderWidth: 1,
+            pointBackgroundColor: '#C92626'
+          },
+          {
+            label: 'Temp 4',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#842525',
+            borderWidth: 1,
+            pointBackgroundColor: '#842525'
+          },
+          {
+            label: 'Temp 5',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#C62881',
+            borderWidth: 1,
+            pointBackgroundColor: '#C62881'
+          },
+          {
+            label: 'Temp 6',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#7F2257',
+            borderWidth: 1,
+            pointBackgroundColor: '#7F2257'
+          },
+          {
+            label: 'Temp 7',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#8D2FC9',
+            borderWidth: 1,
+            pointBackgroundColor: '#8D2FC9'
+          },
+          {
+            label: 'Temp 8',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#541C77',
+            borderWidth: 1,
+            pointBackgroundColor: '#541C77'
+          },
+          {
+            label: 'Temp 9',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#28BEE0',
+            borderWidth: 1,
+            pointBackgroundColor: '#28BEE0'
+          },
     ]
   },
   options: {
-    legend: {
-      display: false,
-      labels: {
-        fontColor: 'rgb(255, 99, 132)'
-      }
-    },
+    elements:{
+                point:{
+                    borderWidth: 0,
+                    radius: 0,
+                    backgroundColor: 'rgba(0,0,0,0)'
+                }
+              },
+          legend: {
+            display: true,
+            labels: {
+              color: '#adb5bd',
+            }
+          },
     scales: {
       y: {
         ticks: {
@@ -737,38 +847,192 @@ const chart = new Chart(ctx, {
     },
 
     responsive: true,
-    // plugins: {
-    //   annotation: {
-    //     annotations: [
-    //       {
-    //         type: 'line',
-    //         scaleID: 'y',
-    //         value: 15,
-    //         borderColor: 'rgb(255, 65, 65)',
-    //         label: {
-    //           enabled: true, 
-    //           content: 'Alarm',
-    //           borderWidth: 2,
-    //           borderColor: 'transparent',
-    //           position: 'end',
-    //         }
-    //       },
-    //       {
-    //         type: 'line',
-    //         scaleID: 'y',
-    //         value: 6,
-    //         borderColor: 'rgb(255, 192, 65)',
-    //         label: { 
-    //           enabled: true, 
-    //           content: 'Warning',
-    //           borderWidth: 2,
-    //           borderColor: 'transparent',
-    //           position: 'end',
-    //         }
-    //       }
-    //     ]
-    //   }
-    // }
+    plugins: {
+      legend : {
+              labels : {
+                usePointStyle : true,
+                pointStyle : 'line',
+                color: '#adb5bd'              
+              }
+            },
+      annotation: {
+        annotations: [
+          {
+            type: 'line',
+            scaleID: 'y',
+            value: 15,
+            borderColor: 'rgb(255, 65, 65)',
+            label: {
+              enabled: true, 
+              content: 'Alarm',
+              borderWidth: 2,
+              borderColor: 'transparent',
+              position: 'end',
+            }
+          },
+          {
+            type: 'line',
+            scaleID: 'y',
+            value: 6,
+            borderColor: 'rgb(255, 192, 65)',
+            label: { 
+              enabled: true, 
+              content: 'Warning',
+              borderWidth: 2,
+              borderColor: 'transparent',
+              position: 'end',
+            }
+          }
+        ]
+      }
+    }
   }
 })
+</script>
+
+</script>
+
+<!-- CHART AJAX -->
+
+<script>
+
+  chart.options.plugins.annotation.annotations[0].value = 65;
+  chart.options.plugins.annotation.annotations[1].value = 60;
+  chart.update();
+
+  $("#sort-days").click(() => {
+    $("#sort-dropdown-title").html("By days");
+    $("#sort-header").html("Daily maximum");
+  });
+
+  $("#sort-weeks").click(() => {
+    $("#sort-dropdown-title").html("By weeks");
+    $("#sort-header").html("Weekly maximum");
+  });
+
+  $("#sort-month").click(() => {
+    $("#sort-dropdown-title").html("By month");
+    $("#sort-header").html("Monthly maximum");
+  });
+
+  $("#flexSwitchCheckDefault").change(function(){
+      if($(this).prop("checked") == true){
+        chart.options.plugins.annotation.annotations[0].value = 65;
+        chart.options.plugins.annotation.annotations[1].value = 60;
+        chart.update();
+      }else{
+        chart.options.plugins.annotation.annotations[0].value = 0;
+        chart.options.plugins.annotation.annotations[1].value = 0;
+        chart.update();
+      }
+  });
+
+  $(document).ready(() => {
+    $.ajax({
+        url: "/layout/BrazingGIC1/sort-chart-temp",
+        type: "POST",
+        data: {
+            'type': 'days'
+        },
+        success: (data) => {
+            chart.data.datasets[0].data = data.temp_1;
+            chart.data.datasets[1].data = data.temp_2;
+            chart.data.datasets[2].data = data.temp_3;
+            chart.data.datasets[3].data = data.temp_4;
+            chart.data.datasets[4].data = data.temp_5;
+            chart.data.datasets[5].data = data.temp_6;
+            chart.data.datasets[6].data = data.temp_7;
+            chart.data.datasets[7].data = data.temp_8;
+            chart.data.datasets[8].data = data.temp_9;
+
+            chart.data.labels = data.label;
+            chart.update();
+            
+        }
+  });
+});
+
+  $("#sort-chart-days").submit((e) => {
+    e.preventDefault();
+    $.ajax({
+        url: "/layout/BrazingGIC1/sort-chart-temp",
+        type: "POST",
+        data: {
+            'type': 'days'
+        },
+        success: (data) => {
+          chart.data.datasets[0].data = data.temp_1;
+            chart.data.datasets[1].data = data.temp_2;
+            chart.data.datasets[2].data = data.temp_3;
+            chart.data.datasets[3].data = data.temp_4;
+            chart.data.datasets[4].data = data.temp_5;
+            chart.data.datasets[5].data = data.temp_6;
+            chart.data.datasets[6].data = data.temp_7;
+            chart.data.datasets[7].data = data.temp_8;
+            chart.data.datasets[8].data = data.temp_9;
+
+            chart.data.labels = data.label;
+            chart.update();
+            
+        }
+  });
+});
+
+
+
+$("#sort-chart-weeks").submit((e) => {
+    e.preventDefault();
+    $.ajax({
+        url: "/layout/BrazingGIC1/sort-chart-temp",
+        type: "POST",
+        data: {
+            'type': 'weeks'
+        },
+        success: (data) => {
+          chart.data.datasets[0].data = data.temp_1;
+          chart.data.datasets[1].data = data.temp_2;
+          chart.data.datasets[2].data = data.temp_3;
+          chart.data.datasets[3].data = data.temp_4;
+          chart.data.datasets[4].data = data.temp_5;
+          chart.data.datasets[5].data = data.temp_6;
+          chart.data.datasets[6].data = data.temp_7;
+          chart.data.datasets[7].data = data.temp_8;
+          chart.data.datasets[8].data = data.temp_9;
+
+
+
+          chart.data.labels = data.label;
+          chart.update();
+            
+        }
+  });
+});
+
+$("#sort-chart-month").submit((e) => {
+    e.preventDefault();
+    $.ajax({
+        url: "/layout/BrazingGIC1/sort-chart-temp",
+        type: "POST",
+        data: {
+            'type': 'month'
+        },
+        success: (data) => {
+          chart.data.datasets[0].data = data.temp_1;
+          chart.data.datasets[1].data = data.temp_2;
+          chart.data.datasets[2].data = data.temp_3;
+          chart.data.datasets[3].data = data.temp_4;
+          chart.data.datasets[4].data = data.temp_5;
+          chart.data.datasets[5].data = data.temp_6;
+          chart.data.datasets[6].data = data.temp_7;
+          chart.data.datasets[7].data = data.temp_8;
+          chart.data.datasets[8].data = data.temp_9;
+
+
+
+          chart.data.labels = data.label;
+          chart.update();
+            
+        }
+  });
+});
 </script>
