@@ -2,6 +2,7 @@
 
 <%- include('../../partials/navbar_dashboard') -%>
 
+
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
 
       <%- include('BrazingGIC_1_partials/BrazingGIC_1_mechine_img')  %> 
@@ -200,7 +201,7 @@
 
         <!-- SELECTOR 2 : CHART -->
 
-        <div class="card card-body margin-4 ps-1 pe-1" style="height: var(--main-h);">
+        <div class="card card-body margin-4 ps-1 pe-1" style="height: calc(var(--main-h) + var(--chart-responsive));">
 
           <div class="w-100">
             <h4 class="ps-2" id="sort-header">
@@ -240,8 +241,10 @@
               </div>
               <p class="mb-0 me-2" style="margin-top: 0.4rem;">Alarm/Warning line</p>
           </div>
+          <div style="height: 80%;">
+            <canvas class="my-1 w-100" id="myChart"></canvas>
+          </div>
           
-          <canvas class="my-1 w-100" id="myChart" style="width: 100%;height: 100%"></canvas>
         </div>
 
         <!-- END SELECTOR 2 : CHART -->
@@ -466,7 +469,7 @@
       RC_Fan_9_X.set(0);
       RC_Fan_9_Z.set(0);
 
-      const socket = io('http://78e7-2405-9800-b870-3a44-a818-f3a5-604c-7e34.ngrok.io' , { transports : ['websocket'] });
+      const socket = io('https://f9f6-182-232-17-220.ap.ngrok.io' , { transports : ['websocket'] });
       socket.on('vibrator', (res) => {
         console.log(res);
         RC_Fan_1_X.set(res.vi1_X);
@@ -733,6 +736,7 @@
           },
 
           responsive: true,
+          maintainAspectRatio : false,
           plugins: {
             legend : {
               labels : {
@@ -773,7 +777,11 @@
             }
           }
         }
-      })
+      });
+
+      if (window.matchMedia("(max-width: 700px)").matches) {
+        chart.options.maintainAspectRatieo = true;
+      }
 
     </script>
 

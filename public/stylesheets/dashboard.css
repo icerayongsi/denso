@@ -53,7 +53,12 @@ body {
   margin-top: 1.5rem;
 }
 
+:root {
+  --chart-responsive : 0vh;
+}
+
 @media (max-width: 767.98px) {
+  
   .sidebar {
     top: -2rem;
   }
@@ -71,6 +76,12 @@ body {
     margin-top: 1.5rem;
   }
 }
+
+@media (max-width: 1399.98px) {
+  :root {
+    --chart-responsive : 10vh;
+  }
+ }
 
 .sidebar-sticky {
   height: calc(100vh - 48px);

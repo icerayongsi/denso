@@ -261,6 +261,7 @@
           },
 
           responsive: true,
+          maintainAspectRatio : false,
           plugins: {
             legend : {
               labels : {
@@ -313,7 +314,7 @@
     let pre_1_data = [];
     let pre_2_data = [];
     
-    const socket = io('http://78e7-2405-9800-b870-3a44-a818-f3a5-604c-7e34.ngrok.io' , { transports : ['websocket'] });
+    const socket = io('https://f9f6-182-232-17-220.ap.ngrok.io' , { transports : ['websocket'] });
       socket.on('temp-chamber', (res) => {
 
 
