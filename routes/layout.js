@@ -8,6 +8,7 @@ const Data_Schema = require('../models/Schema');
 const mqtt = require('mqtt')
 const client  = mqtt.connect('mqtt://broker.hivemq.com')
 const io = require('socket.io')(5000);
+const moment = require('moment');
 
 let encodeUrl = express.urlencoded({ extended: false });
 
@@ -227,12 +228,38 @@ router.post('/BrazingGIC1/history', encodeUrl, async (req, res, next) => {
 
 });
 
+
+const getLastWeeksDate = (days) => {
+  let result = []
+  for (i = 0;i < days;i++){
+    result.push(moment().isoWeekday((-7 * i) + 1).format('DD/MM/YYYY'));
+  }
+  return result.reverse();
+}
+
+const getLastDaysDate = (days) => {
+  let result = [moment().format('DD/MM/YYYY')]
+  for (i = 1;i < days;i++){
+    result.push(moment().subtract(i, "days").format('DD/MM/YYYY'));
+  }
+  return result.reverse();
+}
+
+const getLastMonthDate = (month) => {
+  let result = []
+  for (i = 0;i < month;i++){
+    result.push(moment().subtract(i, 'months').format('DD/MM/YYYY'));
+  }
+  return result.reverse();
+}
+
+// const now = new Date().toLocaleDateString("th-TH", {timeZone: "Asia/Bangkok",hour12: false});
+// console.log(moment().month(0).format('DD/MM/YYYY'))
+// console.log(getLastMonthDate(4));
+
 router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
   data_x_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, 0.737, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998,0.998, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]
   data_z_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, 0.737, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998, 0.998, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]
-  label_day = ['8/13/2022', '8/14/2022', '8/15/2022', '8/16/2022', '8/17/2022', '8/18/2022', '8/19/2022', '8/20/2022', '8/21/2022', '8/22/2022', '8/23/2022', '8/24/2022', '8/25/2022', '8/26/2022', '8/27/2022', '8/28/2022', '8/29/2022', '8/30/2022', '8/31/2022', '9/1/2022', '9/2/2022', '9/3/2022', '9/4/2022', '9/5/2022', '9/6/2022', '9/7/2022', '9/8/2022', '9/9/2022', '9/10/2022', '9/11/2022']
-  label_week = ['1/23/2022', '1/30/2022', '2/6/2022', '2/13/2022', '2/20/2022', '2/27/2022', '3/13/2022', '3/20/2022', '3/27/2022', '4/3/2022', '4/10/2022', '4/17/2022', '4/24/2022', '5/1/2022', '5/8/2022', '5/15/2022', '5/22/2022', '5/29/2022', '6/5/2022', '6/12/2022', '6/19/2022', '6/26/2022', '7/10/2022', '7/17/2022', '7/24/2022', '8/7/2022', '8/14/2022', '8/28/2022', '9/4/2022', '9/11/2022']
-  label_month = ['4/11/2020', '5/11/2020', '6/11/2020', '7/11/2020', '8/11/2020', '9/11/2020', '10/11/2020', '11/11/2020', '12/11/2020', '1/11/2021', '2/11/2021', '3/11/2021', '4/11/2021', '5/11/2021', '6/11/2021', '7/11/2021', '8/11/2021', '9/11/2021', '10/11/2021', '11/11/2021', '12/11/2021', '1/11/2022', '2/11/2022', '3/11/2022', '4/11/2022', '5/11/2022', '6/11/2022', '7/11/2022', '8/11/2022', '9/11/2022']
 
   var x_0 = [];
   var x_1 = [];
@@ -306,7 +333,7 @@ router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
       z_7 : z_7 ,
       x_8 : x_8 , 
       z_8 : z_8 ,
-      label : label_day});
+      label : getLastDaysDate(30)});
   } else if (req.body.type == 'weeks') {
     res.status(200).send({ 
       x_0 : x_0 , 
@@ -327,7 +354,7 @@ router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
       z_7 : z_7 ,
       x_8 : x_8 , 
       z_8 : z_8 , 
-      label : label_week});
+      label : getLastWeeksDate(7)});
   } else if (req.body.type == 'month') {
     res.status(200).send({ 
       x_0 : x_0 , 
@@ -348,7 +375,7 @@ router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
       z_7 : z_7 ,
       x_8 : x_8 , 
       z_8 : z_8 ,
-      label : label_month});
+      label : getLastMonthDate(4)});
   } 
 
 });
@@ -359,9 +386,6 @@ const getRandomFloat = (min, max, decimals) => {
 }
 
 router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) => {
-  let label_day = ['8/13/2022', '8/14/2022', '8/15/2022', '8/16/2022', '8/17/2022', '8/18/2022', '8/19/2022', '8/20/2022', '8/21/2022', '8/22/2022', '8/23/2022', '8/24/2022', '8/25/2022', '8/26/2022', '8/27/2022', '8/28/2022', '8/29/2022', '8/30/2022', '8/31/2022', '9/1/2022', '9/2/2022', '9/3/2022', '9/4/2022', '9/5/2022', '9/6/2022', '9/7/2022', '9/8/2022', '9/9/2022', '9/10/2022', '9/11/2022']
-  let label_week = ['1/23/2022', '1/30/2022', '2/6/2022', '2/13/2022', '2/20/2022', '2/27/2022', '3/13/2022', '3/20/2022', '3/27/2022', '4/3/2022', '4/10/2022', '4/17/2022', '4/24/2022', '5/1/2022', '5/8/2022', '5/15/2022', '5/22/2022', '5/29/2022', '6/5/2022', '6/12/2022', '6/19/2022', '6/26/2022', '7/10/2022', '7/17/2022', '7/24/2022', '8/7/2022', '8/14/2022', '8/28/2022', '9/4/2022', '9/11/2022']
-  let label_month = ['4/11/2020', '5/11/2020', '6/11/2020', '7/11/2020', '8/11/2020', '9/11/2020', '10/11/2020', '11/11/2020', '12/11/2020', '1/11/2021', '2/11/2021', '3/11/2021', '4/11/2021', '5/11/2021', '6/11/2021', '7/11/2021', '8/11/2021', '9/11/2021', '10/11/2021', '11/11/2021', '12/11/2021', '1/11/2022', '2/11/2022', '3/11/2022', '4/11/2022', '5/11/2022', '6/11/2022', '7/11/2022', '8/11/2022', '9/11/2022']
 
   let temp_1 = [];
   let temp_2 = [];
@@ -397,7 +421,7 @@ router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) =>
       temp_7 : temp_7,
       temp_8 : temp_8,
       temp_9 : temp_9,
-      label : label_day
+      label : getLastDaysDate(30)
     });
   } else if (req.body.type == 'weeks') {
     res.status(200).send({ 
@@ -410,7 +434,7 @@ router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) =>
       temp_7 : temp_7,
       temp_8 : temp_8,
       temp_9 : temp_9,
-      label : label_week
+      label : getLastWeeksDate(7)
     });
   } else if (req.body.type == 'month') {
     res.status(200).send({ 
@@ -423,7 +447,7 @@ router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) =>
       temp_7 : temp_7,
       temp_8 : temp_8,
       temp_9 : temp_9,
-      label : label_month
+      label : getLastMonthDate(4)
     });
   } 
       
@@ -432,9 +456,6 @@ router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) =>
 });
 
 router.post('/BrazingGIC1/sort-chart-current', encodeUrl, async (req, res, next) => {
-  let label_day = ['8/13/2022', '8/14/2022', '8/15/2022', '8/16/2022', '8/17/2022', '8/18/2022', '8/19/2022', '8/20/2022', '8/21/2022', '8/22/2022', '8/23/2022', '8/24/2022', '8/25/2022', '8/26/2022', '8/27/2022', '8/28/2022', '8/29/2022', '8/30/2022', '8/31/2022', '9/1/2022', '9/2/2022', '9/3/2022', '9/4/2022', '9/5/2022', '9/6/2022', '9/7/2022', '9/8/2022', '9/9/2022', '9/10/2022', '9/11/2022']
-  let label_week = ['1/23/2022', '1/30/2022', '2/6/2022', '2/13/2022', '2/20/2022', '2/27/2022', '3/13/2022', '3/20/2022', '3/27/2022', '4/3/2022', '4/10/2022', '4/17/2022', '4/24/2022', '5/1/2022', '5/8/2022', '5/15/2022', '5/22/2022', '5/29/2022', '6/5/2022', '6/12/2022', '6/19/2022', '6/26/2022', '7/10/2022', '7/17/2022', '7/24/2022', '8/7/2022', '8/14/2022', '8/28/2022', '9/4/2022', '9/11/2022']
-  let label_month = ['4/11/2020', '5/11/2020', '6/11/2020', '7/11/2020', '8/11/2020', '9/11/2020', '10/11/2020', '11/11/2020', '12/11/2020', '1/11/2021', '2/11/2021', '3/11/2021', '4/11/2021', '5/11/2021', '6/11/2021', '7/11/2021', '8/11/2021', '9/11/2021', '10/11/2021', '11/11/2021', '12/11/2021', '1/11/2022', '2/11/2022', '3/11/2022', '4/11/2022', '5/11/2022', '6/11/2022', '7/11/2022', '8/11/2022', '9/11/2022']
 
   let current_1 = [];
   let current_2 = [];
@@ -470,7 +491,7 @@ router.post('/BrazingGIC1/sort-chart-current', encodeUrl, async (req, res, next)
       current_7 : current_7,
       current_8 : current_8,
       current_9 : current_9,
-      label : label_day
+      label : getLastDaysDate(30)
     });
   } else if (req.body.type == 'weeks') {
     res.status(200).send({ 
@@ -483,7 +504,7 @@ router.post('/BrazingGIC1/sort-chart-current', encodeUrl, async (req, res, next)
       current_7 : current_7,
       current_8 : current_8,
       current_9 : current_9,
-      label : label_week
+      label : getLastWeeksDate(7)
     });
   } else if (req.body.type == 'month') {
     res.status(200).send({ 
@@ -496,7 +517,7 @@ router.post('/BrazingGIC1/sort-chart-current', encodeUrl, async (req, res, next)
       current_7 : current_7,
       current_8 : current_8,
       current_9 : current_9,
-      label : label_month
+      label : getLastMonthDate(4)
     });
   } 
       
