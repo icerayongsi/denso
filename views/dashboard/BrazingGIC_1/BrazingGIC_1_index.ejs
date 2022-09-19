@@ -540,7 +540,7 @@
           labels: label_day,
           datasets: [{
             label: 'RC Fan 1 (X-Axis)',
-            data: data_x_zxis,
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#177D94',
@@ -549,7 +549,7 @@
           },
           {
             label: 'RC Fan 1 (Z-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#28BEE0',
@@ -558,7 +558,7 @@
           },
           {
             label: 'RC Fan 2 (X-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#179458',
@@ -567,7 +567,7 @@
           },
           {
             label: 'RC Fan 2 (Z-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#28E087',
@@ -576,7 +576,7 @@
           },
           {
             label: 'RC Fan 3 (X-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#D1E028',
@@ -585,7 +585,7 @@
           },
           {
             label: 'RC Fan 3 (Z-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#199D60',
@@ -594,7 +594,7 @@
           },
           {
             label: 'RC Fan 4 (X-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#C6D430',
@@ -603,7 +603,7 @@
           },
           {
             label: 'RC Fan 4 (Z-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#949C36',
@@ -612,7 +612,7 @@
           },
           {
             label: 'RC Fan 5 (X-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#CE872C',
@@ -621,7 +621,7 @@
           },
           {
             label: 'RC Fan 5 (Z-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#7F5723',
@@ -630,7 +630,7 @@
           },
           {
             label: 'RC Fan 6 (X-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#C92626',
@@ -639,7 +639,7 @@
           },
           {
             label: 'RC Fan 6 (Z-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#842525',
@@ -648,7 +648,7 @@
           },
           {
             label: 'RC Fan 7 (X-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#C62881',
@@ -657,7 +657,7 @@
           },
           {
             label: 'RC Fan 7 (Z-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#7F2257',
@@ -666,7 +666,7 @@
           },
           {
             label: 'RC Fan 8 (X-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#8D2FC9',
@@ -675,7 +675,7 @@
           },
           {
             label: 'RC Fan 8 (Z-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#541C77',
@@ -684,7 +684,7 @@
           },
           {
             label: 'RC Fan 9 (X-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#28BEE0',
@@ -693,7 +693,7 @@
           },
           {
             label: 'RC Fan 9 (Z-Axis)',
-            data: data_z_zxis.reverse(),
+            data: [],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#2D25D9',
@@ -706,7 +706,7 @@
           elements:{
                 point:{
                     borderWidth: 0,
-                    radius: 0,
+                    radius: 1,
                     backgroundColor: 'rgba(0,0,0,0)'
                 }
               },
@@ -794,17 +794,17 @@
 
           $("#sort-days").click(() => {
             $("#sort-dropdown-title").html("By days");
-            $("#sort-header").html("Daily maximun");
+            $("#sort-header").html("Daily maximum");
           });
 
           $("#sort-weeks").click(() => {
             $("#sort-dropdown-title").html("By weeks");
-            $("#sort-header").html("Weekly maximun");
+            $("#sort-header").html("Weekly maximum");
           });
 
           $("#sort-month").click(() => {
             $("#sort-dropdown-title").html("By month");
-            $("#sort-header").html("Monthly maximun");
+            $("#sort-header").html("Monthly maximum");
           });
 
           $("#flexSwitchCheckDefault").change(function(){
@@ -917,6 +917,7 @@
                     'type': 'weeks'
                 },
                 success: (data) => {
+                  console.log(data)
                   chart.data.datasets[0].data = data.x_0;
                     chart.data.datasets[1].data = data.z_0;
 
