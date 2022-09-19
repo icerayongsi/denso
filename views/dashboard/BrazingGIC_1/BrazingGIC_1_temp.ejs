@@ -682,7 +682,7 @@ var temp1 = new LinearGauge({
     //         temp9.draw();
     //     },3000);
 
-    const socket = io('https://f9f6-182-232-17-220.ap.ngrok.io' , { transports : ['websocket'] });
+    const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
     socket.on('temp', (res) => {
       temp1.value = res.temp_1;
       $(".temp1-value").html(res.temp_1 + " °C");

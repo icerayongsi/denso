@@ -7,7 +7,7 @@ const Data_Schema = require('../models/Schema');
 
 let encodeUrl = express.urlencoded({ extended: false });
 
-mongoose.connect('mongodb://localhost:27017/TPM', {
+mongoose.connect('mongodb://1.tcp.ap.ngrok.io:21113/TPM', {
   useNewUrlParser: true
 });
 

@@ -469,7 +469,7 @@
       RC_Fan_9_X.set(0);
       RC_Fan_9_Z.set(0);
 
-      const socket = io('https://f9f6-182-232-17-220.ap.ngrok.io' , { transports : ['websocket'] });
+      const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
       socket.on('vibrator', (res) => {
         console.log(res);
         RC_Fan_1_X.set(res.vi1_X);
