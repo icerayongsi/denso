@@ -31,7 +31,6 @@ io.on("connection", (socket) => {
 
   client.on('message', (topic, message) => {
     // console.log(topic.substring(0,8));
-    console.log(message);
     if (topic.substring(0, 8) == '22060001') {
       message = JSON.parse(message.toString());
       socket.emit('temp-chamber', {
