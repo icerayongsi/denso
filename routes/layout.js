@@ -31,7 +31,7 @@ io.on("connection", (socket) => {
 
   client.on('message', (topic, message) => {
     // console.log(topic.substring(0,8));
-
+    console.log(message);
     if (topic.substring(0, 8) == '22060001') {
       message = JSON.parse(message.toString());
       socket.emit('temp-chamber', {
@@ -42,6 +42,11 @@ io.on("connection", (socket) => {
         bz5: message.data[0].Z4_Atmosphere_L,
         pre1: message.data[0].Front_Heater,
         pre2: message.data[0].Exit_Chamber_Heater,
+      });
+      socket.emit('other-sensor', {
+        Meshbelt_Speed: message.data[0].Meshbelt_Speed,
+        O2_Density: message.data[0].O2_Density,
+        N2_Gas_supply: message.data[0].N2_Gas_supply,
       });
     }
 
@@ -366,7 +371,7 @@ router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
   if (req.body.type == 'days') {
 
     let result_day = [];
-    for (i = 0; i < 30; i++) {
+    for (i = 0; i < 26; i++) {
 
       let last_day = Date.now() - 86400000 * (1 + i);
 
@@ -456,6 +461,7 @@ router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
 
     });
 
+
     res.status(200).send({
       x_0: x_0.reverse(),
       z_0: z_0.reverse(),
@@ -475,7 +481,7 @@ router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
       z_7: z_7.reverse(),
       x_8: x_8.reverse(),
       z_8: z_8.reverse(),
-      label: getLastDaysDate(24)
+      label: getLastDaysDate(25)
     });
   } else if (req.body.type == 'weeks') {
 

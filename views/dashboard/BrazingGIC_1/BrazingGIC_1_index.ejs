@@ -11,7 +11,7 @@
 
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
-          <h3 class="text-uppercase" style="font-weight: 700;">COND NB 1 / vibrator rc fan </h3>
+          <h3 class="text-uppercase" style="font-weight: 700;">BRS NB 1 / vibrator rc fan </h3>
           
         </div>
 
@@ -471,7 +471,7 @@
 
       const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
       socket.on('vibrator', (res) => {
-        console.log(res);
+        
         RC_Fan_1_X.set(res.vi1_X);
         RC_Fan_1_Z.set(res.vi1_Z);
         $(".badge-rc-1").html("RC Fan 1<br>X : " + RC_Fan_1_X.value + "<br> Z : " + RC_Fan_1_Z.value);
