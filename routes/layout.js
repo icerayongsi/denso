@@ -679,6 +679,10 @@ const getRandomFloat = (min, max, decimals) => {
 
 router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) => {
 
+  let first_row = await Data_Schema.findOne({}, { times: 1 })
+
+  let date_label = [];
+
   let temp_1 = [];
   let temp_2 = [];
   let temp_3 = [];
@@ -689,57 +693,225 @@ router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) =>
   let temp_8 = [];
   let temp_9 = [];
 
-  for (let i = 0; i <= 30; i++) {
-    temp_1.push(getRandomFloat(53, 56, 0));
-    temp_2.push(getRandomFloat(53, 47, 0));
-    temp_3.push(getRandomFloat(45, 47, 0));
-    temp_4.push(getRandomFloat(45, 47, 0));
-    temp_5.push(getRandomFloat(45, 47, 0));
-    temp_6.push(getRandomFloat(45, 47, 0));
-    temp_7.push(getRandomFloat(45, 47, 0));
-    temp_8.push(getRandomFloat(45, 47, 0));
-    temp_9.push(getRandomFloat(49, 51, 0));
-  }
+  // for (let i = 0; i <= 30; i++) {
+  //   temp_1.push(getRandomFloat(53, 56, 0));
+  //   temp_2.push(getRandomFloat(53, 47, 0));
+  //   temp_3.push(getRandomFloat(45, 47, 0));
+  //   temp_4.push(getRandomFloat(45, 47, 0));
+  //   temp_5.push(getRandomFloat(45, 47, 0));
+  //   temp_6.push(getRandomFloat(45, 47, 0));
+  //   temp_7.push(getRandomFloat(45, 47, 0));
+  //   temp_8.push(getRandomFloat(45, 47, 0));
+  //   temp_9.push(getRandomFloat(49, 51, 0));
+  // }
 
 
   if (req.body.type == 'days') {
+
+    let result_day = [];
+    for (i = 0; i < 26; i++) {
+
+      let last_day = Date.now() - 86400000 * (1 + i);
+
+      result_day.push(await Data_Schema.aggregate([
+        {
+          $match: {
+            times: {
+              $gte: Date.now() - 86400000 * (1 + i),
+              $lte: Date.now() - 86400000 * (0 + i)
+            }
+          }
+        },
+        {
+          $group:
+          {
+            _id: moment().subtract(i, "days").format('DD/MM/YYYY'),
+            temp_1 : { $max: "$data.temp_1" || 0 },
+            temp_2 : { $max: "$data.temp_2" || 0 },
+            temp_3 : { $max: "$data.temp_3" || 0 },
+            temp_4 : { $max: "$data.temp_4" || 0 },
+            temp_5 : { $max: "$data.temp_5" || 0 },
+            temp_6 : { $max: "$data.temp_6" || 0 },
+            temp_7 : { $max: "$data.temp_7" || 0 },
+            temp_8 : { $max: "$data.temp_8" || 0 },
+            temp_9 : { $max: "$data.temp_9" || 0 },
+          }
+        }
+
+      ]));
+
+      if (last_day < first_row.times) {
+        break;
+      }
+    }
+
+    
+
+    result_day.forEach((element, i) => {
+      //date_label.push(element[0]._id)
+      try {
+        temp_1.push(element[0].temp_1[0] || 0);
+        temp_2.push(element[0].temp_2[0] || 0);
+        temp_3.push(element[0].temp_3[0] || 0);
+        temp_4.push(element[0].temp_4[0] || 0);
+        temp_5.push(element[0].temp_5[0] || 0);
+        temp_6.push(element[0].temp_6[0] || 0);
+        temp_7.push(element[0].temp_7[0] || 0);
+        temp_8.push(element[0].temp_8[0] || 0);
+        temp_9.push(element[0].temp_9[0] || 0);
+      } catch {
+        temp_1.push(0);
+        temp_2.push(0);
+        temp_3.push(0);
+        temp_4.push(0);
+        temp_5.push(0);
+        temp_6.push(0);
+        temp_7.push(0);
+        temp_8.push(0);
+        temp_9.push(0);
+      }
+
+    });
+
     res.status(200).send({
-      temp_1: temp_1,
-      temp_2: temp_2,
-      temp_3: temp_3,
-      temp_4: temp_4,
-      temp_5: temp_5,
-      temp_6: temp_6,
-      temp_7: temp_7,
-      temp_8: temp_8,
-      temp_9: temp_9,
-      label: getLastDaysDate(30)
+      temp_1: temp_1.reverse(),
+      temp_2: temp_2.reverse(),
+      temp_3: temp_3.reverse(),
+      temp_4: temp_4.reverse(),
+      temp_5: temp_5.reverse(),
+      temp_6: temp_6.reverse(),
+      temp_7: temp_7.reverse(),
+      temp_8: temp_8.reverse(),
+      temp_9: temp_9.reverse(),
+      label: getLastDaysDate(25)
     });
   } else if (req.body.type == 'weeks') {
+
+    let result_week = [];
+
+    for (i = 0; i < 7; i++) {
+      let last_week = Date.now() - 604800000 * (1 + i);
+      result_week.push(await Data_Schema.aggregate([
+        {
+          $match: {
+            times: {
+              $gte: Date.now() - 604800000 * (1 + i),
+              $lte: Date.now() - 604800000 * (0 + i)
+            }
+          }
+        },
+        {
+          $group:
+          {
+            _id: moment().isoWeekday((-7 * i) + 1).format('DD/MM/YYYY'),
+            temp_1 : { $max: "$data.temp_1" || 0 },
+            temp_2 : { $max: "$data.temp_2" || 0 },
+            temp_3 : { $max: "$data.temp_3" || 0 },
+            temp_4 : { $max: "$data.temp_4" || 0 },
+            temp_5 : { $max: "$data.temp_5" || 0 },
+            temp_6 : { $max: "$data.temp_6" || 0 },
+            temp_7 : { $max: "$data.temp_7" || 0 },
+            temp_8 : { $max: "$data.temp_8" || 0 },
+            temp_9 : { $max: "$data.temp_9" || 0 },
+          }
+        }
+      ]));
+
+      if (last_week <= first_row.times) {
+        break;
+      }
+
+    }
+
+    result_week.forEach((element, i) => {
+      date_label.push(element[0]._id)
+      temp_1.push(element[0].temp_1[0] || 0);
+      temp_2.push(element[0].temp_2[0] || 0);
+      temp_3.push(element[0].temp_3[0] || 0);
+      temp_4.push(element[0].temp_4[0] || 0);
+      temp_5.push(element[0].temp_5[0] || 0);
+      temp_6.push(element[0].temp_6[0] || 0);
+      temp_7.push(element[0].temp_7[0] || 0);
+      temp_8.push(element[0].temp_8[0] || 0);
+      temp_9.push(element[0].temp_9[0] || 0);
+
+    });
+
     res.status(200).send({
-      temp_1: temp_1,
-      temp_2: temp_2,
-      temp_3: temp_3,
-      temp_4: temp_4,
-      temp_5: temp_5,
-      temp_6: temp_6,
-      temp_7: temp_7,
-      temp_8: temp_8,
-      temp_9: temp_9,
-      label: getLastWeeksDate(7)
+      temp_1: temp_1.reverse(),
+      temp_2: temp_2.reverse(),
+      temp_3: temp_3.reverse(),
+      temp_4: temp_4.reverse(),
+      temp_5: temp_5.reverse(),
+      temp_6: temp_6.reverse(),
+      temp_7: temp_7.reverse(),
+      temp_8: temp_8.reverse(),
+      temp_9: temp_9.reverse(),
+      label: date_label.reverse()
     });
   } else if (req.body.type == 'month') {
+
+    let result_month = [];
+    for (i = 0; i < 4; i++) {
+
+      let last_month = Date.now() - 2678400000 * (1 + i);
+
+      result_month.push(await Data_Schema.aggregate([
+        {
+          $match: {
+            times: {
+              $gte: Date.now() - 2678400000 * (1 + i),
+              $lte: Date.now() - 2678400000 * (0 + i)
+            }
+          }
+        },
+        {
+          $group:
+          {
+            _id: moment().subtract(i, "month").format('DD/MM/YYYY'),
+            temp_1 : { $max: "$data.temp_1" || 0 },
+            temp_2 : { $max: "$data.temp_2" || 0 },
+            temp_3 : { $max: "$data.temp_3" || 0 },
+            temp_4 : { $max: "$data.temp_4" || 0 },
+            temp_5 : { $max: "$data.temp_5" || 0 },
+            temp_6 : { $max: "$data.temp_6" || 0 },
+            temp_7 : { $max: "$data.temp_7" || 0 },
+            temp_8 : { $max: "$data.temp_8" || 0 },
+            temp_9 : { $max: "$data.temp_9" || 0 },
+          }
+        }
+
+      ]));
+      if (last_month < first_row.times) {
+        break;
+      }
+    }
+
+    result_month.forEach((element, i) => {
+      date_label.push(element[0]._id)
+      temp_1.push(element[0].temp_1[0] || 0);
+      temp_2.push(element[0].temp_2[0] || 0);
+      temp_3.push(element[0].temp_3[0] || 0);
+      temp_4.push(element[0].temp_4[0] || 0);
+      temp_5.push(element[0].temp_5[0] || 0);
+      temp_6.push(element[0].temp_6[0] || 0);
+      temp_7.push(element[0].temp_7[0] || 0);
+      temp_8.push(element[0].temp_8[0] || 0);
+      temp_9.push(element[0].temp_9[0] || 0);
+    });
+
+
     res.status(200).send({
-      temp_1: temp_1,
-      temp_2: temp_2,
-      temp_3: temp_3,
-      temp_4: temp_4,
-      temp_5: temp_5,
-      temp_6: temp_6,
-      temp_7: temp_7,
-      temp_8: temp_8,
-      temp_9: temp_9,
-      label: getLastMonthDate(4)
+      temp_1: temp_1.reverse(),
+      temp_2: temp_2.reverse(),
+      temp_3: temp_3.reverse(),
+      temp_4: temp_4.reverse(),
+      temp_5: temp_5.reverse(),
+      temp_6: temp_6.reverse(),
+      temp_7: temp_7.reverse(),
+      temp_8: temp_8.reverse(),
+      temp_9: temp_9.reverse(),
+      label: date_label.reverse()
     });
   }
 
