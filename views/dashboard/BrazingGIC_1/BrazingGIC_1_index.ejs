@@ -282,7 +282,7 @@
 
         staticLabels: {
           font: "10px sans-serif",
-          labels: [0, 2, 4, 6, 8, 10],
+          labels: [0, 10, 20, 30, 40, 50],
           color: "#fff",
           fractionDigits: 0
         },
@@ -290,9 +290,9 @@
         staticZones: [
           // {strokeStyle: "#F03E3E", min: 0, max: 200},
           // {strokeStyle: "#FFDD00", min: 200, max: 500},
-          { strokeStyle: "#30B32D", min: 0, max: 4 },
-          { strokeStyle: "#FFDD00", min: 4, max: 6 },
-          { strokeStyle: "#F03E3E", min: 6, max: 10 }
+          { strokeStyle: "#30B32D", min: 0, max: 20 },
+          { strokeStyle: "#FFDD00", min: 20, max: 30 },
+          { strokeStyle: "#F03E3E", min: 30, max: 50 }
         ],
 
         renderTicks: {
@@ -349,32 +349,32 @@
       var RC_Fan_9_X = new Gauge(document.getElementById('RC-Fan-9-X')).setOptions(opts);
       var RC_Fan_9_Z = new Gauge(document.getElementById('RC-Fan-9-Z')).setOptions(opts);
 
-      RC_Fan_1_X.maxValue = 10;
-      RC_Fan_1_Z.maxValue = 10;
+      RC_Fan_1_X.maxValue = 50;
+      RC_Fan_1_Z.maxValue = 50;
 
-      RC_Fan_2_X.maxValue = 10;
-      RC_Fan_2_Z.maxValue = 10;
+      RC_Fan_2_X.maxValue = 50;
+      RC_Fan_2_Z.maxValue = 50;
 
-      RC_Fan_3_X.maxValue = 10;
-      RC_Fan_3_Z.maxValue = 10;
+      RC_Fan_3_X.maxValue = 50;
+      RC_Fan_3_Z.maxValue = 50;
 
-      RC_Fan_4_X.maxValue = 10;
-      RC_Fan_4_Z.maxValue = 10;
+      RC_Fan_4_X.maxValue = 50;
+      RC_Fan_4_Z.maxValue = 50;
 
-      RC_Fan_5_X.maxValue = 10;
-      RC_Fan_5_Z.maxValue = 10;
+      RC_Fan_5_X.maxValue = 50;
+      RC_Fan_5_Z.maxValue = 50;
 
-      RC_Fan_6_X.maxValue = 10;
-      RC_Fan_6_Z.maxValue = 10;
+      RC_Fan_6_X.maxValue = 50;
+      RC_Fan_6_Z.maxValue = 50;
 
-      RC_Fan_7_X.maxValue = 10;
-      RC_Fan_7_Z.maxValue = 10;
+      RC_Fan_7_X.maxValue = 50;
+      RC_Fan_7_Z.maxValue = 50;
 
-      RC_Fan_8_X.maxValue = 10;
-      RC_Fan_8_Z.maxValue = 10;
+      RC_Fan_8_X.maxValue = 50;
+      RC_Fan_8_Z.maxValue = 50;
 
-      RC_Fan_9_X.maxValue = 10;
-      RC_Fan_9_Z.maxValue = 10;
+      RC_Fan_9_X.maxValue = 50;
+      RC_Fan_9_Z.maxValue = 50;
 
       // RC_Fan_1_X.set(Math.floor(Math.random() * 3) + 1);
       // RC_Fan_1_Z.set(Math.floor(Math.random() * 3) + 1);
@@ -788,8 +788,8 @@
 
         <script>
 
-          chart.options.plugins.annotation.annotations[0].value = 6;
-          chart.options.plugins.annotation.annotations[1].value = 4;
+          chart.options.plugins.annotation.annotations[0].value = 30;
+          chart.options.plugins.annotation.annotations[1].value = 20;
           chart.update();
 
           $("#sort-days").click(() => {
@@ -809,8 +809,8 @@
 
           $("#flexSwitchCheckDefault").change(function(){
               if($(this).prop("checked") == true){
-                chart.options.plugins.annotation.annotations[0].value = 6;
-                chart.options.plugins.annotation.annotations[1].value = 4;
+                chart.options.plugins.annotation.annotations[0].value = 30;
+                chart.options.plugins.annotation.annotations[1].value = 20;
                 chart.update();
               }else{
                 chart.options.plugins.annotation.annotations[0].value = 0;
