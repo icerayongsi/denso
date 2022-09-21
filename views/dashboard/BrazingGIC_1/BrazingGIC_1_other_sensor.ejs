@@ -160,7 +160,7 @@
 
         ],
         staticLabels: {
-          font: "10px sans-serif",
+          font: "6px sans-serif",
           labels: [0, 600, 1200, 1800, 2400, 3000],
           color: "#fff",
           fractionDigits: 0
@@ -170,9 +170,10 @@
 
       O2_Density.setOptions({
         staticZones: [
-          {strokeStyle: "#F03E3E", min: 0, max: 100},
+          {strokeStyle: "#30B32D", min: 0, max: 100},
           {strokeStyle: "#FFDD00", min: 100, max: 150},
-          { strokeStyle: "#30B32D", min: 150, max: 200 },
+          { strokeStyle: "#F03E3E", min: 150, max: 200 },
+          
 
         ],
         staticLabels: {
@@ -206,7 +207,7 @@
       const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
       socket.on('other-sensor', (res) => {
         Meshbelt.set(res.Meshbelt_Speed);
-        $(".g1-value").html(Meshbelt.value + " mm/min");
+        $(".g1-value").html(Meshbelt.value + " mm/Min");
 
         O2_Density.set(res.O2_Density);
         $(".g2-value").html(O2_Density.value + " ppm");
