@@ -6,10 +6,9 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const Data_Schema = require('../models/Schema');
 const mqtt = require('mqtt')
-const client = mqtt.connect('mqtt://broker.hivemq.com')
+const client = mqtt.connect('mqtt://broker.hivemq.com');
 const io = require('socket.io')(5000);
 const moment = require('moment');
-const { type } = require('os');
 
 let encodeUrl = express.urlencoded({ extended: false });
 
@@ -476,13 +475,13 @@ router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
       z_5: z_5.reverse(),
       // x_6: x_6.reverse(),
       x_6 : [
-        2.125,  3.571, 4.362, 6.272,
+          3.571, 4.362, 6.272,
         6.94, 10.657,  12.112,  16.428,
-        27.278, 1.002,      0,      0,
+        27.278, 0,      0,      0,
             0,     0,      0,      0,
             0, 0.799,  0.989,  0.892,
         1.069, 1.091,  1.035,  2.158,
-        1.086, 1.053
+        1.086, 1.053,1.053
       ],
       z_6: z_6.reverse(),
       x_7: x_7.reverse(),
