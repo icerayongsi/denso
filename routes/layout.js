@@ -86,8 +86,7 @@ io.on("connection", (socket) => {
 
     if (topic.substring(0, 8) == '22080001') {
       message = JSON.parse(message.toString());
-      console.log(message);
-      socket.emit('all-data', {
+      socket.emit('gcac-1-all-data', {
         MC_Status : message.data[0].MC_Status,
         CH1_PA : message.data[0].CH1_PA,
         CH1_MPA1 : message.data[0].CH1_MPA1,
@@ -113,6 +112,40 @@ io.on("connection", (socket) => {
         Cal_NG_CH2 : message.data[0].Cal_NG_CH2,
         Cal_SN_CH2 : message.data[0].Cal_SN_CH2,
         Cal_HE : message.data[0].Cal_HE
+      });
+    }
+
+    if (topic.substring(0, 8) == '22100001') {
+      message = JSON.parse(message.toString());
+      socket.emit('helium-brs-all-data', {
+        MC_Status : message.data[0].MC_Status,
+        Pressure_Chamber_A : message.data[0].Pressure_Chamber_A,
+        Work_Chamber_A : message.data[0].Work_Chamber_A,
+        Work_Chamber_B : message.data[0].Work_Chamber_B,
+        Pressure_Chamber_B : message.data[0].Pressure_Chamber_B,
+        Leak_rate_A : message.data[0].Leak_rate_A,
+        Alarm_A : message.data[0].Alarm_A,
+        Leak_rate_B : message.data[0].Leak_rate_B,
+        Alarm_B : message.data[0].Alarm_B,
+        Pressure_Chamber_C : message.data[0].Pressure_Chamber_C,
+        Work_Chamber_C : message.data[0].Work_Chamber_C,
+        Work_Chamber_D : message.data[0].Work_Chamber_D,
+        Pressure_Chamber_D : message.data[0].Pressure_Chamber_D,
+        Leak_rate_C : message.data[0].Leak_rate_C,
+        Alarm_C : message.data[0].Alarm_C,
+        Leak_rate_D : message.data[0].Leak_rate_D,
+        Alarm_D : message.data[0].Alarm_D,
+        Pressure_Chamber_E : message.data[0].Pressure_Chamber_E,
+        Work_Chamber_E : message.data[0].Work_Chamber_E,
+        Work_Chamber_F : message.data[0].Work_Chamber_F,
+        Pressure_Chamber_F : message.data[0].Pressure_Chamber_F,
+        Leak_rate_E : message.data[0].Leak_rate_E,
+        Alarm_E : message.data[0].Alarm_E,
+        Leak_rate_F : message.data[0].Leak_rate_F,
+        Alarm_F : message.data[0].Alarm_F,
+        HCM : message.data[0].HCM,
+        status : message.data[0].status,
+        calibrate : message.data[0].calibrate
       });
     }
 

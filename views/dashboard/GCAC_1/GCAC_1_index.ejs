@@ -35,8 +35,104 @@
           </th>
         </tr>
         <tr>
-          <td>dsds</td>
-          <td></td>
+          <td>MC_Status</td>
+          <td class="MC_Status"></td>
+        </tr>
+        <tr>
+          <td>CH1_PA</td>
+          <td class="CH1_PA"></td>
+        </tr>
+        <tr>
+          <td>CH1_MPA1</td>
+          <td class="CH1_MPA1"></td>
+        </tr>
+        <tr>
+          <td>CH1_MPA2</td>
+          <td class="CH1_MPA2"></td>
+        </tr>
+        <tr>
+          <td>CH1_MPA3</td>
+          <td class="CH1_MPA3"></td>
+        </tr>
+        <tr>
+          <td>CH1_CT</td>
+          <td class="CH1_CT"></td>
+        </tr>
+        <tr>
+          <td>CH2_PA</td>
+          <td class="CH2_PA"></td>
+        </tr>
+        <tr>
+          <td>CH2_MPA1</td>
+          <td class="CH2_MPA1"></td>
+        </tr>
+        <tr>
+          <td>CH2_MPA2</td>
+          <td class="CH2_MPA2"></td>
+        </tr>
+        <tr>
+          <td>CH2_MPA3</td>
+          <td class="CH2_MPA3"></td>
+        </tr>
+        <tr>
+          <td>CH2_CT</td>
+          <td class="CH2_CT"></td>
+        </tr>
+        <tr>
+          <td>Bit_Trig</td>
+          <td class="Bit_Trig"></td>
+        </tr>
+        <tr>
+          <td>Cal_BG1_CH1</td>
+          <td class="Cal_BG1_CH1"></td>
+        </tr>
+        <tr>
+          <td>Cal_BG2_CH1</td>
+          <td class="Cal_BG2_CH1"></td>
+        </tr>
+        <tr>
+          <td>Cal_SG1_CH1</td>
+          <td class="Cal_SG1_CH1"></td>
+        </tr>
+        <tr>
+          <td>Cal_SG2_CH1</td>
+          <td class="Cal_SG2_CH1"></td>
+        </tr>
+        <tr>
+          <td>Cal_NG_CH1</td>
+          <td class="Cal_NG_CH1"></td>
+        </tr>
+        <tr>
+          <td>Cal_SN_CH1</td>
+          <td class="Cal_SN_CH1"></td>
+        </tr>
+        <tr>
+          <td>Cal_BG1_CH2</td>
+          <td class="Cal_BG1_CH2"></td>
+        </tr>
+        <tr>
+          <td>Cal_BG2_CH2</td>
+          <td class="Cal_BG2_CH2"></td>
+        </tr>
+        <tr>
+          <td>Cal_SG1_CH2</td>
+          <td class="Cal_SG1_CH2"></td>
+        </tr>
+        <tr>
+          <td>Cal_SG2_CH2</td>
+          <td class="Cal_SG2_CH2"></td>
+        </tr>
+        <tr>
+          <td>Cal_NG_CH2</td>
+          <td class="Cal_NG_CH2"></td>
+        </tr>
+        <tr>
+          <td>Cal_SN_CH2</td>
+          <td class="Cal_SN_CH2"></td>
+        </tr>
+        <tr>
+          <td>Cal_HE</td>
+          <td class="Cal_HE"></td>
         </tr>
       </table>
 
@@ -48,7 +144,31 @@
 
 <script>
   const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
-  socket.on('all-data', (res) => {
-    console.log(res);
+  socket.on('gcac-1-all-data', (res) => {
+    $(".MC_Status").html(res.MC_Status);
+    $(".CH1_PA").html(res.CH1_PA);
+    $(".CH1_MPA1").html(res.CH1_MPA1);
+    $(".CH1_MPA2").html(res.CH1_MPA2);
+    $(".CH1_MPA3").html(res.CH1_MPA3);
+    $(".CH1_CT").html(res.CH1_CT);
+    $(".CH2_PA").html(res.CH2_PA);
+    $(".CH2_MPA1").html(res.CH2_MPA1);
+    $(".CH2_MPA2").html(res.CH2_MPA2);
+    $(".CH2_MPA3").html(res.CH2_MPA3);
+    $(".CH2_CT").html(res.CH2_CT);
+    $(".Bit_Trig").html(res.Bit_Trig);
+    $(".Cal_BG1_CH1").html(res.Cal_BG1_CH1);
+    $(".Cal_BG2_CH1").html(res.Cal_BG2_CH1);
+    $(".Cal_SG1_CH1").html(res.Cal_SG1_CH1);
+    $(".Cal_SG2_CH1").html(res.Cal_SG2_CH1);
+    $(".Cal_NG_CH1").html(res.Cal_NG_CH1);
+    $(".Cal_SN_CH1").html(res.Cal_SN_CH1);
+    $(".Cal_BG1_CH2").html(res.Cal_BG1_CH2);
+    $(".Cal_BG2_CH2").html(res.Cal_BG2_CH2);
+    $(".Cal_SG1_CH2").html(res.Cal_SG1_CH2);
+    $(".Cal_SG2_CH2").html(res.Cal_SG2_CH2);
+    $(".Cal_NG_CH2").html(res.Cal_NG_CH2);
+    $(".Cal_SN_CH2").html(res.Cal_SN_CH2);
+    $(".Cal_HE").html(res.Cal_HE);
   });
 </script>
