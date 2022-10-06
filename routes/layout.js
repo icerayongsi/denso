@@ -19,6 +19,7 @@ client.on('connect', () => {
   client.subscribe('22060001/#');
   client.subscribe('22060050/#');
   client.subscribe('22080001/#');
+  client.subscribe('22100001/#');
 });
 
 // client.on('message', (topic, message) => {

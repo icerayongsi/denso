@@ -26,3 +26,10 @@
       
 
   </main>
+
+<script>
+  const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
+  socket.on('helium-brs-all-data', (res) => {
+    console.log(res);
+  });
+</script>
