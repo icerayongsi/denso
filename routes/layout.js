@@ -18,7 +18,7 @@ var title = 'Denso';
 client.on('connect', () => {
   client.subscribe('22060001/#');
   client.subscribe('22060050/#');
-  client.subscribe('22080050/#');
+  client.subscribe('22080001/#');
 });
 
 // client.on('message', (topic, message) => {
@@ -86,6 +86,7 @@ io.on("connection", (socket) => {
 
     if (topic.substring(0, 8) == '22080001') {
       message = JSON.parse(message.toString());
+      console.log(message);
       socket.emit('all-data', {
         MC_Status : message.data[0].MC_Status,
         CH1_PA : message.data[0].CH1_PA,
