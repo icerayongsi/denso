@@ -23,6 +23,128 @@
         
       </div>
 
+            <!-- MAIN CONTENT -->
+
+            <table class="table">
+              <tr>
+                <th scope="col">
+                  Data
+                </th>
+                <th scope="col">
+                  Values
+                </th>
+              </tr>
+              <tr>
+                <td>MC_Status</td>
+                <td class="MC_Status"></td>
+              </tr>
+              <tr>
+                <td>Pressure_Chamber_A</td>
+                <td class="Pressure_Chamber_A"></td>
+              </tr>
+              <tr>
+                <td>Work_Chamber_A</td>
+                <td class="Work_Chamber_A"></td>
+              </tr>
+              <tr>
+                <td>Work_Chamber_B</td>
+                <td class="Work_Chamber_B"></td>
+              </tr>
+              <tr>
+                <td>Pressure_Chamber_B</td>
+                <td class="Pressure_Chamber_B"></td>
+              </tr>
+              <tr>
+                <td>Leak_rate_A</td>
+                <td class="Leak_rate_A"></td>
+              </tr>
+              <tr>
+                <td>Alarm_A</td>
+                <td class="Alarm_A"></td>
+              </tr>
+              <tr>
+                <td>Leak_rate_B</td>
+                <td class="Leak_rate_B"></td>
+              </tr>
+              <tr>
+                <td>Alarm_B</td>
+                <td class="Alarm_B"></td>
+              </tr>
+              <tr>
+                <td>Pressure_Chamber_C</td>
+                <td class="Pressure_Chamber_C"></td>
+              </tr>
+              <tr>
+                <td>Work_Chamber_C</td>
+                <td class="Work_Chamber_C"></td>
+              </tr>
+              <tr>
+                <td>Work_Chamber_D</td>
+                <td class="Work_Chamber_D"></td>
+              </tr>
+              <tr>
+                <td>Pressure_Chamber_D</td>
+                <td class="Pressure_Chamber_D"></td>
+              </tr>
+              <tr>
+                <td>Leak_rate_C</td>
+                <td class="Leak_rate_C"></td>
+              </tr>
+              <tr>
+                <td>Alarm_C</td>
+                <td class="Alarm_C"></td>
+              </tr>
+              <tr>
+                <td>Leak_rate_D</td>
+                <td class="Leak_rate_D"></td>
+              </tr>
+              <tr>
+                <td>Alarm_D</td>
+                <td class="Alarm_D"></td>
+              </tr>
+              <tr>
+                <td>Pressure_Chamber_E</td>
+                <td class="Pressure_Chamber_E"></td>
+              </tr>
+              <tr>
+                <td>Work_Chamber_E</td>
+                <td class="Work_Chamber_E"></td>
+              </tr>
+              <tr>
+                <td>Work_Chamber_F</td>
+                <td class="Work_Chamber_F"></td>
+              </tr>
+              <tr>
+                <td>Pressure_Chamber_F</td>
+                <td class="Pressure_Chamber_F"></td>
+              </tr>
+              <tr>
+                <td>Leak_rate_E</td>
+                <td class="Leak_rate_E"></td>
+              </tr>
+              <tr>
+                <td>Alarm_E</td>
+                <td class="Leak_rate_F"></td>
+              </tr>
+              <tr>
+                <td>Alarm_F</td>
+                <td class="Alarm_F"></td>
+              </tr>
+              <tr>
+                <td>HCM</td>
+                <td class="HCM"></td>
+              </tr>
+              <tr>
+                <td>status</td>
+                <td class="status"></td>
+              </tr>
+              <tr>
+                <td>calibrate</td>
+                <td class="calibrate"></td>
+              </tr>
+            </table>
+      
+            <!-- END MAIN CONTENT -->
       
 
   </main>
@@ -30,6 +152,33 @@
 <script>
   const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
   socket.on('helium-brs-all-data', (res) => {
-    console.log(res);
+    $(".MC_Status").html(res.MC_Status);
+    $(".Pressure_Chamber_A").html(res.Pressure_Chamber_A);
+    $(".Work_Chamber_A").html(res.Work_Chamber_A);
+    $(".Work_Chamber_B").html(res.Work_Chamber_B);
+    $(".Pressure_Chamber_B").html(res.Pressure_Chamber_B);
+    $(".Leak_rate_A").html(res.Leak_rate_A);
+    $(".Alarm_A").html(res.Alarm_A);
+    $(".Leak_rate_B").html(res.Leak_rate_B);
+    $(".Alarm_B").html(res.Alarm_B);
+    $(".Pressure_Chamber_C").html(res.Pressure_Chamber_C);
+    $(".Work_Chamber_C").html(res.Work_Chamber_C);
+    $(".Work_Chamber_D").html(res.Work_Chamber_D);
+    $(".Pressure_Chamber_D").html(res.Pressure_Chamber_D);
+    $(".Leak_rate_C").html(res.Leak_rate_C);
+    $(".Alarm_C").html(res.Alarm_C);
+    $(".Leak_rate_D").html(res.Leak_rate_D);
+    $(".Alarm_D").html(res.Alarm_D);
+    $(".Pressure_Chamber_E").html(res.Pressure_Chamber_E);
+    $(".Work_Chamber_E").html(res.Work_Chamber_E);
+    $(".Work_Chamber_F").html(res.Work_Chamber_F);
+    $(".Pressure_Chamber_F").html(res.Pressure_Chamber_F);
+    $(".Leak_rate_E").html(res.Leak_rate_E);
+    $(".Alarm_E").html(res.Alarm_E);
+    $(".Leak_rate_F").html(res.Leak_rate_F);
+    $(".Alarm_F").html(res.Alarm_F);
+    $(".HCM").html(res.HCM);
+    $(".status").html(res.status);
+    $(".calibrate").html(res.calibrate);
   });
 </script>

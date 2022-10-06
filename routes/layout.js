@@ -1087,6 +1087,34 @@ router.get('/HeliumBRS', function (req, res, next) {
 
 // END HELIUM BRS
 
+// MPOC
+
+router.get('/MPOC', function (req, res, next) {
+  // if (!req.session.userid) res.redirect('/login');
+
+  res.render('dashboard/MPOC/MPOC', { title: title, header: 'MPOC', page: req.query.page });
+});
+
+// END MPOC
+
+// HLOC
+
+router.get('/HLOC', function (req, res, next) {
+  // if (!req.session.userid) res.redirect('/login');
+
+  res.render('dashboard/HLOC/HLOC', { title: title, header: 'HLOC', page: req.query.page });
+});
+
+// END HLOC
+
+// BrazingGIC2
+
+router.get('/BrazingGIC2', function (req, res, next) {
+  // if (!req.session.userid) res.redirect('/login');
+
+  res.render('dashboard/BrazingGIC_2/BrazingGIC_2', { title: title, header: 'BrazingGIC 2', page: req.query.page });
+});
+// END BrazingGIC2
 
 
 
