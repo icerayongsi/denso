@@ -9,15 +9,16 @@ const mqtt = require('mqtt')
 const client = mqtt.connect('mqtt://broker.hivemq.com');
 const io = require('socket.io')(5000);
 const moment = require('moment');
+const sessions = require('express-session');
 
 let encodeUrl = express.urlencoded({ extended: false });
-
 
 var title = 'Denso';
 
 client.on('connect', () => {
   client.subscribe('22060001/#');
   client.subscribe('22060050/#');
+  client.subscribe('22080050/#');
 });
 
 // client.on('message', (topic, message) => {
@@ -82,12 +83,46 @@ io.on("connection", (socket) => {
         temp_9: message.data[0].temp_9,
       });
     }
+
+    if (topic.substring(0, 8) == '22080001') {
+      message = JSON.parse(message.toString());
+      socket.emit('all-data', {
+        MC_Status : message.data[0].MC_Status,
+        CH1_PA : message.data[0].CH1_PA,
+        CH1_MPA1 : message.data[0].CH1_MPA1,
+        CH1_MPA2 : message.data[0].CH1_MPA2,
+        CH1_MPA3 : message.data[0].CH1_MPA3,
+        CH1_CT : message.data[0].CH1_CT,
+        CH2_PA : message.data[0].CH2_PA,
+        CH2_MPA1 : message.data[0].CH2_MPA1,
+        CH2_MPA2 : message.data[0].CH2_MPA2,
+        CH2_MPA3 : message.data[0].CH2_MPA3,
+        CH2_CT : message.data[0].CH2_CT,
+        Bit_Trig : message.data[0].Bit_Trig,
+        Cal_BG1_CH1 : message.data[0].Cal_BG1_CH1,
+        Cal_BG2_CH1 : message.data[0].Cal_BG2_CH1,
+        Cal_SG1_CH1 : message.data[0].Cal_SG1_CH1,
+        Cal_SG2_CH1 : message.data[0].Cal_SG2_CH1,
+        Cal_NG_CH1 : message.data[0].Cal_NG_CH1,
+        Cal_SN_CH1 : message.data[0].Cal_SN_CH1,
+        Cal_BG1_CH2 : message.data[0].Cal_BG1_CH2,
+        Cal_BG2_CH2 : message.data[0].Cal_BG2_CH2,
+        Cal_SG1_CH2 : message.data[0].Cal_SG1_CH2,
+        Cal_SG2_CH2 : message.data[0].Cal_SG2_CH2,
+        Cal_NG_CH2 : message.data[0].Cal_NG_CH2,
+        Cal_SN_CH2 : message.data[0].Cal_SN_CH2,
+        Cal_HE : message.data[0].Cal_HE
+      });
+    }
+
   });
 });
 
 const data = [{}];
 
 router.get('/', async (req, res, next) => {
+
+  if (!req.session.userid) res.redirect('/login');
 
   // let first_row = await Data_Schema.findOne({}, { times: 1 })
   // let result_month = [];
@@ -153,7 +188,8 @@ router.post('/', encodeUrl, async (req, res, next) => {
 });
 
 router.get('/BrazingGIC1', function (req, res, next) {
-  console.log(req.query.page);
+  if (!req.session.userid) res.redirect('/login');
+
   res.render('dashboard/BrazingGIC_1/BrazingGIC_1', { title: title, header: 'BrazingGIC 1', page: req.query.page });
 });
 
@@ -995,5 +1031,30 @@ router.post('/BrazingGIC1/sort-chart-current', encodeUrl, async (req, res, next)
   }
 
 });
+
+// GCAC 1
+
+router.get('/GCAC_1', function (req, res, next) {
+  if (!req.session.userid) res.redirect('/login');
+
+  res.render('dashboard/GCAC_1/GCAC_1', { title: title, header: 'GCAC_1', page: req.query.page });
+});
+
+// END GCAC 1
+
+// HELIUM BRS
+
+router.get('/HeliumBRS', function (req, res, next) {
+  if (!req.session.userid) res.redirect('/login');
+
+  res.render('dashboard/HeliumBRS/HeliumBRS', { title: title, header: 'HeliumBRS', page: req.query.page });
+});
+
+// END HELIUM BRS
+
+
+
+
+
 
 module.exports = router;

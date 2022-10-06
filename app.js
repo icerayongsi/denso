@@ -2,6 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const http = require('http').Server(express);
 const path = require('path');
+const sessions = require('express-session');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
@@ -35,6 +36,14 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.use(sessions({
+  secret: "secrctekeykokdev",
+  saveUninitialized: true,
+  cookie: { maxAge: 10 * 1000 },
+  resave: false
+}));
+
 
 
 

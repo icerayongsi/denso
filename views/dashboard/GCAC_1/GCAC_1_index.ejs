@@ -1,0 +1,54 @@
+<%- include('GCAC_1_partials/GCAC_1_header') -%>
+
+<%- include('../../partials/navbar_dashboard') -%>
+
+<%- include('GCAC_1_partials/GCAC_1_menu') -%>
+
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
+
+
+
+    <div class="card card-body margin-5">
+
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
+        <h3 class="text-uppercase" style="font-weight: 700;">GCAC 1 / index </h3>
+        
+      </div>
+
+      <!-- MAIN CONTENT -->
+
+      <table class="table">
+        <tr>
+          <th>
+            Data
+          </th>
+          <th>
+            Values
+          </th>
+        </tr>
+        <tr>
+          <td>dsds</td>
+          <td></td>
+        </tr>
+      </table>
+
+      <!-- END MAIN CONTENT -->
+
+      
+
+  </main>
+
+<script>
+  const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
+  socket.on('all-data', (res) => {
+    console.log(res);
+  });
+</script>

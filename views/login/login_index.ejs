@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2 class="text-center text-dark mt-5">Login Form</h2>
+            <div class="text-center mb-5 text-dark">Made with bootstrap</div>
+            <div class="card my-5">
+
+                <form class="card-body cardbody-color p-lg-5" id="login">
+
+                    <div class="text-center fs-2 fw-bold mb-4">
+                        Denso Machine Performance
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="username" aria-describedby="emailHelp"
+                            placeholder="Username" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" id="password" placeholder="password" required>
+                    </div>
+                    <div class="text-center"><button type="submit"
+                            class="btn btn-dark btn-grey px-5 mb-1 w-100">Login</button></div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#login").submit((e) => {
+        e.preventDefault();
+        $.ajax({
+            url: "/loginprocess",
+            type: "POST",
+            data: {
+                'username': $("#username").val(),
+                'password' : $("#password").val()
+            },
+            success: (data) => {
+                window.location.reload();
+            }
+        });
+    });
+</script>
