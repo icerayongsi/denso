@@ -6,12 +6,12 @@ const router = express.Router();
 const Data_Schema = require('../models/Schema');
 const sessions = require('express-session');
 
-router.use(sessions({
-  secret: "secrctekeykokdev",
-  saveUninitialized: true,
-  cookie: { maxAge: 1000 * 60 * 60 * 24 },
-  resave: false
-}));
+// router.use(sessions({
+//   secret: "secrctekeykokdev",
+//   saveUninitialized: true,
+//   cookie: { maxAge: 1000 * 60 * 60 * 24 },
+//   resave: false
+// }));
 
 
 let encodeUrl = express.urlencoded({ extended: false });
@@ -53,15 +53,16 @@ router.post('/loginprocess', encodeUrl, async (req, res, next) => {
 
 
 router.get('/', function (req, res, next) {
-  session = req.session;
-  try{
-    if (session.userid) {
-      res.redirect('/layout');
-    } else
-      res.redirect('/login');
-  } catch (e) {
-    res.redirect('/login');
-  }
+  res.redirect('/layout');
+  // session = req.session;
+  // try{
+  //   if (session.userid) {
+  //     res.redirect('/layout');
+  //   } else
+  //     res.redirect('/login');
+  // } catch (e) {
+  //   res.redirect('/login');
+  // }
 
 });
 

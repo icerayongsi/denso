@@ -122,7 +122,7 @@ const data = [{}];
 
 router.get('/', async (req, res, next) => {
 
-  if (!req.session.userid) res.redirect('/login');
+  // if (!req.session.userid) res.redirect('/login');
 
   // let first_row = await Data_Schema.findOne({}, { times: 1 })
   // let result_month = [];
@@ -188,7 +188,7 @@ router.post('/', encodeUrl, async (req, res, next) => {
 });
 
 router.get('/BrazingGIC1', function (req, res, next) {
-  if (!req.session.userid) res.redirect('/login');
+  // if (!req.session.userid) res.redirect('/login');
 
   res.render('dashboard/BrazingGIC_1/BrazingGIC_1', { title: title, header: 'BrazingGIC 1', page: req.query.page });
 });
@@ -1035,7 +1035,7 @@ router.post('/BrazingGIC1/sort-chart-current', encodeUrl, async (req, res, next)
 // GCAC 1
 
 router.get('/GCAC_1', function (req, res, next) {
-  if (!req.session.userid) res.redirect('/login');
+  // if (!req.session.userid) res.redirect('/login');
 
   res.render('dashboard/GCAC_1/GCAC_1', { title: title, header: 'GCAC_1', page: req.query.page });
 });
@@ -1045,7 +1045,7 @@ router.get('/GCAC_1', function (req, res, next) {
 // HELIUM BRS
 
 router.get('/HeliumBRS', function (req, res, next) {
-  if (!req.session.userid) res.redirect('/login');
+  // if (!req.session.userid) res.redirect('/login');
 
   res.render('dashboard/HeliumBRS/HeliumBRS', { title: title, header: 'HeliumBRS', page: req.query.page });
 });
