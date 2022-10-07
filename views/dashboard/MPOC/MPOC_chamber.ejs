@@ -1,0 +1,182 @@
+<%- include('MPOC_partials/MPOC_header') -%>
+
+<%- include('../../partials/navbar_dashboard') -%>
+
+<%- include('MPOC_partials/MPOC_menu') -%>
+
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xxl-1 pb-lg-4 pb-md-4 pb-sm-4 pb-xxl-0 pe-0 ps-0">
+        <div class="card w-100 h-100">
+          <div class="card-header text-center fs-6">
+            He
+          </div>
+          <div class="card-body d-flex justify-content-between">
+            <p class="fs-4 mb-0 He"></p>
+            <div class="d-flex align-items-end">
+              <p class="fs-6 mb-0">%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="card card-body margin-5">
+
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
+        <h3 class="text-uppercase" style="font-weight: 700;">MPOC / chamber </h3>
+        
+      </div>
+
+      <!-- MAIN CONTENT -->
+
+      <div class="container-fluid">
+        <div class="row">
+
+          <div class="col-xxl-4 col-lg-12 mb-3 fs-5">
+            <div class="card">
+              <div class="card-header text-center d-flex justify-content-center">
+                <p class="mb-0 me-2">A Chamber </p>
+                <span class="badge text-bg-secondary Chamber_A_CT"></span>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between">
+                  <p class="fs-4 mb-0 Chamber_A_Pa"></p>
+                  <div class="d-flex align-items-end">
+                    <p class="fs-6 mb-0">Pa</p>
+                  </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <p class="fs-4 mb-0 Chamber_A_MPa1"></p>
+                  <div class="d-flex align-items-end">
+                    <p class="fs-6 mb-0">MPa</p>
+                  </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <p class="fs-4 mb-0 Chamber_A_MPa2"></p>
+                  <div class="d-flex align-items-end">
+                    <p class="fs-6 mb-0">MPa</p>
+                  </div>
+                </li>
+              </ul>
+    
+            </div>
+          </div>
+    
+          <div class="col-xxl-4 col-lg-12 mb-3 fs-5">
+            <div class="card">
+              <div class="card-header text-center d-flex justify-content-center">
+                <p class="mb-0 me-2">B Chamber </p>
+                <span class="badge text-bg-secondary Chamber_B_CT"></span>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between">
+                  <p class="fs-4 mb-0 Chamber_B_Pa"></p>
+                  <div class="d-flex align-items-end">
+                    <p class="fs-6 mb-0">Pa</p>
+                  </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <p class="fs-4 mb-0 Chamber_B_MPa1"></p>
+                  <div class="d-flex align-items-end">
+                    <p class="fs-6 mb-0">MPa</p>
+                  </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <p class="fs-4 mb-0 Chamber_B_MPa2"></p>
+                  <div class="d-flex align-items-end">
+                    <p class="fs-6 mb-0">MPa</p>
+                  </div>
+                </li>
+              </ul>
+    
+            </div>
+          </div>
+    
+          <div class="col-xxl-4 col-lg-12 mb-3 fs-5">
+            <div class="card">
+              <div class="card-header text-center d-flex justify-content-center">
+                <p class="mb-0 me-2">C Chamber </p>
+                <span class="badge text-bg-secondary Chamber_C_CT"></span>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between">
+                  <p class="fs-4 mb-0 Chamber_C_Pa"></p>
+                  <div class="d-flex align-items-end">
+                    <p class="fs-6 mb-0">Pa</p>
+                  </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <p class="fs-4 mb-0 Chamber_C_MPa1"></p>
+                  <div class="d-flex align-items-end">
+                    <p class="fs-6 mb-0">MPa</p>
+                  </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <p class="fs-4 mb-0 Chamber_C_MPa2"></p>
+                  <div class="d-flex align-items-end">
+                    <p class="fs-6 mb-0">MPa</p>
+                  </div>
+                </li>
+              </ul>
+    
+            </div>
+          </div>    
+
+        </div>
+      </div>
+
+
+      <!-- END MAIN CONTENT -->
+
+
+  </main>
+
+  <script>
+     const socket = io('https://ws.ap.ngrok.io', { transports: ['websocket'] });
+        socket.on('mpoc-all-data', (res) => {
+          $(".Chamber_A_Pa").html(res.Chamber_A_Pa);
+          $(".Chamber_A_MPa1").html(res.Chamber_A_MPa1);
+          $(".Chamber_A_MPa2").html(res.Chamber_A_MPa2);
+          $(".Chamber_A_CT").html("Cycle time : " + res.Chamber_A_CT + " s");
+          $(".Chamber_B_Pa").html(res.Chamber_B_Pa);
+          $(".Chamber_B_MPa1").html(res.Chamber_B_MPa1);
+          $(".Chamber_B_MPa2").html(res.Chamber_B_MPa2);
+          $(".Chamber_B_CT").html("Cycle time : " + res.Chamber_B_CT + " s");
+          $(".Chamber_C_Pa").html(res.Chamber_C_Pa);
+          $(".Chamber_C_MPa1").html(res.Chamber_C_MPa1);
+          $(".Chamber_C_MPa2").html(res.Chamber_C_MPa2);
+          $(".Chamber_C_CT").html("Cycle time : " + res.Chamber_C_CT + " s");
+          $(".He").html(res.He);
+          $(".Cal_Chamber_A_BG1").html(res.Cal_Chamber_A_BG1);
+          $(".Cal_Chamber_A_BG2").html(res.Cal_Chamber_A_BG2);
+          $(".Cal_Chamber_A_SG1").html(res.Cal_Chamber_A_SG1);
+          $(".Cal_Chamber_A_SG2").html(res.Cal_Chamber_A_SG2);
+          $(".Cal_Chamber_A_NG").html(res.Cal_Chamber_A_NG);
+          $(".Cal_Chamber_A_SN").html(res.Cal_Chamber_A_SN);
+          $(".Cal_Chamber_B_BG1").html(res.Cal_Chamber_B_BG1);
+          $(".Cal_Chamber_B_BG2").html(res.Cal_Chamber_B_BG2);
+          $(".Cal_Chamber_B_SG1").html(res.Cal_Chamber_B_SG1);
+          $(".Cal_Chamber_B_SG2").html(res.Cal_Chamber_B_SG2);
+          $(".Cal_Chamber_B_NG").html(res.Cal_Chamber_B_NG);
+          $(".Cal_Chamber_B_SN").html(res.Cal_Chamber_B_SN);
+          $(".Cal_Chamber_C_BG1").html(res.Cal_Chamber_C_BG1);
+          $(".Cal_Chamber_C_BG2").html(res.Cal_Chamber_C_BG2);
+          $(".Cal_Chamber_C_SG1").html(res.Cal_Chamber_C_SG1);
+          $(".Cal_Chamber_C_SG2").html(res.Cal_Chamber_C_SG2);
+          $(".Cal_Chamber_C_NG").html(res.Cal_Chamber_C_NG);
+          $(".Cal_Chamber_C_SN").html(res.Cal_Chamber_C_SN);
+        });
+  </script>

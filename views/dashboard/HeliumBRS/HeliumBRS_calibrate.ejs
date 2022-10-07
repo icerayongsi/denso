@@ -1,0 +1,67 @@
+<%- include('HeliumBRS_partials/HeliumBRS_header') -%>
+
+<%- include('../../partials/navbar_dashboard') -%>
+
+<%- include('HeliumBRS_partials/HeliumBRS_menu') -%>
+
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
+
+
+
+    <div class="card card-body margin-5">
+
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
+        <h3 class="text-uppercase" style="font-weight: 700;">HELIUM BRS / calibration </h3>
+        
+      </div>
+
+      <!-- MAIN CONTENT -->
+
+      
+    
+      <!-- END MAIN CONTENT -->
+      
+
+  </main>
+
+<script>
+  const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
+  socket.on('helium-brs-all-data', (res) => {
+    $(".MC_Status").html(res.MC_Status);
+    $(".Pressure_Chamber_A").html(res.Pressure_Chamber_A);
+    $(".Work_Chamber_A").html(res.Work_Chamber_A);
+    $(".Work_Chamber_B").html(res.Work_Chamber_B);
+    $(".Pressure_Chamber_B").html(res.Pressure_Chamber_B);
+    $(".Leak_rate_A").html(res.Leak_rate_A);
+    $(".Alarm_A").html(res.Alarm_A);
+    $(".Leak_rate_B").html(res.Leak_rate_B);
+    $(".Alarm_B").html(res.Alarm_B);
+    $(".Pressure_Chamber_C").html(res.Pressure_Chamber_C);
+    $(".Work_Chamber_C").html(res.Work_Chamber_C);
+    $(".Work_Chamber_D").html(res.Work_Chamber_D);
+    $(".Pressure_Chamber_D").html(res.Pressure_Chamber_D);
+    $(".Leak_rate_C").html(res.Leak_rate_C);
+    $(".Alarm_C").html(res.Alarm_C);
+    $(".Leak_rate_D").html(res.Leak_rate_D);
+    $(".Alarm_D").html(res.Alarm_D);
+    $(".Pressure_Chamber_E").html(res.Pressure_Chamber_E);
+    $(".Work_Chamber_E").html(res.Work_Chamber_E);
+    $(".Work_Chamber_F").html(res.Work_Chamber_F);
+    $(".Pressure_Chamber_F").html(res.Pressure_Chamber_F);
+    $(".Leak_rate_E").html(res.Leak_rate_E);
+    $(".Alarm_E").html(res.Alarm_E);
+    $(".Leak_rate_F").html(res.Leak_rate_F);
+    $(".Alarm_F").html(res.Alarm_F);
+    $(".HCM").html(res.HCM);
+    $(".status").html(res.status);
+    $(".calibrate").html(res.calibrate);
+  });
+</script>

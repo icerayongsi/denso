@@ -480,7 +480,8 @@
       RC_Fan_9_Z.set(0);
 
       const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
-      socket.on('vibrator', (res) => {
+
+      socket.on('BRAZING-2-vibrator', (res) => {
         
         RC_Fan_1_X.set(res.vi1_X);
         RC_Fan_1_Z.set(res.vi1_Z);

@@ -23,6 +23,178 @@
         
       </div>
 
+      <!-- MAIN CONTENT -->
+
+      <table class="table">
+        <tr>
+          <th scope="col">
+            Data
+          </th>
+          <th scope="col">
+            Values
+          </th>
+        </tr>
+        <tr>
+          <td>Chamber_A_Pa</td>
+          <td class="Chamber_A_Pa"></td>
+        </tr>
+        <tr>
+          <td>Chamber_A_MPa1</td>
+          <td class="Chamber_A_MPa1"></td>
+        </tr>
+        <tr>
+          <td>Chamber_A_MPa2</td>
+          <td class="Chamber_A_MPa2"></td>
+        </tr>
+        <tr>
+          <td>Chamber_A_CT</td>
+          <td class="Chamber_A_CT"></td>
+        </tr>
+        <tr>
+          <td>Chamber_B_Pa</td>
+          <td class="Chamber_B_Pa"></td>
+        </tr>
+        <tr>
+          <td>Chamber_B_MPa1</td>
+          <td class="Chamber_B_MPa1"></td>
+        </tr>
+        <tr>
+          <td>Chamber_B_MPa2</td>
+          <td class="Chamber_B_MPa2"></td>
+        </tr>
+        <tr>
+          <td>Chamber_B_CT</td>
+          <td class="Chamber_B_CT"></td>
+        </tr>
+        <tr>
+          <td>Chamber_C_Pa</td>
+          <td class="Chamber_C_Pa"></td>
+        </tr>
+        <tr>
+          <td>Chamber_C_MPa1</td>
+          <td class="Chamber_C_MPa1"></td>
+        </tr>
+        <tr>
+          <td>Chamber_C_MPa2</td>
+          <td class="Chamber_C_MPa2"></td>
+        </tr>
+        <tr>
+          <td>Chamber_C_CT</td>
+          <td class="Chamber_C_CT"></td>
+        </tr>
+        <tr>
+          <td>He</td>
+          <td class="He"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_A_BG1</td>
+          <td class="Cal_Chamber_A_BG1"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_A_BG2</td>
+          <td class="Cal_Chamber_A_BG2"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_A_SG1</td>
+          <td class="Cal_Chamber_A_SG1"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_A_SG2</td>
+          <td class="Cal_Chamber_A_SG2"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_A_NG</td>
+          <td class="Cal_Chamber_A_NG"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_B_BG1</td>
+          <td class="Cal_Chamber_B_BG1"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_B_BG2</td>
+          <td class="Cal_Chamber_B_BG2"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_B_SG1</td>
+          <td class="Cal_Chamber_B_SG1"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_B_SG2</td>
+          <td class="Cal_Chamber_B_SG2"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_B_NG</td>
+          <td class="Cal_Chamber_B_NG"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_B_SN</td>
+          <td class="Cal_Chamber_B_SN"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_C_BG1</td>
+          <td class="Cal_Chamber_C_BG1"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_C_BG2</td>
+          <td class="Cal_Chamber_C_BG2"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_C_SG1</td>
+          <td class="Cal_Chamber_C_SG1"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_C_SG2</td>
+          <td class="Cal_Chamber_C_SG2"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_C_NG</td>
+          <td class="Cal_Chamber_C_NG"></td>
+        </tr>
+        <tr>
+          <td>Cal_Chamber_C_SN</td>
+          <td class="Cal_Chamber_C_SN"></td>
+        </tr>
+      </table>
+
+      <!-- END MAIN CONTENT -->
+
       
 
   </main>
+
+  <script>
+     const socket = io('https://ws.ap.ngrok.io', { transports: ['websocket'] });
+        socket.on('mpoc-all-data', (res) => {
+          $(".Chamber_A_Pa").html(res.Chamber_A_Pa);
+          $(".Chamber_A_MPa1").html(res.Chamber_A_MPa1);
+          $(".Chamber_A_MPa2").html(res.Chamber_A_MPa2);
+          $(".Chamber_A_CT").html(res.Chamber_A_CT);
+          $(".Chamber_B_Pa").html(res.Chamber_B_Pa);
+          $(".Chamber_B_MPa1").html(res.Chamber_B_MPa1);
+          $(".Chamber_B_MPa2").html(res.Chamber_B_MPa2);
+          $(".Chamber_B_CT").html(res.Chamber_B_CT);
+          $(".Chamber_C_Pa").html(res.Chamber_C_Pa);
+          $(".Chamber_C_MPa1").html(res.Chamber_C_MPa1);
+          $(".Chamber_C_MPa2").html(res.Chamber_C_MPa2);
+          $(".Chamber_C_CT").html(res.Chamber_C_CT);
+          $(".He").html(res.He);
+          $(".Cal_Chamber_A_BG1").html(res.Cal_Chamber_A_BG1);
+          $(".Cal_Chamber_A_BG2").html(res.Cal_Chamber_A_BG2);
+          $(".Cal_Chamber_A_SG1").html(res.Cal_Chamber_A_SG1);
+          $(".Cal_Chamber_A_SG2").html(res.Cal_Chamber_A_SG2);
+          $(".Cal_Chamber_A_NG").html(res.Cal_Chamber_A_NG);
+          $(".Cal_Chamber_A_SN").html(res.Cal_Chamber_A_SN);
+          $(".Cal_Chamber_B_BG1").html(res.Cal_Chamber_B_BG1);
+          $(".Cal_Chamber_B_BG2").html(res.Cal_Chamber_B_BG2);
+          $(".Cal_Chamber_B_SG1").html(res.Cal_Chamber_B_SG1);
+          $(".Cal_Chamber_B_SG2").html(res.Cal_Chamber_B_SG2);
+          $(".Cal_Chamber_B_NG").html(res.Cal_Chamber_B_NG);
+          $(".Cal_Chamber_B_SN").html(res.Cal_Chamber_B_SN);
+          $(".Cal_Chamber_C_BG1").html(res.Cal_Chamber_C_BG1);
+          $(".Cal_Chamber_C_BG2").html(res.Cal_Chamber_C_BG2);
+          $(".Cal_Chamber_C_SG1").html(res.Cal_Chamber_C_SG1);
+          $(".Cal_Chamber_C_SG2").html(res.Cal_Chamber_C_SG2);
+          $(".Cal_Chamber_C_NG").html(res.Cal_Chamber_C_NG);
+          $(".Cal_Chamber_C_SN").html(res.Cal_Chamber_C_SN);
+        });
+  </script>

@@ -4,6 +4,14 @@
 
     <%- include('MPOC_index') -%>
 
-<% } %>
+<% } else if (page == 'chamber') { %>
+
+    <%- include('MPOC_chamber') -%>
+
+<% } else if (page == 'calibration') { %>
+
+    <%- include('MPOC_calibration') -%>
+
+<% } %> 
 
 <%- include('../../partials/footer') -%>
