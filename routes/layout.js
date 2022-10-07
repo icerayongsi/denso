@@ -20,6 +20,8 @@ client.on('connect', () => {
   client.subscribe('22060050/#');
   client.subscribe('22080001/#');
   client.subscribe('22100001/#');
+  client.subscribe('22090002/#');
+  client.subscribe('22080003/#');
 });
 
 // client.on('message', (topic, message) => {
@@ -50,7 +52,7 @@ io.on("connection", (socket) => {
       });
     }
 
-    if (topic.substring(0, 8) == '22060050') {
+    if (topic.substring(0, 8) == '22060050') { // BRAZING 1
       message = JSON.parse(message.toString());
       socket.emit('vibrator', {
         vi1_Z: message.data[0].Vibrator_1_1,
@@ -82,6 +84,41 @@ io.on("connection", (socket) => {
         temp_7: message.data[0].temp_7,
         temp_8: message.data[0].temp_8,
         temp_9: message.data[0].temp_9,
+      });
+    }
+
+    if (topic.substring(0, 8) == '22090002') { // BRAZING 2
+      message = JSON.parse(message.toString());
+      socket.emit('BRAZING-2-vibrator', {
+        vi1_Z: message.data[0].Vibrator_1_Z,
+        vi1_X: message.data[0].Vibrator_1_X,
+        vi2_Z: message.data[0].Vibrator_2_Z,
+        vi2_X: message.data[0].Vibrator_2_X,
+        vi3_Z: message.data[0].Vibrator_3_Z,
+        vi3_X: message.data[0].Vibrator_3_X,
+        vi4_Z: message.data[0].Vibrator_4_Z,
+        vi4_X: message.data[0].Vibrator_4_X,
+        vi5_Z: message.data[0].Vibrator_5_Z,
+        vi5_X: message.data[0].Vibrator_5_X,
+        vi6_Z: message.data[0].Vibrator_6_Z,
+        vi6_X: message.data[0].Vibrator_6_X,
+        vi7_Z: message.data[0].Vibrator_7_Z,
+        vi7_X: message.data[0].Vibrator_7_X,
+        vi8_Z: message.data[0].Vibrator_8_Z,
+        vi8_X: message.data[0].Vibrator_8_X,
+        vi9_Z: message.data[0].Vibrator_9_Z,
+        vi9_X: message.data[0].Vibrator_9_X,
+      });
+      socket.emit('BRAZING-2-temp', {
+        temp_1: message.data[0].Temp_1,
+        temp_2: message.data[0].Temp_2,
+        temp_3: message.data[0].Temp_3,
+        temp_4: message.data[0].Temp_4,
+        temp_5: message.data[0].Temp_5,
+        temp_6: message.data[0].Temp_6,
+        temp_7: message.data[0].Temp_7,
+        temp_8: message.data[0].Temp_8,
+        temp_9: message.data[0].Temp_9,
       });
     }
 
@@ -147,6 +184,43 @@ io.on("connection", (socket) => {
         HCM : message.data[0].HCM,
         status : message.data[0].status,
         calibrate : message.data[0].calibrate
+      });
+    }
+
+    if (topic.substring(0, 8) == '22080003') { // MPOC
+      message = JSON.parse(message.toString());
+      socket.emit('mpoc-all-data', {
+        Chamber_A_Pa: message.data[0].Chamber_A_Pa,
+        Chamber_A_MPa1: message.data[0].Chamber_A_MPa1,
+        Chamber_A_MPa2: message.data[0].Chamber_A_MPa2,
+        Chamber_A_CT: message.data[0].Chamber_A_CT,
+        Chamber_B_Pa: message.data[0].Chamber_B_Pa,
+        Chamber_B_MPa1: message.data[0].Chamber_B_MPa1,
+        Chamber_B_MPa2: message.data[0].Chamber_B_MPa2,
+        Chamber_B_CT: message.data[0].Chamber_B_CT,
+        Chamber_C_Pa: message.data[0].Chamber_C_Pa,
+        Chamber_C_MPa1: message.data[0].Chamber_C_MPa1,
+        Chamber_C_MPa2: message.data[0].Chamber_C_MPa2,
+        Chamber_C_CT: message.data[0].Chamber_C_CT,
+        He: message.data[0].He,
+        Cal_Chamber_A_BG1: message.data[0].Cal_Chamber_A_BG1,
+        Cal_Chamber_A_BG2: message.data[0].Cal_Chamber_A_BG2,
+        Cal_Chamber_A_SG1: message.data[0].Cal_Chamber_A_SG1,
+        Cal_Chamber_A_SG2: message.data[0].Cal_Chamber_A_SG2,
+        Cal_Chamber_A_NG: message.data[0].Cal_Chamber_A_NG,
+        Cal_Chamber_A_SN: message.data[0].Cal_Chamber_A_SN,
+        Cal_Chamber_B_BG1: message.data[0].Cal_Chamber_B_BG1,
+        Cal_Chamber_B_BG2: message.data[0].Cal_Chamber_B_BG2,
+        Cal_Chamber_B_SG1: message.data[0].Cal_Chamber_B_SG1,
+        Cal_Chamber_B_SG2: message.data[0].Cal_Chamber_B_SG2,
+        Cal_Chamber_B_NG: message.data[0].Cal_Chamber_B_NG,
+        Cal_Chamber_B_SN: message.data[0].Cal_Chamber_B_SN,
+        Cal_Chamber_C_BG1: message.data[0].Cal_Chamber_C_BG1,
+        Cal_Chamber_C_BG2: message.data[0].Cal_Chamber_C_BG2,
+        Cal_Chamber_C_SG1: message.data[0].Cal_Chamber_C_SG1,
+        Cal_Chamber_C_SG2: message.data[0].Cal_Chamber_C_SG2,
+        Cal_Chamber_C_NG: message.data[0].Cal_Chamber_C_NG,
+        Cal_Chamber_C_SN: message.data[0].Cal_Chamber_C_SN,
       });
     }
 

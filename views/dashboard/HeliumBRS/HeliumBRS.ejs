@@ -4,6 +4,14 @@
 
     <%- include('HeliumBRS_index') -%>
 
-<% } %>
+<% } else if (page == 'chamber') { %>
+
+    <%- include('HeliumBRS_chamber') -%>
+
+<% } else if (page == 'calibrate') { %>
+
+    <%- include('HeliumBRS_calibrate') -%>
+
+<% } %> 
 
 <%- include('../../partials/footer') -%>

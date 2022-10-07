@@ -1,38 +1,124 @@
 <%- include('GCAC_1_partials/GCAC_1_header') -%>
 
-<%- include('../../partials/navbar_dashboard') -%>
+  <%- include('../../partials/navbar_dashboard') -%>
 
-<%- include('GCAC_1_partials/GCAC_1_menu') -%>
+    <%- include('GCAC_1_partials/GCAC_1_menu') -%>
 
+      </div>
+      </li>
+      </ul>
+
+      </div>
+      </nav>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
+
+
+
+        <div class="card card-body margin-5">
+
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
+            <h3 class="text-uppercase" style="font-weight: 700;">GCAC 1 / pressure </h3>
+
+          </div>
+
+          <!-- MAIN CONTENT -->
+
+          <div class="container-fluid">
+            <div class="row">
+
+              <div class="col-lg-6 col-sm-12 mb-3">
+                <div class="card">
+                  <div class="card-header fs-4 fw-bold text-center CH1_CT">
+                    CH1 | Cycle time :
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between">
+                      <p class="fs-4 mb-0 CH1_PA"></p>
+                      <div class="d-flex align-items-end">
+                        <p class="fs-6 mb-0">Pa</p>
+                      </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                      <p class="fs-4 mb-0 CH1_MPA1"></p>
+                      <div class="d-flex align-items-end">
+                        <p class="fs-6 mb-0">MPa</p>
+                      </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                      <p class="fs-4 mb-0 CH1_MPA2"></p>
+                      <div class="d-flex align-items-end">
+                        <p class="fs-6 mb-0">MPa</p>
+                      </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                      <p class="fs-4 mb-0 CH1_MPA3"></p>
+                      <div class="d-flex align-items-end">
+                        <p class="fs-6 mb-0">MPa</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-sm-12 mb-3">
+                <div class="card">
+                  <div class="card-header fs-4 fw-bold text-center CH2_CT">
+                    CH2
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between">
+                      <p class="fs-4 mb-0 CH2_PA"></p>
+                      <div class="d-flex align-items-end">
+                        <p class="fs-6 mb-0">Pa</p>
+                      </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                      <p class="fs-4 mb-0 CH2_MPA1"></p>
+                      <div class="d-flex align-items-end">
+                        <p class="fs-6 mb-0">MPa</p>
+                      </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                      <p class="fs-4 mb-0 CH2_MPA2"></p>
+                      <div class="d-flex align-items-end">
+                        <p class="fs-6 mb-0">MPa</p>
+                      </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                      <p class="fs-4 mb-0 CH2_MPA3"></p>
+                      <div class="d-flex align-items-end">
+                        <p class="fs-6 mb-0">MPa</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              </div>
             </div>
-          </li>
-        </ul>
+          </div>
 
-      </div>
-    </nav>
-
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
+          <!-- END MAIN CONTENT -->
 
 
 
-    <div class="card card-body margin-5">
+      </main>
 
-      <div
-        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
-        <h3 class="text-uppercase" style="font-weight: 700;">GCAC 1 / pressure </h3>
-        
-      </div>
-
-      <!-- MAIN CONTENT -->
-
-      fdfsdfds
-
-      <!-- END MAIN CONTENT -->
-
-      
-
-  </main>
-
-<script>
-
-</script>
+      <script>
+        const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
+        socket.on('gcac-1-all-data', (res) => {
+          $(".MC_Status").html(res.MC_Status);
+          $(".CH1_PA").html(res.CH1_PA);
+          $(".CH1_MPA1").html(res.CH1_MPA1);
+          $(".CH1_MPA2").html(res.CH1_MPA2);
+          $(".CH1_MPA3").html(res.CH1_MPA3);
+          $(".CH1_CT").html("CH1 | Cycle time : " + res.CH1_CT);
+          $(".CH2_PA").html(res.CH2_PA);
+          $(".CH2_MPA1").html(res.CH2_MPA1);
+          $(".CH2_MPA2").html(res.CH2_MPA2);
+          $(".CH2_MPA3").html(res.CH2_MPA3);
+          $(".CH2_CT").html("CH2 | Cycle time : " + res.CH2_CT);
+        });
+      </script>
