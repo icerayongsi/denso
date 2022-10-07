@@ -1117,6 +1117,16 @@ router.get('/BrazingGIC2', function (req, res, next) {
 // END BrazingGIC2
 
 
+// BrazingGIC2
+
+router.get('/WCAC', function (req, res, next) {
+  // if (!req.session.userid) res.redirect('/login');
+
+  res.render('dashboard/WCAC/WCAC', { title: title, header: 'WCAC', page: req.query.page });
+});
+// END BrazingGIC2
+
+
 
 
 
