@@ -395,7 +395,7 @@
 
             
             
-            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" disabled>
               <span data-feather="calendar" class="align-text-bottom"></span>
               <span id="sort-dropdown-title">By days</span>
             </button>
@@ -938,30 +938,30 @@ const chart = new Chart(ctx, {
       }
   });
 
-  $(document).ready(() => {
-    $.ajax({
-        url: "/layout/BrazingGIC1/sort-chart-temp",
-        type: "POST",
-        data: {
-            'type': 'days'
-        },
-        success: (data) => {
-            chart.data.datasets[0].data = data.temp_1;
-            chart.data.datasets[1].data = data.temp_2;
-            chart.data.datasets[2].data = data.temp_3;
-            chart.data.datasets[3].data = data.temp_4;
-            chart.data.datasets[4].data = data.temp_5;
-            chart.data.datasets[5].data = data.temp_6;
-            chart.data.datasets[6].data = data.temp_7;
-            chart.data.datasets[7].data = data.temp_8;
-            chart.data.datasets[8].data = data.temp_9;
+//   $(document).ready(() => {
+//     $.ajax({
+//         url: "/layout/BrazingGIC1/sort-chart-temp",
+//         type: "POST",
+//         data: {
+//             'type': 'days'
+//         },
+//         success: (data) => {
+//             chart.data.datasets[0].data = data.temp_1;
+//             chart.data.datasets[1].data = data.temp_2;
+//             chart.data.datasets[2].data = data.temp_3;
+//             chart.data.datasets[3].data = data.temp_4;
+//             chart.data.datasets[4].data = data.temp_5;
+//             chart.data.datasets[5].data = data.temp_6;
+//             chart.data.datasets[6].data = data.temp_7;
+//             chart.data.datasets[7].data = data.temp_8;
+//             chart.data.datasets[8].data = data.temp_9;
 
-            chart.data.labels = data.label;
-            chart.update();
+//             chart.data.labels = data.label;
+//             chart.update();
             
-        }
-  });
-});
+//         }
+//   });
+// });
 
   $("#sort-chart-days").submit((e) => {
     e.preventDefault();

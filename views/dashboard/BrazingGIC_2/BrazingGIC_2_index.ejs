@@ -222,7 +222,7 @@
 
             
             
-            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" disabled>
               <span data-feather="calendar" class="align-text-bottom"></span>
               <span id="sort-dropdown-title">By days</span>
             </button>
@@ -830,48 +830,48 @@
               }
           });
 
-          $(document).ready(() => {
-            $.ajax({
-                url: "/layout/BrazingGIC1/sort-chart",
-                type: "POST",
-                data: {
-                    'type': 'days'
-                },
-                success: (data) => {
-                    chart.data.datasets[0].data = data.x_0;
-                    chart.data.datasets[1].data = data.z_0;
+      //     $(document).ready(() => {
+      //       $.ajax({
+      //           url: "/layout/BrazingGIC1/sort-chart",
+      //           type: "POST",
+      //           data: {
+      //               'type': 'days'
+      //           },
+      //           success: (data) => {
+      //               chart.data.datasets[0].data = data.x_0;
+      //               chart.data.datasets[1].data = data.z_0;
 
-                    chart.data.datasets[2].data = data.x_1;
-                    chart.data.datasets[3].data = data.z_1;
+      //               chart.data.datasets[2].data = data.x_1;
+      //               chart.data.datasets[3].data = data.z_1;
 
-                    chart.data.datasets[4].data = data.x_2;
-                    chart.data.datasets[5].data = data.z_2;
+      //               chart.data.datasets[4].data = data.x_2;
+      //               chart.data.datasets[5].data = data.z_2;
 
-                    chart.data.datasets[6].data = data.x_3;
-                    chart.data.datasets[7].data = data.z_3;
+      //               chart.data.datasets[6].data = data.x_3;
+      //               chart.data.datasets[7].data = data.z_3;
 
-                    chart.data.datasets[8].data = data.x_4;
-                    chart.data.datasets[9].data = data.z_4;
+      //               chart.data.datasets[8].data = data.x_4;
+      //               chart.data.datasets[9].data = data.z_4;
 
-                    chart.data.datasets[10].data = data.x_5;
-                    chart.data.datasets[11].data = data.z_5;
+      //               chart.data.datasets[10].data = data.x_5;
+      //               chart.data.datasets[11].data = data.z_5;
 
-                    chart.data.datasets[12].data = data.x_6;
-                    chart.data.datasets[13].data = data.z_6;
+      //               chart.data.datasets[12].data = data.x_6;
+      //               chart.data.datasets[13].data = data.z_6;
 
-                    chart.data.datasets[14].data = data.x_7;
-                    chart.data.datasets[15].data = data.z_7;
+      //               chart.data.datasets[14].data = data.x_7;
+      //               chart.data.datasets[15].data = data.z_7;
 
-                    chart.data.datasets[16].data = data.x_8;
-                    chart.data.datasets[17].data = data.z_8;
+      //               chart.data.datasets[16].data = data.x_8;
+      //               chart.data.datasets[17].data = data.z_8;
 
 
-                    chart.data.labels = data.label;
-                    chart.update();
+      //               chart.data.labels = data.label;
+      //               chart.update();
                     
-                }
-          });
-      });
+      //           }
+      //     });
+      // });
 
           $("#sort-chart-days").submit((e) => {
             e.preventDefault();
