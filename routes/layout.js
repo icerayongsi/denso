@@ -21,6 +21,7 @@ client.on('connect', () => {
   client.subscribe('22080001/#');
   client.subscribe('22100001/#');
   client.subscribe('22090002/#');
+  client.subscribe('22090001/#');
   client.subscribe('22080003/#');
 });
 
@@ -132,6 +133,26 @@ io.on("connection", (socket) => {
         current_9: message.data[0].Current_9,
       });
 
+    }
+
+    if (topic.substring(0, 8) == '22090001') { // BRAZING BRS
+      message = JSON.parse(message.toString());
+      socket.emit('BRZING-BRS',{
+        PV_After_Burner: message.data[0].PV_After_Burner,
+        PV_Degreaser_Zone1: message.data[0].PV_Degreaser_Zone1,
+        PV_Degreaser_Zone2: message.data[0].PV_Degreaser_Zone2,
+        PV_Degreaser_Zone3: message.data[0].PV_Degreaser_Zone3,
+        PV_Debinder_Zone1: message.data[0].PV_Debinder_Zone1,
+        PV_Debinder_Zone2: message.data[0].PV_Debinder_Zone2,
+        PV_Debinder_Zone3: message.data[0].PV_Debinder_Zone3,
+        SV_After_Burner: message.data[0].SV_After_Burner,
+        SV_Degreaser_Zone1: message.data[0].SV_Degreaser_Zone1,
+        SV_Degreaser_Zone2: message.data[0].SV_Degreaser_Zone2,
+        SV_Degreaser_Zone3: message.data[0].SV_Degreaser_Zone3,
+        SV_Debinder_Zone1: message.data[0].SV_Debinder_Zone1,
+        SV_Debinder_Zone2: message.data[0].SV_Debinder_Zone2,
+        SV_Debinder_Zone3: message.data[0].SV_Debinder_Zone3
+      });
     }
 
     if (topic.substring(0, 8) == '22080001') {
