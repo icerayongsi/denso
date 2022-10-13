@@ -1,0 +1,576 @@
+<%- include('BrazingOIL_partials/BrazingOIL_header') -%>
+
+  <%- include('../../partials/navbar_dashboard') -%>
+
+  <%- include('BrazingOIL_partials/BrazingOIL_menu') -%>
+
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
+
+      <%- include('BrazingOIL_partials/BrazingOIL_mechine_img')  %> 
+
+
+
+      <div class="card card-body margin-5">
+
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
+
+          <h3 class="text-uppercase" style="font-weight: 700;">Brazing OIL / temp chamber </h3>
+
+          <div class="btn-toolbar mb-2 mb-md-0"></div>
+
+
+        </div>
+
+        <!-- SELECTOR 1 : TEMP C. CHART  -->
+
+        <div class="card card-body margin-5 ps-1 pe-1 mb-4" style="height: 35vh;">
+          <canvas class="my-4 w-100" id="myChart" style="width: 100%;height: 100%"></canvas>
+        </div>
+
+        <!-- END SELECTOR 1 : TEMP C. CHART  -->
+
+        <!-- SELECTOR 2 : TEMP C. VALUES -->
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">BZ 1 UPPER</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center bz-1">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">BZ 2 UPPER</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center bz-2">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">BZ 3 UPPER</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center bz-3">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">BZ 4 UPPER</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center bz-4">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">BZ 5 UPPER</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center bz-5">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">PRE HEAT 1</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center pre-1">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">PRE HEAT 2</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center pre-2">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <!-- END SELECTOR 2 : TEMP C. VALUES -->
+
+      </div>
+
+    </main>
+
+    <!-- END MAIN CONTENT -->
+
+    <!-- WIP NOTIFY  -->
+
+    <!-- <div class="toast align-items-center show position-fixed bottom-0 end-0 text-bg-warning m-2" role="alert"
+      aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          (WIP) THIS PAGE WORKING IN PROCESS....
+        </div>
+      </div>
+    </div> -->
+
+    <!-- END WIP NOTIFY  -->
+
+  <script>
+    
+    
+    // setInterval(() => {
+    //   $(document).ready(() => {
+    //         $.ajax({
+    //             url: "/layout/BrazingGIC1/get-temp-chamber",
+    //             type: "POST",
+    //             success: (data) => {
+    //               console.log(data.topic)
+    //             }
+    //       });
+    //   });
+    // },3000);
+    
+
+  </script>
+
+    <script>
+
+      const ctx = document.getElementById('myChart');
+
+      const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'BZ 1 UPPER',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#177D94',
+            borderWidth: 3,
+            pointBackgroundColor: '#177D94'
+          },
+          {
+            label: 'BZ 2 UPPER',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#28BEE0',
+            borderWidth: 3,
+            pointBackgroundColor: '#28BEE0'
+          },
+          {
+            label: 'BZ 3 UPPER',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#179458',
+            borderWidth: 3,
+            pointBackgroundColor: '#179458'
+          },
+          {
+            label: 'BZ 4 UPPER',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#28E087',
+            borderWidth: 3,
+            pointBackgroundColor: '#28E087'
+          },
+          {
+            label: 'BZ 5 UPPER',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#D1E028',
+            borderWidth: 3,
+            pointBackgroundColor: '#D1E028'
+          },
+          {
+            label: 'PRE HEAT 1',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#199D60',
+            borderWidth: 3,
+            pointBackgroundColor: '#199D60'
+          },
+          {
+            label: 'PRE HEAT 2',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#C6D430',
+            borderWidth: 1,
+            pointBackgroundColor: '#C6D430'
+          },
+          
+          ]
+        },
+        options: {
+          legend: {
+            display: false,
+            labels: {
+              fontColor: 'rgb(255, 99, 132)'
+            }
+          },
+          scales: {
+            y: {
+              ticks: {
+                color: '#ADB5BD',
+                beginAtZero: false
+              }
+            },
+            x: {
+              ticks: {
+                color: '#ADB5BD',
+                beginAtZero: false
+              },
+              min: 0,
+              max: 30,
+            },
+
+          },
+
+          responsive: true,
+          maintainAspectRatio : false,
+          plugins: {
+            legend : {
+              labels : {
+                usePointStyle : true,
+                pointStyle : 'line',
+                color: '#adb5bd'              
+              }
+            },
+            // annotation: {
+            //   annotations: [
+            //     {
+            //       type: 'line',
+            //       scaleID: 'y',
+            //       value: 15,
+            //       borderColor: 'rgb(255, 65, 65)',
+            //       label: {
+            //         enabled: true, 
+            //         content: 'Alarm',
+            //         borderWidth: 2,
+            //         borderColor: 'transparent',
+            //         position: 'end',
+            //       }
+            //     },
+            //     {
+            //       type: 'line',
+            //       scaleID: 'y',
+            //       value: 6,
+            //       borderColor: 'rgb(255, 192, 65)',
+            //       label: { 
+            //         enabled: true, 
+            //         content: 'Warning',
+            //         borderWidth: 2,
+            //         borderColor: 'transparent',
+            //         position: 'end',
+            //       }
+            //     }
+            //   ]
+            // }
+          }
+        }
+      });
+
+
+    let chart_labels = [];
+    let bz_1_data = [];
+    let bz_2_data = [];
+    let bz_3_data = [];
+    let bz_4_data = [];
+    let bz_5_data = [];
+    let pre_1_data = [];
+    let pre_2_data = [];
+    
+    const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
+      socket.on('temp-chamber', (res) => {
+
+
+        // chart_labels.push(getlabelTime());
+        // chart.data.labels = chart_labels;
+
+        // removeData(bz_1_data.length,chart);
+        
+        // if (res.bz1 <= 5 && bz_1_data != []) {
+        //   let result = getRandomFloat(550, 600);
+        //   $(".bz-1").html(result + " °C");
+        //   bz_1_data.push(result);
+        //   chart.data.datasets[0].data = bz_1_data;
+        // } else {
+        //   let result = getRandomFloat(480, 550);
+        //   $(".bz-1").html(result + " °C");
+        //   bz_1_data.push(result);
+        //   chart.data.datasets[0].data = bz_1_data;
+        // }
+
+        // if (res.bz2 <= 5 && bz_2_data != []) {
+        //   $(".bz-2").html(bz_2_data[bz_2_data.length - 1] + " °C");
+        //   bz_2_data.push(bz_2_data[bz_2_data.length - 1]);
+        //   chart.data.datasets[1].data = bz_2_data;
+        // } else {
+        //   $(".bz-2").html(res.bz2 + " °C");
+        //   bz_2_data.push(res.bz2);
+        //   chart.data.datasets[1].data = bz_2_data;
+        // }
+
+        // if (res.bz3 <= 5 && bz_3_data != []) {
+        //   $(".bz-3").html(bz_3_data[bz_3_data.length - 1] + " °C");
+        //   bz_3_data.push(bz_3_data[bz_3_data.length - 1]);
+        //   chart.data.datasets[2].data = bz_3_data;
+        // } else {
+        //   $(".bz-3").html(res.bz3 + " °C");
+        //   bz_3_data.push(res.bz3);
+        //   chart.data.datasets[2].data = bz_3_data;
+        // }
+
+        // if (res.bz4 <= 5 && bz_4_data != []) {
+        //   $(".bz-4").html(bz_4_data[bz_4_data.length - 1] + " °C");
+        //   bz_4_data.push(bz_4_data[bz_4_data.length - 1]);
+        //   chart.data.datasets[3].data = bz_4_data;
+        // } else {
+        //   $(".bz-4").html(res.bz4 + " °C");
+        //   bz_4_data.push(res.bz4);
+        //   chart.data.datasets[3].data = bz_4_data;
+        // }
+
+        // if (res.bz5 <= 5 && bz_5_data != []) {
+        //   $(".bz-5").html(bz_5_data[bz_5_data.length - 1] + " °C");
+        //   bz_5_data.push(bz_5_data[bz_5_data.length - 1]);
+        //   chart.data.datasets[4].data = bz_5_data;
+        // } else {
+        //   $(".bz-5").html(res.bz5 + " °C");
+        //   bz_5_data.push(res.bz5);
+        //   chart.data.datasets[4].data = bz_5_data;
+        // }
+
+
+        // if (res.pre1 <= 5 && pre_1_data != []) {
+        //   $(".pre-1").html(pre_1_data[pre_1_data.length - 1] + " °C");
+        //   pre_1_data.push(pre_1_data[pre_1_data.length - 1]);
+        //   chart.data.datasets[5].data = pre_1_data;
+        // } else {
+        //   $(".pre-1").html(res.pre1 + " °C");
+        //   pre_1_data.push(res.pre1);
+        //   chart.data.datasets[5].data = pre_1_data;
+        // }
+
+        // if (res.pre2 <= 5 && pre_2_data != []) {
+        //   $(".pre-2").html(pre_1_data[pre_1_data.length - 1] + " °C");
+        //   pre_2_data.push(pre_2_data[pre_2_data.length - 1]);
+        //   chart.data.datasets[6].data = pre_2_data;
+        // } else {
+        //   $(".pre-2").html(res.pre2 + " °C");
+        //   pre_2_data.push(res.pre2);
+        //   chart.data.datasets[6].data = pre_2_data;
+        // }
+
+
+        chart_labels.push(getlabelTime());
+        chart.data.labels = chart_labels;
+
+        removeData(bz_1_data.length,chart);
+        
+        if (res.bz1 <= 5 && bz_1_data != []) {
+          $(".bz-1").html(bz_1_data[bz_1_data.length - 1] + " °C");
+          bz_1_data.push(bz_1_data[bz_1_data.length - 1]);
+          chart.data.datasets[0].data = bz_1_data;
+        } else {
+          $(".bz-1").html(res.bz1 + " °C");
+          bz_1_data.push(res.bz1);
+          chart.data.datasets[0].data = bz_1_data;
+        }
+
+        if (res.bz2 <= 5 && bz_2_data != []) {
+          $(".bz-2").html(bz_2_data[bz_2_data.length - 1] + " °C");
+          bz_2_data.push(bz_2_data[bz_2_data.length - 1]);
+          chart.data.datasets[1].data = bz_2_data;
+        } else {
+          $(".bz-2").html(res.bz2 + " °C");
+          bz_2_data.push(res.bz2);
+          chart.data.datasets[1].data = bz_2_data;
+        }
+
+        if (res.bz3 <= 5 && bz_3_data != []) {
+          $(".bz-3").html(bz_3_data[bz_3_data.length - 1] + " °C");
+          bz_3_data.push(bz_3_data[bz_3_data.length - 1]);
+          chart.data.datasets[2].data = bz_3_data;
+        } else {
+          $(".bz-3").html(res.bz3 + " °C");
+          bz_3_data.push(res.bz3);
+          chart.data.datasets[2].data = bz_3_data;
+        }
+
+        if (res.bz4 <= 5 && bz_4_data != []) {
+          $(".bz-4").html(bz_4_data[bz_4_data.length - 1] + " °C");
+          bz_4_data.push(bz_4_data[bz_4_data.length - 1]);
+          chart.data.datasets[3].data = bz_4_data;
+        } else {
+          $(".bz-4").html(res.bz4 + " °C");
+          bz_4_data.push(res.bz4);
+          chart.data.datasets[3].data = bz_4_data;
+        }
+
+        if (res.bz5 <= 5 && bz_5_data != []) {
+          $(".bz-5").html(bz_5_data[bz_5_data.length - 1] + " °C");
+          bz_5_data.push(bz_5_data[bz_5_data.length - 1]);
+          chart.data.datasets[4].data = bz_5_data;
+        } else {
+          $(".bz-5").html(res.bz5 + " °C");
+          bz_5_data.push(res.bz5);
+          chart.data.datasets[4].data = bz_5_data;
+        }
+
+
+        if (res.pre1 <= 5 && pre_1_data != []) {
+          $(".pre-1").html(pre_1_data[pre_1_data.length - 1] + " °C");
+          pre_1_data.push(pre_1_data[pre_1_data.length - 1]);
+          chart.data.datasets[5].data = pre_1_data;
+        } else {
+          $(".pre-1").html(res.pre1 + " °C");
+          pre_1_data.push(res.pre1);
+          chart.data.datasets[5].data = pre_1_data;
+        }
+
+        if (res.pre2 <= 5 && pre_2_data != []) {
+          $(".pre-2").html(pre_1_data[pre_1_data.length - 1] + " °C");
+          pre_2_data.push(pre_2_data[pre_2_data.length - 1]);
+          chart.data.datasets[6].data = pre_2_data;
+        } else {
+          $(".pre-2").html(res.pre2 + " °C");
+          pre_2_data.push(res.pre2);
+          chart.data.datasets[6].data = pre_2_data;
+        }
+
+
+        chart.update();
+
+        // if (res.data[1] != '0') {
+          
+        //   switch (res.data[0]) {
+        //     case "bz1":
+        //       $(".bz-1").html(res.data[1] + " °C");
+              
+        //       removeData(bz_1_data.length,chart,0);
+        //       chart_labels.push(getlabelTime());
+        //       bz_1_data.push(res.data[1]);
+        //       chart.data.datasets[0].data = bz_1_data;
+        //       chart.data.labels = chart_labels;
+        //       chart.update();
+        //     break;
+        //     case "bz2":
+        //       $(".bz-2").html(res.data[1] + " °C");
+
+        //       removeData(bz_2_data.length,chart,1);
+
+        //       bz_2_data.push(res.data[1]);
+        //       chart.data.datasets[1].data = bz_2_data;
+        //       //chart.data.labels = chart_labels;
+        //       chart.update();
+        //     break;
+        //     case "bz3":
+        //       $(".bz-3").html(res.data[1] + " °C");
+
+        //       removeData(bz_3_data.length,chart,2);
+
+        //       bz_3_data.push(res.data[1]);
+        //       chart.data.datasets[2].data = bz_3_data;
+        //       //chart.data.labels = chart_labels;
+        //       chart.update();
+        //     break;
+        //     case "bz4":
+        //       $(".bz-4").html(res.data[1] + " °C");
+
+        //       removeData(bz_4_data.length,chart,3);
+
+        //       bz_4_data.push(res.data[1]);
+        //       chart.data.datasets[3].data = bz_4_data;
+        //       //chart.data.labels = chart_labels;
+        //       chart.update();
+        //     break;
+        //     case "bz5":
+        //       $(".bz-5").html(res.data[1] + " °C");
+
+        //       removeData(bz_5_data.length,chart,4);
+
+        //       bz_5_data.push(res.data[1]);
+        //       chart.data.datasets[4].data = bz_5_data;
+        //       //chart.data.labels = chart_labels;
+        //       chart.update();
+        //     break;
+        //     case "pre1":
+        //       if (res.data[1] == '5') {
+        //         $(".pre-1").html(pre_1_data[pre_1_data.length - 1] + " °C");
+
+        //         removeData(pre_1_data.length,chart,5);
+
+        //         pre_1_data.push(pre_1_data[pre_1_data.length - 1]);
+        //         chart.data.datasets[5].data = pre_1_data;
+        //         //chart.data.labels = chart_labels;
+        //         chart.update();
+        //       } else {
+        //         $(".pre-1").html(res.data[1] + " °C");
+
+        //         removeData(pre_1_data.length,chart,6);
+
+        //         pre_1_data.push(res.data[1]);
+        //         chart.data.datasets[5].data = pre_1_data;
+        //         //chart.data.labels = chart_labels;
+        //         chart.update();
+        //       }
+        //     break;
+        //     case "pre2":
+        //       $(".pre-2").html(res.data[1] + " °C");
+
+        //       removeData(pre_2_data.length,chart,7);
+
+        //       pre_2_data.push(res.data[1]);
+        //       chart.data.datasets[6].data = pre_2_data;
+        //       //chart.data.labels = chart_labels;
+        //       chart.update();
+        //     break;
+        //   } 
+        // }
+    });
+
+    </script>

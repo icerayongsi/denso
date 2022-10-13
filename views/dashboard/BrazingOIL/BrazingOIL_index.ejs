@@ -1,0 +1,1010 @@
+<%- include('BrazingGIC_2_partials/BrazingGIC_2_header') -%>
+
+  <%- include('../../partials/navbar_dashboard') -%>
+
+  <%- include('BrazingGIC_2_partials/BrazingGIC_menu') -%>
+
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
+
+      <%- include('BrazingGIC_2_partials/BrazingGIC_2_mechine_img')  %> 
+
+      <div class="card card-body margin-5">
+
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
+          <h3 class="text-uppercase" style="font-weight: 700;">BRAZING GIC 2 / vibrator rc fan </h3>
+          
+        </div>
+
+        <!-- SELECTOR 1 : GAUGE -->
+
+        <div class="container-fluid">
+          <div class="row">
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 1</div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-1-X" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-X-1-label">X-Axis :</p>
+                </div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-1-Z" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-Z-1-label">Z-Axis :</p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 2</div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-2-X" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-X-2-label">X-Axis :</p>
+                </div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-2-Z" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-Z-2-label">Z-Axis :</p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 3</div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-3-X" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-X-3-label">X-Axis :</p>
+                </div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-3-Z" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-Z-3-label">Z-Axis :</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center ">RC Fan 4</div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-4-X" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-X-4-label">X-Axis :</p>
+                </div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-4-Z" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-Z-4-label">Z-Axis :</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 5</div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-5-X" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-X-5-label">X-Axis :</p>
+                </div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-5-Z" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-Z-5-label">Z-Axis :</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 6</div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-6-X" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-X-6-label">X-Axis :</p>
+                </div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-6-Z" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-Z-6-label">Z-Axis :</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 7</div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-7-X" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-X-7-label">X-Axis :</p>
+                </div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-7-Z" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-Z-7-label">Z-Axis :</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 8</div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-8-X" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-X-8-label">X-Axis :</p>
+                </div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-8-Z" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-Z-8-label">Z-Axis :</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 9</div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-9-X" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-X-9-label">X-Axis :</p>
+                </div>
+                <div class="card-body">
+                  <canvas id="RC-Fan-9-Z" style="width: 100%;height: 100%;"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p class="text-center m-0 RC-Z-9-label">Z-Axis :</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- END SELECTOR 1 : GAUGE -->
+
+        <!-- SELECTOR 2 : CHART -->
+
+        <div class="card card-body margin-4 ps-1 pe-1" style="height: calc(var(--main-h) + var(--chart-responsive));">
+
+          <div class="w-100">
+            <h4 class="ps-2" id="sort-header">
+              Daily maximum
+            </h4>
+          </div>
+          <div class="btn-toolbar mb-2 me-3 mb-md-0 flex-row-reverse">
+
+            
+            
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" disabled>
+              <span data-feather="calendar" class="align-text-bottom"></span>
+              <span id="sort-dropdown-title">By days</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <form method="POST" id="sort-chart-days">
+                  <button class="dropdown-item" type="submit" id="sort-days">By days</button>
+                </form> 
+              </li>
+              <li>
+                <form method="POST" id="sort-chart-weeks">
+                  <button class="dropdown-item" type="submit" id="sort-weeks">By weeks</button>
+                </form> 
+              </li>
+              <li>
+                <form method="POST" id="sort-chart-month">
+                  <button class="dropdown-item" type="submit" id="sort-month">By month</button>
+                </form> 
+              </li>
+            </ul>
+            <p class="mb-0 me-2" style="margin-top: 0.4rem;">| Data sort</p>
+            
+              <div class="form-check form-switch" style="margin-top: 0.4rem;">
+                
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+              </div>
+              <p class="mb-0 me-2" style="margin-top: 0.4rem;">Alarm/Warning line</p>
+          </div>
+          <div style="height: 80%;">
+            <canvas class="my-1 w-100" id="myChart"></canvas>
+          </div>
+          
+        </div>
+
+        <!-- END SELECTOR 2 : CHART -->
+
+    </main>
+
+    <!-- <div class="toast align-items-center show position-fixed bottom-0 end-0 text-bg-warning m-2" role="alert"
+      aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          (WIP) THIS PAGE WORKING IN PROCESS....
+        </div>
+      </div>
+    </div> -->
+
+
+
+
+    <script>
+      var opts = {
+
+        colorStart: "#6fadcf",
+        colorStop: void 0,
+        gradientType: 0,
+        strokeColor: "#e0e0e0",
+        generateGradient: true,
+        percentColors: [[0.0, "#a9d70b"], [0.50, "#f9c802"], [1.0, "#ff0000"]],
+
+        pointer: {
+          length: 0.8,
+          strokeWidth: 0.035,
+          iconScale: 1.0,
+          color: '#FFF'
+        },
+
+        staticLabels: {
+          font: "10px sans-serif",
+          labels: [0, 10, 20, 30, 40, 50],
+          color: "#fff",
+          fractionDigits: 0
+        },
+
+        staticZones: [
+          // {strokeStyle: "#F03E3E", min: 0, max: 200},
+          // {strokeStyle: "#FFDD00", min: 200, max: 500},
+          { strokeStyle: "#30B32D", min: 0, max: 20 },
+          { strokeStyle: "#FFDD00", min: 20, max: 30 },
+          { strokeStyle: "#F03E3E", min: 30, max: 50 }
+        ],
+
+        renderTicks: {
+          divisions: 6,
+          divWidth: 1.1,
+          divLength: 0.7,
+          divColor: "#333333",
+          subDivisions: 3,
+          subLength: 0.5,
+          subWidth: 0.6,
+          subColor: "#666666"
+        },
+
+        angle: 0,
+
+        lineWidth: 0.44,
+
+        radiusScale: 1.0,
+
+        fontSize: 40,
+
+        limitMax: false,
+
+        limitMin: false,
+
+        highDpiSupport: true
+
+      };
+
+      var RC_Fan_1_X = new Gauge(document.getElementById('RC-Fan-1-X')).setOptions(opts);
+      var RC_Fan_1_Z = new Gauge(document.getElementById('RC-Fan-1-Z')).setOptions(opts);
+
+      var RC_Fan_2_X = new Gauge(document.getElementById('RC-Fan-2-X')).setOptions(opts);
+      var RC_Fan_2_Z = new Gauge(document.getElementById('RC-Fan-2-Z')).setOptions(opts);
+
+      var RC_Fan_3_X = new Gauge(document.getElementById('RC-Fan-3-X')).setOptions(opts);
+      var RC_Fan_3_Z = new Gauge(document.getElementById('RC-Fan-3-Z')).setOptions(opts);
+
+      var RC_Fan_4_X = new Gauge(document.getElementById('RC-Fan-4-X')).setOptions(opts);
+      var RC_Fan_4_Z = new Gauge(document.getElementById('RC-Fan-4-Z')).setOptions(opts);
+
+      var RC_Fan_5_X = new Gauge(document.getElementById('RC-Fan-5-X')).setOptions(opts);
+      var RC_Fan_5_Z = new Gauge(document.getElementById('RC-Fan-5-Z')).setOptions(opts);
+
+      var RC_Fan_6_X = new Gauge(document.getElementById('RC-Fan-6-X')).setOptions(opts);
+      var RC_Fan_6_Z = new Gauge(document.getElementById('RC-Fan-6-Z')).setOptions(opts);
+
+      var RC_Fan_7_X = new Gauge(document.getElementById('RC-Fan-7-X')).setOptions(opts);
+      var RC_Fan_7_Z = new Gauge(document.getElementById('RC-Fan-7-Z')).setOptions(opts);
+
+      var RC_Fan_8_X = new Gauge(document.getElementById('RC-Fan-8-X')).setOptions(opts);
+      var RC_Fan_8_Z = new Gauge(document.getElementById('RC-Fan-8-Z')).setOptions(opts);
+
+      var RC_Fan_9_X = new Gauge(document.getElementById('RC-Fan-9-X')).setOptions(opts);
+      var RC_Fan_9_Z = new Gauge(document.getElementById('RC-Fan-9-Z')).setOptions(opts);
+
+      RC_Fan_1_X.maxValue = 50;
+      RC_Fan_1_Z.maxValue = 50;
+
+      RC_Fan_2_X.maxValue = 50;
+      RC_Fan_2_Z.maxValue = 50;
+
+      RC_Fan_3_X.maxValue = 50;
+      RC_Fan_3_Z.maxValue = 50;
+
+      RC_Fan_4_X.maxValue = 50;
+      RC_Fan_4_Z.maxValue = 50;
+
+      RC_Fan_5_X.maxValue = 50;
+      RC_Fan_5_Z.maxValue = 50;
+
+      RC_Fan_6_X.maxValue = 50;
+      RC_Fan_6_Z.maxValue = 50;
+
+      RC_Fan_7_X.maxValue = 50;
+      RC_Fan_7_Z.maxValue = 50;
+
+      RC_Fan_8_X.maxValue = 50;
+      RC_Fan_8_Z.maxValue = 50;
+
+      RC_Fan_9_X.maxValue = 50;
+      RC_Fan_9_Z.maxValue = 50;
+
+      // RC_Fan_1_X.set(Math.floor(Math.random() * 3) + 1);
+      // RC_Fan_1_Z.set(Math.floor(Math.random() * 3) + 1);
+
+      // RC_Fan_2_X.set(Math.floor(Math.random() * 3) + 1);
+      // RC_Fan_2_Z.set(Math.floor(Math.random() * 3) + 1);
+
+      // RC_Fan_3_X.set(Math.floor(Math.random() * 3) + 1);
+      // RC_Fan_3_Z.set(Math.floor(Math.random() * 3) + 1);
+
+      // RC_Fan_4_X.set(Math.floor(Math.random() * 3) + 1);
+      // RC_Fan_4_Z.set(Math.floor(Math.random() * 3) + 1);
+
+      // RC_Fan_5_X.set(Math.floor(Math.random() * 3) + 1);
+      // RC_Fan_5_Z.set(Math.floor(Math.random() * 3) + 1);
+
+      // RC_Fan_6_X.set(Math.floor(Math.random() * 3) + 1);
+      // RC_Fan_6_Z.set(Math.floor(Math.random() * 3) + 1);
+
+      // RC_Fan_7_X.set(Math.floor(Math.random() * 3) + 1);
+      // RC_Fan_7_Z.set(Math.floor(Math.random() * 3) + 1);
+
+      // RC_Fan_8_X.set(Math.floor(Math.random() * 3) + 1);
+      // RC_Fan_8_Z.set(Math.floor(Math.random() * 3) + 1);
+
+      // RC_Fan_9_X.set(Math.floor(Math.random() * 3) + 1);
+      // RC_Fan_9_Z.set(Math.floor(Math.random() * 3) + 1);
+
+      // setInterval(() => {
+      //   RC_Fan_1_X.set(getRandomFloat(0.6, 1.5, 2));
+      //   RC_Fan_1_Z.set(getRandomFloat(0.6, 1.5, 2));
+      //   $(".badge-rc-1").html("RC Fan 1<br>X : " + RC_Fan_1_X.value + "<br> Z : " + RC_Fan_1_Z.value);
+
+      //   RC_Fan_2_X.set(getRandomFloat(0.6, 1.5, 2));
+      //   RC_Fan_2_Z.set(getRandomFloat(0.6, 1.5, 2));
+      //   $(".badge-rc-2").html("RC Fan 2<br>X : " + RC_Fan_2_X.value + "<br> Z : " + RC_Fan_2_Z.value);
+
+      //   RC_Fan_3_X.set(getRandomFloat(0.6, 1.5, 2));
+      //   RC_Fan_3_Z.set(getRandomFloat(0.6, 1.5, 2));
+      //   $(".badge-rc-3").html("RC Fan 3<br>X : " + RC_Fan_3_X.value + "<br> Z : " + RC_Fan_3_Z.value);
+
+      //   RC_Fan_4_X.set(getRandomFloat(0.6, 1.5, 2));
+      //   RC_Fan_4_Z.set(getRandomFloat(0.6, 1.5, 2));
+      //   $(".badge-rc-4").html("RC Fan 4<br>X : " + RC_Fan_4_X.value + "<br> Z : " + RC_Fan_4_Z.value);
+
+      //   RC_Fan_5_X.set(getRandomFloat(0.6, 1.5, 2));
+      //   RC_Fan_5_Z.set(getRandomFloat(0.6, 1.5, 2));
+      //   $(".badge-rc-5").html("RC Fan 5<br>X : " + RC_Fan_5_X.value + "<br> Z : " + RC_Fan_5_Z.value);
+
+      //   RC_Fan_6_X.set(getRandomFloat(0.6, 1.5, 2));
+      //   RC_Fan_6_Z.set(getRandomFloat(0.6, 1.5, 2));
+      //   $(".badge-rc-6").html("RC Fan 6<br>X : " + RC_Fan_6_X.value + "<br> Z : " + RC_Fan_6_Z.value);
+
+      //   RC_Fan_7_X.set(getRandomFloat(0.6, 1.5, 2));
+      //   RC_Fan_7_Z.set(getRandomFloat(0.6, 1.5, 2));
+      //   $(".badge-rc-7").html("RC Fan 7<br>X : " + RC_Fan_7_X.value + "<br> Z : " + RC_Fan_7_Z.value);
+
+      //   RC_Fan_8_X.set(getRandomFloat(0.6, 1.5, 2));
+      //   RC_Fan_8_Z.set(getRandomFloat(0.6, 1.5, 2));
+      //   $(".badge-rc-8").html("RC Fan 8<br>X : " + RC_Fan_8_X.value + "<br> Z : " + RC_Fan_8_Z.value);
+
+      //   RC_Fan_9_X.set(getRandomFloat(0.6, 1.5, 2));
+      //   RC_Fan_9_Z.set(getRandomFloat(0.6, 1.5, 2));
+      //   $(".badge-rc-9").html("RC Fan 9<br>X : " + RC_Fan_9_X.value + "<br> Z : " + RC_Fan_9_Z.value);
+
+      // }, 3000)
+
+      RC_Fan_1_X.set(0);
+      RC_Fan_1_Z.set(0);
+
+      RC_Fan_2_X.set(0);
+      RC_Fan_2_Z.set(0);
+
+      RC_Fan_3_X.set(0);
+      RC_Fan_3_Z.set(0);
+
+      RC_Fan_4_X.set(0);
+      RC_Fan_4_Z.set(0);
+
+      RC_Fan_5_X.set(0);
+      RC_Fan_5_Z.set(0);
+
+      RC_Fan_6_X.set(0);
+      RC_Fan_6_Z.set(0);
+
+      RC_Fan_7_X.set(0);
+      RC_Fan_7_Z.set(0);
+
+      RC_Fan_8_X.set(0);
+      RC_Fan_8_Z.set(0);
+
+      RC_Fan_9_X.set(0);
+      RC_Fan_9_Z.set(0);
+
+      const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
+
+      socket.on('BRAZING-2-vibrator', (res) => {
+        
+        RC_Fan_1_X.set(res.vi1_X);
+        RC_Fan_1_Z.set(res.vi1_Z);
+        $(".badge-rc-1").html("RC Fan 1<br>X : " + RC_Fan_1_X.value + "<br> Z : " + RC_Fan_1_Z.value);
+        $(".RC-X-1-label").html("X-Axis : " + RC_Fan_1_X.value);
+        $(".RC-Z-1-label").html("Z-Axis : " + RC_Fan_1_Z.value);
+
+        RC_Fan_2_X.set(res.vi2_X);
+        RC_Fan_2_Z.set(res.vi2_Z);
+        $(".badge-rc-2").html("RC Fan 2<br>X : " + RC_Fan_2_X.value + "<br> Z : " + RC_Fan_2_Z.value);
+        $(".RC-X-2-label").html("X-Axis : " + RC_Fan_2_X.value);
+        $(".RC-Z-2-label").html("Z-Axis : " + RC_Fan_2_Z.value);
+
+        RC_Fan_3_X.set(res.vi3_X);
+        RC_Fan_3_Z.set(res.vi3_Z);
+        $(".badge-rc-3").html("RC Fan 3<br>X : " + RC_Fan_3_X.value + "<br> Z : " + RC_Fan_3_Z.value);
+        $(".RC-X-3-label").html("X-Axis : " + RC_Fan_3_X.value);
+        $(".RC-Z-3-label").html("Z-Axis : " + RC_Fan_3_Z.value);
+
+        RC_Fan_4_X.set(res.vi4_X);
+        RC_Fan_4_Z.set(res.vi4_Z);
+        $(".badge-rc-4").html("RC Fan 4<br>X : " + RC_Fan_4_X.value + "<br> Z : " + RC_Fan_4_Z.value);
+        $(".RC-X-4-label").html("X-Axis : " + RC_Fan_4_X.value);
+        $(".RC-Z-4-label").html("Z-Axis : " + RC_Fan_4_Z.value);
+
+        RC_Fan_5_X.set(res.vi5_X);
+        RC_Fan_5_Z.set(res.vi5_Z);
+        $(".badge-rc-5").html("RC Fan 5<br>X : " + RC_Fan_5_X.value + "<br> Z : " + RC_Fan_5_Z.value);
+        $(".RC-X-5-label").html("X-Axis : " + RC_Fan_5_X.value);
+        $(".RC-Z-5-label").html("Z-Axis : " + RC_Fan_5_Z.value);
+
+        RC_Fan_6_X.set(res.vi6_X);
+        RC_Fan_6_Z.set(res.vi6_Z);
+        $(".badge-rc-6").html("RC Fan 6<br>X : " + RC_Fan_6_X.value + "<br> Z : " + RC_Fan_6_Z.value);
+        $(".RC-X-6-label").html("X-Axis : " + RC_Fan_6_X.value);
+        $(".RC-Z-6-label").html("Z-Axis : " + RC_Fan_6_Z.value);
+
+        RC_Fan_7_X.set(res.vi7_X);
+        RC_Fan_7_Z.set(res.vi7_Z);
+        $(".badge-rc-7").html("RC Fan 7<br>X : " + RC_Fan_7_X.value + "<br> Z : " + RC_Fan_7_Z.value);
+        $(".RC-X-7-label").html("X-Axis : " + RC_Fan_7_X.value);
+        $(".RC-Z-7-label").html("Z-Axis : " + RC_Fan_7_Z.value);
+
+        RC_Fan_8_X.set(res.vi8_X);
+        RC_Fan_8_Z.set(res.vi8_Z);
+        $(".badge-rc-8").html("RC Fan 8<br>X : " + RC_Fan_8_X.value + "<br> Z : " + RC_Fan_8_Z.value);
+        $(".RC-X-8-label").html("X-Axis : " + RC_Fan_8_X.value);
+        $(".RC-Z-8-label").html("Z-Axis : " + RC_Fan_8_Z.value);
+
+        RC_Fan_9_X.set(res.vi9_X);
+        RC_Fan_9_Z.set(res.vi9_X);
+        $(".badge-rc-9").html("RC Fan 9<br>X : " + RC_Fan_9_X.value + "<br> Z : " + RC_Fan_9_Z.value);
+        $(".RC-X-9-label").html("X-Axis : " + RC_Fan_9_X.value);
+        $(".RC-Z-9-label").html("Z-Axis : " + RC_Fan_9_Z.value);
+      });
+
+
+      data_x_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, 0.737, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998,0.998, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]
+      data_z_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, 0.737, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998, 0.998, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]
+      label_day = ['8/13/2022', '8/14/2022', '8/15/2022', '8/16/2022', '8/17/2022', '8/18/2022', '8/19/2022', '8/20/2022', '8/21/2022', '8/22/2022', '8/23/2022', '8/24/2022', '8/25/2022', '8/26/2022', '8/27/2022', '8/28/2022', '8/29/2022', '8/30/2022', '8/31/2022', '9/1/2022', '9/2/2022', '9/3/2022', '9/4/2022', '9/5/2022', '9/6/2022', '9/7/2022', '9/8/2022', '9/9/2022', '9/10/2022', '9/11/2022']
+
+      const ctx = document.getElementById('myChart');
+
+      const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: label_day,
+          datasets: [{
+            label: 'RC Fan 1 (X-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#177D94',
+            borderWidth: 1,
+            pointBackgroundColor: '#177D94'
+          },
+          {
+            label: 'RC Fan 1 (Z-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#28BEE0',
+            borderWidth: 1,
+            pointBackgroundColor: '#28BEE0'
+          },
+          {
+            label: 'RC Fan 2 (X-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#179458',
+            borderWidth: 1,
+            pointBackgroundColor: '#179458'
+          },
+          {
+            label: 'RC Fan 2 (Z-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#28E087',
+            borderWidth: 1,
+            pointBackgroundColor: '#28E087'
+          },
+          {
+            label: 'RC Fan 3 (X-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#D1E028',
+            borderWidth: 1,
+            pointBackgroundColor: '#D1E028'
+          },
+          {
+            label: 'RC Fan 3 (Z-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#199D60',
+            borderWidth: 1,
+            pointBackgroundColor: '#199D60'
+          },
+          {
+            label: 'RC Fan 4 (X-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#C6D430',
+            borderWidth: 1,
+            pointBackgroundColor: '#C6D430'
+          },
+          {
+            label: 'RC Fan 4 (Z-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#949C36',
+            borderWidth: 1,
+            pointBackgroundColor: '#949C36'
+          },
+          {
+            label: 'RC Fan 5 (X-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#CE872C',
+            borderWidth: 1,
+            pointBackgroundColor: '#CE872C'
+          },
+          {
+            label: 'RC Fan 5 (Z-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#7F5723',
+            borderWidth: 1,
+            pointBackgroundColor: '#7F5723'
+          },
+          {
+            label: 'RC Fan 6 (X-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#C92626',
+            borderWidth: 1,
+            pointBackgroundColor: '#C92626'
+          },
+          {
+            label: 'RC Fan 6 (Z-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#842525',
+            borderWidth: 1,
+            pointBackgroundColor: '#842525'
+          },
+          {
+            label: 'RC Fan 7 (X-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#C62881',
+            borderWidth: 1,
+            pointBackgroundColor: '#C62881'
+          },
+          {
+            label: 'RC Fan 7 (Z-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#7F2257',
+            borderWidth: 1,
+            pointBackgroundColor: '#7F2257'
+          },
+          {
+            label: 'RC Fan 8 (X-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#8D2FC9',
+            borderWidth: 1,
+            pointBackgroundColor: '#8D2FC9'
+          },
+          {
+            label: 'RC Fan 8 (Z-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#541C77',
+            borderWidth: 1,
+            pointBackgroundColor: '#541C77'
+          },
+          {
+            label: 'RC Fan 9 (X-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#28BEE0',
+            borderWidth: 1,
+            pointBackgroundColor: '#28BEE0'
+          },
+          {
+            label: 'RC Fan 9 (Z-Axis)',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#2D25D9',
+            borderWidth: 1,
+            pointBackgroundColor: '#231E90'
+          }
+          ]
+        },
+        options: {
+          elements:{
+                point:{
+                    borderWidth: 0,
+                    radius: 1,
+                    backgroundColor: 'rgba(0,0,0,0)'
+                }
+              },
+          legend: {
+            display: true,
+            labels: {
+              color: '#adb5bd',
+            }
+          },
+          scales: {
+            y: {
+              ticks: {
+                color: '#ADB5BD',
+                beginAtZero: false
+              }
+            },
+            x: {
+              ticks: {
+                color: '#ADB5BD',
+                beginAtZero: false
+              },
+              min: 0,
+              max: 30,
+            },
+
+          },
+
+          responsive: true,
+          maintainAspectRatio : false,
+          plugins: {
+            legend : {
+              labels : {
+                usePointStyle : true,
+                pointStyle : 'line',
+                color: '#adb5bd'              
+              }
+            },
+            annotation: {
+              annotations: [
+                {
+                  type: 'line',
+                  scaleID: 'y',
+                  value: 0,
+                  borderColor: 'rgb(255, 65, 65)',
+                  label: {
+                    enabled: true, 
+                    content: 'Alarm',
+                    borderWidth: 1,
+                    borderColor: 'transparent',
+                    position: 'end',
+                  }
+                },
+                {
+                  type: 'line',
+                  scaleID: 'y',
+                  value: 0,
+                  borderColor: 'rgb(255, 192, 65)',
+                  label: { 
+                    enabled: true, 
+                    content: 'Warning',
+                    borderWidth: 1,
+                    borderColor: 'transparent',
+                    position: 'end',
+                  }
+                }
+              ]
+            }
+          }
+        }
+      });
+
+      if (window.matchMedia("(max-width: 700px)").matches) {
+        chart.options.maintainAspectRatieo = true;
+      }
+
+    </script>
+
+        <!-- CHART AJAX -->
+
+        <script>
+
+          chart.options.plugins.annotation.annotations[0].value = 30;
+          chart.options.plugins.annotation.annotations[1].value = 20;
+          chart.update();
+
+          $("#sort-days").click(() => {
+            $("#sort-dropdown-title").html("By days");
+            $("#sort-header").html("Daily maximum");
+          });
+
+          $("#sort-weeks").click(() => {
+            $("#sort-dropdown-title").html("By weeks");
+            $("#sort-header").html("Weekly maximum");
+          });
+
+          $("#sort-month").click(() => {
+            $("#sort-dropdown-title").html("By month");
+            $("#sort-header").html("Monthly maximum");
+          });
+
+          $("#flexSwitchCheckDefault").change(function(){
+              if($(this).prop("checked") == true){
+                chart.options.plugins.annotation.annotations[0].value = 30;
+                chart.options.plugins.annotation.annotations[1].value = 20;
+                chart.update();
+              }else{
+                chart.options.plugins.annotation.annotations[0].value = 0;
+                chart.options.plugins.annotation.annotations[1].value = 0;
+                chart.update();
+              }
+          });
+
+      //     $(document).ready(() => {
+      //       $.ajax({
+      //           url: "/layout/BrazingGIC1/sort-chart",
+      //           type: "POST",
+      //           data: {
+      //               'type': 'days'
+      //           },
+      //           success: (data) => {
+      //               chart.data.datasets[0].data = data.x_0;
+      //               chart.data.datasets[1].data = data.z_0;
+
+      //               chart.data.datasets[2].data = data.x_1;
+      //               chart.data.datasets[3].data = data.z_1;
+
+      //               chart.data.datasets[4].data = data.x_2;
+      //               chart.data.datasets[5].data = data.z_2;
+
+      //               chart.data.datasets[6].data = data.x_3;
+      //               chart.data.datasets[7].data = data.z_3;
+
+      //               chart.data.datasets[8].data = data.x_4;
+      //               chart.data.datasets[9].data = data.z_4;
+
+      //               chart.data.datasets[10].data = data.x_5;
+      //               chart.data.datasets[11].data = data.z_5;
+
+      //               chart.data.datasets[12].data = data.x_6;
+      //               chart.data.datasets[13].data = data.z_6;
+
+      //               chart.data.datasets[14].data = data.x_7;
+      //               chart.data.datasets[15].data = data.z_7;
+
+      //               chart.data.datasets[16].data = data.x_8;
+      //               chart.data.datasets[17].data = data.z_8;
+
+
+      //               chart.data.labels = data.label;
+      //               chart.update();
+                    
+      //           }
+      //     });
+      // });
+
+          $("#sort-chart-days").submit((e) => {
+            e.preventDefault();
+            $.ajax({
+                url: "/layout/BrazingGIC1/sort-chart",
+                type: "POST",
+                data: {
+                    'type': 'days'
+                },
+                success: (data) => {
+                    chart.data.datasets[0].data = data.x_0;
+                    chart.data.datasets[1].data = data.z_0;
+
+                    chart.data.datasets[2].data = data.x_1;
+                    chart.data.datasets[3].data = data.z_1;
+
+                    chart.data.datasets[4].data = data.x_2;
+                    chart.data.datasets[5].data = data.z_2;
+
+                    chart.data.datasets[6].data = data.x_3;
+                    chart.data.datasets[7].data = data.z_3;
+
+                    chart.data.datasets[8].data = data.x_4;
+                    chart.data.datasets[9].data = data.z_4;
+
+                    chart.data.datasets[10].data = data.x_5;
+                    chart.data.datasets[11].data = data.z_5;
+
+                    chart.data.datasets[12].data = data.x_6;
+                    chart.data.datasets[13].data = data.z_6;
+
+                    chart.data.datasets[14].data = data.x_7;
+                    chart.data.datasets[15].data = data.z_7;
+
+                    chart.data.datasets[16].data = data.x_8;
+                    chart.data.datasets[17].data = data.z_8;
+
+
+                    chart.data.labels = data.label;
+                    chart.update();
+                    
+                }
+          });
+      });
+
+      
+
+      $("#sort-chart-weeks").submit((e) => {
+            e.preventDefault();
+            $.ajax({
+                url: "/layout/BrazingGIC1/sort-chart",
+                type: "POST",
+                data: {
+                    'type': 'weeks'
+                },
+                success: (data) => {
+                  console.log(data)
+                  chart.data.datasets[0].data = data.x_0;
+                    chart.data.datasets[1].data = data.z_0;
+
+                    chart.data.datasets[2].data = data.x_1;
+                    chart.data.datasets[3].data = data.z_1;
+
+                    chart.data.datasets[4].data = data.x_2;
+                    chart.data.datasets[5].data = data.z_2;
+
+                    chart.data.datasets[6].data = data.x_3;
+                    chart.data.datasets[7].data = data.z_3;
+
+                    chart.data.datasets[8].data = data.x_4;
+                    chart.data.datasets[9].data = data.z_4;
+
+                    chart.data.datasets[10].data = data.x_5;
+                    chart.data.datasets[11].data = data.z_5;
+
+                    chart.data.datasets[12].data = data.x_6;
+                    chart.data.datasets[13].data = data.z_6;
+
+                    chart.data.datasets[14].data = data.x_7;
+                    chart.data.datasets[15].data = data.z_7;
+
+                    chart.data.datasets[16].data = data.x_8;
+                    chart.data.datasets[17].data = data.z_8;
+
+                    chart.data.labels = data.label;
+                    chart.update();
+                    
+                }
+          });
+      });
+
+      $("#sort-chart-month").submit((e) => {
+            e.preventDefault();
+            $.ajax({
+                url: "/layout/BrazingGIC1/sort-chart",
+                type: "POST",
+                data: {
+                    'type': 'month'
+                },
+                success: (data) => {
+                    chart.data.datasets[0].data = data.x_0;
+                    chart.data.datasets[1].data = data.z_0;
+
+                    chart.data.datasets[2].data = data.x_1;
+                    chart.data.datasets[3].data = data.z_1;
+
+                    chart.data.datasets[4].data = data.x_2;
+                    chart.data.datasets[5].data = data.z_2;
+
+                    chart.data.datasets[6].data = data.x_3;
+                    chart.data.datasets[7].data = data.z_3;
+
+                    chart.data.datasets[8].data = data.x_4;
+                    chart.data.datasets[9].data = data.z_4;
+
+                    chart.data.datasets[10].data = data.x_5;
+                    chart.data.datasets[11].data = data.z_5;
+
+                    chart.data.datasets[12].data = data.x_6;
+                    chart.data.datasets[13].data = data.z_6;
+
+                    chart.data.datasets[14].data = data.x_7;
+                    chart.data.datasets[15].data = data.z_7;
+
+                    chart.data.datasets[16].data = data.x_8;
+                    chart.data.datasets[17].data = data.z_8;
+
+                    chart.data.labels = data.label;
+                    chart.update();
+                    
+                }
+          });
+      });
+      </script>
+  
+      <!-- END CHART AJAX -->

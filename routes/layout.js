@@ -132,7 +132,6 @@ io.on("connection", (socket) => {
         current_8: message.data[0].Current_8,
         current_9: message.data[0].Current_9,
       });
-
     }
 
     if (topic.substring(0, 8) == '22090001') { // BRAZING BRS
@@ -1240,6 +1239,16 @@ router.get('/BrazingBRS', function (req, res, next) {
   // if (!req.session.userid) res.redirect('/login');
 
   res.render('dashboard/BrazingBRS/BrazingBRS', { title: title, header: 'BrazingBRS', page: req.query.page });
+});
+
+// END BrazingGIC2
+
+// BrazingBRS
+
+router.get('/BrazingOIL', function (req, res, next) {
+  // if (!req.session.userid) res.redirect('/login');
+
+  res.render('dashboard/BrazingOIL/BrazingOIL', { title: title, header: 'BrazingOIL', page: req.query.page });
 });
 
 // END BrazingGIC2
