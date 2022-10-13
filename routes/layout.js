@@ -30,7 +30,7 @@ client.on('connect', () => {
 
 io.on("connection", (socket) => {
 
-  console.log("Websocket connected!!");
+  //console.log("Websocket connected!!");
 
   client.on('message', (topic, message) => {
     // console.log(topic.substring(0,8));
@@ -120,6 +120,18 @@ io.on("connection", (socket) => {
         temp_8: message.data[0].Temp_8,
         temp_9: message.data[0].Temp_9,
       });
+      socket.emit('BRAZING-2-current', {
+        current_1: message.data[0].Current_1,
+        current_2: message.data[0].Current_2,
+        current_3: message.data[0].Current_3,
+        current_4: message.data[0].Current_4,
+        current_5: message.data[0].Current_5,
+        current_6: message.data[0].Current_6,
+        current_7: message.data[0].Current_7,
+        current_8: message.data[0].Current_8,
+        current_9: message.data[0].Current_9,
+      });
+
     }
 
     if (topic.substring(0, 8) == '22080001') {
