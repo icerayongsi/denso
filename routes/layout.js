@@ -1221,6 +1221,7 @@ router.get('/BrazingGIC2', function (req, res, next) {
 
   res.render('dashboard/BrazingGIC_2/BrazingGIC_2', { title: title, header: 'BrazingGIC 2', page: req.query.page });
 });
+
 // END BrazingGIC2
 
 
@@ -1232,6 +1233,17 @@ router.get('/WCAC', function (req, res, next) {
   res.render('dashboard/WCAC/WCAC', { title: title, header: 'WCAC', page: req.query.page });
 });
 // END BrazingGIC2
+
+// BrazingBRS
+
+router.get('/BrazingBRS', function (req, res, next) {
+  // if (!req.session.userid) res.redirect('/login');
+
+  res.render('dashboard/BrazingBRS/BrazingBRS', { title: title, header: 'BrazingBRS', page: req.query.page });
+});
+
+// END BrazingGIC2
+
 
 
 

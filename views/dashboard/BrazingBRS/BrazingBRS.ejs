@@ -1,0 +1,31 @@
+<%- include('../../partials/header') -%>
+
+<% if (page == 'vibrator' || page == 'index') { %> 
+
+    <%- //include('BrazingBRS_index') -%>
+    <%- include('BrazingBRS_temp_chamber') -%>
+
+<% } else if (page == 'temp') { %>
+
+    <%- include('BrazingBRS_temp') -%>
+
+<% } else if (page == 'current') { %> 
+
+    <%- include('BrazingBRS_current') -%>
+
+<% } else if (page == 'tempChamber') { %> 
+
+    <%- include('BrazingBRS_temp_chamber') -%>
+
+<% } else if (page == 'otherSensor') { %>
+
+    <%- include('BrazingBRS_other_sensor') -%>
+
+<% } else if (page == 'history') {  %> 
+
+    <%- include('BrazingBRS_history') -%>
+
+<% } %> 
+
+
+<%- include('../../partials/footer') -%>

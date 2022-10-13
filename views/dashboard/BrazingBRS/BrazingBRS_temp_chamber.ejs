@@ -1,0 +1,369 @@
+<%- include('BrazingBRS_partials/BrazingBRS_header') -%>
+
+  <%- include('../../partials/navbar_dashboard') -%>
+
+  <%- include('BrazingBRS_partials/BrazingBRS_menu') -%>
+
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
+
+      <%- include('BrazingBRS_partials/BrazingBRS_mechine_img')  %> 
+
+
+
+      <div class="card card-body margin-5">
+
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
+
+          <h3 class="text-uppercase" style="font-weight: 700;">BRAZING BRS / temp chamber </h3>
+
+          <div class="btn-toolbar mb-2 mb-md-0"></div>
+
+
+        </div>
+
+        <!-- SELECTOR 1 : TEMP C. CHART  -->
+
+        <div class="card card-body margin-5 ps-1 pe-1 mb-4" style="height: 35vh;">
+          <canvas class="my-4 w-100" id="myChart" style="width: 100%;height: 100%"></canvas>
+        </div>
+
+        <!-- END SELECTOR 1 : TEMP C. CHART  -->
+
+        <!-- SELECTOR 2 : TEMP C. VALUES -->
+
+        <div class="container-fluid">
+          <div class="row">
+            <!-- <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">PV After Burner</div>
+                <div class="card-body">
+    
+                   <h2 class="text-center PV_After_Burner">0 °C</h2>
+    
+                </div>
+              </div>
+            </div> -->
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">PV Degreaser Zone 1</div>
+                <div class="card-body">
+    
+                   <h2 class="text-center PV_Degreaser_Zone1">0 °C</h2>
+    
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">PV Degreaser Zone 2</div>
+                <div class="card-body">
+    
+                   <h2 class="text-center PV_Degreaser_Zone2">0 °C</h2>
+    
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">PV Degreaser Zone 3</div>
+                <div class="card-body">
+    
+                   <h2 class="text-center PV_Degreaser_Zone3">0 °C</h2>
+    
+                </div>
+              </div>
+            </div>
+    
+            <!-- <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">PV Debinder Zone 1</div>
+                <div class="card-body">
+    
+                   <h2 class="text-center PV_Debinder_Zone1">0 °C</h2>
+    
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">PV Debinder Zone 2</div>
+                <div class="card-body">
+    
+                   <h2 class="text-center PV_Debinder_Zone2">0 °C</h2>
+    
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">PV Debinder Zone 3</div>
+                <div class="card-body">
+    
+                   <h2 class="text-center PV_Debinder_Zone3">0 °C</h2>
+    
+                </div>
+              </div>
+            </div> -->
+
+
+          </div>
+        </div>
+
+        <!-- END SELECTOR 2 : TEMP C. VALUES -->
+
+      </div>
+
+    </main>
+
+    <!-- END MAIN CONTENT -->
+
+    <!-- WIP NOTIFY  -->
+
+    <!-- <div class="toast align-items-center show position-fixed bottom-0 end-0 text-bg-warning m-2" role="alert"
+      aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          (WIP) THIS PAGE WORKING IN PROCESS....
+        </div>
+      </div>
+    </div> -->
+
+    <!-- END WIP NOTIFY  -->
+
+  <script>
+    
+    
+
+  </script>
+
+    <script>
+
+      const ctx = document.getElementById('myChart');
+
+      const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [
+          //   {
+          //   label: 'PV After Burner',
+          //   data: [],
+          //   lineTension: 0,
+          //   backgroundColor: 'transparent',
+          //   borderColor: '#177D94',
+          //   borderWidth: 3,
+          //   pointBackgroundColor: '#177D94'
+          // },
+          {
+            label: 'PV Degreaser Zone1',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#28BEE0',
+            borderWidth: 3,
+            pointBackgroundColor: '#28BEE0'
+          },
+          {
+            label: 'PV Degreaser Zone 2',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#179458',
+            borderWidth: 3,
+            pointBackgroundColor: '#179458'
+          },
+          {
+            label: 'PV Degreaser Zone 3',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#28E087',
+            borderWidth: 3,
+            pointBackgroundColor: '#28E087'
+          },
+          // {
+          //   label: 'PV Debinder Zone 1',
+          //   data: [],
+          //   lineTension: 0,
+          //   backgroundColor: 'transparent',
+          //   borderColor: '#D1E028',
+          //   borderWidth: 3,
+          //   pointBackgroundColor: '#D1E028'
+          // },
+          // {
+          //   label: 'PV Debinder Zone 2',
+          //   data: [],
+          //   lineTension: 0,
+          //   backgroundColor: 'transparent',
+          //   borderColor: '#199D60',
+          //   borderWidth: 3,
+          //   pointBackgroundColor: '#199D60'
+          // },
+          // {
+          //   label: 'PV Debinder Zone 3',
+          //   data: [],
+          //   lineTension: 0,
+          //   backgroundColor: 'transparent',
+          //   borderColor: '#C6D430',
+          //   borderWidth: 1,
+          //   pointBackgroundColor: '#C6D430'
+          // },
+          
+          ]
+        },
+        options: {
+          legend: {
+            display: false,
+            labels: {
+              fontColor: 'rgb(255, 99, 132)'
+            }
+          },
+          scales: {
+            y: {
+              ticks: {
+                color: '#ADB5BD',
+                beginAtZero: false
+              }
+            },
+            x: {
+              ticks: {
+                color: '#ADB5BD',
+                beginAtZero: false
+              },
+              min: 0,
+              max: 30,
+            },
+
+          },
+
+          responsive: true,
+          maintainAspectRatio : false,
+          plugins: {
+            legend : {
+              labels : {
+                usePointStyle : true,
+                pointStyle : 'line',
+                color: '#adb5bd'              
+              }
+            },
+          }
+        }
+      });
+
+
+    let chart_labels = [];
+    let PV_After_Burner = [];
+    let PV_Degreaser_Zone1 = [];
+    let PV_Degreaser_Zone2 = [];
+    let PV_Degreaser_Zone3 = [];
+    let PV_Debinder_Zone1 = [];
+    let PV_Debinder_Zone2 = [];
+    let PV_Debinder_Zone3 = [];
+    
+    const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
+      socket.on('BRZING-BRS', (res) => {
+
+
+        chart_labels.push(getlabelTime());
+        chart.data.labels = chart_labels;
+
+        removeData(PV_Degreaser_Zone1.length,chart);
+        
+        // if (res.PV_After_Burner <= 5 && PV_After_Burner != []) {
+        //   $(".PV_After_Burner").html(PV_After_Burner[PV_After_Burner.length - 1] + " °C");
+        //   PV_After_Burner.push(PV_After_Burner[PV_After_Burner.length - 1]);
+        //   chart.data.datasets[0].data = PV_After_Burner;
+        // } else {
+        //   $(".PV_After_Burner").html(res.PV_After_Burner + " °C");
+        //   PV_After_Burner.push(res.PV_After_Burner);
+        //   chart.data.datasets[0].data = PV_After_Burner;
+        // }
+
+        if (res.PV_Degreaser_Zone1 <= 5 && PV_Degreaser_Zone1 != []) {
+          $(".PV_Degreaser_Zone1").html(PV_Degreaser_Zone1[PV_Degreaser_Zone1.length - 1] + " °C");
+          PV_Degreaser_Zone1.push(PV_Degreaser_Zone1[PV_Degreaser_Zone1.length - 1]);
+          chart.data.datasets[0].data = PV_Degreaser_Zone1;
+        } else {
+          $(".PV_Degreaser_Zone1").html(res.PV_Degreaser_Zone1 + " °C");
+          PV_Degreaser_Zone1.push(res.PV_Degreaser_Zone1);
+          chart.data.datasets[0].data = PV_Degreaser_Zone1;
+        }
+
+        if (res.PV_Degreaser_Zone2 <= 5 && PV_Degreaser_Zone2 != []) {
+          $(".PV_Degreaser_Zone2").html(PV_Degreaser_Zone2[PV_Degreaser_Zone2.length - 1] + " °C");
+          PV_Degreaser_Zone2.push(PV_Degreaser_Zone2[PV_Degreaser_Zone2.length - 1]);
+          chart.data.datasets[1].data = PV_Degreaser_Zone2;
+        } else {
+          $(".PV_Degreaser_Zone2").html(res.PV_Degreaser_Zone2 + " °C");
+          PV_Degreaser_Zone2.push(res.PV_Degreaser_Zone2);
+          chart.data.datasets[1].data = PV_Degreaser_Zone2;
+        }
+
+        if (res.PV_Degreaser_Zone3 <= 5 && PV_Degreaser_Zone3 != []) {
+          $(".PV_Degreaser_Zone3").html(PV_Degreaser_Zone3[PV_Degreaser_Zone3.length - 1] + " °C");
+          PV_Degreaser_Zone3.push(PV_Degreaser_Zone3[PV_Degreaser_Zone3.length - 1]);
+          chart.data.datasets[2].data = PV_Degreaser_Zone3;
+        } else {
+          $(".PV_Degreaser_Zone3").html(res.PV_Degreaser_Zone3 + " °C");
+          PV_Degreaser_Zone3.push(res.PV_Degreaser_Zone3);
+          chart.data.datasets[2].data = PV_Degreaser_Zone3;
+        }
+
+        // if (res.PV_Debinder_Zone1 <= 5 && PV_Debinder_Zone1 != []) {
+        //   $(".PV_Debinder_Zone1").html(PV_Debinder_Zone1[PV_Debinder_Zone1.length - 1] + " °C");
+        //   PV_Debinder_Zone1.push(PV_Debinder_Zone1[PV_Debinder_Zone1.length - 1]);
+        //   chart.data.datasets[4].data = PV_Debinder_Zone1;
+        // } else {
+        //   $(".PV_Debinder_Zone1").html(res.PV_Debinder_Zone1 + " °C");
+        //   PV_Debinder_Zone1.push(res.PV_Debinder_Zone1);
+        //   chart.data.datasets[4].data = PV_Debinder_Zone1;
+        // }
+
+
+        // if (res.PV_Debinder_Zone2 <= 5 && PV_Debinder_Zone2 != []) {
+        //   $(".PV_Debinder_Zone2").html(PV_Debinder_Zone2[PV_Debinder_Zone2.length - 1] + " °C");
+        //   PV_Debinder_Zone2.push(PV_Debinder_Zone2[PV_Debinder_Zone2.length - 1]);
+        //   chart.data.datasets[5].data = PV_Debinder_Zone2;
+        // } else {
+        //   $(".PV_Debinder_Zone2").html(res.PV_Debinder_Zone2 + " °C");
+        //   PV_Debinder_Zone2.push(res.PV_Debinder_Zone2);
+        //   chart.data.datasets[5].data = PV_Debinder_Zone2;
+        // }
+
+        // if (res.PV_Debinder_Zone3 <= 5 && PV_Debinder_Zone3 != []) {
+        //   $(".PV_Debinder_Zone3").html(PV_Debinder_Zone3[PV_Debinder_Zone3.length - 1] + " °C");
+        //   PV_Debinder_Zone3.push(PV_Debinder_Zone3[PV_Debinder_Zone3.length - 1]);
+        //   chart.data.datasets[6].data = PV_Debinder_Zone3;
+        // } else {
+        //   $(".PV_Debinder_Zone3").html(res.PV_Debinder_Zone3 + " °C");
+        //   PV_Debinder_Zone3.push(res.PV_Debinder_Zone3);
+        //   chart.data.datasets[6].data = PV_Debinder_Zone3;
+        // }
+
+        chart.update();
+
+    });
+
+    </script>

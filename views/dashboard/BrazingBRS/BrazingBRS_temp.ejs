@@ -1,0 +1,1047 @@
+<%- include('BrazingGIC_2_partials/BrazingGIC_2_header') -%>
+
+<%- include('../../partials/navbar_dashboard') -%>
+
+<%- include('BrazingGIC_2_partials/BrazingGIC_menu') -%>
+
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+<style>
+  :root {
+    --temp-gauge-wh : 16vh;
+  }
+</style>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
+
+      <%- include('BrazingGIC_2_partials/BrazingGIC_2_mechine_img')  %> 
+
+
+      <div class="card card-body margin-5">
+
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
+
+          <h3 class="text-uppercase" style="font-weight: 700;">BRAZING GIC 2 / Temperature rc Fan </h3>
+
+          <div class="btn-toolbar mb-2 mb-md-0"></div>
+
+
+        </div>
+
+        <!-- SELECTOR 1 : TEMP GAUGE -->
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 1</div>
+                <div class="card-body">
+                  <div class="">
+                    <canvas id="temp1" 
+                    data-type="linear-gauge"
+                    data-min-value="0"
+                    data-value-box="false"
+                    data-max-value="100"
+                    data-minor-ticks="2"
+                    data-stroke-ticks="true"
+                    data-color-plate="rgba(0,255,255,0)"
+                    data-border-shadow-width="0"
+                    data-borders="false"
+                    data-needle-type="arrow"
+                    data-needle-width="2"
+                    data-needle-circle-size="7"
+                    data-needle-circle-outer="true"
+                    data-needle-circle-inner="false"
+                    data-animation-duration="1500"
+                    data-animation-rule="linear"
+                    data-bar-width="10"
+                    data-value="50"
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                ></canvas>
+      
+                  </div>
+                  
+                </div>
+                <div class="card-footer">
+                  <h3 class="text-center m-0 temp1-value"></h3>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 2</div>
+                <div class="card-body">
+                  <div>
+                    <canvas id="temp2" 
+                    data-type="linear-gauge"
+                    data-min-value="0"
+                    data-value-box="false"
+                    data-max-value="100"
+                    data-minor-ticks="2"
+                    data-stroke-ticks="true"
+                    data-color-plate="rgba(0,255,255,0)"
+                    data-border-shadow-width="0"
+                    data-borders="false"
+                    data-needle-type="arrow"
+                    data-needle-width="2"
+                    data-needle-circle-size="7"
+                    data-needle-circle-outer="true"
+                    data-needle-circle-inner="false"
+                    data-animation-duration="1500"
+                    data-animation-rule="linear"
+                    data-bar-width="10"
+                    data-value="50"
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                    ></canvas>
+                  </div>
+                  
+                  
+                </div>
+                <div class="card-footer">
+                  <h3 class="text-center m-0 temp2-value"></h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 3</div>
+                <div class="card-body">
+                  
+                  <div>
+                    <canvas id="temp3" 
+                    data-type="linear-gauge"
+                    data-min-value="0"
+                    data-value-box="false"
+                    data-max-value="100"
+                    data-minor-ticks="2"
+                    data-stroke-ticks="true"
+                    data-color-plate="rgba(0,255,255,0)"
+                    data-border-shadow-width="0"
+                    data-borders="false"
+                    data-needle-type="arrow"
+                    data-needle-width="2"
+                    data-needle-circle-size="7"
+                    data-needle-circle-outer="true"
+                    data-needle-circle-inner="false"
+                    data-animation-duration="1500"
+                    data-animation-rule="linear"
+                    data-bar-width="10"
+                    data-value="50"
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                    ></canvas>
+                  </div>
+      
+                </div>
+                <div class="card-footer">
+                  <h3 class="text-center m-0 temp3-value"></h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 4</div>
+                <div class="card-body">
+                  
+                  <div>
+                    <canvas id="temp4" 
+                    data-type="linear-gauge"
+                    data-min-value="0"
+                    data-value-box="false"
+                    data-max-value="100"
+                    data-minor-ticks="2"
+                    data-stroke-ticks="true"
+                    data-color-plate="rgba(0,255,255,0)"
+                    data-border-shadow-width="0"
+                    data-borders="false"
+                    data-needle-type="arrow"
+                    data-needle-width="2"
+                    data-needle-circle-size="7"
+                    data-needle-circle-outer="true"
+                    data-needle-circle-inner="false"
+                    data-animation-duration="1500"
+                    data-animation-rule="linear"
+                    data-bar-width="10"
+                    data-value="50"
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                    ></canvas>
+                  </div>
+      
+                </div>
+                <div class="card-footer">
+                  <h3 class="text-center m-0 temp4-value"></h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 5</div>
+                <div class="card-body">
+                  
+                  <div>
+                    <canvas id="temp5" 
+                    data-type="linear-gauge"
+                    data-min-value="0"
+                    data-value-box="false"
+                    data-max-value="100"
+                    data-minor-ticks="2"
+                    data-stroke-ticks="true"
+                    data-color-plate="rgba(0,255,255,0)"
+                    data-border-shadow-width="0"
+                    data-borders="false"
+                    data-needle-type="arrow"
+                    data-needle-width="2"
+                    data-needle-circle-size="7"
+                    data-needle-circle-outer="true"
+                    data-needle-circle-inner="false"
+                    data-animation-duration="1500"
+                    data-animation-rule="linear"
+                    data-bar-width="10"
+                    data-value="50"
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                    ></canvas>
+                  </div>
+      
+                </div>
+                <div class="card-footer">
+                  <h3 class="text-center m-0 temp5-value"></h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 6</div>
+
+                <div class="card-body">
+                  
+                  <div>
+                    <canvas id="temp6" 
+                    data-type="linear-gauge"
+                    data-min-value="0"
+                    data-value-box="false"
+                    data-max-value="100"
+                    data-minor-ticks="2"
+                    data-stroke-ticks="true"
+                    data-color-plate="rgba(0,255,255,0)"
+                    data-border-shadow-width="0"
+                    data-borders="false"
+                    data-needle-type="arrow"
+                    data-needle-width="2"
+                    data-needle-circle-size="7"
+                    data-needle-circle-outer="true"
+                    data-needle-circle-inner="false"
+                    data-animation-duration="1500"
+                    data-animation-rule="linear"
+                    data-bar-width="10"
+                    data-value="50"
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                    ></canvas>
+                  </div>
+      
+                </div>
+                <div class="card-footer">
+                  <h3 class="text-center m-0 temp6-value"></h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 7</div>
+                <div class="card-body">
+                  
+                  <div>
+                    <canvas id="temp7" 
+                    data-type="linear-gauge"
+                    data-min-value="0"
+                    data-value-box="false"
+                    data-max-value="100"
+                    data-minor-ticks="2"
+                    data-stroke-ticks="true"
+                    data-color-plate="rgba(0,255,255,0)"
+                    data-border-shadow-width="0"
+                    data-borders="false"
+                    data-needle-type="arrow"
+                    data-needle-width="2"
+                    data-needle-circle-size="7"
+                    data-needle-circle-outer="true"
+                    data-needle-circle-inner="false"
+                    data-animation-duration="1500"
+                    data-animation-rule="linear"
+                    data-bar-width="10"
+                    data-value="50"
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                    ></canvas>
+                  </div>
+      
+                </div>
+                <div class="card-footer">
+                  <h3 class="text-center m-0 temp7-value"></h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 8</div>
+
+                <div class="card-body">
+                  
+                  <div>
+                    <canvas id="temp8" 
+                    data-type="linear-gauge"
+                    data-min-value="0"
+                    data-value-box="false"
+                    data-max-value="100"
+                    data-minor-ticks="2"
+                    data-stroke-ticks="true"
+                    data-color-plate="rgba(0,255,255,0)"
+                    data-border-shadow-width="0"
+                    data-borders="false"
+                    data-needle-type="arrow"
+                    data-needle-width="2"
+                    data-needle-circle-size="7"
+                    data-needle-circle-outer="true"
+                    data-needle-circle-inner="false"
+                    data-animation-duration="1500"
+                    data-animation-rule="linear"
+                    data-bar-width="10"
+                    data-value="50"
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                    ></canvas>
+                  </div>
+      
+                </div>
+                <div class="card-footer">
+                  <h3 class="text-center m-0 temp8-value"></h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">RC Fan 9</div>
+
+                <div class="card-body">
+                  
+                  <div>
+                    <canvas id="temp9" 
+                    data-type="linear-gauge"
+                    data-min-value="0"
+                    data-value-box="false"
+                    data-max-value="100"
+                    data-minor-ticks="2"
+                    data-stroke-ticks="true"
+                    data-color-plate="rgba(0,255,255,0)"
+                    data-border-shadow-width="0"
+                    data-borders="false"
+                    data-needle-type="arrow"
+                    data-needle-width="2"
+                    data-needle-circle-size="7"
+                    data-needle-circle-outer="true"
+                    data-needle-circle-inner="false"
+                    data-animation-duration="1500"
+                    data-animation-rule="linear"
+                    data-bar-width="10"
+                    data-value="50"
+                    style="width: var(--temp-gauge-wh);height: var(--temp-gauge-wh);"
+                    ></canvas>
+                  </div>
+      
+                </div>
+                <div class="card-footer">
+                  <h3 class="text-center m-0 temp9-value"></h3>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        
+
+        <!-- END SELECTOR 1 : TEMP GAUGE -->
+
+        <!-- SELECTOR 2 : TEMP CHART -->
+
+        <div class="card card-body margin-4 ps-1 pe-1" style="height: calc(var(--main-h) + var(--chart-responsive));">
+
+          <div class="w-100">
+            <h4 class="ps-2" id="sort-header">
+              Daily maximum
+            </h4>
+          </div>
+          <div class="btn-toolbar mb-2 me-3 mb-md-0 flex-row-reverse">
+
+            
+            
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" disabled>
+              <span data-feather="calendar" class="align-text-bottom"></span>
+              <span id="sort-dropdown-title">By days</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <form method="POST" id="sort-chart-days">
+                  <button class="dropdown-item" type="submit" id="sort-days">By days</button>
+                </form> 
+              </li>
+              <li>
+                <form method="POST" id="sort-chart-weeks">
+                  <button class="dropdown-item" type="submit" id="sort-weeks">By weeks</button>
+                </form> 
+              </li>
+              <li>
+                <form method="POST" id="sort-chart-month">
+                  <button class="dropdown-item" type="submit" id="sort-month">By month</button>
+                </form> 
+              </li>
+            </ul>
+            <p class="mb-0 me-2" style="margin-top: 0.4rem;">| Data sort</p>
+            
+              <div class="form-check form-switch" style="margin-top: 0.4rem;">
+                
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+              </div>
+              <p class="mb-0 me-2" style="margin-top: 0.4rem;">Alarm/Warning line</p>
+          </div>
+          <div style="height:84%;">
+            <canvas class="my-1 w-100" id="myChart"></canvas>
+          </div>
+          
+        </div>
+
+        <!-- END SELECTOR 2 : TEMP CHART -->
+
+      </div>
+
+      
+
+
+
+    </main>
+
+    <!-- END MAIN CONTENT -->
+
+    <!-- WIP NOTIFY  -->
+
+    <!-- <div class="toast align-items-center show position-fixed bottom-0 end-0 text-bg-warning m-2" role="alert"
+      aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          (WIP) THIS PAGE WORKING IN PROCESS....
+        </div>
+      </div>
+    </div> -->
+
+    <!-- END WIP NOTIFY  -->
+
+    <script>
+
+var temp1 = new LinearGauge({
+        renderTo: 'temp1',
+        valueBox: false,
+        majorTicks: [10,30,50,60,80,100],
+        highlights: [ 
+            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
+            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
+            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
+            ],
+        barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
+        colorPlate: "rgba(0,0,0,0)",
+        borderShadowWidth: 0,
+        borders: false,
+        value: 35,
+        colorBarProgress: "#FF4242" 
+    }).draw();
+
+    var temp2 = new LinearGauge({
+        renderTo: 'temp2',
+        valueBox: false,
+        majorTicks: [10,30,50,60,80,100],
+        highlights: [ 
+            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
+            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
+            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
+            ],
+        barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
+        colorPlate: "rgba(0,0,0,0)",
+        borderShadowWidth: 0,
+        borders: false,
+        value: 35,
+        colorBarProgress: "#FF4242"
+    }).draw();
+
+    var temp3 = new LinearGauge({
+        renderTo: 'temp3',
+        valueBox: false,
+        majorTicks: [10,30,50,60,80,100],
+        highlights: [ 
+            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
+            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
+            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
+            ],
+        barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
+        colorPlate: "rgba(0,0,0,0)",
+        borderShadowWidth: 0,
+        
+        borders: false,
+        value: 35,
+        colorBarProgress: "#FF4242"
+    }).draw();
+
+    var temp4 = new LinearGauge({
+        renderTo: 'temp4',
+        valueBox: false,
+        majorTicks: [10,30,50,60,80,100],
+        highlights: [ 
+            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
+            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
+            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
+            ],
+        barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
+        colorPlate: "rgba(0,0,0,0)",
+        borderShadowWidth: 0,
+        borders: false,
+        value: 35,
+        colorBarProgress: "#FF4242"
+    }).draw();
+
+    var temp5 = new LinearGauge({
+        renderTo: 'temp5',
+        valueBox: false,
+        majorTicks: [10,30,50,60,80,100],
+        highlights: [ 
+            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
+            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
+            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
+            ],
+        barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
+        colorPlate: "rgba(0,0,0,0)",
+        borderShadowWidth: 0,
+        borders: false,
+        value: 35,
+        colorBarProgress: "#FF4242"
+    }).draw();
+
+    var temp6 = new LinearGauge({
+        renderTo: 'temp6',
+        valueBox: false,
+        majorTicks: [10,30,50,60,80,100],
+        highlights: [ 
+            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
+            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
+            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
+            ],
+        barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
+        colorPlate: "rgba(0,0,0,0)",
+        borderShadowWidth: 0,
+        
+        borders: false,
+        value: 35,
+        colorBarProgress: "#FF4242"
+    }).draw();
+
+    var temp7 = new LinearGauge({
+        renderTo: 'temp7',
+        valueBox: false,
+        majorTicks: [10,30,50,60,80,100],
+        highlights: [ 
+            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
+            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
+            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
+            ],
+        barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
+        colorPlate: "rgba(0,0,0,0)",
+        borderShadowWidth: 0,
+        borders: false,
+        value: 35,
+        colorBarProgress: "#FF4242"
+    }).draw();
+
+    var temp8 = new LinearGauge({
+        renderTo: 'temp8',
+        valueBox: false,
+        majorTicks: [10,30,50,60,80,100],
+        highlights: [ 
+            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
+            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
+            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
+            ],
+        barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
+        colorPlate: "rgba(0,0,0,0)",
+        borderShadowWidth: 0,
+        borders: false,
+        value: 35,
+        colorBarProgress: "#FF4242"
+    }).draw();
+
+    var temp9 = new LinearGauge({
+        renderTo: 'temp9',
+        valueBox: false,
+        majorTicks: [10,30,50,60,80,100],
+        highlights: [ 
+            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
+            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
+            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
+            ],
+        barWidth: 10,
+        colorMajorTicks: '#fff',
+        colorNumbers: '#fff',
+        colorPlate: "rgba(0,0,0,0)",
+        borderShadowWidth: 0,
+        borders: false,
+        value: 35,
+        colorBarProgress: "#FF4242"
+    }).draw();
+
+    // temp1.value = getRandomFloat(53, 56, 1);
+    // $(".temp1-value").html(temp1.value + " °C");
+    // temp2.value = getRandomFloat(53, 56, 1);
+    // $(".temp2-value").html(temp2.value + " °C");
+    // temp3.value = getRandomFloat(45, 47, 1);
+    // $(".temp3-value").html(temp3.value + " °C");
+    // temp4.value = getRandomFloat(45, 47, 1);
+    // $(".temp4-value").html(temp4.value + " °C");
+    // temp5.value = getRandomFloat(45, 47, 1);
+    // $(".temp5-value").html(temp5.value + " °C");
+    // temp6.value = getRandomFloat(45, 47, 1);
+    // $(".temp6-value").html(temp6.value + " °C");
+    // temp7.value = getRandomFloat(45, 47, 1);
+    // $(".temp7-value").html(temp7.value + " °C");
+    // temp8.value = getRandomFloat(45, 47, 1);
+    // $(".temp8-value").html(temp8.value + " °C");
+    // temp9.value = getRandomFloat(49, 51, 1);
+    // $(".temp9-value").html(temp9.value + " °C");
+
+    //     setInterval(() => {
+
+            
+    //       temp1.value = getRandomFloat(53, 56, 1);
+    //       $(".temp1-value").html(temp1.value + " °C");
+    //       $(".badge-rc-1").html("RC Fan 1<br>" + temp1.value + " °C");
+    //       temp2.value = getRandomFloat(53, 56, 1);
+    //       $(".temp2-value").html(temp2.value + " °C");
+    //       $(".badge-rc-2").html("RC Fan 2<br>" + temp2.value + " °C");
+    //       temp3.value = getRandomFloat(45, 47, 1);
+    //       $(".temp3-value").html(temp3.value + " °C");
+    //       $(".badge-rc-3").html("RC Fan 3<br>" + temp3.value + " °C");
+    //       temp4.value = getRandomFloat(45, 47, 1);
+    //       $(".temp4-value").html(temp4.value + " °C");
+    //       $(".badge-rc-4").html("RC Fan 4<br>" + temp4.value + " °C");
+    //       temp5.value = getRandomFloat(45, 47, 1);
+    //       $(".temp5-value").html(temp5.value + " °C");
+    //       $(".badge-rc-5").html("RC Fan 5<br>" + temp5.value + " °C");
+    //       temp6.value = getRandomFloat(45, 47, 1);
+    //       $(".temp6-value").html(temp6.value + " °C");
+    //       $(".badge-rc-6").html("RC Fan 6<br>" + temp6.value + " °C");
+    //       temp7.value = getRandomFloat(45, 47, 1);
+    //       $(".temp7-value").html(temp7.value + " °C");
+    //       $(".badge-rc-7").html("RC Fan 7<br>" + temp7.value + " °C");
+    //       temp8.value = getRandomFloat(45, 47, 1);
+    //       $(".temp8-value").html(temp8.value + " °C");
+    //       $(".badge-rc-8").html("RC Fan 8<br>" + temp8.value + " °C");
+    //       temp9.value = getRandomFloat(49, 51, 1);
+    //       $(".temp9-value").html(temp9.value + " °C");
+    //       $(".badge-rc-9").html("RC Fan 9<br>" + temp9.value + " °C");
+
+    //         temp1.draw();
+    //         temp2.draw();
+    //         temp3.draw();
+    //         temp4.draw();
+    //         temp5.draw();
+    //         temp6.draw();
+    //         temp7.draw();
+    //         temp8.draw();
+    //         temp9.draw();
+    //     },3000);
+
+    const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
+    socket.on('BRAZING-2-temp', (res) => {
+      temp1.value = res.temp_1;
+      $(".temp1-value").html(res.temp_1 + " °C");
+      $(".badge-rc-1").html("RC Fan 1<br>" + temp1.value + " °C");
+      temp2.value = res.temp_2;
+      $(".temp2-value").html(res.temp_2 + " °C");
+      $(".badge-rc-2").html("RC Fan 2<br>" + temp2.value + " °C");
+      temp3.value = res.temp_3;
+      $(".temp3-value").html(res.temp_3 + " °C");
+      $(".badge-rc-3").html("RC Fan 3<br>" + temp3.value + " °C");
+      temp4.value = res.temp_4;
+      $(".temp4-value").html(res.temp_4 + " °C");
+      $(".badge-rc-4").html("RC Fan 4<br>" + temp4.value + " °C");
+      temp5.value = res.temp_5;
+      $(".temp5-value").html(res.temp_5 + " °C");
+      $(".badge-rc-5").html("RC Fan 5<br>" + temp5.value + " °C");
+      temp6.value = res.temp_6;
+      $(".temp6-value").html(res.temp_6 + " °C");
+      $(".badge-rc-6").html("RC Fan 6<br>" + temp6.value + " °C");
+      temp7.value = res.temp_7; 
+      $(".temp7-value").html(res.temp_7 + " °C");
+      $(".badge-rc-7").html("RC Fan 7<br>" + temp7.value + " °C");
+      temp8.value = res.temp_8;
+      $(".temp8-value").html(res.temp_8 + " °C");
+      $(".badge-rc-8").html("RC Fan 8<br>" + temp8.value + " °C");
+      temp9.value = res.temp_9;
+      $(".temp9-value").html(res.temp_9 + " °C");
+      $(".badge-rc-9").html("RC Fan 9<br>" + temp9.value + " °C");
+
+      temp1.draw();
+      temp2.draw();
+      temp3.draw();
+      temp4.draw();
+      temp5.draw();
+      temp6.draw();
+      temp7.draw();
+      temp8.draw();
+      temp9.draw();
+    });
+
+    // </script>
+
+<script>
+  
+const ctx = document.getElementById('myChart');
+
+const chart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: [],
+    datasets: [{
+            label: 'Temp 1',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#CE872C',
+            borderWidth: 1,
+            pointBackgroundColor: '#CE872C'
+          },
+          {
+            label: 'Temp 2',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#7F5723',
+            borderWidth: 1,
+            pointBackgroundColor: '#7F5723'
+          },
+          {
+            label: 'Temp 3',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#C92626',
+            borderWidth: 1,
+            pointBackgroundColor: '#C92626'
+          },
+          {
+            label: 'Temp 4',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#842525',
+            borderWidth: 1,
+            pointBackgroundColor: '#842525'
+          },
+          {
+            label: 'Temp 5',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#C62881',
+            borderWidth: 1,
+            pointBackgroundColor: '#C62881'
+          },
+          {
+            label: 'Temp 6',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#7F2257',
+            borderWidth: 1,
+            pointBackgroundColor: '#7F2257'
+          },
+          {
+            label: 'Temp 7',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#8D2FC9',
+            borderWidth: 1,
+            pointBackgroundColor: '#8D2FC9'
+          },
+          {
+            label: 'Temp 8',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#541C77',
+            borderWidth: 1,
+            pointBackgroundColor: '#541C77'
+          },
+          {
+            label: 'Temp 9',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#28BEE0',
+            borderWidth: 1,
+            pointBackgroundColor: '#28BEE0'
+          },
+    ]
+  },
+  options: {
+    elements:{
+                point:{
+                    borderWidth: 0,
+                    radius: 1,
+                    backgroundColor: 'rgba(0,0,0,0)'
+                }
+              },
+          legend: {
+            display: true,
+            labels: {
+              color: '#adb5bd',
+            }
+          },
+    scales: {
+      y: {
+        ticks: {
+          color: '#ADB5BD',
+          beginAtZero: false
+        }
+      },
+      x: {
+        ticks: {
+          color: '#ADB5BD',
+          beginAtZero: false
+        },
+        min: 0,
+        max: 30,
+      },
+    },
+
+    responsive: true,
+    maintainAspectRatio : false,
+    plugins: {
+      legend : {
+              labels : {
+                usePointStyle : true,
+                pointStyle : 'line',
+                color: '#adb5bd'              
+              }
+            },
+      annotation: {
+        annotations: [
+          {
+            type: 'line',
+            scaleID: 'y',
+            value: 15,
+            borderColor: 'rgb(255, 65, 65)',
+            label: {
+              enabled: true, 
+              content: 'Alarm',
+              borderWidth: 2,
+              borderColor: 'transparent',
+              position: 'end',
+            }
+          },
+          {
+            type: 'line',
+            scaleID: 'y',
+            value: 6,
+            borderColor: 'rgb(255, 192, 65)',
+            label: { 
+              enabled: true, 
+              content: 'Warning',
+              borderWidth: 2,
+              borderColor: 'transparent',
+              position: 'end',
+            }
+          }
+        ]
+      }
+    }
+  }
+})
+</script>
+
+</script>
+
+<!-- CHART AJAX -->
+
+<script>
+
+  chart.options.plugins.annotation.annotations[0].value = 90;
+  chart.options.plugins.annotation.annotations[1].value = 80;
+  chart.update();
+
+  $("#sort-days").click(() => {
+    $("#sort-dropdown-title").html("By days");
+    $("#sort-header").html("Daily maximum");
+  });
+
+  $("#sort-weeks").click(() => {
+    $("#sort-dropdown-title").html("By weeks");
+    $("#sort-header").html("Weekly maximum");
+  });
+
+  $("#sort-month").click(() => {
+    $("#sort-dropdown-title").html("By month");
+    $("#sort-header").html("Monthly maximum");
+  });
+
+  $("#flexSwitchCheckDefault").change(function(){
+      if($(this).prop("checked") == true){
+        chart.options.plugins.annotation.annotations[0].value = 90;
+        chart.options.plugins.annotation.annotations[1].value = 80;
+        chart.update();
+      }else{
+        chart.options.plugins.annotation.annotations[0].value = 0;
+        chart.options.plugins.annotation.annotations[1].value = 0;
+        chart.update();
+      }
+  });
+
+//   $(document).ready(() => {
+//     $.ajax({
+//         url: "/layout/BrazingGIC1/sort-chart-temp",
+//         type: "POST",
+//         data: {
+//             'type': 'days'
+//         },
+//         success: (data) => {
+//             chart.data.datasets[0].data = data.temp_1;
+//             chart.data.datasets[1].data = data.temp_2;
+//             chart.data.datasets[2].data = data.temp_3;
+//             chart.data.datasets[3].data = data.temp_4;
+//             chart.data.datasets[4].data = data.temp_5;
+//             chart.data.datasets[5].data = data.temp_6;
+//             chart.data.datasets[6].data = data.temp_7;
+//             chart.data.datasets[7].data = data.temp_8;
+//             chart.data.datasets[8].data = data.temp_9;
+
+//             chart.data.labels = data.label;
+//             chart.update();
+            
+//         }
+//   });
+// });
+
+  $("#sort-chart-days").submit((e) => {
+    e.preventDefault();
+    $.ajax({
+        url: "/layout/BrazingGIC1/sort-chart-temp",
+        type: "POST",
+        data: {
+            'type': 'days'
+        },
+        success: (data) => {
+          chart.data.datasets[0].data = data.temp_1;
+            chart.data.datasets[1].data = data.temp_2;
+            chart.data.datasets[2].data = data.temp_3;
+            chart.data.datasets[3].data = data.temp_4;
+            chart.data.datasets[4].data = data.temp_5;
+            chart.data.datasets[5].data = data.temp_6;
+            chart.data.datasets[6].data = data.temp_7;
+            chart.data.datasets[7].data = data.temp_8;
+            chart.data.datasets[8].data = data.temp_9;
+
+            chart.data.labels = data.label;
+            chart.update();
+            
+        }
+  });
+});
+
+
+
+$("#sort-chart-weeks").submit((e) => {
+    e.preventDefault();
+    $.ajax({
+        url: "/layout/BrazingGIC1/sort-chart-temp",
+        type: "POST",
+        data: {
+            'type': 'weeks'
+        },
+        success: (data) => {
+          chart.data.datasets[0].data = data.temp_1;
+          chart.data.datasets[1].data = data.temp_2;
+          chart.data.datasets[2].data = data.temp_3;
+          chart.data.datasets[3].data = data.temp_4;
+          chart.data.datasets[4].data = data.temp_5;
+          chart.data.datasets[5].data = data.temp_6;
+          chart.data.datasets[6].data = data.temp_7;
+          chart.data.datasets[7].data = data.temp_8;
+          chart.data.datasets[8].data = data.temp_9;
+
+
+
+          chart.data.labels = data.label;
+          chart.update();
+            
+        }
+  });
+});
+
+$("#sort-chart-month").submit((e) => {
+    e.preventDefault();
+    $.ajax({
+        url: "/layout/BrazingGIC1/sort-chart-temp",
+        type: "POST",
+        data: {
+            'type': 'month'
+        },
+        success: (data) => {
+          chart.data.datasets[0].data = data.temp_1;
+          chart.data.datasets[1].data = data.temp_2;
+          chart.data.datasets[2].data = data.temp_3;
+          chart.data.datasets[3].data = data.temp_4;
+          chart.data.datasets[4].data = data.temp_5;
+          chart.data.datasets[5].data = data.temp_6;
+          chart.data.datasets[6].data = data.temp_7;
+          chart.data.datasets[7].data = data.temp_8;
+          chart.data.datasets[8].data = data.temp_9;
+
+          chart.data.labels = data.label;
+          chart.update();
+            
+        }
+  });
+});
+</script>
