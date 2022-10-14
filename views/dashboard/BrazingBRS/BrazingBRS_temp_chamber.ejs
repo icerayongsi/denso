@@ -43,7 +43,7 @@
 
         <div class="container-fluid">
           <div class="row">
-            <!-- <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
 
               <div class="card text-bg-dark mb-3">
                 <div class="card-header text-center">PV After Burner</div>
@@ -53,7 +53,7 @@
     
                 </div>
               </div>
-            </div> -->
+            </div>
     
             <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
     
@@ -91,7 +91,7 @@
               </div>
             </div>
     
-            <!-- <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
     
               <div class="card text-bg-dark mb-3">
                 <div class="card-header text-center">PV Debinder Zone 1</div>
@@ -125,7 +125,7 @@
     
                 </div>
               </div>
-            </div> -->
+            </div>
 
 
           </div>
@@ -167,15 +167,15 @@
         data: {
           labels: [],
           datasets: [
-          //   {
-          //   label: 'PV After Burner',
-          //   data: [],
-          //   lineTension: 0,
-          //   backgroundColor: 'transparent',
-          //   borderColor: '#177D94',
-          //   borderWidth: 3,
-          //   pointBackgroundColor: '#177D94'
-          // },
+            {
+            label: 'PV After Burner',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#177D94',
+            borderWidth: 3,
+            pointBackgroundColor: '#177D94'
+          },
           {
             label: 'PV Degreaser Zone1',
             data: [],
@@ -203,33 +203,33 @@
             borderWidth: 3,
             pointBackgroundColor: '#28E087'
           },
-          // {
-          //   label: 'PV Debinder Zone 1',
-          //   data: [],
-          //   lineTension: 0,
-          //   backgroundColor: 'transparent',
-          //   borderColor: '#D1E028',
-          //   borderWidth: 3,
-          //   pointBackgroundColor: '#D1E028'
-          // },
-          // {
-          //   label: 'PV Debinder Zone 2',
-          //   data: [],
-          //   lineTension: 0,
-          //   backgroundColor: 'transparent',
-          //   borderColor: '#199D60',
-          //   borderWidth: 3,
-          //   pointBackgroundColor: '#199D60'
-          // },
-          // {
-          //   label: 'PV Debinder Zone 3',
-          //   data: [],
-          //   lineTension: 0,
-          //   backgroundColor: 'transparent',
-          //   borderColor: '#C6D430',
-          //   borderWidth: 1,
-          //   pointBackgroundColor: '#C6D430'
-          // },
+          {
+            label: 'PV Debinder Zone 1',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#D1E028',
+            borderWidth: 3,
+            pointBackgroundColor: '#D1E028'
+          },
+          {
+            label: 'PV Debinder Zone 2',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#199D60',
+            borderWidth: 3,
+            pointBackgroundColor: '#199D60'
+          },
+          {
+            label: 'PV Debinder Zone 3',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#C6D430',
+            borderWidth: 1,
+            pointBackgroundColor: '#C6D430'
+          },
           
           ]
         },
@@ -289,78 +289,78 @@
         chart_labels.push(getlabelTime());
         chart.data.labels = chart_labels;
 
-        removeData(PV_Degreaser_Zone1.length,chart);
+        removeData(PV_After_Burner.length,chart);
         
-        // if (res.PV_After_Burner <= 5 && PV_After_Burner != []) {
-        //   $(".PV_After_Burner").html(PV_After_Burner[PV_After_Burner.length - 1] + " °C");
-        //   PV_After_Burner.push(PV_After_Burner[PV_After_Burner.length - 1]);
-        //   chart.data.datasets[0].data = PV_After_Burner;
-        // } else {
-        //   $(".PV_After_Burner").html(res.PV_After_Burner + " °C");
-        //   PV_After_Burner.push(res.PV_After_Burner);
-        //   chart.data.datasets[0].data = PV_After_Burner;
-        // }
+        if (res.PV_After_Burner <= 5 && PV_After_Burner != []) {
+          $(".PV_After_Burner").html(PV_After_Burner[PV_After_Burner.length - 1] + " °C");
+          PV_After_Burner.push(PV_After_Burner[PV_After_Burner.length - 1]);
+          chart.data.datasets[0].data = PV_After_Burner;
+        } else {
+          $(".PV_After_Burner").html(res.PV_After_Burner + " °C");
+          PV_After_Burner.push(res.PV_After_Burner);
+          chart.data.datasets[0].data = PV_After_Burner;
+        }
 
         if (res.PV_Degreaser_Zone1 <= 5 && PV_Degreaser_Zone1 != []) {
           $(".PV_Degreaser_Zone1").html(PV_Degreaser_Zone1[PV_Degreaser_Zone1.length - 1] + " °C");
           PV_Degreaser_Zone1.push(PV_Degreaser_Zone1[PV_Degreaser_Zone1.length - 1]);
-          chart.data.datasets[0].data = PV_Degreaser_Zone1;
+          chart.data.datasets[1].data = PV_Degreaser_Zone1;
         } else {
           $(".PV_Degreaser_Zone1").html(res.PV_Degreaser_Zone1 + " °C");
           PV_Degreaser_Zone1.push(res.PV_Degreaser_Zone1);
-          chart.data.datasets[0].data = PV_Degreaser_Zone1;
+          chart.data.datasets[1].data = PV_Degreaser_Zone1;
         }
 
         if (res.PV_Degreaser_Zone2 <= 5 && PV_Degreaser_Zone2 != []) {
           $(".PV_Degreaser_Zone2").html(PV_Degreaser_Zone2[PV_Degreaser_Zone2.length - 1] + " °C");
           PV_Degreaser_Zone2.push(PV_Degreaser_Zone2[PV_Degreaser_Zone2.length - 1]);
-          chart.data.datasets[1].data = PV_Degreaser_Zone2;
+          chart.data.datasets[2].data = PV_Degreaser_Zone2;
         } else {
           $(".PV_Degreaser_Zone2").html(res.PV_Degreaser_Zone2 + " °C");
           PV_Degreaser_Zone2.push(res.PV_Degreaser_Zone2);
-          chart.data.datasets[1].data = PV_Degreaser_Zone2;
+          chart.data.datasets[2].data = PV_Degreaser_Zone2;
         }
 
         if (res.PV_Degreaser_Zone3 <= 5 && PV_Degreaser_Zone3 != []) {
           $(".PV_Degreaser_Zone3").html(PV_Degreaser_Zone3[PV_Degreaser_Zone3.length - 1] + " °C");
           PV_Degreaser_Zone3.push(PV_Degreaser_Zone3[PV_Degreaser_Zone3.length - 1]);
-          chart.data.datasets[2].data = PV_Degreaser_Zone3;
+          chart.data.datasets[3].data = PV_Degreaser_Zone3;
         } else {
           $(".PV_Degreaser_Zone3").html(res.PV_Degreaser_Zone3 + " °C");
           PV_Degreaser_Zone3.push(res.PV_Degreaser_Zone3);
-          chart.data.datasets[2].data = PV_Degreaser_Zone3;
+          chart.data.datasets[3].data = PV_Degreaser_Zone3;
         }
 
-        // if (res.PV_Debinder_Zone1 <= 5 && PV_Debinder_Zone1 != []) {
-        //   $(".PV_Debinder_Zone1").html(PV_Debinder_Zone1[PV_Debinder_Zone1.length - 1] + " °C");
-        //   PV_Debinder_Zone1.push(PV_Debinder_Zone1[PV_Debinder_Zone1.length - 1]);
-        //   chart.data.datasets[4].data = PV_Debinder_Zone1;
-        // } else {
-        //   $(".PV_Debinder_Zone1").html(res.PV_Debinder_Zone1 + " °C");
-        //   PV_Debinder_Zone1.push(res.PV_Debinder_Zone1);
-        //   chart.data.datasets[4].data = PV_Debinder_Zone1;
-        // }
+        if (res.PV_Debinder_Zone1 <= 5 && PV_Debinder_Zone1 != []) {
+          $(".PV_Debinder_Zone1").html(PV_Debinder_Zone1[PV_Debinder_Zone1.length - 1] + " °C");
+          PV_Debinder_Zone1.push(PV_Debinder_Zone1[PV_Debinder_Zone1.length - 1]);
+          chart.data.datasets[4].data = PV_Debinder_Zone1;
+        } else {
+          $(".PV_Debinder_Zone1").html(res.PV_Debinder_Zone1 + " °C");
+          PV_Debinder_Zone1.push(res.PV_Debinder_Zone1);
+          chart.data.datasets[4].data = PV_Debinder_Zone1;
+        }
 
 
-        // if (res.PV_Debinder_Zone2 <= 5 && PV_Debinder_Zone2 != []) {
-        //   $(".PV_Debinder_Zone2").html(PV_Debinder_Zone2[PV_Debinder_Zone2.length - 1] + " °C");
-        //   PV_Debinder_Zone2.push(PV_Debinder_Zone2[PV_Debinder_Zone2.length - 1]);
-        //   chart.data.datasets[5].data = PV_Debinder_Zone2;
-        // } else {
-        //   $(".PV_Debinder_Zone2").html(res.PV_Debinder_Zone2 + " °C");
-        //   PV_Debinder_Zone2.push(res.PV_Debinder_Zone2);
-        //   chart.data.datasets[5].data = PV_Debinder_Zone2;
-        // }
+        if (res.PV_Debinder_Zone2 <= 5 && PV_Debinder_Zone2 != []) {
+          $(".PV_Debinder_Zone2").html(PV_Debinder_Zone2[PV_Debinder_Zone2.length - 1] + " °C");
+          PV_Debinder_Zone2.push(PV_Debinder_Zone2[PV_Debinder_Zone2.length - 1]);
+          chart.data.datasets[5].data = PV_Debinder_Zone2;
+        } else {
+          $(".PV_Debinder_Zone2").html(res.PV_Debinder_Zone2 + " °C");
+          PV_Debinder_Zone2.push(res.PV_Debinder_Zone2);
+          chart.data.datasets[5].data = PV_Debinder_Zone2;
+        }
 
-        // if (res.PV_Debinder_Zone3 <= 5 && PV_Debinder_Zone3 != []) {
-        //   $(".PV_Debinder_Zone3").html(PV_Debinder_Zone3[PV_Debinder_Zone3.length - 1] + " °C");
-        //   PV_Debinder_Zone3.push(PV_Debinder_Zone3[PV_Debinder_Zone3.length - 1]);
-        //   chart.data.datasets[6].data = PV_Debinder_Zone3;
-        // } else {
-        //   $(".PV_Debinder_Zone3").html(res.PV_Debinder_Zone3 + " °C");
-        //   PV_Debinder_Zone3.push(res.PV_Debinder_Zone3);
-        //   chart.data.datasets[6].data = PV_Debinder_Zone3;
-        // }
+        if (res.PV_Debinder_Zone3 <= 5 && PV_Debinder_Zone3 != []) {
+          $(".PV_Debinder_Zone3").html(PV_Debinder_Zone3[PV_Debinder_Zone3.length - 1] + " °C");
+          PV_Debinder_Zone3.push(PV_Debinder_Zone3[PV_Debinder_Zone3.length - 1]);
+          chart.data.datasets[6].data = PV_Debinder_Zone3;
+        } else {
+          $(".PV_Debinder_Zone3").html(res.PV_Debinder_Zone3 + " °C");
+          PV_Debinder_Zone3.push(res.PV_Debinder_Zone3);
+          chart.data.datasets[6].data = PV_Debinder_Zone3;
+        }
 
         chart.update();
 
