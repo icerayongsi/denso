@@ -1,0 +1,15 @@
+<%- include('../../partials/header') -%>
+
+<% if (page == 'index') { %> 
+
+    <%- include('inj' + inj + '/Injection_inj' + inj) -%>
+
+<% } %>
+
+<% if (page == 'test') { %> 
+
+    <%- include('inj' + inj + '/Injection_inj' + inj + '_' + page) -%>
+
+<% } %>
+
+<%- include('../../partials/footer') -%>

@@ -23,18 +23,42 @@ client.on('connect', () => {
   client.subscribe('22090002/#');
   client.subscribe('22090001/#');
   client.subscribe('22080003/#');
+  client.subscribe('denso/inj');
 });
 
 // client.on('message', (topic, message) => {
-//   console.log(JSON.parse(message.toString()));
+//   if (topic.substring(6, 9) == 'inj') {
+//       message = JSON.parse(message.toString());
+//       message.forEach(element => {
+//         console.log(element.MC_NameID);
+//         if(element.MC_NameID == 11) {
+//           console.log(element);
+//         }
+//       });
+      
+//     }
 // });
 
 io.on("connection", (socket) => {
-
+  
   //console.log("Websocket connected!!");
 
   client.on('message', (topic, message) => {
-    // console.log(topic.substring(0,8));
+
+    if (topic.substring(6, 9) == 'inj') {
+      message = JSON.parse(message.toString());
+      message.forEach(element => {
+        socket.emit('inj-' + element.MC_NameID , {
+          data : element
+        });
+        // console.log(element.MC_NameID);
+        // if(element.MC_NameID == 11) {
+        //   console.log(element);
+        // }
+      });
+      
+    }
+
     if (topic.substring(0, 8) == '22060001') {
       message = JSON.parse(message.toString());
       socket.emit('temp-chamber', {
@@ -1249,6 +1273,16 @@ router.get('/BrazingOIL', function (req, res, next) {
   // if (!req.session.userid) res.redirect('/login');
 
   res.render('dashboard/BrazingOIL/BrazingOIL', { title: title, header: 'BrazingOIL', page: req.query.page });
+});
+
+// END BrazingGIC2
+
+// BrazingBRS
+
+router.get('/Injection', function (req, res, next) {
+  // if (!req.session.userid) res.redirect('/login');
+
+  res.render('dashboard/Injection/Injection', { title: title, header: 'Injection',inj : req.query.inj , page: req.query.page });
 });
 
 // END BrazingGIC2
