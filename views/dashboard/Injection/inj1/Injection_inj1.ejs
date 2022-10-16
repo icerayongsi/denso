@@ -53,7 +53,7 @@
 <script>
   const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
 
-  socket.on('inj-1', (res) => {
+  socket.on('inj-<%= inj %>', (res) => {
     $(".mc_name").html(res.data.Name);
     $(".mc_status").html(res.data.STATUS_NAME);
     $(".mc_time").html(res.data.STATUS_TIMESTAMP);
