@@ -1,0 +1,252 @@
+<%- include('IF_GIC_2_partials/IF_GIC_2_header') -%>
+
+<%- include('../../partials/navbar_dashboard') -%>
+
+<%- include('IF_GIC_2_partials/IF_GIC_2_menu') -%>
+
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
+
+    <div class="card card-body margin-5">
+
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
+        <h3 class="text-uppercase" style="font-weight: 700;"><%= mc_name  %> / <%= page %> </h3>
+        
+      </div>
+
+      <!-- INDEX -->
+
+      <table class="table">
+        <tr>
+          <th scope="col">
+            Data
+          </th>
+          <th scope="col">
+            Values
+          </th>
+          <th scope="col">
+            Unit
+          </th>
+        </tr>
+        <tr>
+          <td>Status</td>
+          <td class="Status"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Product_Volume</td>
+          <td class="Product_Volume"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault1_16</td>
+          <td class="Fault1_16"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault17_32</td>
+          <td class="Fault17_32"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault33_48</td>
+          <td class="Fault33_48"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault49_64</td>
+          <td class="Fault49_64"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault65_80</td>
+          <td class="Fault65_80"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault81_96</td>
+          <td class="Fault81_96"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault97_11</td>
+          <td class="Fault97_11"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault113_128</td>
+          <td class="Fault113_128"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault129_144</td>
+          <td class="Fault129_144"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault145_160</td>
+          <td class="Fault145_160"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault161_176</td>
+          <td class="Fault161_176"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault177_192</td>
+          <td class="Fault177_192"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault193_208</td>
+          <td class="Fault193_208"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>KM_Last_Station</td>
+          <td class="KM_Last_Station"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>OT1</td>
+          <td class="OT1"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>OT2</td>
+          <td class="OT2"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>OT3</td>
+          <td class="OT3"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>OT4</td>
+          <td class="OT4"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>V_Guide_1</td>
+          <td class="V_Guide_1"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>V_Guide_2</td>
+          <td class="V_Guide_2"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>V_Guide_3</td>
+          <td class=""></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>OT5</td>
+          <td class="OT5"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Caulking_90</td>
+          <td class="Caulking_90"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Caulking_90</td>
+          <td class="status"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Caulking_15</td>
+          <td class="Caulking_15"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Final_Caulking</td>
+          <td class="Final_Caulking"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Sizing_1</td>
+          <td class="Sizing_1"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Sizing_2</td>
+          <td class="Sizing_2"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Sizing_3</td>
+          <td class="Sizing_3"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Cutting_Count_Operator_Side</td>
+          <td class="Cutting_Count_Operator_Side"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Cutting_Count_MC_Side</td>
+          <td class="Cutting_Count_MC_Side"></td>
+          <td></td>
+        </tr>
+      </table>
+
+      <!-- END INDEX -->
+
+</main>
+
+<script>
+          const socket = io('https://ws.ap.ngrok.io', { transports: ['websocket'] });
+        data = ["Status",
+          "Product_Volume",
+          "Fault1_16",
+          "Fault17_32",
+          "Fault33_48",
+          "Fault49_64",
+          "Fault65_80",
+          "Fault81_96",
+          "Fault97_11",
+          "Fault113_128",
+          "Fault129_144",
+          "Fault145_160",
+          "Fault161_176",
+          "Fault177_192",
+          "Fault193_208",
+          "KM_Last_Station",
+          "OT1",
+          "OT2",
+          "OT3",
+          "OT4",
+          "V_Guide_1",
+          "V_Guide_2",
+          "V_Guide_3",
+          "OT5",
+          "Caulking_90",
+          "Caulking_45",
+          "Caulking_15",
+          "Final_Caulking",
+          "Sizing_1",
+          "Sizing_2",
+          "Sizing_3",
+          "Cutting_Count_Operator_Side",
+          "Cutting_Count_MC_Side"];
+
+        socket.on('if-gic-2', (res) => {
+
+          data.forEach(element => {
+            $('.' + element).html(res.data.data[0][element]);
+          });
+
+        });
+</script>

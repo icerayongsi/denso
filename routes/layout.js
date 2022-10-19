@@ -19,10 +19,15 @@ client.on('connect', () => {
   client.subscribe('22060001/#');
   client.subscribe('22060050/#');
   client.subscribe('22080001/#');
-  client.subscribe('22100001/#');
+  client.subscribe('22080003/#');
   client.subscribe('22090002/#');
   client.subscribe('22090001/#');
-  client.subscribe('22080003/#');
+  client.subscribe('22100001/#');
+  client.subscribe('22100005/#');
+  client.subscribe('22100006/#');
+  client.subscribe('22100007/#');
+  client.subscribe('22100008/#');
+
   client.subscribe('denso/inj');
 });
 
@@ -40,8 +45,6 @@ client.on('connect', () => {
 // });
 
 io.on("connection", (socket) => {
-  
-  //console.log("Websocket connected!!");
 
   client.on('message', (topic, message) => {
 
@@ -51,12 +54,7 @@ io.on("connection", (socket) => {
         socket.emit('inj-' + element.MC_NameID , {
           data : element
         });
-        // console.log(element.MC_NameID);
-        // if(element.MC_NameID == 11) {
-        //   console.log(element);
-        // }
       });
-      
     }
 
     if (topic.substring(0, 8) == '22060001') {
@@ -277,6 +275,34 @@ io.on("connection", (socket) => {
         Cal_Chamber_C_SG2: message.data[0].Cal_Chamber_C_SG2,
         Cal_Chamber_C_NG: message.data[0].Cal_Chamber_C_NG,
         Cal_Chamber_C_SN: message.data[0].Cal_Chamber_C_SN,
+      });
+    }
+
+    if (topic.substring(0, 8) == '22100005') { // I/F BRS 3
+      message = JSON.parse(message.toString());
+      socket.emit('if-brs-3', {
+        data : message
+      });
+    }
+
+    if (topic.substring(0, 8) == '22100006') { // I/F BRS 2
+      message = JSON.parse(message.toString());
+      socket.emit('if-brs-2', {
+        data : message
+      });
+    }
+
+    if (topic.substring(0, 8) == '22100007') { // I/F GIC 1
+      message = JSON.parse(message.toString());
+      socket.emit('if-gic-1', {
+        data : message
+      });
+    }
+
+    if (topic.substring(0, 8) == '22100008') { // I/F GIC 2
+      message = JSON.parse(message.toString());
+      socket.emit('if-gic-2', {
+        data : message
       });
     }
 
@@ -1287,9 +1313,41 @@ router.get('/Injection', function (req, res, next) {
 
 // END BrazingGIC2
 
+// IF-BRS-2
 
+router.get('/IF-BRS-2', function (req, res, next) {
 
+  res.render('dashboard/IF_BRS_2/IF_BRS_2', { title: title, header: 'IF-BRS-2' , mc_name : 'I/F BRS 2' , page: req.query.page });
+});
 
+// END IF-BRS-2
+
+// IF-BRS-3
+
+router.get('/IF-BRS-3', function (req, res, next) {
+
+  res.render('dashboard/IF_BRS_3/IF_BRS_3', { title: title, header: 'IF-BRS-3' , mc_name : 'I/F BRS 3' , page: req.query.page });
+});
+
+// END IF-BRS-3
+
+// IF-GIC-1
+
+router.get('/IF-GIC-1', function (req, res, next) {
+
+  res.render('dashboard/IF_GIC_1/IF_GIC_1', { title: title, header: 'IF-GIC-1' , mc_name : 'I/F GIC 1' , page: req.query.page });
+});
+
+// END IF-GIC-1
+
+// IF-GIC-2
+
+router.get('/IF-GIC-2', function (req, res, next) {
+
+  res.render('dashboard/IF_GIC_2/IF_GIC_2', { title: title, header: 'IF-GIC-2' , mc_name : 'I/F GIC 2' , page: req.query.page });
+});
+
+// END IF-GIC-1
 
 
 module.exports = router;

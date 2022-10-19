@@ -56,6 +56,8 @@
   socket.on('inj-<%= inj %>', (res) => {
     $(".mc_name").html(res.data.Name);
     $(".mc_status").html(res.data.STATUS_NAME);
-    $(".mc_time").html(res.data.STATUS_TIMESTAMP);
+    let date = new Date(res.data.STATUS_TIMESTAMP).toLocaleDateString('en-US');
+    let time = new Date(res.data.STATUS_TIMESTAMP).toLocaleTimeString('th-Th');
+    $(".mc_time").html(date + ' ' + time);
   });
 </script>
