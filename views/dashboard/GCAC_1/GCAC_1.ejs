@@ -1,6 +1,6 @@
 <%- include('../../partials/header') -%>
 
-<% if (page == 'vibrator' || page == 'index') { %> 
+<% if (page == 'index') { %> 
 
     <%- include('GCAC_1_index') -%>
 
@@ -11,6 +11,10 @@
 <% } else if (page == 'calibrate') { %> 
 
     <%- include('GCAC_1_calibrate') -%>
+
+<% }  else if (page == 'grade') { %> 
+
+    <%- include('GCAC_1_grade') -%>
 
 <% } %> 
 
