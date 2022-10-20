@@ -1,0 +1,829 @@
+<%- include('BrazingBRS_partials/BrazingBRS_header') -%>
+
+  <%- include('../../partials/navbar_dashboard') -%>
+
+  <%- include('BrazingBRS_partials/BrazingBRS_menu') -%>
+
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
+
+      <%- include('BrazingBRS_partials/BrazingBRS_mechine_img')  %> 
+
+      <div class="card card-body margin-5">
+
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
+
+          <h3 class="text-uppercase" style="font-weight: 700;"><%= header %> / temp chamber brazing  </h3>
+
+          <div class="btn-toolbar mb-2 mb-md-0"></div>
+
+
+        </div>
+
+        <!-- SELECTOR 1 : TEMP C. CHART  -->
+
+        <div class="card card-body margin-5 ps-1 pe-1 mb-4" style="height: 35vh;">
+          <canvas class="my-4 w-100" id="myChart" style="width: 100%;height: 100%"></canvas>
+        </div>
+
+        <!-- END SELECTOR 1 : TEMP C. CHART  -->
+
+        <!-- SELECTOR 2 : TEMP C. VALUES -->
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Z1 Atmosphere L</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Z1_Atmosphere_L">0 °C</h1>
+    
+                </div>
+              </div>
+            </div> 
+
+            <!-- ^ Z1_Atmosphere_L -->
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Z1 Atmosphere R</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Z1_Atmosphere_R">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Z1_Atmosphere_R -->
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Z1 Bottom Heater L</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Z1_Bottom_Heater_L">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Z1_Bottom_Heater_L -->
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Z1 Bottom Heater R</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Z1_Bottom_Heater_R">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Z1_Bottom_Heater_R -->
+    
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Z2 Atmosphere L</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Z2_Atmosphere_L">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Z2_Atmosphere_L -->
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Z2 Atmosphere R</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Z2_Atmosphere_R">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Z2_Atmosphere_R -->
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Z2 Bottom Heater L</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Z2_Bottom_Heater_L">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Z2_Bottom_Heater_L -->
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Z2 Bottom Heater R</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Z2_Bottom_Heater_R">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Z2_Bottom_Heater_R -->
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Z3 Atmosphere L</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Z3_Atmosphere_L">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Z3_Atmosphere_L -->
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Z3 Atmosphere R</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Z3_Atmosphere_R">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Z3_Atmosphere_R -->
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Z3 Bottom Heater L</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Z3_Bottom_Heater_L">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Z3_Bottom_Heater_L -->
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Z3 Bottom Heater R</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Z3_Bottom_Heater_R">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Z3_Bottom_Heater_R -->
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Z4 Atmosphere L</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Z4_Atmosphere_L">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Z4_Atmosphere_L -->
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Z4 Atmosphere R</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Z4_Atmosphere_R">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Z4_Atmosphere_R -->
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Z4 Bottom Heater L</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Z4_Bottom_Heater_L">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Z4_Bottom_Heater_L -->
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Z4 Bottom Heater R</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Z4_Bottom_Heater_R">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Z4_Bottom_Heater_R -->
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Front Heater</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Front_Heater">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Front_Heater -->
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Keep Heat Heater</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Keep_Heat_Heater">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Keep_Heat_Heater -->
+
+            <div class="col-lg-1 padding-card-gague" style="width:var(--w-12);">
+    
+              <div class="card text-bg-dark mb-3">
+                <div class="card-header text-center">Exit Chamber Heater</div>
+                <div class="card-body">
+    
+                   <h1 class="text-center Exit_Chamber_Heater">0 °C</h1>
+    
+                </div>
+              </div>
+            </div>
+
+            <!-- ^ Exit_Chamber_Heater -->
+
+
+          </div>
+        </div>
+
+        <!-- END SELECTOR 2 : TEMP C. VALUES -->
+
+      </div>
+
+    </main>
+
+    <!-- END MAIN CONTENT -->
+
+    <!-- WIP NOTIFY  -->
+
+    <!-- <div class="toast align-items-center show position-fixed bottom-0 end-0 text-bg-warning m-2" role="alert"
+      aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          (WIP) THIS PAGE WORKING IN PROCESS....
+        </div>
+      </div>
+    </div> -->
+
+    <!-- END WIP NOTIFY  -->
+
+  <script>
+    
+    
+
+  </script>
+
+    <script>
+
+      const ctx = document.getElementById('myChart');
+
+      const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'Z1 Atmosphere L',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#177D94',
+            borderWidth: 3,
+            pointBackgroundColor: '#177D94'
+          },
+          {
+            label: 'Z1 Atmosphere R',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#28BEE0',
+            borderWidth: 3,
+            pointBackgroundColor: '#28BEE0'
+          },
+          {
+            label: 'Z1 Bottom Heater L',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#179458',
+            borderWidth: 3,
+            pointBackgroundColor: '#179458'
+          },
+          {
+            label: 'Z1 Bottom Heater R',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#28E087',
+            borderWidth: 3,
+            pointBackgroundColor: '#28E087'
+          },
+          {
+            label: 'Z2 Atmosphere L',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#D1E028',
+            borderWidth: 3,
+            pointBackgroundColor: '#D1E028'
+          },
+          {
+            label: 'Z2 Atmosphere R',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#199D60',
+            borderWidth: 3,
+            pointBackgroundColor: '#199D60'
+          },
+          {
+            label: 'Z2 Bottom Heater L',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#C6D430',
+            borderWidth: 1,
+            pointBackgroundColor: '#C6D430'
+          },
+          {
+            label: 'Z2 Bottom Heater R',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#FF0000',
+            borderWidth: 1,
+            pointBackgroundColor: '#FF0000'
+          },
+          {
+            label: 'Z3 Atmosphere L',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#FF0072',
+            borderWidth: 1,
+            pointBackgroundColor: '#FF0072'
+          },
+          {
+            label: 'Z3 Atmosphere R',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#FF00DE',
+            borderWidth: 1,
+            pointBackgroundColor: '#FF00DE'
+          },
+          {
+            label: 'Z3 Bottom Heater L',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#D200FF',
+            borderWidth: 1,
+            pointBackgroundColor: '#D200FF'
+          },
+          {
+            label: 'Z3 Bottom Heater R',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#A200FF',
+            borderWidth: 1,
+            pointBackgroundColor: '#A200FF'
+          },
+          {
+            label: 'Z4 Atmosphere L',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#4800FF',
+            borderWidth: 1,
+            pointBackgroundColor: '#4800FF'
+          },
+          {
+            label: 'Z4 Atmosphere R',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#0054FF',
+            borderWidth: 1,
+            pointBackgroundColor: '#0054FF'
+          },
+          {
+            label: 'Z4 Bottom Heater L',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#00C0FF',
+            borderWidth: 1,
+            pointBackgroundColor: '#00C0FF'
+          },
+          {
+            label: 'Z4 Bottom Heater R',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#00FFC6',
+            borderWidth: 1,
+            pointBackgroundColor: '#00FFC6'
+          },
+          {
+            label: 'Front Heater',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#00FF5A',
+            borderWidth: 1,
+            pointBackgroundColor: '#00FF5A'
+          },
+          {
+            label: 'Keep Heat Heater',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#00FF06',
+            borderWidth: 1,
+            pointBackgroundColor: '#00FF06'
+          },
+          {
+            label: 'Exit Chamber Heater',
+            data: [],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#9CFF00',
+            borderWidth: 1,
+            pointBackgroundColor: '#9CFF00'
+          },
+          
+          ]
+        },
+        options: {
+          legend: {
+            display: false,
+            labels: {
+              fontColor: 'rgb(255, 99, 132)'
+            }
+          },
+          scales: {
+            y: {
+              ticks: {
+                color: '#ADB5BD',
+                beginAtZero: false
+              }
+            },
+            x: {
+              ticks: {
+                color: '#ADB5BD',
+                beginAtZero: false
+              },
+              min: 0,
+              max: 30,
+            },
+
+          },
+
+          responsive: true,
+          maintainAspectRatio : false,
+          plugins: {
+            legend : {
+              labels : {
+                usePointStyle : true,
+                pointStyle : 'line',
+                color: '#adb5bd'              
+              }
+            },
+            // annotation: {
+            //   annotations: [
+            //     {
+            //       type: 'line',
+            //       scaleID: 'y',
+            //       value: 15,
+            //       borderColor: 'rgb(255, 65, 65)',
+            //       label: {
+            //         enabled: true, 
+            //         content: 'Alarm',
+            //         borderWidth: 2,
+            //         borderColor: 'transparent',
+            //         position: 'end',
+            //       }
+            //     },
+            //     {
+            //       type: 'line',
+            //       scaleID: 'y',
+            //       value: 6,
+            //       borderColor: 'rgb(255, 192, 65)',
+            //       label: { 
+            //         enabled: true, 
+            //         content: 'Warning',
+            //         borderWidth: 2,
+            //         borderColor: 'transparent',
+            //         position: 'end',
+            //       }
+            //     }
+            //   ]
+            // }
+          }
+        }
+      });
+
+
+    let chart_labels = [];
+    let bz_1_data = [];
+    let bz_2_data = [];
+    let bz_3_data = [];
+    let bz_4_data = [];
+    let bz_5_data = [];
+    let pre_1_data = [];
+    let pre_2_data = [];
+
+    let Z1_Atmosphere_L = [];
+    let Z1_Atmosphere_R = [];
+    let Z1_Bottom_Heater_L = [];
+    let Z1_Bottom_Heater_R = [];
+    let Z2_Atmosphere_L = [];
+    let Z2_Atmosphere_R = [];
+    let Z2_Bottom_Heater_L = [];
+    let Z2_Bottom_Heater_R = [];
+    let Z3_Atmosphere_L = [];
+    let Z3_Atmosphere_R = [];
+    let Z3_Bottom_Heater_L = [];
+    let Z3_Bottom_Heater_R = [];
+    let Z4_Atmosphere_L = [];
+    let Z4_Atmosphere_R = [];
+    let Z4_Bottom_Heater_L = [];
+    let Z4_Bottom_Heater_R = [];
+    let Exit_Chamber_Heater = [];
+    let Front_Heater = [];
+    let Keep_Heat_Heater = [];
+
+
+    const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
+      socket.on('temp-chamber', (res) => {
+
+        console.log(res);
+        // https://ws.ap.ngrok.io
+
+        chart_labels.push(getlabelTime());
+        chart.data.labels = chart_labels;
+
+        removeData(bz_1_data.length,chart);
+        
+        if (res.data.Z1_Atmosphere_L <= 5 && Z1_Atmosphere_L != []) {
+          $(".Z1_Atmosphere_L").html(Z1_Atmosphere_L[Z1_Atmosphere_L.length - 1] + " °C");
+          bz_1_data.push(Z1_Atmosphere_L[Z1_Atmosphere_L.length - 1]);
+          chart.data.datasets[0].data = Z1_Atmosphere_L;
+        } else {
+          $(".Z1_Atmosphere_L").html(res.data.Z1_Atmosphere_L + " °C");
+          Z1_Atmosphere_L.push(res.data.Z1_Atmosphere_L);
+          chart.data.datasets[0].data = Z1_Atmosphere_L;
+        }
+
+        if (res.data.Z1_Atmosphere_R <= 5 && Z1_Atmosphere_R != []) {
+          $(".Z1_Atmosphere_R").html(Z1_Atmosphere_R[Z1_Atmosphere_R.length - 1] + " °C");
+          Z1_Atmosphere_R.push(Z1_Atmosphere_R[Z1_Atmosphere_R.length - 1]);
+          chart.data.datasets[1].data = Z1_Atmosphere_R;
+        } else {
+          $(".Z1_Atmosphere_R").html(res.data.Z1_Atmosphere_R + " °C");
+          Z1_Atmosphere_R.push(res.data.Z1_Atmosphere_R);
+          chart.data.datasets[1].data = Z1_Atmosphere_R;
+        }
+
+        if (res.data.Z1_Bottom_Heater_L <= 5 && Z1_Bottom_Heater_L != []) {
+          $(".Z1_Bottom_Heater_L").html(Z1_Bottom_Heater_L[Z1_Bottom_Heater_L.length - 1] + " °C");
+          Z1_Bottom_Heater_L.push(Z1_Bottom_Heater_L[Z1_Bottom_Heater_L.length - 1]);
+          chart.data.datasets[2].data = Z1_Bottom_Heater_L;
+        } else {
+          $(".Z1_Bottom_Heater_L").html(res.data.Z1_Bottom_Heater_L + " °C");
+          Z1_Bottom_Heater_L.push(res.data.Z1_Bottom_Heater_L);
+          chart.data.datasets[2].data = Z1_Bottom_Heater_L;
+        }
+
+        if (res.data.Z1_Bottom_Heater_R <= 5 && Z1_Bottom_Heater_R != []) {
+          $(".Z1_Bottom_Heater_R").html(Z1_Bottom_Heater_R[Z1_Bottom_Heater_R.length - 1] + " °C");
+          Z1_Bottom_Heater_R.push(Z1_Bottom_Heater_R[Z1_Bottom_Heater_R.length - 1]);
+          chart.data.datasets[3].data = Z1_Bottom_Heater_R;
+        } else {
+          $(".Z1_Bottom_Heater_R").html(res.data.Z1_Bottom_Heater_R + " °C");
+          Z1_Bottom_Heater_R.push(res.data.Z1_Bottom_Heater_R);
+          chart.data.datasets[3].data = Z1_Bottom_Heater_R;
+        }
+
+        if (res.data.Z2_Atmosphere_L <= 5 && Z2_Atmosphere_L != []) {
+          $(".Z2_Atmosphere_L").html(Z2_Atmosphere_L[Z2_Atmosphere_L.length - 1] + " °C");
+          Z2_Atmosphere_L.push(Z2_Atmosphere_L[Z2_Atmosphere_L.length - 1]);
+          chart.data.datasets[4].data = Z2_Atmosphere_L;
+        } else {
+          $(".Z2_Atmosphere_L").html(res.data.Z2_Atmosphere_L + " °C");
+          Z2_Atmosphere_L.push(res.data.Z2_Atmosphere_L);
+          chart.data.datasets[4].data = Z2_Atmosphere_L;
+        }
+
+
+        if (res.data.Z2_Atmosphere_R <= 5 && Z2_Atmosphere_R != []) {
+          $(".Z2_Atmosphere_R").html(Z2_Atmosphere_R[Z2_Atmosphere_R.length - 1] + " °C");
+          Z2_Atmosphere_R.push(Z2_Atmosphere_R[Z2_Atmosphere_R.length - 1]);
+          chart.data.datasets[5].data = Z2_Atmosphere_R;
+        } else {
+          $(".Z2_Atmosphere_R").html(res.data.Z2_Atmosphere_R + " °C");
+          Z2_Atmosphere_R.push(res.data.Z2_Atmosphere_R);
+          chart.data.datasets[5].data = Z2_Atmosphere_R;
+        }
+
+        if (res.data.Z2_Bottom_Heater_L <= 5 && Z2_Bottom_Heater_L != []) {
+          $(".Z2_Bottom_Heater_L").html(Z2_Bottom_Heater_L[Z2_Bottom_Heater_L.length - 1] + " °C");
+          Z2_Bottom_Heater_L.push(Z2_Bottom_Heater_L[Z2_Bottom_Heater_L.length - 1]);
+          chart.data.datasets[6].data = Z2_Bottom_Heater_L;
+        } else {
+          $(".Z2_Bottom_Heater_L").html(res.data.Z2_Bottom_Heater_L + " °C");
+          Z2_Bottom_Heater_L.push(res.data.Z2_Bottom_Heater_L);
+          chart.data.datasets[6].data = Z2_Bottom_Heater_L;
+        }
+
+        if (res.data.Z2_Bottom_Heater_R <= 5 && Z2_Bottom_Heater_R != []) {
+          $(".Z2_Bottom_Heater_R").html(Z2_Bottom_Heater_R[Z2_Bottom_Heater_R.length - 1] + " °C");
+          Z2_Bottom_Heater_R.push(Z2_Bottom_Heater_R[Z2_Bottom_Heater_R.length - 1]);
+          chart.data.datasets[7].data = Z2_Bottom_Heater_R;
+        } else {
+          $(".Z2_Bottom_Heater_R").html(res.data.Z2_Bottom_Heater_R + " °C");
+          Z2_Bottom_Heater_R.push(res.data.Z2_Bottom_Heater_R);
+          chart.data.datasets[7].data = Z2_Bottom_Heater_R;
+        }
+
+        if (res.data.Z3_Atmosphere_L <= 5 && Z3_Atmosphere_L != []) {
+          $(".Z3_Atmosphere_L").html(Z3_Atmosphere_L[Z3_Atmosphere_L.length - 1] + " °C");
+          Z3_Atmosphere_L.push(Z3_Atmosphere_L[Z3_Atmosphere_L.length - 1]);
+          chart.data.datasets[8].data = Z3_Atmosphere_L;
+        } else {
+          $(".Z3_Atmosphere_L").html(res.data.Z3_Atmosphere_L + " °C");
+          Z3_Atmosphere_L.push(res.data.Z3_Atmosphere_L);
+          chart.data.datasets[8].data = Z3_Atmosphere_L;
+        }
+
+        if (res.data.Z3_Atmosphere_R <= 5 && Z3_Atmosphere_R != []) {
+          $(".Z3_Atmosphere_R").html(Z3_Atmosphere_R[Z3_Atmosphere_R.length - 1] + " °C");
+          Z3_Atmosphere_R.push(Z3_Atmosphere_R[Z3_Atmosphere_R.length - 1]);
+          chart.data.datasets[9].data = Z3_Atmosphere_R;
+        } else {
+          $(".Z3_Atmosphere_R").html(res.data.Z3_Atmosphere_R + " °C");
+          Z3_Atmosphere_R.push(res.data.Z3_Atmosphere_R);
+          chart.data.datasets[9].data = Z3_Atmosphere_R;
+        }
+
+        if (res.data.Z3_Bottom_Heater_L <= 5 && Z3_Bottom_Heater_L != []) {
+          $(".Z3_Bottom_Heater_L").html(Z3_Bottom_Heater_L[Z3_Bottom_Heater_L.length - 1] + " °C");
+          Z3_Bottom_Heater_L.push(Z3_Bottom_Heater_L[Z3_Bottom_Heater_L.length - 1]);
+          chart.data.datasets[10].data = Z3_Bottom_Heater_L;
+        } else {
+          $(".Z3_Bottom_Heater_L").html(res.data.Z3_Bottom_Heater_L + " °C");
+          Z3_Bottom_Heater_L.push(res.data.Z3_Bottom_Heater_L);
+          chart.data.datasets[10].data = Z3_Bottom_Heater_L;
+        }
+
+        if (res.data.Z3_Bottom_Heater_R <= 5 && Z3_Bottom_Heater_R != []) {
+          $(".Z3_Bottom_Heater_R").html(Z3_Bottom_Heater_R[Z3_Bottom_Heater_R.length - 1] + " °C");
+          Z3_Bottom_Heater_R.push(Z3_Bottom_Heater_R[Z3_Bottom_Heater_R.length - 1]);
+          chart.data.datasets[11].data = Z3_Bottom_Heater_R;
+        } else {
+          $(".Z3_Bottom_Heater_R").html(res.data.Z3_Bottom_Heater_R + " °C");
+          Z3_Bottom_Heater_R.push(res.data.Z3_Bottom_Heater_R);
+          chart.data.datasets[11].data = Z3_Bottom_Heater_R;
+        }
+
+        if (res.data.Z4_Atmosphere_L <= 5 && Z4_Atmosphere_L != []) {
+          $(".Z4_Atmosphere_L").html(Z4_Atmosphere_L[Z4_Atmosphere_L.length - 1] + " °C");
+          Z4_Atmosphere_L.push(Z4_Atmosphere_L[Z4_Atmosphere_L.length - 1]);
+          chart.data.datasets[12].data = Z4_Atmosphere_L;
+        } else {
+          $(".Z4_Atmosphere_L").html(res.data.Z4_Atmosphere_L + " °C");
+          Z4_Atmosphere_L.push(res.data.Z4_Atmosphere_L);
+          chart.data.datasets[12].data = Z4_Atmosphere_L;
+        }
+
+        if (res.data.Z4_Atmosphere_R <= 5 && Z4_Atmosphere_R != []) {
+          $(".Z4_Atmosphere_R").html(Z4_Atmosphere_R[Z4_Atmosphere_R.length - 1] + " °C");
+          Z4_Atmosphere_R.push(Z4_Atmosphere_R[Z4_Atmosphere_R.length - 1]);
+          chart.data.datasets[13].data = Z4_Atmosphere_R;
+        } else {
+          $(".Z4_Atmosphere_R").html(res.data.Z4_Atmosphere_R + " °C");
+          Z4_Atmosphere_R.push(res.data.Z4_Atmosphere_R);
+          chart.data.datasets[13].data = Z4_Atmosphere_R;
+        }
+
+        if (res.data.Z4_Bottom_Heater_L <= 5 && Z4_Bottom_Heater_L != []) {
+          $(".Z4_Bottom_Heater_L").html(Z4_Bottom_Heater_L[Z4_Bottom_Heater_L.length - 1] + " °C");
+          Z4_Bottom_Heater_L.push(Z4_Bottom_Heater_L[Z4_Bottom_Heater_L.length - 1]);
+          chart.data.datasets[14].data = Z4_Bottom_Heater_L;
+        } else {
+          $(".Z4_Bottom_Heater_L").html(res.data.Z4_Bottom_Heater_L + " °C");
+          Z4_Bottom_Heater_L.push(res.data.Z4_Bottom_Heater_L);
+          chart.data.datasets[14].data = Z4_Bottom_Heater_L;
+        }
+
+        if (res.data.Z4_Bottom_Heater_R <= 5 && Z4_Bottom_Heater_R != []) {
+          $(".Z4_Bottom_Heater_R").html(Z4_Bottom_Heater_R[Z4_Bottom_Heater_R.length - 1] + " °C");
+          Z4_Bottom_Heater_R.push(Z4_Bottom_Heater_R[Z4_Bottom_Heater_R.length - 1]);
+          chart.data.datasets[15].data = Z4_Bottom_Heater_R;
+        } else {
+          $(".Z4_Bottom_Heater_R").html(res.data.Z4_Bottom_Heater_R + " °C");
+          Z4_Bottom_Heater_R.push(res.data.Z4_Bottom_Heater_R);
+          chart.data.datasets[15].data = Z4_Bottom_Heater_R;
+        }
+
+        if (res.data.Front_Heater <= 5 && Front_Heater != []) {
+          $(".Front_Heater").html(Front_Heater[Front_Heater.length - 1] + " °C");
+          Front_Heater.push(Front_Heater[Front_Heater.length - 1]);
+          chart.data.datasets[16].data = Front_Heater;
+        } else {
+          $(".Front_Heater").html(res.data.Front_Heater + " °C");
+          Front_Heater.push(res.data.Front_Heater);
+          chart.data.datasets[16].data = Front_Heater;
+        }
+
+        if (res.data.Keep_Heat_Heater <= 5 && Keep_Heat_Heater != []) {
+          $(".Keep_Heat_Heater").html(Keep_Heat_Heater[Keep_Heat_Heater.length - 1] + " °C");
+          Keep_Heat_Heater.push(Keep_Heat_Heater[Keep_Heat_Heater.length - 1]);
+          chart.data.datasets[17].data = Keep_Heat_Heater;
+        } else {
+          $(".Keep_Heat_Heater").html(res.data.Keep_Heat_Heater + " °C");
+          Keep_Heat_Heater.push(res.data.Keep_Heat_Heater);
+          chart.data.datasets[17].data = Keep_Heat_Heater;
+        }
+
+        if (res.data.Exit_Chamber_Heater <= 5 && Exit_Chamber_Heater != []) {
+          $(".Exit_Chamber_Heater").html(Exit_Chamber_Heater[Exit_Chamber_Heater.length - 1] + " °C");
+          Exit_Chamber_Heater.push(Exit_Chamber_Heater[Exit_Chamber_Heater.length - 1]);
+          chart.data.datasets[18].data = Exit_Chamber_Heater;
+        } else {
+          $(".Exit_Chamber_Heater").html(res.data.Exit_Chamber_Heater + " °C");
+          Exit_Chamber_Heater.push(res.data.Exit_Chamber_Heater);
+          chart.data.datasets[18].data = Exit_Chamber_Heater;
+        }
+
+        chart.update();
+
+});
+
+    </script>

@@ -60,13 +60,14 @@ io.on("connection", (socket) => {
     if (topic.substring(0, 8) == '22060001') {
       message = JSON.parse(message.toString());
       socket.emit('temp-chamber', {
-        bz1: message.data[0].Z1_Atmosphere_R,
-        bz2: message.data[0].Z2_Atmosphere_R,
-        bz3: message.data[0].Z3_Atmosphere_R,
-        bz4: message.data[0].Z4_Atmosphere_R,
-        bz5: message.data[0].Z4_Atmosphere_L,
-        pre1: message.data[0].Front_Heater,
-        pre2: message.data[0].Exit_Chamber_Heater,
+        // bz1: message.data[0].Z1_Atmosphere_R,
+        // bz2: message.data[0].Z2_Atmosphere_R,
+        // bz3: message.data[0].Z3_Atmosphere_R,
+        // bz4: message.data[0].Z4_Atmosphere_R,
+        // bz5: message.data[0].Z4_Atmosphere_L,
+        // pre1: message.data[0].Front_Heater,
+        // pre2: message.data[0].Exit_Chamber_Heater,
+        data : message.data[0]
       });
       socket.emit('other-sensor', {
         Meshbelt_Speed: message.data[0].Meshbelt_Speed,
@@ -1138,16 +1139,16 @@ router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) =>
 
 
     res.status(200).send({
-      temp_1: temp_1.reverse(),
-      temp_2: temp_2.reverse(),
-      temp_3: temp_3.reverse(),
-      temp_4: temp_4.reverse(),
-      temp_5: temp_5.reverse(),
-      temp_6: temp_6.reverse(),
-      temp_7: temp_7.reverse(),
-      temp_8: temp_8.reverse(),
-      temp_9: temp_9.reverse(),
-      label: date_label.reverse()
+      temp_1 : temp_1.reverse(),
+      temp_2 : temp_2.reverse(),
+      temp_3 : temp_3.reverse(),
+      temp_4 : temp_4.reverse(),
+      temp_5 : temp_5.reverse(),
+      temp_6 : temp_6.reverse(),
+      temp_7 : temp_7.reverse(),
+      temp_8 : temp_8.reverse(),
+      temp_9 : temp_9.reverse(),
+      label : date_label.reverse()
     });
   }
 
@@ -1273,7 +1274,6 @@ router.get('/BrazingGIC2', function (req, res, next) {
 
 // END BrazingGIC2
 
-
 // BrazingGIC2
 
 router.get('/WCAC', function (req, res, next) {
@@ -1281,6 +1281,7 @@ router.get('/WCAC', function (req, res, next) {
 
   res.render('dashboard/WCAC/WCAC', { title: title, header: 'WCAC', page: req.query.page });
 });
+
 // END BrazingGIC2
 
 // BrazingBRS
@@ -1347,7 +1348,7 @@ router.get('/IF-GIC-2', function (req, res, next) {
   res.render('dashboard/IF_GIC_2/IF_GIC_2', { title: title, header: 'IF-GIC-2' , mc_name : 'I/F GIC 2' , page: req.query.page });
 });
 
-// END IF-GIC-1
+// END IF-GIC-2
 
 
 module.exports = router;
