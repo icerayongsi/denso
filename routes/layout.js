@@ -206,6 +206,7 @@ io.on("connection", (socket) => {
         Cal_SN_CH2 : message.data[0].Cal_SN_CH2,
         Cal_HE : message.data[0].Cal_HE
       });
+      console.log(message);
     }
 
     if (topic.substring(0, 8) == '22100001') {
