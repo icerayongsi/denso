@@ -60,13 +60,13 @@ io.on("connection", (socket) => {
     if (topic.substring(0, 8) == '22060001') {
       message = JSON.parse(message.toString());
       socket.emit('temp-chamber', {
-        // bz1: message.data[0].Z1_Atmosphere_R,
-        // bz2: message.data[0].Z2_Atmosphere_R,
-        // bz3: message.data[0].Z3_Atmosphere_R,
-        // bz4: message.data[0].Z4_Atmosphere_R,
-        // bz5: message.data[0].Z4_Atmosphere_L,
-        // pre1: message.data[0].Front_Heater,
-        // pre2: message.data[0].Exit_Chamber_Heater,
+        bz1: message.data[0].Z1_Atmosphere_R,
+        bz2: message.data[0].Z2_Atmosphere_R,
+        bz3: message.data[0].Z3_Atmosphere_R,
+        bz4: message.data[0].Z4_Atmosphere_R,
+        bz5: message.data[0].Z4_Atmosphere_L,
+        pre1: message.data[0].Front_Heater,
+        pre2: message.data[0].Exit_Chamber_Heater,
         data : message.data[0]
       });
       socket.emit('other-sensor', {
