@@ -28,7 +28,8 @@ client.on('connect', () => {
   client.subscribe('22100007/#');
   client.subscribe('22100008/#');
 
-  client.subscribe('denso/inj');
+  client.subscribe('denso_inj_status/#');
+  client.subscribe('denso_inj_value/#');
 });
 
 // client.on('message', (topic, message) => {
@@ -48,10 +49,22 @@ io.on("connection", (socket) => {
 
   client.on('message', (topic, message) => {
 
-    if (topic.substring(6, 9) == 'inj') {
+    if (topic == 'denso_inj_status/data') {
+      
       message = JSON.parse(message.toString());
       message.forEach(element => {
         socket.emit('inj-' + element.MC_NameID , {
+          data : element
+        });
+      });
+    }
+    
+    if (topic == 'denso_inj_value/data') {
+      
+      message = JSON.parse(message.toString());
+      
+      message.forEach(element => {
+        socket.emit('inj-data-' + element.MC_NameID , {
           data : element
         });
       });

@@ -1,0 +1,33 @@
+<script>
+    const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
+  
+    socket.on('inj-data-<%= inj %>', (res) => {
+      let date = new Date(res.data['DateTime']).toLocaleDateString('en-US');
+      let time = new Date(res.data['DateTime']).toLocaleTimeString('th-Th');
+      $(".mc_date").html(date);
+      $(".mc_time").html(time);
+      $(".mc_cycletime").html(res.data['Cycle Time(s)']);
+      $(".mc_injtime").html(res.data['Inj. Time(s)']);
+      $(".mc_recovery_time").html(res.data['Recovery Time(s)']);
+      $(".mc_inj_start_pos").html(res.data['Inj.start Pos(mm)']);
+      $(".mc_hp_trans_pos").html(res.data['H.P Trans Pos(mm)']);
+      $(".mc_hold_comp_pos").html(res.data['Hold Comp Pos(mm)']);
+      $(".mc_cushion").html(res.data['Cushion(mm)']);
+      $(".mc_inj_press").html(res.data['Inj. Press(Mpa)']);
+      $(".mc_hp_trans_prs").html(res.data['H.P Trans Prs(Mpa)']);
+      $(".mc_back_press").html(res.data['Back Press(Mpa)']);
+      $(".mc_cav_press_op").html(res.data['Cav. Press(OP)(Mpa)']);
+      $(".mc_lnh_temp").html(res.data['LNH Temp(°C)']);
+      $(".mc_nh_temp").html(res.data['NH Temp(°C)']);
+      $(".mc_h4_temp").html(res.data['H4 Temp(°C)']);
+      $(".mc_h3_temp").html(res.data['H3 Temp(°C)']);
+      $(".mc_h2_temp").html(res.data['H2 Temp(°C)']);
+      $(".mc_h1_temp").html(res.data['H1 Temp(°C)']);
+      $(".mc_throat_temp").html(res.data['Throat Temp(°C)']);
+      $(".mc_hyd_temp").html(res.data['Hyd. Temp(°C)']);
+      $(".mc_mold_temp_mov").html(res.data['Mold Temp(Mov)(°C)']);
+      $(".mc_mold_temp_fix").html(res.data['Mold Temp(Fix)(°C)']);
+      $(".mc_panel_temp").html(res.data['Panel Temp(°C)']);
+      $(".mc_hv_temp_op").html(res.data['HV Temp(OP)(°C)']);
+    });
+  </script>

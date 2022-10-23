@@ -1,18 +1,14 @@
-<% if (inj == '1') { %> 
-
-    <a href="/layout/Injection?inj=<%= inj %>&page=index" class="btn btn-dark btn-grey w-100">index</a>
-    <a href="/layout/Injection?inj=<%= inj %>&page=test" class="btn btn-dark btn-grey w-100">test</a>
-
-<% } %>
-
-<!-- <% if (inj == '2') { %> 
-
-    <a href="/layout/Injection?inj=<%= inj %>&page=index" class="btn btn-dark btn-grey w-100">index</a>
-    <a href="/layout/Injection?inj=<%= inj %>&page=test" class="btn btn-dark btn-grey w-100">test</a>
-
-<% } %> -->
-
-
+<a href="/layout/Injection?inj=<%= inj %>&page=index" class="btn btn-dark btn-grey w-100">Status</a>
+<% const arr = ['1','2','5','7','10','11','13']
+    arr.forEach(element => {
+        if (inj == element) {
+%>
+    <a href="/layout/Injection?inj=<%= inj %>&page=data" class="btn btn-dark btn-grey w-100">Shot Data</a>
+<%
+        }
+    });
+    
+%> 
 
 
 <!-- Injection4320 -->
