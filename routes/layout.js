@@ -321,6 +321,42 @@ io.on("connection", (socket) => {
       });
     }
 
+    if (topic.substring(0, 8) == '22080004') { // HLOC
+      message = JSON.parse(message.toString());
+      socket.emit('hloc-all-data', {
+        MC_Status : message.data[0].MC_Status,
+        Product_Volume : message.data[0].Product_Volume,
+        Fault1_16 : message.data[0].Fault1_16,
+        Fault17_32 : message.data[0].Fault17_32,
+        Fault33_48 : message.data[0].Fault33_48,
+        Fault49_64 : message.data[0].Fault49_64,
+        CH1_Cycle_Time : message.data[0].CH1_Cycle_Time,
+        CH1_Cal_BG : message.data[0].CH1_Cal_BG,
+        CH1_Cal_ML : message.data[0].CH1_Cal_ML,
+        CH1_SN : message.data[0].CH1_SN,
+        CH1_Work_Pressure : message.data[0].CH1_Work_Pressure,
+        CH1_Master_OK_Vacuum_Time : message.data[0].CH1_Master_OK_Vacuum_Time,
+        CH1_High_Pressure : message.data[0].CH1_High_Pressure,
+        CH1_Low_Pressure : message.data[0].CH1_Low_Pressure,
+        CH2_Cycle_Time : message.data[0].CH2_Cycle_Time,
+        CH2_Cal_BG : message.data[0].CH2_Cal_BG,
+        CH2_Cal_ML : message.data[0].CH2_Cal_ML,
+        CH2_SN : message.data[0].CH2_SN,
+        CH2_Work_Pressure : message.data[0].CH2_Work_Pressure,
+        CH2_Master_OK_Vacuum_Time : message.data[0].CH2_Master_OK_Vacuum_Time,
+        CH2_High_Pressure : message.data[0].CH2_High_Pressure,
+        CH2_Low_Pressure : message.data[0].CH2_Low_Pressure,
+        CH3_Cycle_Time : message.data[0].CH3_Cycle_Time,
+        CH3_Cal_BG : message.data[0].CH3_Cal_BG,
+        CH3_Cal_ML : message.data[0].CH3_Cal_ML,
+        CH3_SN : message.data[0].CH3_SN,
+        CH3_Work_Pressure : message.data[0].CH3_Work_Pressure,
+        CH3_Master_OK_Vacuum_Time : message.data[0].CH3_Master_OK_Vacuum_Time,
+        CH3_High_Pressure : message.data[0].CH3_High_Pressure,
+        CH3_Low_Pressure : message.data[0].CH3_Low_Pressure,
+      });
+    }
+
   });
 });
 

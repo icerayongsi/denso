@@ -23,9 +23,204 @@
         
       </div>
 
+      <table class="table">
+        <tr>
+          <th scope="col">
+            Data
+          </th>
+          <th scope="col">
+            Values
+          </th>
+          <th scope="col">
+            Unit
+          </th>
+        </tr>
+        <tr>
+          <td>MC_Status</td>
+          <td class="MC_Status"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Production Volume</td>
+          <td class="Product_Volume"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault 1-16</td>
+          <td class="Fault1_16"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault 17-32</td>
+          <td class="Fault17_32"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault 33-48</td>
+          <td class="Fault33_48"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fault 49-64</td>
+          <td class="Fault49_64"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>CH.1 Cycle time</td>
+          <td class="CH1_Cycle_Time"></td>
+          <td>s</td>
+        </tr>
+        <tr>
+          <td>CH.1 Calibrate BG</td>
+          <td class="CH1_Cal_BG"></td>
+          <td>Pa*m³/s</td>
+        </tr>
+        <tr>
+          <td>CH.1 Calibrate ML</td>
+          <td class="CH1_Cal_ML"></td>
+          <td>Pa*m³/s</td>
+        </tr>
+        <tr>
+          <td>CH.1 S/N</td>
+          <td class="CH1_SN"></td>
+          <td>Pa*m³/s</td>
+        </tr>
+        <tr>
+          <td>CH.1 Work Charge Pressure</td>
+          <td class="CH1_Work_Pressure"></td>
+          <td>Pa</td>
+        </tr>
+        <tr>
+          <td>CH.1 Master OK Vacuum time</td>
+          <td class="CH1_Master_OK_Vacuum_Time"></td>
+          <td>s</td>
+        </tr>
+        <tr>
+          <td>CH.1 High Pressure</td>
+          <td class="CH1_High_Pressure"></td>
+          <td>MPa</td>
+        </tr>
+        <tr>
+          <td>CH.1 Low Pressure</td>
+          <td class="CH1_Low_Pressure"></td>
+          <td>MPa</td>
+        </tr>
+        <tr>
+          <td>CH.2 Cycle time</td>
+          <td class="CH2_Cycle_Time"></td>
+          <td>s</td>
+        </tr>
+        <tr>
+          <td>CH.2 Calibrate BG</td>
+          <td class="CH2_Cal_BG"></td>
+          <td>Pa*m³/s</td>
+        </tr>
+        <tr>
+          <td>CH.2 Calibrate ML</td>
+          <td class="CH2_Cal_ML"></td>
+          <td>Pa*m³/s</td>
+        </tr>
+        <tr>
+          <td>CH.2 S/N</td>
+          <td class="CH2_SN"></td>
+          <td>Pa*m³/s</td>
+        </tr>
+        <tr>
+          <td>CH.2 Work Charge Pressure</td>
+          <td class="CH2_Work_Pressure"></td>
+          <td>Pa</td>
+        </tr>
+        <tr>
+          <td>CH.2 Master OK Vacuum time</td>
+          <td class="CH2_Master_OK_Vacuum_Time"></td>
+          <td>s</td>
+        </tr>
+        <tr>
+          <td>CH.2 High Pressure</td>
+          <td class="CH2_High_Pressure"></td>
+          <td>MPa</td>
+        </tr>
+        <tr>
+          <td>CH.2 Low Pressure</td>
+          <td class="CH2_Low_Pressure"></td>
+          <td>MPa</td>
+        </tr>
+        <tr>
+          <td>CH.3 Cycle time</td>
+          <td class="CH3_Cycle_Time"></td>
+          <td>s</td>
+        </tr>
+        <tr>
+          <td>CH.3 Calibrate BG</td>
+          <td class="CH3_Cal_BG"></td>
+          <td>Pa*m³/s</td>
+        </tr>
+        <tr>
+          <td>CH.3 Calibrate ML</td>
+          <td class="CH3_Cal_ML"></td>
+          <td>Pa*m³/s</td>
+        </tr>
+        <tr>
+          <td>CH.3 S/N</td>
+          <td class="CH2_SN"></td>
+          <td>Pa*m³/s</td>
+        </tr>
+        <tr>
+          <td>CH.3 Work Charge Pressure</td>
+          <td class="CH3_Work_Pressure"></td>
+          <td>Pa</td>
+        </tr>
+        <tr>
+          <td>CH.3 Master OK Vacuum time</td>
+          <td class="CH3_Master_OK_Vacuum_Time"></td>
+          <td>s</td>
+        </tr>
+        <tr>
+          <td>CH.3 High Pressure</td>
+          <td class="CH3_High_Pressure"></td>
+          <td>MPa</td>
+        </tr>
+        <tr>
+          <td>CH.3 Low Pressure</td>
+          <td class="CH3_Low_Pressure"></td>
+          <td>MPa</td>
+        </tr>
+      </table> 
       
 </main>
 
 <script>
-  
+  const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
+  socket.on('hloc-all-data', (res) => {
+    $(".MC_Status").html(res.MC_Status);
+    $(".Product_Volume").html(res.Product_Volume);
+    $(".Fault1_16").html(res.Fault1_16);
+    $(".Fault17_32").html(res.Fault17_32);
+    $(".Fault33_48").html(res.Fault33_48);
+    $(".Fault49_64").html(res.Fault49_64);
+    $(".CH1_Cycle_Time").html(res.CH1_Cycle_Time);
+    $(".CH1_Cal_BG").html(res.CH1_Cal_BG);
+    $(".CH1_Cal_ML").html(res.CH1_Cal_ML);
+    $(".CH1_SN").html(res.CH1_SN);
+    $(".CH1_Work_Pressure").html(res.CH1_Work_Pressure);
+    $(".CH1_Master_OK_Vacuum_Time").html(res.CH1_Master_OK_Vacuum_Time);
+    $(".CH1_High_Pressure").html(res.CH1_High_Pressure);
+    $(".CH1_Low_Pressure").html(res.CH1_Low_Pressure);
+    $(".CH2_Cycle_Time").html(res.CH2_Cycle_Time);
+    $(".CH2_Cal_BG").html(res.CH2_Cal_BG);
+    $(".CH2_Cal_ML").html(res.CH2_Cal_ML);
+    $(".CH2_SN").html(res.CH2_SN);
+    $(".CH2_Work_Pressure").html(res.CH2_Work_Pressure);
+    $(".CH2_Master_OK_Vacuum_Time").html(res.CH2_Master_OK_Vacuum_Time);
+    $(".CH2_High_Pressure").html(res.CH2_High_Pressure);
+    $(".CH2_Low_Pressure").html(res.CH2_Low_Pressure);
+    $(".CH3_Cycle_Time").html(res.CH3_Cycle_Time);
+    $(".CH3_Cal_BG").html(res.CH3_Cal_BG);
+    $(".CH3_Cal_ML").html(res.CH3_Cal_ML);
+    $(".CH3_SN").html(res.CH3_SN);
+    $(".CH3_Work_Pressure").html(res.CH3_Work_Pressure);
+    $(".CH3_Master_OK_Vacuum_Time").html(res.CH3_Master_OK_Vacuum_Time);
+    $(".CH3_High_Pressure").html(res.CH3_High_Pressure);
+    $(".CH3_Low_Pressure").html(res.CH3_Low_Pressure);
+  });
 </script>
