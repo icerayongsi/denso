@@ -20,6 +20,7 @@ client.on('connect', () => {
   client.subscribe('22060050/#');
   client.subscribe('22080001/#');
   client.subscribe('22080003/#');
+  client.subscribe('22080004/#');
   client.subscribe('22090002/#');
   client.subscribe('22090001/#');
   client.subscribe('22100001/#');
