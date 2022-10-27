@@ -28,6 +28,7 @@ client.on('connect', () => {
   client.subscribe('22100006/#');
   client.subscribe('22100007/#');
   client.subscribe('22100008/#');
+  client.subscribe('22100009/#');
 
   client.subscribe('denso_inj_status/#');
   client.subscribe('denso_inj_value/#');
@@ -318,6 +319,13 @@ io.on("connection", (socket) => {
     if (topic.substring(0, 8) == '22100008') { // I/F GIC 2
       message = JSON.parse(message.toString());
       socket.emit('if-gic-2', {
+        data : message
+      });
+    }
+
+    if (topic.substring(0, 8) == '22100009') { // I/F GIC 1
+      message = JSON.parse(message.toString());
+      socket.emit('if-gic-1', {
         data : message
       });
     }
