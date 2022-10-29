@@ -1,9 +1,9 @@
-<a href="/layout/Injection?inj=<%= inj %>&page=index" class="btn btn-dark btn-grey w-100">Status</a>
+<a href="/layout/Injection?inj=<%= inj %>&name= <%= name  %>&page=index" class="btn btn-dark btn-grey w-100">Status</a>
 <% const arr = ['1','2','5','7','10','11','13']
     arr.forEach(element => {
         if (inj == element) {
 %>
-    <a href="/layout/Injection?inj=<%= inj %>&page=data" class="btn btn-dark btn-grey w-100">Shot Data</a>
+    <a href="/layout/Injection?inj=<%= inj %>&name= <%= name  %>&page=data" class="btn btn-dark btn-grey w-100">Shot Data</a>
 <%
         }
     });
