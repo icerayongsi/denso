@@ -309,7 +309,7 @@ io.on("connection", (socket) => {
       });
     }
 
-    if (topic.substring(0, 8) == '22100007') { // I/F GIC 1
+    if (topic.substring(0, 8) == '22100009') { // I/F GIC 1
       message = JSON.parse(message.toString());
       socket.emit('if-gic-1', {
         data : message
@@ -323,12 +323,12 @@ io.on("connection", (socket) => {
       });
     }
 
-    if (topic.substring(0, 8) == '22100009') { // I/F GIC 1
-      message = JSON.parse(message.toString());
-      socket.emit('if-gic-1', {
-        data : message
-      });
-    }
+    // if (topic.substring(0, 8) == '22100009') { // I/F GIC 1
+    //   message = JSON.parse(message.toString());
+    //   socket.emit('if-gic-1', {
+    //     data : message
+    //   });
+    // }
 
     if (topic.substring(0, 8) == '22080004') { // HLOC
       message = JSON.parse(message.toString());
