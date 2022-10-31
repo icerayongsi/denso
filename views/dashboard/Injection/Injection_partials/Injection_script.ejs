@@ -1,7 +1,7 @@
 <script>
     const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
   
-    socket.on('inj-data-<%= inj %>', (res) => {
+    socket.on('inj-data-<%= name %>', (res) => {
       let date = new Date(res.data['DateTime']).toLocaleDateString('en-US');
       let time = new Date(res.data['DateTime']).toLocaleTimeString('th-Th');
       $(".mc_date").html(date);

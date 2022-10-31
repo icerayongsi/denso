@@ -55,7 +55,7 @@ io.on("connection", (socket) => {
       
       message = JSON.parse(message.toString());
       message.forEach(element => {
-        socket.emit('inj-' + element.MC_NameID , {
+        socket.emit('inj-' + element.Name , {
           data : element
         });
       });
@@ -66,7 +66,7 @@ io.on("connection", (socket) => {
       message = JSON.parse(message.toString());
       
       message.forEach(element => {
-        socket.emit('inj-data-' + element.MC_NameID , {
+        socket.emit('inj-data-' + element.Name , {
           data : element
         });
       });
@@ -309,7 +309,7 @@ io.on("connection", (socket) => {
       });
     }
 
-    if (topic.substring(0, 8) == '22100007') { // I/F GIC 1
+    if (topic.substring(0, 8) == '22100009') { // I/F GIC 1
       message = JSON.parse(message.toString());
       socket.emit('if-gic-1', {
         data : message
@@ -323,12 +323,12 @@ io.on("connection", (socket) => {
       });
     }
 
-    if (topic.substring(0, 8) == '22100009') { // I/F GIC 1
-      message = JSON.parse(message.toString());
-      socket.emit('if-gic-1', {
-        data : message
-      });
-    }
+    // if (topic.substring(0, 8) == '22100009') { // I/F GIC 1
+    //   message = JSON.parse(message.toString());
+    //   socket.emit('if-gic-1', {
+    //     data : message
+    //   });
+    // }
 
     if (topic.substring(0, 8) == '22080004') { // HLOC
       message = JSON.parse(message.toString());
@@ -1368,7 +1368,7 @@ router.get('/BrazingOIL', function (req, res, next) {
 router.get('/Injection', function (req, res, next) {
   // if (!req.session.userid) res.redirect('/login');
 
-  res.render('dashboard/Injection/Injection', { title: title, header: 'Injection',inj : req.query.inj , page: req.query.page });
+  res.render('dashboard/Injection/Injection', { title: title, header: 'Injection',inj : req.query.inj , name : req.query.name , page: req.query.page });
 });
 
 // END BrazingGIC2

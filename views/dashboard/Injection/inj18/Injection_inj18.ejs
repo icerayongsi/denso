@@ -22,4 +22,44 @@
       </div>
       
 
-</main>
+          <!-- MAIN CONTENT -->
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <table class="table">
+                  <thead class="fs-5">
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Timestemp</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="mc_name"></td>
+                      <td class="mc_status"></td>
+                      <td class="mc_time"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- END MAIN -->
+
+
+      </main>
+
+      <script>
+        const socket = io('https://ws.ap.ngrok.io', { transports: ['websocket'] });
+
+        socket.on('inj-<%= name %>', (res) => {
+          $(".mc_name").html(res.data.Name);
+          $(".mc_status").html(res.data.STATUS_NAME);
+          let date = new Date(res.data.STATUS_TIMESTAMP).toLocaleDateString('en-US');
+          let time = new Date(res.data.STATUS_TIMESTAMP).toLocaleTimeString('th-Th');
+          $(".mc_time").html(date + ' ' + time);
+        });
+      </script>
