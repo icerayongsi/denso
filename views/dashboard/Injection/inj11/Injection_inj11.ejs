@@ -31,6 +31,7 @@
                   <thead class="fs-5">
                     <tr>
                       <th scope="col">Name</th>
+                      <th scope="col">Partnumber</th>
                       <th scope="col">Status</th>
                       <th scope="col">Timestemp</th>
                     </tr>
@@ -38,6 +39,7 @@
                   <tbody>
                     <tr>
                       <td class="mc_name"></td>
+                      <td class="mc_partnumber"></td>
                       <td class="mc_status"></td>
                       <td class="mc_time"></td>
                     </tr>
@@ -55,11 +57,14 @@
       <script>
         const socket = io('https://ws.ap.ngrok.io', { transports: ['websocket'] });
 
-        socket.on('inj-<%= inj %>', (res) => {
-          $(".mc_name").html(res.data.Name);
-          $(".mc_status").html(res.data.STATUS_NAME);
-          let date = new Date(res.data.STATUS_TIMESTAMP).toLocaleDateString('en-US');
-          let time = new Date(res.data.STATUS_TIMESTAMP).toLocaleTimeString('th-Th');
-          $(".mc_time").html(date + ' ' + time);
+        socket.on('inj-<%= name %>', (res) => {
+          if (res.data.Type == "iPAQET3") {
+            $(".mc_name").html(res.data.Name);
+            $(".mc_partnumber").html(res.data["PART NUMBER"]);
+            $(".mc_status").html(res.data.STATUS_NAME);
+            let date = new Date(res.data.STATUS_TIMESTAMP).toLocaleDateString('en-US');
+            let time = new Date(res.data.STATUS_TIMESTAMP).toLocaleTimeString('th-Th');
+            $(".mc_time").html(date + ' ' + time);
+          }
         });
       </script>

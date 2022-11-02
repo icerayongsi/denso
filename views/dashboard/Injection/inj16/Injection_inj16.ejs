@@ -55,11 +55,13 @@
       <script>
         const socket = io('https://ws.ap.ngrok.io', { transports: ['websocket'] });
 
-        socket.on('inj-<%= inj %>', (res) => {
-          $(".mc_name").html(res.data.Name);
-          $(".mc_status").html(res.data.STATUS_NAME);
-          let date = new Date(res.data.STATUS_TIMESTAMP).toLocaleDateString('en-US');
-          let time = new Date(res.data.STATUS_TIMESTAMP).toLocaleTimeString('th-Th');
-          $(".mc_time").html(date + ' ' + time);
+        socket.on('inj-<%= name %>', (res) => {
+          if (res.data.Type == "Net100") {
+            $(".mc_name").html(res.data.Name);
+            $(".mc_status").html(res.data.STATUS_NAME);
+            let date = new Date(res.data.STATUS_TIMESTAMP).toLocaleDateString('en-US');
+            let time = new Date(res.data.STATUS_TIMESTAMP).toLocaleTimeString('th-Th');
+            $(".mc_time").html(date + ' ' + time);
+          }
         });
       </script>

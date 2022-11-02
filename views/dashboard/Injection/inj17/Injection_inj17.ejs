@@ -55,10 +55,13 @@
         const socket = io('https://ws.ap.ngrok.io', { transports: ['websocket'] });
 
         socket.on('inj-<%= name %>', (res) => {
-          $(".mc_name").html(res.data.Name);
-          $(".mc_status").html(res.data.STATUS_NAME);
-          let date = new Date(res.data.STATUS_TIMESTAMP).toLocaleDateString('en-US');
-          let time = new Date(res.data.STATUS_TIMESTAMP).toLocaleTimeString('th-Th');
-          $(".mc_time").html(date + ' ' + time);
+          //if ('<%= inj; %>' == '17') {
+            console.log(res);
+            $(".mc_name").html(res.data.Name);
+            $(".mc_status").html(res.data.STATUS_NAME);
+            let date = new Date(res.data.STATUS_TIMESTAMP).toLocaleDateString('en-US');
+            let time = new Date(res.data.STATUS_TIMESTAMP).toLocaleTimeString('th-Th');
+            $(".mc_time").html(date + ' ' + time);
+          //}
         });
       </script>
