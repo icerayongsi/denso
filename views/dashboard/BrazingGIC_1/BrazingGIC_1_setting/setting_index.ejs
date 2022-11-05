@@ -1,0 +1,172 @@
+<%- include('../BrazingGIC_1_partials/BrazingGIC_1_header') -%>
+
+    <%- include('../../../partials/navbar_dashboard') -%>
+
+        <%- include('../BrazingGIC_1_partials/BrazingGIC_menu') -%>
+
+            </div>
+            </li>
+            </ul>
+
+            </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
+
+                <div class="card card-body margin-5">
+
+                    <div
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
+                        <h3 class="text-uppercase" style="font-weight: 700;">
+                            <%= header %> / <%= page %>
+                        </h3>
+                    </div>
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex align-items-start">
+                                    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
+                                        aria-orientation="vertical">
+                                        <button class="nav-link active" id="v-pills-Vibrator-tab" data-bs-toggle="pill"
+                                            data-bs-target="#v-pills-Vibrator" type="button" role="tab"
+                                            aria-controls="v-pills-Vibrator" aria-selected="true">Vibrator</button>
+                                        <button class="nav-link" id="v-pills-Temperature-tab" data-bs-toggle="pill"
+                                            data-bs-target="#v-pills-Temperature" type="button" role="tab"
+                                            aria-controls="v-pills-Temperature"
+                                            aria-selected="false">Temperature</button>
+                                        <button class="nav-link" id="v-pills-Current-tab" data-bs-toggle="pill"
+                                            data-bs-target="#v-pills-Current" type="button" role="tab"
+                                            aria-controls="v-pills-Current" aria-selected="false">Current</button>
+                                        <button class="nav-link" id="v-pills-Overview-tab" data-bs-toggle="pill"
+                                            data-bs-target="#v-pills-Overview" type="button" role="tab"
+                                            aria-controls="v-pills-Overview" aria-selected="false">Overview</button>
+                                    </div>
+                                    <div class="tab-content" id="v-pills-tabContent">
+                                        <div class="tab-pane fade show active" id="v-pills-Vibrator" role="tabpanel"
+                                            aria-labelledby="v-pills-Vibrator-tab">
+
+                                            <div class="card">
+                                                <div class="card-body">
+
+                                                    <h4>Vibrator grade</h4>
+
+                                                    <p class="ps-2 mb-2">- Grade value zones and color</p>
+
+                                                    <!-- Value -->
+
+                                                    <div class="d-flex flex-row bd-highlight">
+                                                        <div class="p-2 bd-highlight">
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text"
+                                                                        id="basic-addon1">Normal</span>
+                                                                </div>
+                                                                <input type="text" class="form-control" placeholder="20"
+                                                                    aria-label="Username"
+                                                                    aria-describedby="basic-addon1">
+                                                            </div>
+                                                            <div class="card mt-2 p-2" style="background-color: #30B32D;"></div>
+                                                        </div>
+                                                        <div class="p-2 bd-highlight">
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text"
+                                                                        id="basic-addon1">Warning</span>
+                                                                </div>
+                                                                <input type="text" class="form-control" placeholder="30"
+                                                                    aria-label="Username"
+                                                                    aria-describedby="basic-addon1">
+                                                            </div>
+                                                            <div class="card mt-2 p-2" style="background-color: #FFDD00;"></div>
+                                                        </div>
+                                                        <div class="p-2 bd-highlight">
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text"
+                                                                        id="basic-addon1">Alarm</span>
+                                                                </div>
+                                                                <input type="text" class="form-control" placeholder="50"
+                                                                    aria-label="Username"
+                                                                    aria-describedby="basic-addon1">
+                                                            </div>
+                                                            <div class="card mt-2 p-2" style="background-color: #F03E3E;"></div>
+                                                        </div>
+                                                    </div>
+
+                                                    <p class="ps-2 mb-2 mt-4">- Tricks value</p>
+
+                                                    <div class="d-flex flex-row bd-highlight">
+                                                        <div class="p-2 bd-highlight">
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                    6
+                                                                </button>
+                                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                                    <li><a class="dropdown-item" href="#">1</a></li>
+                                                                    <li><a class="dropdown-item" href="#">2</a></li>
+                                                                    <li><a class="dropdown-item" href="#">3</a></li>
+                                                                    <li><a class="dropdown-item" href="#">4</a></li>
+                                                                    <li><a class="dropdown-item" href="#">5</a></li>
+                                                                    <li><a class="dropdown-item" href="#">6</a></li>
+                                                                    <li><a class="dropdown-item" href="#">7</a></li>
+                                                                    <li><a class="dropdown-item" href="#">8</a></li>
+                                                                    <li><a class="dropdown-item" href="#">9</a></li>
+                                                                    <li><a class="dropdown-item" href="#">10</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="p-2 bd-highlight">
+                                                            <p class="m-0">Text color</p>
+                                                            <div class="card p-2" style="background-color: #FFFFFF;"></div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="d-flex flex-row-reverse bd-highlight mt-4">
+                                                        <div class="p-2 bd-highlight">
+                                                            <button type="button" class="btn btn-dark btn-grey w-100 btn-md">Update</button>
+                                                        </div>
+                                                        <div class="p-2 bd-highlight">
+                                                            <button type="button" class="btn btn-dark w-100 btn-md">Reset</button>
+                                                        </div>
+                                                      </div>
+                                                    
+                                                    
+                                                    
+
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+
+                                        </div>
+                                        <div class="tab-pane fade" id="v-pills-Temperature" role="tabpanel"
+                                            aria-labelledby="v-pills-Temperature-tab">...</div>
+                                        <div class="tab-pane fade" id="v-pills-Current" role="tabpanel"
+                                            aria-labelledby="v-pills-Current-tab">...</div>
+                                        <div class="tab-pane fade" id="v-pills-Overview" role="tabpanel"
+                                            aria-labelledby="v-pills-Overview-tab">...</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+            </main>
+
+
+            <div class="toast align-items-center show position-fixed bottom-0 end-0 text-bg-warning m-2" role="alert"
+                aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        (WIP) THIS PAGE WORKING IN PROCESS....
+                    </div>
+                </div>
+            </div>

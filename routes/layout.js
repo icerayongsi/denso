@@ -441,7 +441,7 @@ router.post('/', encodeUrl, async (req, res, next) => {
 router.get('/BrazingGIC1', function (req, res, next) {
   // if (!req.session.userid) res.redirect('/login');
 
-  res.render('dashboard/BrazingGIC_1/BrazingGIC_1', { title: title, header: 'BrazingGIC 1', page: req.query.page });
+  res.render('dashboard/BrazingGIC_1/BrazingGIC_1', { title: title , name : 'BrazingGIC1', header: 'BrazingGIC 1', page: req.query.page });
 });
 
 router.get('/BrazingGIC1/history', function (req, res, next) {
