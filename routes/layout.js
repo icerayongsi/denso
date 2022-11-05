@@ -34,18 +34,6 @@ client.on('connect', () => {
   client.subscribe('denso_inj_value/#');
 });
 
-// client.on('message', (topic, message) => {
-//   if (topic.substring(6, 9) == 'inj') {
-//       message = JSON.parse(message.toString());
-//       message.forEach(element => {
-//         console.log(element.MC_NameID);
-//         if(element.MC_NameID == 11) {
-//           console.log(element);
-//         }
-//       });
-      
-//     }
-// });
 
 io.on("connection", (socket) => {
 
