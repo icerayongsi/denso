@@ -977,18 +977,6 @@ router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) =>
   let temp_8 = [];
   let temp_9 = [];
 
-  // for (let i = 0; i <= 30; i++) {
-  //   temp_1.push(getRandomFloat(53, 56, 0));
-  //   temp_2.push(getRandomFloat(53, 47, 0));
-  //   temp_3.push(getRandomFloat(45, 47, 0));
-  //   temp_4.push(getRandomFloat(45, 47, 0));
-  //   temp_5.push(getRandomFloat(45, 47, 0));
-  //   temp_6.push(getRandomFloat(45, 47, 0));
-  //   temp_7.push(getRandomFloat(45, 47, 0));
-  //   temp_8.push(getRandomFloat(45, 47, 0));
-  //   temp_9.push(getRandomFloat(49, 51, 0));
-  // }
-
 
   if (req.body.type == 'days') {
 
