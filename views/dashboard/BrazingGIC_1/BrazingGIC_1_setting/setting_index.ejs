@@ -66,7 +66,10 @@
                                                                     aria-label="Username"
                                                                     aria-describedby="basic-addon1">
                                                             </div>
-                                                            <div class="card mt-2 p-2" style="background-color: #30B32D;"></div>
+                                                            <form onsubmit="return false;" id="target" class="mt-2">
+                                                                <input type="color" class="form-control form-control-color w-100" id="exampleColorInput" value="#30B32D" title="Choose your color">
+                                                                <input type="submit" name="" id=""> 
+                                                            </form>
                                                         </div>
                                                         <div class="p-2 bd-highlight">
                                                             <div class="input-group">
@@ -78,7 +81,9 @@
                                                                     aria-label="Username"
                                                                     aria-describedby="basic-addon1">
                                                             </div>
-                                                            <div class="card mt-2 p-2" style="background-color: #FFDD00;"></div>
+                                                            <form onsubmit="return false;" id="target" class="mt-2">
+                                                                <input type="color" class="form-control form-control-color w-100" id="exampleColorInput" value="#FFDD00" title="Choose your color">
+                                                            </form>
                                                         </div>
                                                         <div class="p-2 bd-highlight">
                                                             <div class="input-group">
@@ -90,7 +95,9 @@
                                                                     aria-label="Username"
                                                                     aria-describedby="basic-addon1">
                                                             </div>
-                                                            <div class="card mt-2 p-2" style="background-color: #F03E3E;"></div>
+                                                            <form onsubmit="return false;" id="target" class="mt-2">
+                                                                <input type="color" class="form-control form-control-color w-100" id="exampleColorInput" value="#F03E3E" title="Choose your color">
+                                                            </form>
                                                         </div>
                                                     </div>
 
@@ -170,3 +177,16 @@
                     </div>
                 </div>
             </div>
+
+<script>
+    const myFunction = () => {
+        $("#target").submit(() => {
+        console.log("wow");
+    });
+    }
+
+    $("#target").submit(() => {
+        console.log($("#exampleColorInput").val());
+    });
+    
+</script>
