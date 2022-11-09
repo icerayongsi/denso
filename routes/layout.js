@@ -5,6 +5,7 @@ const server = require('http').createServer();
 const mongoose = require("mongoose");
 const router = express.Router();
 const Data_Schema = require('../models/Schema');
+const Setting_Schema = require('../models/settingSchema');
 const mqtt = require('mqtt')
 const client = mqtt.connect('mqtt://broker.hivemq.com');
 const io = require('socket.io')(5000);
@@ -40,22 +41,22 @@ io.on("connection", (socket) => {
   client.on('message', (topic, message) => {
 
     if (topic == 'denso_inj_status/data') {
-      
+
       message = JSON.parse(message.toString());
       message.forEach(element => {
-        socket.emit('inj-' + element.Name , {
-          data : element
+        socket.emit('inj-' + element.Name, {
+          data: element
         });
       });
     }
-    
+
     if (topic == 'denso_inj_value/data') {
-      
+
       message = JSON.parse(message.toString());
-      
+
       message.forEach(element => {
-        socket.emit('inj-data-' + element.Name , {
-          data : element
+        socket.emit('inj-data-' + element.Name, {
+          data: element
         });
       });
     }
@@ -70,7 +71,7 @@ io.on("connection", (socket) => {
         bz5: message.data[0].Z4_Atmosphere_L,
         pre1: message.data[0].Front_Heater,
         pre2: message.data[0].Exit_Chamber_Heater,
-        data : message.data[0]
+        data: message.data[0]
       });
       socket.emit('other-sensor', {
         Meshbelt_Speed: message.data[0].Meshbelt_Speed,
@@ -162,7 +163,7 @@ io.on("connection", (socket) => {
 
     if (topic.substring(0, 8) == '22090001') { // BRAZING BRS
       message = JSON.parse(message.toString());
-      socket.emit('BRZING-BRS',{
+      socket.emit('BRZING-BRS', {
         PV_After_Burner: message.data[0].PV_After_Burner,
         PV_Degreaser_Zone1: message.data[0].PV_Degreaser_Zone1,
         PV_Degreaser_Zone2: message.data[0].PV_Degreaser_Zone2,
@@ -183,31 +184,31 @@ io.on("connection", (socket) => {
     if (topic.substring(0, 8) == '22080001') {
       message = JSON.parse(message.toString());
       socket.emit('gcac-1-all-data', {
-        MC_Status : message.data[0].MC_Status,
-        CH1_PA : message.data[0].CH1_PA,
-        CH1_SP_A1 : message.data[0].CH1_SP_A1,
-        CH1_SP_A2 : message.data[0].CH1_SP_A2,
-        CH1_MPA3 : message.data[0].CH1_MPA3,
-        CH1_CT : message.data[0].CH1_CT,
-        CH2_PA : message.data[0].CH2_PA,
-        CH2_SP_B1 : message.data[0].CH2_SP_B1,
-        CH2_SP_B2 : message.data[0].CH2_SP_B2,
-        CH2_MPA3 : message.data[0].CH2_MPA3,
-        CH2_CT : message.data[0].CH2_CT,
-        Bit_Trig : message.data[0].Bit_Trig,
-        Cal_BG1_CH1 : message.data[0].Cal_BG1_CH1,
-        Cal_BG2_CH1 : message.data[0].Cal_BG2_CH1,
-        Cal_SG1_CH1 : message.data[0].Cal_SG1_CH1,
-        Cal_SG2_CH1 : message.data[0].Cal_SG2_CH1,
-        Cal_NG_CH1 : message.data[0].Cal_NG_CH1,
-        Cal_SN_CH1 : message.data[0].Cal_SN_CH1,
-        Cal_BG1_CH2 : message.data[0].Cal_BG1_CH2,
-        Cal_BG2_CH2 : message.data[0].Cal_BG2_CH2,
-        Cal_SG1_CH2 : message.data[0].Cal_SG1_CH2,
-        Cal_SG2_CH2 : message.data[0].Cal_SG2_CH2,
-        Cal_NG_CH2 : message.data[0].Cal_NG_CH2,
-        Cal_SN_CH2 : message.data[0].Cal_SN_CH2,
-        Cal_HE : message.data[0].Cal_HE
+        MC_Status: message.data[0].MC_Status,
+        CH1_PA: message.data[0].CH1_PA,
+        CH1_SP_A1: message.data[0].CH1_SP_A1,
+        CH1_SP_A2: message.data[0].CH1_SP_A2,
+        CH1_MPA3: message.data[0].CH1_MPA3,
+        CH1_CT: message.data[0].CH1_CT,
+        CH2_PA: message.data[0].CH2_PA,
+        CH2_SP_B1: message.data[0].CH2_SP_B1,
+        CH2_SP_B2: message.data[0].CH2_SP_B2,
+        CH2_MPA3: message.data[0].CH2_MPA3,
+        CH2_CT: message.data[0].CH2_CT,
+        Bit_Trig: message.data[0].Bit_Trig,
+        Cal_BG1_CH1: message.data[0].Cal_BG1_CH1,
+        Cal_BG2_CH1: message.data[0].Cal_BG2_CH1,
+        Cal_SG1_CH1: message.data[0].Cal_SG1_CH1,
+        Cal_SG2_CH1: message.data[0].Cal_SG2_CH1,
+        Cal_NG_CH1: message.data[0].Cal_NG_CH1,
+        Cal_SN_CH1: message.data[0].Cal_SN_CH1,
+        Cal_BG1_CH2: message.data[0].Cal_BG1_CH2,
+        Cal_BG2_CH2: message.data[0].Cal_BG2_CH2,
+        Cal_SG1_CH2: message.data[0].Cal_SG1_CH2,
+        Cal_SG2_CH2: message.data[0].Cal_SG2_CH2,
+        Cal_NG_CH2: message.data[0].Cal_NG_CH2,
+        Cal_SN_CH2: message.data[0].Cal_SN_CH2,
+        Cal_HE: message.data[0].Cal_HE
       });
       //console.log(message);
     }
@@ -215,34 +216,34 @@ io.on("connection", (socket) => {
     if (topic.substring(0, 8) == '22100001') {
       message = JSON.parse(message.toString());
       socket.emit('helium-brs-all-data', {
-        MC_Status : message.data[0].MC_Status,
-        Pressure_Chamber_A : message.data[0].Pressure_Chamber_A,
-        Work_Chamber_A : message.data[0].Work_Chamber_A,
-        Work_Chamber_B : message.data[0].Work_Chamber_B,
-        Pressure_Chamber_B : message.data[0].Pressure_Chamber_B,
-        Leak_rate_A : message.data[0].Leak_rate_A,
-        Alarm_A : message.data[0].Alarm_A,
-        Leak_rate_B : message.data[0].Leak_rate_B,
-        Alarm_B : message.data[0].Alarm_B,
-        Pressure_Chamber_C : message.data[0].Pressure_Chamber_C,
-        Work_Chamber_C : message.data[0].Work_Chamber_C,
-        Work_Chamber_D : message.data[0].Work_Chamber_D,
-        Pressure_Chamber_D : message.data[0].Pressure_Chamber_D,
-        Leak_rate_C : message.data[0].Leak_rate_C,
-        Alarm_C : message.data[0].Alarm_C,
-        Leak_rate_D : message.data[0].Leak_rate_D,
-        Alarm_D : message.data[0].Alarm_D,
-        Pressure_Chamber_E : message.data[0].Pressure_Chamber_E,
-        Work_Chamber_E : message.data[0].Work_Chamber_E,
-        Work_Chamber_F : message.data[0].Work_Chamber_F,
-        Pressure_Chamber_F : message.data[0].Pressure_Chamber_F,
-        Leak_rate_E : message.data[0].Leak_rate_E,
-        Alarm_E : message.data[0].Alarm_E,
-        Leak_rate_F : message.data[0].Leak_rate_F,
-        Alarm_F : message.data[0].Alarm_F,
-        HCM : message.data[0].HCM,
-        status : message.data[0].status,
-        calibrate : message.data[0].calibrate
+        MC_Status: message.data[0].MC_Status,
+        Pressure_Chamber_A: message.data[0].Pressure_Chamber_A,
+        Work_Chamber_A: message.data[0].Work_Chamber_A,
+        Work_Chamber_B: message.data[0].Work_Chamber_B,
+        Pressure_Chamber_B: message.data[0].Pressure_Chamber_B,
+        Leak_rate_A: message.data[0].Leak_rate_A,
+        Alarm_A: message.data[0].Alarm_A,
+        Leak_rate_B: message.data[0].Leak_rate_B,
+        Alarm_B: message.data[0].Alarm_B,
+        Pressure_Chamber_C: message.data[0].Pressure_Chamber_C,
+        Work_Chamber_C: message.data[0].Work_Chamber_C,
+        Work_Chamber_D: message.data[0].Work_Chamber_D,
+        Pressure_Chamber_D: message.data[0].Pressure_Chamber_D,
+        Leak_rate_C: message.data[0].Leak_rate_C,
+        Alarm_C: message.data[0].Alarm_C,
+        Leak_rate_D: message.data[0].Leak_rate_D,
+        Alarm_D: message.data[0].Alarm_D,
+        Pressure_Chamber_E: message.data[0].Pressure_Chamber_E,
+        Work_Chamber_E: message.data[0].Work_Chamber_E,
+        Work_Chamber_F: message.data[0].Work_Chamber_F,
+        Pressure_Chamber_F: message.data[0].Pressure_Chamber_F,
+        Leak_rate_E: message.data[0].Leak_rate_E,
+        Alarm_E: message.data[0].Alarm_E,
+        Leak_rate_F: message.data[0].Leak_rate_F,
+        Alarm_F: message.data[0].Alarm_F,
+        HCM: message.data[0].HCM,
+        status: message.data[0].status,
+        calibrate: message.data[0].calibrate
       });
     }
 
@@ -286,28 +287,28 @@ io.on("connection", (socket) => {
     if (topic.substring(0, 8) == '22100005') { // I/F BRS 3
       message = JSON.parse(message.toString());
       socket.emit('if-brs-3', {
-        data : message
+        data: message
       });
     }
 
     if (topic.substring(0, 8) == '22100006') { // I/F BRS 2
       message = JSON.parse(message.toString());
       socket.emit('if-brs-2', {
-        data : message
+        data: message
       });
     }
 
     if (topic.substring(0, 8) == '22100009') { // I/F GIC 1
       message = JSON.parse(message.toString());
       socket.emit('if-gic-1', {
-        data : message
+        data: message
       });
     }
 
     if (topic.substring(0, 8) == '22100008') { // I/F GIC 2
       message = JSON.parse(message.toString());
       socket.emit('if-gic-2', {
-        data : message
+        data: message
       });
     }
 
@@ -321,36 +322,36 @@ io.on("connection", (socket) => {
     if (topic.substring(0, 8) == '22080004') { // HLOC
       message = JSON.parse(message.toString());
       socket.emit('hloc-all-data', {
-        MC_Status : message.data[0].MC_Status,
-        Product_Volume : message.data[0].Product_Volume,
-        Fault1_16 : message.data[0].Fault1_16,
-        Fault17_32 : message.data[0].Fault17_32,
-        Fault33_48 : message.data[0].Fault33_48,
-        Fault49_64 : message.data[0].Fault49_64,
-        CH1_Cycle_Time : message.data[0].CH1_Cycle_Time,
-        CH1_Cal_BG : message.data[0].CH1_Cal_BG,
-        CH1_Cal_ML : message.data[0].CH1_Cal_ML,
-        CH1_SN : message.data[0].CH1_SN,
-        CH1_Work_Pressure : message.data[0].CH1_Work_Pressure,
-        CH1_Master_OK_Vacuum_Time : message.data[0].CH1_Master_OK_Vacuum_Time,
-        CH1_High_Pressure : message.data[0].CH1_High_Pressure,
-        CH1_Low_Pressure : message.data[0].CH1_Low_Pressure,
-        CH2_Cycle_Time : message.data[0].CH2_Cycle_Time,
-        CH2_Cal_BG : message.data[0].CH2_Cal_BG,
-        CH2_Cal_ML : message.data[0].CH2_Cal_ML,
-        CH2_SN : message.data[0].CH2_SN,
-        CH2_Work_Pressure : message.data[0].CH2_Work_Pressure,
-        CH2_Master_OK_Vacuum_Time : message.data[0].CH2_Master_OK_Vacuum_Time,
-        CH2_High_Pressure : message.data[0].CH2_High_Pressure,
-        CH2_Low_Pressure : message.data[0].CH2_Low_Pressure,
-        CH3_Cycle_Time : message.data[0].CH3_Cycle_Time,
-        CH3_Cal_BG : message.data[0].CH3_Cal_BG,
-        CH3_Cal_ML : message.data[0].CH3_Cal_ML,
-        CH3_SN : message.data[0].CH3_SN,
-        CH3_Work_Pressure : message.data[0].CH3_Work_Pressure,
-        CH3_Master_OK_Vacuum_Time : message.data[0].CH3_Master_OK_Vacuum_Time,
-        CH3_High_Pressure : message.data[0].CH3_High_Pressure,
-        CH3_Low_Pressure : message.data[0].CH3_Low_Pressure,
+        MC_Status: message.data[0].MC_Status,
+        Product_Volume: message.data[0].Product_Volume,
+        Fault1_16: message.data[0].Fault1_16,
+        Fault17_32: message.data[0].Fault17_32,
+        Fault33_48: message.data[0].Fault33_48,
+        Fault49_64: message.data[0].Fault49_64,
+        CH1_Cycle_Time: message.data[0].CH1_Cycle_Time,
+        CH1_Cal_BG: message.data[0].CH1_Cal_BG,
+        CH1_Cal_ML: message.data[0].CH1_Cal_ML,
+        CH1_SN: message.data[0].CH1_SN,
+        CH1_Work_Pressure: message.data[0].CH1_Work_Pressure,
+        CH1_Master_OK_Vacuum_Time: message.data[0].CH1_Master_OK_Vacuum_Time,
+        CH1_High_Pressure: message.data[0].CH1_High_Pressure,
+        CH1_Low_Pressure: message.data[0].CH1_Low_Pressure,
+        CH2_Cycle_Time: message.data[0].CH2_Cycle_Time,
+        CH2_Cal_BG: message.data[0].CH2_Cal_BG,
+        CH2_Cal_ML: message.data[0].CH2_Cal_ML,
+        CH2_SN: message.data[0].CH2_SN,
+        CH2_Work_Pressure: message.data[0].CH2_Work_Pressure,
+        CH2_Master_OK_Vacuum_Time: message.data[0].CH2_Master_OK_Vacuum_Time,
+        CH2_High_Pressure: message.data[0].CH2_High_Pressure,
+        CH2_Low_Pressure: message.data[0].CH2_Low_Pressure,
+        CH3_Cycle_Time: message.data[0].CH3_Cycle_Time,
+        CH3_Cal_BG: message.data[0].CH3_Cal_BG,
+        CH3_Cal_ML: message.data[0].CH3_Cal_ML,
+        CH3_SN: message.data[0].CH3_SN,
+        CH3_Work_Pressure: message.data[0].CH3_Work_Pressure,
+        CH3_Master_OK_Vacuum_Time: message.data[0].CH3_Master_OK_Vacuum_Time,
+        CH3_High_Pressure: message.data[0].CH3_High_Pressure,
+        CH3_Low_Pressure: message.data[0].CH3_Low_Pressure,
       });
     }
 
@@ -359,80 +360,43 @@ io.on("connection", (socket) => {
 
 const data = [{}];
 
-router.get('/', async (req, res, next) => {
+router.get('/', (req, res, next) => {
 
   // if (!req.session.userid) res.redirect('/login');
-
-  // let first_row = await Data_Schema.findOne({}, { times: 1 })
-  // let result_month = [];
-  // for (i = 0; i < 4; i++) {
-
-  //   let last_month = Date.now() - 2678400000 * (1 + i);
-
-  //   result_month.push(await Data_Schema.aggregate([
-  //     {
-  //       $match: {
-  //         times: {
-  //           $gte: Date.now() - 2678400000 * (1 + i),
-  //           $lte: Date.now() - 2678400000 * (0 + i)
-  //         }
-  //       }
-  //     },
-  //     {
-  //       $group:
-  //       {
-  //         _id: moment().subtract(i, "month").format('DD/MM/YYYY'),
-  //         vi1_z_max: { $max: "$data.Vibrator_1_1" },
-  //         vi1_x_max: { $max: "$data.Vibrator_1_3" },
-  //         vi2_z_max: { $max: "$data.Vibrator_2_1" },
-  //         vi2_x_max: { $max: "$data.Vibrator_2_3" },
-  //         vi3_z_max: { $max: "$data.Vibrator_3_1" },
-  //         vi3_x_max: { $max: "$data.Vibrator_3_3" },
-  //         vi4_z_max: { $max: "$data.Vibrator_4_1" },
-  //         vi4_x_max: { $max: "$data.Vibrator_4_3" },
-  //         vi5_z_max: { $max: "$data.Vibrator_5_1" },
-  //         vi5_x_max: { $max: "$data.Vibrator_5_3" },
-  //         vi6_z_max: { $max: "$data.Vibrator_6_1" },
-  //         vi6_x_max: { $max: "$data.Vibrator_6_3" },
-  //         vi7_z_max: { $max: "$data.Vibrator_7_1" },
-  //         vi7_x_max: { $max: "$data.Vibrator_7_3" },
-  //         vi8_z_max: { $max: "$data.Vibrator_8_1" },
-  //         vi8_x_max: { $max: "$data.Vibrator_8_3" },
-  //         vi9_z_max: { $max: "$data.Vibrator_9_1" },
-  //         vi9_x_max: { $max: "$data.Vibrator_9_3" },
-  //       }
-  //     }
-
-  //   ]));
-  //   if (last_month < first_row.times) {
-  //     break;
-  //   }
-  // }
-  // let date_label = []
-  // let x_1 = []
-  // result_month.forEach((elment, i) => {
-
-  //   date_label.push(elment[0]._id)
-  //   x_1.push(elment[0].vi1_z_max[0]);
-
-  // });
-  // console.log(date_label);
-  // console.log(x_1);
 
   res.render('layout', { title: title, header: 'Mechine layout', sw: 1 });
 });
 
-router.post('/', encodeUrl, async (req, res, next) => {
+router.post('/', encodeUrl, (req, res, next) => {
   console.log(req.body.sw);
 });
 
-router.get('/BrazingGIC1', function (req, res, next) {
+router.get('/BrazingGIC1', encodeUrl, async (req, res, next) => {
   // if (!req.session.userid) res.redirect('/login');
 
-  res.render('dashboard/BrazingGIC_1/BrazingGIC_1', { title: title , name : 'BrazingGIC1', header: 'BrazingGIC 1', page: req.query.page });
+  var setting = await Setting_Schema.findOne({}, { _id: 0 });
+
+  res.render('dashboard/BrazingGIC_1/BrazingGIC_1', { title: title, name: 'BrazingGIC1', header: 'BrazingGIC 1', page: req.query.page, setting: setting });
 });
 
-router.get('/BrazingGIC1/history', function (req, res, next) {
+router.post('/BrazingGIC1/setting-update', encodeUrl, async (req, res, next) => {
+
+  if (req.body.tab == "vibrator") {
+    await Setting_Schema.updateOne({ _id: "636b9a65c28241d39c9319d1" }, {
+      $set : {'BrazingGIC1.Vibrator.Zone.Normal.value' : parseInt(req.body.normal_value),
+              'BrazingGIC1.Vibrator.Zone.Normal.color' : req.body.normal_color,
+              'BrazingGIC1.Vibrator.Zone.Warning.value' : parseInt(req.body.warning_value),
+              'BrazingGIC1.Vibrator.Zone.Warning.color' : req.body.warning_color,
+              'BrazingGIC1.Vibrator.Zone.Alarm.value' : parseInt(req.body.alarm_value),
+              'BrazingGIC1.Vibrator.Zone.Alarm.color' : req.body.alarm_color},
+    });
+  }
+
+  res.status(200).send("success");
+  console.log(req.body);
+});
+
+router.get('/BrazingGIC1/history', (req, res, next) => {
   res.render('history', { title: title, header: 'BrazingGIC 1' });
 });
 
@@ -585,7 +549,7 @@ router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
   data_x_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, 0.737, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998, 0.998, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]
   data_z_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, 0.737, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998, 0.998, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]
 
-  let first_row = await Data_Schema.findOne({}, { times: 1 })
+  let first_row = await Data_Schema.findOne({}, { times: 1 });
 
   var date_label = [];
 
@@ -609,39 +573,8 @@ router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
   var z_7 = [];
   var z_8 = [];
 
-  // data_x_zxis.forEach((element, i) => {
-  //   x_0.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-  //   z_0.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-
-  //   x_1.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-  //   z_1.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-
-  //   x_2.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-  //   z_2.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-
-  //   x_3.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-  //   z_3.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-
-  //   x_4.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-  //   z_4.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-
-  //   x_5.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-  //   z_5.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-
-  //   x_6.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-  //   z_6.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-
-  //   x_7.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-  //   z_7.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-
-  //   x_8.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-  //   z_8.push(data_z_zxis[i] + (Math.floor(Math.random() * 300)) / 1000);
-  // });
-
-  // console.log(x_0)
-  // console.log(req.body.type)
-
   if (req.body.type == 'days') {
+
 
     let result_day = [];
     for (i = 0; i < 26; i++) {
@@ -765,8 +698,10 @@ router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
       z_8: z_8.reverse(),
       label: getLastDaysDate(25)
     });
-    
+
   } else if (req.body.type == 'weeks') {
+
+
 
     // Query
 
@@ -998,15 +933,15 @@ router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) =>
           $group:
           {
             _id: moment().subtract(i, "days").format('DD/MM/YYYY'),
-            temp_1 : { $max: "$data.temp_1" || 0 },
-            temp_2 : { $max: "$data.temp_2" || 0 },
-            temp_3 : { $max: "$data.temp_3" || 0 },
-            temp_4 : { $max: "$data.temp_4" || 0 },
-            temp_5 : { $max: "$data.temp_5" || 0 },
-            temp_6 : { $max: "$data.temp_6" || 0 },
-            temp_7 : { $max: "$data.temp_7" || 0 },
-            temp_8 : { $max: "$data.temp_8" || 0 },
-            temp_9 : { $max: "$data.temp_9" || 0 },
+            temp_1: { $max: "$data.temp_1" || 0 },
+            temp_2: { $max: "$data.temp_2" || 0 },
+            temp_3: { $max: "$data.temp_3" || 0 },
+            temp_4: { $max: "$data.temp_4" || 0 },
+            temp_5: { $max: "$data.temp_5" || 0 },
+            temp_6: { $max: "$data.temp_6" || 0 },
+            temp_7: { $max: "$data.temp_7" || 0 },
+            temp_8: { $max: "$data.temp_8" || 0 },
+            temp_9: { $max: "$data.temp_9" || 0 },
           }
         }
 
@@ -1017,7 +952,7 @@ router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) =>
       }
     }
 
-    
+
 
     result_day.forEach((element, i) => {
       //date_label.push(element[0]._id)
@@ -1076,15 +1011,15 @@ router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) =>
           $group:
           {
             _id: moment().isoWeekday((-7 * i) + 1).format('DD/MM/YYYY'),
-            temp_1 : { $max: "$data.temp_1" || 0 },
-            temp_2 : { $max: "$data.temp_2" || 0 },
-            temp_3 : { $max: "$data.temp_3" || 0 },
-            temp_4 : { $max: "$data.temp_4" || 0 },
-            temp_5 : { $max: "$data.temp_5" || 0 },
-            temp_6 : { $max: "$data.temp_6" || 0 },
-            temp_7 : { $max: "$data.temp_7" || 0 },
-            temp_8 : { $max: "$data.temp_8" || 0 },
-            temp_9 : { $max: "$data.temp_9" || 0 },
+            temp_1: { $max: "$data.temp_1" || 0 },
+            temp_2: { $max: "$data.temp_2" || 0 },
+            temp_3: { $max: "$data.temp_3" || 0 },
+            temp_4: { $max: "$data.temp_4" || 0 },
+            temp_5: { $max: "$data.temp_5" || 0 },
+            temp_6: { $max: "$data.temp_6" || 0 },
+            temp_7: { $max: "$data.temp_7" || 0 },
+            temp_8: { $max: "$data.temp_8" || 0 },
+            temp_9: { $max: "$data.temp_9" || 0 },
           }
         }
       ]));
@@ -1141,15 +1076,15 @@ router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) =>
           $group:
           {
             _id: moment().subtract(i, "month").format('DD/MM/YYYY'),
-            temp_1 : { $max: "$data.temp_1" || 0 },
-            temp_2 : { $max: "$data.temp_2" || 0 },
-            temp_3 : { $max: "$data.temp_3" || 0 },
-            temp_4 : { $max: "$data.temp_4" || 0 },
-            temp_5 : { $max: "$data.temp_5" || 0 },
-            temp_6 : { $max: "$data.temp_6" || 0 },
-            temp_7 : { $max: "$data.temp_7" || 0 },
-            temp_8 : { $max: "$data.temp_8" || 0 },
-            temp_9 : { $max: "$data.temp_9" || 0 },
+            temp_1: { $max: "$data.temp_1" || 0 },
+            temp_2: { $max: "$data.temp_2" || 0 },
+            temp_3: { $max: "$data.temp_3" || 0 },
+            temp_4: { $max: "$data.temp_4" || 0 },
+            temp_5: { $max: "$data.temp_5" || 0 },
+            temp_6: { $max: "$data.temp_6" || 0 },
+            temp_7: { $max: "$data.temp_7" || 0 },
+            temp_8: { $max: "$data.temp_8" || 0 },
+            temp_9: { $max: "$data.temp_9" || 0 },
           }
         }
 
@@ -1174,16 +1109,16 @@ router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) =>
 
 
     res.status(200).send({
-      temp_1 : temp_1.reverse(),
-      temp_2 : temp_2.reverse(),
-      temp_3 : temp_3.reverse(),
-      temp_4 : temp_4.reverse(),
-      temp_5 : temp_5.reverse(),
-      temp_6 : temp_6.reverse(),
-      temp_7 : temp_7.reverse(),
-      temp_8 : temp_8.reverse(),
-      temp_9 : temp_9.reverse(),
-      label : date_label.reverse()
+      temp_1: temp_1.reverse(),
+      temp_2: temp_2.reverse(),
+      temp_3: temp_3.reverse(),
+      temp_4: temp_4.reverse(),
+      temp_5: temp_5.reverse(),
+      temp_6: temp_6.reverse(),
+      temp_7: temp_7.reverse(),
+      temp_8: temp_8.reverse(),
+      temp_9: temp_9.reverse(),
+      label: date_label.reverse()
     });
   }
 
@@ -1344,7 +1279,7 @@ router.get('/BrazingOIL', function (req, res, next) {
 router.get('/Injection', function (req, res, next) {
   // if (!req.session.userid) res.redirect('/login');
 
-  res.render('dashboard/Injection/Injection', { title: title, header: 'Injection',inj : req.query.inj , name : req.query.name , page: req.query.page });
+  res.render('dashboard/Injection/Injection', { title: title, header: 'Injection', inj: req.query.inj, name: req.query.name, page: req.query.page });
 });
 
 // END BrazingGIC2
@@ -1353,7 +1288,7 @@ router.get('/Injection', function (req, res, next) {
 
 router.get('/IF-BRS-2', function (req, res, next) {
 
-  res.render('dashboard/IF_BRS_2/IF_BRS_2', { title: title, header: 'IF-BRS-2' , mc_name : 'I/F BRS 2' , page: req.query.page });
+  res.render('dashboard/IF_BRS_2/IF_BRS_2', { title: title, header: 'IF-BRS-2', mc_name: 'I/F BRS 2', page: req.query.page });
 });
 
 // END IF-BRS-2
@@ -1362,7 +1297,7 @@ router.get('/IF-BRS-2', function (req, res, next) {
 
 router.get('/IF-BRS-3', function (req, res, next) {
 
-  res.render('dashboard/IF_BRS_3/IF_BRS_3', { title: title, header: 'IF-BRS-3' , mc_name : 'I/F BRS 3' , page: req.query.page });
+  res.render('dashboard/IF_BRS_3/IF_BRS_3', { title: title, header: 'IF-BRS-3', mc_name: 'I/F BRS 3', page: req.query.page });
 });
 
 // END IF-BRS-3
@@ -1371,7 +1306,7 @@ router.get('/IF-BRS-3', function (req, res, next) {
 
 router.get('/IF-GIC-1', function (req, res, next) {
 
-  res.render('dashboard/IF_GIC_1/IF_GIC_1', { title: title, header: 'IF-GIC-1' , mc_name : 'I/F GIC 1' , page: req.query.page });
+  res.render('dashboard/IF_GIC_1/IF_GIC_1', { title: title, header: 'IF-GIC-1', mc_name: 'I/F GIC 1', page: req.query.page });
 });
 
 // END IF-GIC-1
@@ -1380,10 +1315,9 @@ router.get('/IF-GIC-1', function (req, res, next) {
 
 router.get('/IF-GIC-2', function (req, res, next) {
 
-  res.render('dashboard/IF_GIC_2/IF_GIC_2', { title: title, header: 'IF-GIC-2' , mc_name : 'I/F GIC 2' , page: req.query.page });
+  res.render('dashboard/IF_GIC_2/IF_GIC_2', { title: title, header: 'IF-GIC-2', mc_name: 'I/F GIC 2', page: req.query.page });
 });
 
 // END IF-GIC-2
-
 
 module.exports = router;

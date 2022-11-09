@@ -273,6 +273,12 @@
 
 
     <script>
+
+      const tickLabel = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
+      let tickList = [0];
+      for(let i = 1;i <= 5; i++) {
+        tickList.push((tickLabel / 5) * i);
+      }
       var opts = {
 
         colorStart: "#6fadcf",
@@ -281,6 +287,9 @@
         strokeColor: "#e0e0e0",
         generateGradient: true,
         percentColors: [[0.0, "#a9d70b"], [0.50, "#f9c802"], [1.0, "#ff0000"]],
+
+        minValue : 0,
+        maxValue : parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>"),
 
         pointer: {
           length: 0.8,
@@ -291,17 +300,15 @@
 
         staticLabels: {
           font: "10px sans-serif",
-          labels: [0, 10, 20, 30 , 40, 50],
+          labels: tickList,
           color: "#fff",
           fractionDigits: 0
         },
 
         staticZones: [
-          // {strokeStyle: "#F03E3E", min: 0, max: 200},
-          // {strokeStyle: "#FFDD00", min: 200, max: 500},
-          { strokeStyle: "#30B32D", min: 0, max: 20 },
-          { strokeStyle: "#FFDD00", min: 20, max: 30 },
-          { strokeStyle: "#F03E3E", min: 30, max: 50 }
+          { strokeStyle: "<%= setting.BrazingGIC1.Vibrator.Zone.Normal.color %>", min: 0, max: parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Normal.value %>") },
+          { strokeStyle: "<%= setting.BrazingGIC1.Vibrator.Zone.Warning.color %>", min: parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Normal.value %>"), max: parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Warning.value %>")},
+          { strokeStyle: "<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.color %>", min: parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Warning.value %>"), max: parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>") }
         ],
 
         renderTicks: {
@@ -327,7 +334,9 @@
 
         limitMin: false,
 
-        highDpiSupport: true
+        highDpiSupport: true,
+
+        
 
       };
 
@@ -358,98 +367,33 @@
       var RC_Fan_9_X = new Gauge(document.getElementById('RC-Fan-9-X')).setOptions(opts);
       var RC_Fan_9_Z = new Gauge(document.getElementById('RC-Fan-9-Z')).setOptions(opts);
 
-      RC_Fan_1_X.maxValue = 50;
-      RC_Fan_1_Z.maxValue = 50;
+      RC_Fan_1_X.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
+      RC_Fan_1_Z.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
 
-      RC_Fan_2_X.maxValue = 50;
-      RC_Fan_2_Z.maxValue = 50;
+      RC_Fan_2_X.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
+      RC_Fan_2_Z.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
 
-      RC_Fan_3_X.maxValue = 50;
-      RC_Fan_3_Z.maxValue = 50;
+      RC_Fan_3_X.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
+      RC_Fan_3_Z.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
 
-      RC_Fan_4_X.maxValue = 50;
-      RC_Fan_4_Z.maxValue = 50;
+      RC_Fan_4_X.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
+      RC_Fan_4_Z.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
 
-      RC_Fan_5_X.maxValue = 50;
-      RC_Fan_5_Z.maxValue = 50;
+      RC_Fan_5_X.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
+      RC_Fan_5_Z.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
 
-      RC_Fan_6_X.maxValue = 50;
-      RC_Fan_6_Z.maxValue = 50;
+      RC_Fan_6_X.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
+      RC_Fan_6_Z.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
 
-      RC_Fan_7_X.maxValue = 50;
-      RC_Fan_7_Z.maxValue = 50;
+      RC_Fan_7_X.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
+      RC_Fan_7_Z.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
 
-      RC_Fan_8_X.maxValue = 50;
-      RC_Fan_8_Z.maxValue = 50;
+      RC_Fan_8_X.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
+      RC_Fan_8_Z.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
 
-      RC_Fan_9_X.maxValue = 50;
-      RC_Fan_9_Z.maxValue = 50;
+      RC_Fan_9_X.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
+      RC_Fan_9_Z.maxValue = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
 
-      // RC_Fan_1_X.set(Math.floor(Math.random() * 3) + 1);
-      // RC_Fan_1_Z.set(Math.floor(Math.random() * 3) + 1);
-
-      // RC_Fan_2_X.set(Math.floor(Math.random() * 3) + 1);
-      // RC_Fan_2_Z.set(Math.floor(Math.random() * 3) + 1);
-
-      // RC_Fan_3_X.set(Math.floor(Math.random() * 3) + 1);
-      // RC_Fan_3_Z.set(Math.floor(Math.random() * 3) + 1);
-
-      // RC_Fan_4_X.set(Math.floor(Math.random() * 3) + 1);
-      // RC_Fan_4_Z.set(Math.floor(Math.random() * 3) + 1);
-
-      // RC_Fan_5_X.set(Math.floor(Math.random() * 3) + 1);
-      // RC_Fan_5_Z.set(Math.floor(Math.random() * 3) + 1);
-
-      // RC_Fan_6_X.set(Math.floor(Math.random() * 3) + 1);
-      // RC_Fan_6_Z.set(Math.floor(Math.random() * 3) + 1);
-
-      // RC_Fan_7_X.set(Math.floor(Math.random() * 3) + 1);
-      // RC_Fan_7_Z.set(Math.floor(Math.random() * 3) + 1);
-
-      // RC_Fan_8_X.set(Math.floor(Math.random() * 3) + 1);
-      // RC_Fan_8_Z.set(Math.floor(Math.random() * 3) + 1);
-
-      // RC_Fan_9_X.set(Math.floor(Math.random() * 3) + 1);
-      // RC_Fan_9_Z.set(Math.floor(Math.random() * 3) + 1);
-
-      // setInterval(() => {
-      //   RC_Fan_1_X.set(getRandomFloat(0.6, 1.5, 2));
-      //   RC_Fan_1_Z.set(getRandomFloat(0.6, 1.5, 2));
-      //   $(".badge-rc-1").html("RC Fan 1<br>X : " + RC_Fan_1_X.value + "<br> Z : " + RC_Fan_1_Z.value);
-
-      //   RC_Fan_2_X.set(getRandomFloat(0.6, 1.5, 2));
-      //   RC_Fan_2_Z.set(getRandomFloat(0.6, 1.5, 2));
-      //   $(".badge-rc-2").html("RC Fan 2<br>X : " + RC_Fan_2_X.value + "<br> Z : " + RC_Fan_2_Z.value);
-
-      //   RC_Fan_3_X.set(getRandomFloat(0.6, 1.5, 2));
-      //   RC_Fan_3_Z.set(getRandomFloat(0.6, 1.5, 2));
-      //   $(".badge-rc-3").html("RC Fan 3<br>X : " + RC_Fan_3_X.value + "<br> Z : " + RC_Fan_3_Z.value);
-
-      //   RC_Fan_4_X.set(getRandomFloat(0.6, 1.5, 2));
-      //   RC_Fan_4_Z.set(getRandomFloat(0.6, 1.5, 2));
-      //   $(".badge-rc-4").html("RC Fan 4<br>X : " + RC_Fan_4_X.value + "<br> Z : " + RC_Fan_4_Z.value);
-
-      //   RC_Fan_5_X.set(getRandomFloat(0.6, 1.5, 2));
-      //   RC_Fan_5_Z.set(getRandomFloat(0.6, 1.5, 2));
-      //   $(".badge-rc-5").html("RC Fan 5<br>X : " + RC_Fan_5_X.value + "<br> Z : " + RC_Fan_5_Z.value);
-
-      //   RC_Fan_6_X.set(getRandomFloat(0.6, 1.5, 2));
-      //   RC_Fan_6_Z.set(getRandomFloat(0.6, 1.5, 2));
-      //   $(".badge-rc-6").html("RC Fan 6<br>X : " + RC_Fan_6_X.value + "<br> Z : " + RC_Fan_6_Z.value);
-
-      //   RC_Fan_7_X.set(getRandomFloat(0.6, 1.5, 2));
-      //   RC_Fan_7_Z.set(getRandomFloat(0.6, 1.5, 2));
-      //   $(".badge-rc-7").html("RC Fan 7<br>X : " + RC_Fan_7_X.value + "<br> Z : " + RC_Fan_7_Z.value);
-
-      //   RC_Fan_8_X.set(getRandomFloat(0.6, 1.5, 2));
-      //   RC_Fan_8_Z.set(getRandomFloat(0.6, 1.5, 2));
-      //   $(".badge-rc-8").html("RC Fan 8<br>X : " + RC_Fan_8_X.value + "<br> Z : " + RC_Fan_8_Z.value);
-
-      //   RC_Fan_9_X.set(getRandomFloat(0.6, 1.5, 2));
-      //   RC_Fan_9_Z.set(getRandomFloat(0.6, 1.5, 2));
-      //   $(".badge-rc-9").html("RC Fan 9<br>X : " + RC_Fan_9_X.value + "<br> Z : " + RC_Fan_9_Z.value);
-
-      // }, 3000)
 
       RC_Fan_1_X.set(0);
       RC_Fan_1_Z.set(0);
@@ -480,6 +424,7 @@
 
       const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
       socket.on('vibrator', (res) => {
+
         
         RC_Fan_1_X.set(res.vi1_X);
         RC_Fan_1_Z.set(res.vi1_Z);
