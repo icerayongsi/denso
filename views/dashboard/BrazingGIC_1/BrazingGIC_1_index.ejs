@@ -742,8 +742,8 @@
 
         <script>
 
-          chart.options.plugins.annotation.annotations[0].value = 30;
-          chart.options.plugins.annotation.annotations[1].value = 20;
+          chart.options.plugins.annotation.annotations[0].value = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Warning.value %>");
+          chart.options.plugins.annotation.annotations[1].value = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Normal.value %>");
           chart.update();
 
           $("#sort-days").click(() => {
@@ -763,8 +763,8 @@
 
           $("#flexSwitchCheckDefault").change(function(){
               if($(this).prop("checked") == true){
-                chart.options.plugins.annotation.annotations[0].value = 30;
-                chart.options.plugins.annotation.annotations[1].value = 20;
+                chart.options.plugins.annotation.annotations[0].value = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Warning.value %>");
+                chart.options.plugins.annotation.annotations[1].value = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Normal.value %>");
                 chart.update();
               }else{
                 chart.options.plugins.annotation.annotations[0].value = 0;
