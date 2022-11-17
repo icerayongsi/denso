@@ -455,6 +455,17 @@ router.post('/BrazingGIC1/setting-update', encodeUrl, async (req, res, next) => 
     });
   }
 
+  if (req.body.tab == "temp-fan") {
+    await Setting_Schema.updateOne({ _id: "636b9a65c28241d39c9319d1" }, {
+      $set : {'BrazingGIC1.Temp_fan.Zone.Normal.value' : parseInt(req.body.normal_value),
+              'BrazingGIC1.Temp_fan.Zone.Normal.color' : req.body.normal_color,
+              'BrazingGIC1.Temp_fan.Zone.Warning.value' : parseInt(req.body.warning_value),
+              'BrazingGIC1.Temp_fan.Zone.Warning.color' : req.body.warning_color,
+              'BrazingGIC1.Temp_fan.Zone.Alarm.value' : parseInt(req.body.alarm_value),
+              'BrazingGIC1.Temp_fan.Zone.Alarm.color' : req.body.alarm_color},
+    });
+  } 
+
   res.status(200).send("success");
   
 });

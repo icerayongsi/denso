@@ -453,178 +453,53 @@
 
     <script>
 
-var temp1 = new LinearGauge({
-        renderTo: 'temp1',
-        valueBox: false,
-        majorTicks: [10,30,50,60,80,100],
-        highlights: [ 
-            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
-            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
-            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
-            ],
-        barWidth: 10,
-        colorMajorTicks: '#fff',
-        colorNumbers: '#fff',
-        colorPlate: "rgba(0,0,0,0)",
-        borderShadowWidth: 0,
-        borders: false,
-        value: 35,
-        colorBarProgress: "#FF4242" 
-    }).draw();
+      const tickLabel = parseInt("<%= setting.BrazingGIC1.Temp_fan.Zone.Alarm.value %>");
+      let tickList = [0];
+      for(let i = 1;i <= 5; i++) {
+        tickList.push((tickLabel / 5) * i);
+      }
 
-    var temp2 = new LinearGauge({
-        renderTo: 'temp2',
-        valueBox: false,
-        majorTicks: [10,30,50,60,80,100],
-        highlights: [ 
-            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
-            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
-            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
-            ],
-        barWidth: 10,
-        colorMajorTicks: '#fff',
-        colorNumbers: '#fff',
-        colorPlate: "rgba(0,0,0,0)",
-        borderShadowWidth: 0,
-        borders: false,
-        value: 35,
-        colorBarProgress: "#FF4242"
-    }).draw();
+      const temp_settings = (name) => {
+        let setting = {
+          renderTo: name,
+          valueBox: false,
+          majorTicks: tickList,
+          maxValue: parseInt("<%= setting.BrazingGIC1.Temp_fan.Zone.Alarm.value %>"),
+          highlights: [ 
+              {"from": 0, "to": parseInt("<%= setting.BrazingGIC1.Temp_fan.Zone.Normal.value %>"), "color": "<%= setting.BrazingGIC1.Temp_fan.Zone.Normal.color %>"},
+              {"from": parseInt("<%= setting.BrazingGIC1.Temp_fan.Zone.Normal.value %>"), "to": parseInt("<%= setting.BrazingGIC1.Temp_fan.Zone.Warning.value %>"), "color": "<%= setting.BrazingGIC1.Temp_fan.Zone.Warning.color %>"},
+              {"from": parseInt("<%= setting.BrazingGIC1.Temp_fan.Zone.Warning.value %>"), "to": parseInt("<%= setting.BrazingGIC1.Temp_fan.Zone.Alarm.value %>"), "color": "<%= setting.BrazingGIC1.Temp_fan.Zone.Alarm.color %>"}
+              ],
+          barWidth: 10,
+          colorMajorTicks: '#fff',
+          colorNumbers: '#fff',
+          colorPlate: "rgba(0,0,0,0)",
+          borderShadowWidth: 0,
+          borders: false,
+          value: 35,
+          colorBarProgress: "#FF4242" 
+        }
 
-    var temp3 = new LinearGauge({
-        renderTo: 'temp3',
-        valueBox: false,
-        majorTicks: [10,30,50,60,80,100],
-        highlights: [ 
-            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
-            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
-            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
-            ],
-        barWidth: 10,
-        colorMajorTicks: '#fff',
-        colorNumbers: '#fff',
-        colorPlate: "rgba(0,0,0,0)",
-        borderShadowWidth: 0,
-        
-        borders: false,
-        value: 35,
-        colorBarProgress: "#FF4242"
-    }).draw();
+        return setting;
+      }
 
-    var temp4 = new LinearGauge({
-        renderTo: 'temp4',
-        valueBox: false,
-        majorTicks: [10,30,50,60,80,100],
-        highlights: [ 
-            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
-            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
-            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
-            ],
-        barWidth: 10,
-        colorMajorTicks: '#fff',
-        colorNumbers: '#fff',
-        colorPlate: "rgba(0,0,0,0)",
-        borderShadowWidth: 0,
-        borders: false,
-        value: 35,
-        colorBarProgress: "#FF4242"
-    }).draw();
+    var temp1 = new LinearGauge(temp_settings("temp1")).draw();
 
-    var temp5 = new LinearGauge({
-        renderTo: 'temp5',
-        valueBox: false,
-        majorTicks: [10,30,50,60,80,100],
-        highlights: [ 
-            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
-            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
-            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
-            ],
-        barWidth: 10,
-        colorMajorTicks: '#fff',
-        colorNumbers: '#fff',
-        colorPlate: "rgba(0,0,0,0)",
-        borderShadowWidth: 0,
-        borders: false,
-        value: 35,
-        colorBarProgress: "#FF4242"
-    }).draw();
+    var temp2 = new LinearGauge(temp_settings("temp2")).draw();
 
-    var temp6 = new LinearGauge({
-        renderTo: 'temp6',
-        valueBox: false,
-        majorTicks: [10,30,50,60,80,100],
-        highlights: [ 
-            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
-            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
-            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
-            ],
-        barWidth: 10,
-        colorMajorTicks: '#fff',
-        colorNumbers: '#fff',
-        colorPlate: "rgba(0,0,0,0)",
-        borderShadowWidth: 0,
-        
-        borders: false,
-        value: 35,
-        colorBarProgress: "#FF4242"
-    }).draw();
+    var temp3 = new LinearGauge(temp_settings("temp3")).draw();
 
-    var temp7 = new LinearGauge({
-        renderTo: 'temp7',
-        valueBox: false,
-        majorTicks: [10,30,50,60,80,100],
-        highlights: [ 
-            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
-            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
-            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
-            ],
-        barWidth: 10,
-        colorMajorTicks: '#fff',
-        colorNumbers: '#fff',
-        colorPlate: "rgba(0,0,0,0)",
-        borderShadowWidth: 0,
-        borders: false,
-        value: 35,
-        colorBarProgress: "#FF4242"
-    }).draw();
+    var temp4 = new LinearGauge(temp_settings("temp4")).draw();
 
-    var temp8 = new LinearGauge({
-        renderTo: 'temp8',
-        valueBox: false,
-        majorTicks: [10,30,50,60,80,100],
-        highlights: [ 
-            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
-            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
-            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
-            ],
-        barWidth: 10,
-        colorMajorTicks: '#fff',
-        colorNumbers: '#fff',
-        colorPlate: "rgba(0,0,0,0)",
-        borderShadowWidth: 0,
-        borders: false,
-        value: 35,
-        colorBarProgress: "#FF4242"
-    }).draw();
+    var temp5 = new LinearGauge(temp_settings("temp5")).draw();
 
-    var temp9 = new LinearGauge({
-        renderTo: 'temp9',
-        valueBox: false,
-        majorTicks: [10,30,50,60,80,100],
-        highlights: [ 
-            {"from": 0, "to": 80, "color": "rgba(50, 200, 50, .75)"},
-            {"from": 80, "to": 90, "color": "rgba(200, 200, 50, .75)"},
-            {"from": 90, "to": 100, "color": "rgba(200, 50, 50, .75)"}
-            ],
-        barWidth: 10,
-        colorMajorTicks: '#fff',
-        colorNumbers: '#fff',
-        colorPlate: "rgba(0,0,0,0)",
-        borderShadowWidth: 0,
-        borders: false,
-        value: 35,
-        colorBarProgress: "#FF4242"
-    }).draw();
+    var temp6 = new LinearGauge(temp_settings("temp6")).draw();
+
+    var temp7 = new LinearGauge(temp_settings("temp7")).draw();
+
+    var temp8 = new LinearGauge(temp_settings("temp8")).draw();
+
+    var temp9 = new LinearGauge(temp_settings("temp9")).draw();
 
     let get_mc_data = JSON.parse("<%= mc_data %>".replace(/&#34;/g,'"'));
 
