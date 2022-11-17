@@ -268,17 +268,10 @@
         </div>
       </div>
     </div> -->
-
-
-
-
+    &#34;
     <script>
 
-      let socket_ = new WebSocket("wss://node-red.ap.ngrok.io/ws/simple");
-
-      socket_.onmessage = function(event) {
-        console.log(JSON.parse(event.data));
-      };
+  
 
       const tickLabel = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
       let tickList = [0];
@@ -341,8 +334,6 @@
         limitMin: false,
 
         highDpiSupport: true,
-
-        
 
       };
 
@@ -428,64 +419,124 @@
       RC_Fan_9_X.set(0);
       RC_Fan_9_Z.set(0);
 
-      const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
-      socket.on('vibrator', (res) => {
+      let get_mc_data = JSON.parse("<%= mc_data %>".replace(/&#34;/g,'"'));
 
+      RC_Fan_1_X.set(get_mc_data.data[0].Vibrator_1_1);
+      RC_Fan_1_Z.set(get_mc_data.data[0].Vibrator_1_3);
+      $(".badge-rc-1").html("RC Fan 1<br>X : " + get_mc_data.data[0].Vibrator_1_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_1_3);
+      $(".RC-X-1-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_1_1);
+      $(".RC-Z-1-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_1_3);
+
+      RC_Fan_2_X.set(get_mc_data.data[0].Vibrator_2_1);
+      RC_Fan_2_Z.set(get_mc_data.data[0].Vibrator_2_3);
+      $(".badge-rc-2").html("RC Fan 2<br>X : " + get_mc_data.data[0].Vibrator_2_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_2_3);
+      $(".RC-X-2-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_2_1);
+      $(".RC-Z-2-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_2_3);
+
+      RC_Fan_3_X.set(get_mc_data.data[0].Vibrator_3_1);
+      RC_Fan_3_Z.set(get_mc_data.data[0].Vibrator_3_3);
+      $(".badge-rc-3").html("RC Fan 3<br>X : " + get_mc_data.data[0].Vibrator_3_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_3_3);
+      $(".RC-X-3-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_3_1);
+      $(".RC-Z-3-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_3_3);
+
+      RC_Fan_4_X.set(get_mc_data.data[0].Vibrator_4_1);
+      RC_Fan_4_Z.set(get_mc_data.data[0].Vibrator_4_3);
+      $(".badge-rc-4").html("RC Fan 4<br>X : " + get_mc_data.data[0].Vibrator_4_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_4_3);
+      $(".RC-X-4-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_4_1);
+      $(".RC-Z-4-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_4_3);
+
+      RC_Fan_5_X.set(get_mc_data.data[0].Vibrator_5_1);
+      RC_Fan_5_Z.set(get_mc_data.data[0].Vibrator_5_3);
+      $(".badge-rc-5").html("RC Fan 5<br>X : " + get_mc_data.data[0].Vibrator_5_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_5_3);
+      $(".RC-X-5-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_5_1);
+      $(".RC-Z-5-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_5_3);
+
+      RC_Fan_6_X.set(get_mc_data.data[0].Vibrator_6_1);
+      RC_Fan_6_Z.set(get_mc_data.data[0].Vibrator_6_3);
+      $(".badge-rc-6").html("RC Fan 6<br>X : " + get_mc_data.data[0].Vibrator_6_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_6_3);
+      $(".RC-X-6-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_6_1);
+      $(".RC-Z-6-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_6_3);
+
+      RC_Fan_7_X.set(get_mc_data.data[0].Vibrator_7_1);
+      RC_Fan_7_Z.set(get_mc_data.data[0].Vibrator_7_3);
+      $(".badge-rc-7").html("RC Fan 7<br>X : " + get_mc_data.data[0].Vibrator_7_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_7_3);
+      $(".RC-X-7-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_7_1);
+      $(".RC-Z-7-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_7_3);
+
+      RC_Fan_8_X.set(get_mc_data.data[0].Vibrator_8_1);
+      RC_Fan_8_Z.set(get_mc_data.data[0].Vibrator_8_3);
+      $(".badge-rc-8").html("RC Fan 8<br>X : " + get_mc_data.data[0].Vibrator_8_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_8_3);
+      $(".RC-X-8-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_8_1);
+      $(".RC-Z-8-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_8_3);
+
+      RC_Fan_9_X.set(get_mc_data.data[0].Vibrator_9_1);
+      RC_Fan_9_Z.set(get_mc_data.data[0].Vibrator_9_3);
+      $(".badge-rc-9").html("RC Fan 9<br>X : " + get_mc_data.data[0].Vibrator_9_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_9_3);
+      $(".RC-X-9-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_9_1);
+      $(".RC-Z-9-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_9_3);
+
+
+      let socket_ = new WebSocket("wss://node-red.ap.ngrok.io/ws/22060050");
+
+      socket_.onmessage = function(event) {
+        get_mc_data = JSON.parse(event.data);
         
-        RC_Fan_1_X.set(res.vi1_X);
-        RC_Fan_1_Z.set(res.vi1_Z);
-        $(".badge-rc-1").html("RC Fan 1<br>X : " + RC_Fan_1_X.value + "<br> Z : " + RC_Fan_1_Z.value);
-        $(".RC-X-1-label").html("X-Axis : " + RC_Fan_1_X.value);
-        $(".RC-Z-1-label").html("Z-Axis : " + RC_Fan_1_Z.value);
+        
+        RC_Fan_1_X.set(get_mc_data.data[0].Vibrator_1_1);
+        RC_Fan_1_Z.set(get_mc_data.data[0].Vibrator_1_3);
+        $(".badge-rc-1").html("RC Fan 1<br>X : " + get_mc_data.data[0].Vibrator_1_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_1_3);
+        $(".RC-X-1-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_1_1);
+        $(".RC-Z-1-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_1_3);
 
-        RC_Fan_2_X.set(res.vi2_X);
-        RC_Fan_2_Z.set(res.vi2_Z);
-        $(".badge-rc-2").html("RC Fan 2<br>X : " + RC_Fan_2_X.value + "<br> Z : " + RC_Fan_2_Z.value);
-        $(".RC-X-2-label").html("X-Axis : " + RC_Fan_2_X.value);
-        $(".RC-Z-2-label").html("Z-Axis : " + RC_Fan_2_Z.value);
+        RC_Fan_2_X.set(get_mc_data.data[0].Vibrator_2_1);
+        RC_Fan_2_Z.set(get_mc_data.data[0].Vibrator_2_3);
+        $(".badge-rc-2").html("RC Fan 2<br>X : " + get_mc_data.data[0].Vibrator_2_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_2_3);
+        $(".RC-X-2-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_2_1);
+        $(".RC-Z-2-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_2_3);
 
-        RC_Fan_3_X.set(res.vi3_X);
-        RC_Fan_3_Z.set(res.vi3_Z);
-        $(".badge-rc-3").html("RC Fan 3<br>X : " + RC_Fan_3_X.value + "<br> Z : " + RC_Fan_3_Z.value);
-        $(".RC-X-3-label").html("X-Axis : " + RC_Fan_3_X.value);
-        $(".RC-Z-3-label").html("Z-Axis : " + RC_Fan_3_Z.value);
+        RC_Fan_3_X.set(get_mc_data.data[0].Vibrator_3_1);
+        RC_Fan_3_Z.set(get_mc_data.data[0].Vibrator_3_3);
+        $(".badge-rc-3").html("RC Fan 3<br>X : " + get_mc_data.data[0].Vibrator_3_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_3_3);
+        $(".RC-X-3-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_3_1);
+        $(".RC-Z-3-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_3_3);
 
-        RC_Fan_4_X.set(res.vi4_X);
-        RC_Fan_4_Z.set(res.vi4_Z);
-        $(".badge-rc-4").html("RC Fan 4<br>X : " + RC_Fan_4_X.value + "<br> Z : " + RC_Fan_4_Z.value);
-        $(".RC-X-4-label").html("X-Axis : " + RC_Fan_4_X.value);
-        $(".RC-Z-4-label").html("Z-Axis : " + RC_Fan_4_Z.value);
+        RC_Fan_4_X.set(get_mc_data.data[0].Vibrator_4_1);
+        RC_Fan_4_Z.set(get_mc_data.data[0].Vibrator_4_3);
+        $(".badge-rc-4").html("RC Fan 4<br>X : " + get_mc_data.data[0].Vibrator_4_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_4_3);
+        $(".RC-X-4-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_4_1);
+        $(".RC-Z-4-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_4_3);
 
-        RC_Fan_5_X.set(res.vi5_X);
-        RC_Fan_5_Z.set(res.vi5_Z);
-        $(".badge-rc-5").html("RC Fan 5<br>X : " + RC_Fan_5_X.value + "<br> Z : " + RC_Fan_5_Z.value);
-        $(".RC-X-5-label").html("X-Axis : " + RC_Fan_5_X.value);
-        $(".RC-Z-5-label").html("Z-Axis : " + RC_Fan_5_Z.value);
+        RC_Fan_5_X.set(get_mc_data.data[0].Vibrator_5_1);
+        RC_Fan_5_Z.set(get_mc_data.data[0].Vibrator_5_3);
+        $(".badge-rc-5").html("RC Fan 5<br>X : " + get_mc_data.data[0].Vibrator_5_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_5_3);
+        $(".RC-X-5-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_5_1);
+        $(".RC-Z-5-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_5_3);
 
-        RC_Fan_6_X.set(res.vi6_X);
-        RC_Fan_6_Z.set(res.vi6_Z);
-        $(".badge-rc-6").html("RC Fan 6<br>X : " + RC_Fan_6_X.value + "<br> Z : " + RC_Fan_6_Z.value);
-        $(".RC-X-6-label").html("X-Axis : " + RC_Fan_6_X.value);
-        $(".RC-Z-6-label").html("Z-Axis : " + RC_Fan_6_Z.value);
+        RC_Fan_6_X.set(get_mc_data.data[0].Vibrator_6_1);
+        RC_Fan_6_Z.set(get_mc_data.data[0].Vibrator_6_3);
+        $(".badge-rc-6").html("RC Fan 6<br>X : " + get_mc_data.data[0].Vibrator_6_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_6_3);
+        $(".RC-X-6-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_6_1);
+        $(".RC-Z-6-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_6_3);
 
-        RC_Fan_7_X.set(res.vi7_X);
-        RC_Fan_7_Z.set(res.vi7_Z);
-        $(".badge-rc-7").html("RC Fan 7<br>X : " + RC_Fan_7_X.value + "<br> Z : " + RC_Fan_7_Z.value);
-        $(".RC-X-7-label").html("X-Axis : " + RC_Fan_7_X.value);
-        $(".RC-Z-7-label").html("Z-Axis : " + RC_Fan_7_Z.value);
+        RC_Fan_7_X.set(get_mc_data.data[0].Vibrator_7_1);
+        RC_Fan_7_Z.set(get_mc_data.data[0].Vibrator_7_3);
+        $(".badge-rc-7").html("RC Fan 7<br>X : " + get_mc_data.data[0].Vibrator_7_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_7_3);
+        $(".RC-X-7-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_7_1);
+        $(".RC-Z-7-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_7_3);
 
-        RC_Fan_8_X.set(res.vi8_X);
-        RC_Fan_8_Z.set(res.vi8_Z);
-        $(".badge-rc-8").html("RC Fan 8<br>X : " + RC_Fan_8_X.value + "<br> Z : " + RC_Fan_8_Z.value);
-        $(".RC-X-8-label").html("X-Axis : " + RC_Fan_8_X.value);
-        $(".RC-Z-8-label").html("Z-Axis : " + RC_Fan_8_Z.value);
+        RC_Fan_8_X.set(get_mc_data.data[0].Vibrator_8_1);
+        RC_Fan_8_Z.set(get_mc_data.data[0].Vibrator_8_3);
+        $(".badge-rc-8").html("RC Fan 8<br>X : " + get_mc_data.data[0].Vibrator_8_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_8_3);
+        $(".RC-X-8-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_8_1);
+        $(".RC-Z-8-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_8_3);
 
-        RC_Fan_9_X.set(res.vi9_X);
-        RC_Fan_9_Z.set(res.vi9_X);
-        $(".badge-rc-9").html("RC Fan 9<br>X : " + RC_Fan_9_X.value + "<br> Z : " + RC_Fan_9_Z.value);
-        $(".RC-X-9-label").html("X-Axis : " + RC_Fan_9_X.value);
-        $(".RC-Z-9-label").html("Z-Axis : " + RC_Fan_9_Z.value);
-      });
+        RC_Fan_9_X.set(get_mc_data.data[0].Vibrator_9_1);
+        RC_Fan_9_Z.set(get_mc_data.data[0].Vibrator_9_3);
+        $(".badge-rc-9").html("RC Fan 9<br>X : " + get_mc_data.data[0].Vibrator_9_1 + "<br> Z : " + get_mc_data.data[0].Vibrator_9_3);
+        $(".RC-X-9-label").html("X-Axis : " + get_mc_data.data[0].Vibrator_9_1);
+        $(".RC-Z-9-label").html("Z-Axis : " + get_mc_data.data[0].Vibrator_9_3);
+
+      };
 
 
       data_x_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, 0.737, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998,0.998, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]

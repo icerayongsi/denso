@@ -4,13 +4,20 @@ const app = express();
 const server = require('http').createServer();
 const mongoose = require("mongoose");
 const router = express.Router();
-const Data_Schema = require('../models/Schema');
-const Setting_Schema = require('../models/settingSchema');
 const mqtt = require('mqtt')
 const client = mqtt.connect('mqtt://broker.hivemq.com');
 const io = require('socket.io')(5000);
 const moment = require('moment');
 const sessions = require('express-session');
+
+// Model
+
+const Setting_Schema = require('../models/settingSchema');
+
+const Data_22060050 = require('../models/Schema')('22060050');
+const Data_22060001 = require('../models/Schema')('22060001');
+
+// --
 
 let encodeUrl = express.urlencoded({ extended: false });
 
@@ -374,9 +381,65 @@ router.post('/', encodeUrl, (req, res, next) => {
 router.get('/BrazingGIC1', encodeUrl, async (req, res, next) => {
   // if (!req.session.userid) res.redirect('/login');
 
-  var setting = await Setting_Schema.findOne({}, { _id: 0 });
+  let mc_data;
+  let setting = await Setting_Schema.findOne({}, { _id: 0 });
 
-  res.render('dashboard/BrazingGIC_1/BrazingGIC_1', { title: title, name: 'BrazingGIC1', header: 'BrazingGIC 1', page: req.query.page, setting: setting });
+  if (req.query.page == "index" || req.query.page == "vibrator" || req.query.page == "temp") {
+    mc_data = await Data_22060050.findOne({},{"data" : 1 , "_id" : 0}).limit(1).sort({$natural:-1});
+    mc_data = JSON.stringify(mc_data._doc);
+  }
+    
+  if (req.query.page == "tempChamber") {
+    mc_data = await Data_22060001.find({},{"data.Z1_Atmosphere_R" : 1 ,
+                                              "data.Z2_Atmosphere_R" : 1 ,
+                                              "data.Z3_Atmosphere_R" : 1 ,
+                                              "data.Z4_Atmosphere_R" : 1 ,
+                                              "data.Z4_Atmosphere_L" : 1 ,
+                                              "data.Front_Heater" : 1 ,
+                                              "data.Exit_Chamber_Heater" : 1 ,
+                                              "times" : 1,
+                                               "_id" : 0
+                                            }).limit(30).sort({$natural:-1});
+
+
+    const bz1 = [],bz2 = [],bz3 = [],bz4 = [],bz5 = [],pre1 = [],pre2 = [],times = [];
+
+    await mc_data.forEach((element) => {
+      bz1.push(element._doc.data[0].Z1_Atmosphere_R);
+      bz2.push(element._doc.data[0].Z2_Atmosphere_R);
+      bz3.push(element._doc.data[0].Z3_Atmosphere_R);
+      bz4.push(element._doc.data[0].Z4_Atmosphere_R);
+      bz5.push(element._doc.data[0].Z4_Atmosphere_L);
+      pre1.push(element._doc.data[0].Front_Heater);
+      pre2.push(element._doc.data[0].Exit_Chamber_Heater);
+      times.push(new Date(element._doc.times).toLocaleTimeString("th-TH"));
+    });
+
+    mc_data = {
+      data : [
+        {
+          bz1 : bz1,
+          bz2 : bz2,
+          bz3 : bz3,
+          bz4 : bz4,
+          bz5 : bz5,
+          pre1 : pre1,
+          pre2 : pre2,
+          times : times
+        }
+      ]
+    }
+
+    mc_data = JSON.stringify(mc_data);
+
+  }
+
+  res.render('dashboard/BrazingGIC_1/BrazingGIC_1', { title: title,
+      name: 'BrazingGIC1',
+      header: 'BrazingGIC 1',
+      page: req.query.page,
+      setting: setting,
+      mc_data : mc_data});
 });
 
 router.post('/BrazingGIC1/setting-update', encodeUrl, async (req, res, next) => {
@@ -393,7 +456,7 @@ router.post('/BrazingGIC1/setting-update', encodeUrl, async (req, res, next) => 
   }
 
   res.status(200).send("success");
-  console.log(req.body);
+  
 });
 
 router.get('/BrazingGIC1/history', (req, res, next) => {
@@ -468,7 +531,7 @@ router.post('/BrazingGIC1/history', encodeUrl, async (req, res, next) => {
     var todate_ = new Date(Date.parse((req.body.todate))).toLocaleString("en-US", { timeZone: "Asia/Bangkok", hour12: false });
     var raw_fromdate = Date.parse(req.body.fromdate);
     var raw_todate = Date.parse(req.body.todate);
-    var data_1 = await Data_Schema.find({
+    var data_1 = await Data_22060050.find({
       times:
       {
         $gte: Date.parse(req.body.fromdate),
@@ -482,7 +545,7 @@ router.post('/BrazingGIC1/history', encodeUrl, async (req, res, next) => {
     var todate_ = new Date(parseInt(req.query.todate)).toLocaleString("en-US", { timeZone: "Asia/Bangkok", hour12: false });
     var raw_fromdate = req.query.fromdate;
     var raw_todate = req.query.todate;
-    var data_1 = await Data_Schema.find({
+    var data_1 = await Data_22060050.find({
       times:
       {
         $gte: req.query.fromdate,
@@ -549,7 +612,7 @@ router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
   data_x_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, 0.737, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998, 0.998, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]
   data_z_zxis = [0.843, 0.981, 0.904, 0.783, 1.203, 0.737, 0.737, 0.873, 0.835, 0.806, 0.972, 1, 0.838, 0.717, 0.798, 0.79, 0.976, 0.567, 0.682, 0.976, 0.972, 0.998, 0.998, 0.798, 0.77, 0.953, 0.876, 0.976, 1.106, 0.842]
 
-  let first_row = await Data_Schema.findOne({}, { times: 1 });
+  let first_row = await Data_22060050.findOne({}, { times: 1 });
 
   var date_label = [];
 
@@ -581,7 +644,7 @@ router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
 
       let last_day = Date.now() - 86400000 * (1 + i);
 
-      result_day.push(await Data_Schema.aggregate([
+      result_day.push(await Data_22060050.aggregate([
         {
           $match: {
             times: {
@@ -709,7 +772,7 @@ router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
 
     for (i = 0; i < 7; i++) {
       let last_week = Date.now() - 604800000 * (1 + i);
-      result_week.push(await Data_Schema.aggregate([
+      result_week.push(await Data_22060050.aggregate([
         {
           $match: {
             times: {
@@ -804,7 +867,7 @@ router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
 
       let last_month = Date.now() - 2678400000 * (1 + i);
 
-      result_month.push(await Data_Schema.aggregate([
+      result_month.push(await Data_22060050.aggregate([
         {
           $match: {
             times: {
@@ -898,7 +961,7 @@ const getRandomFloat = (min, max, decimals) => {
 
 router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) => {
 
-  let first_row = await Data_Schema.findOne({}, { times: 1 })
+  let first_row = await Data_22060050.findOne({}, { times: 1 })
 
   let date_label = [];
 
@@ -920,7 +983,7 @@ router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) =>
 
       let last_day = Date.now() - 86400000 * (1 + i);
 
-      result_day.push(await Data_Schema.aggregate([
+      result_day.push(await Data_22060050.aggregate([
         {
           $match: {
             times: {
@@ -998,7 +1061,7 @@ router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) =>
 
     for (i = 0; i < 7; i++) {
       let last_week = Date.now() - 604800000 * (1 + i);
-      result_week.push(await Data_Schema.aggregate([
+      result_week.push(await Data_22060050.aggregate([
         {
           $match: {
             times: {
@@ -1063,7 +1126,7 @@ router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) =>
 
       let last_month = Date.now() - 2678400000 * (1 + i);
 
-      result_month.push(await Data_Schema.aggregate([
+      result_month.push(await Data_22060050.aggregate([
         {
           $match: {
             times: {

@@ -434,10 +434,6 @@
 
       </div>
 
-      
-
-
-
     </main>
 
     <!-- END MAIN CONTENT -->
@@ -630,96 +626,79 @@ var temp1 = new LinearGauge({
         colorBarProgress: "#FF4242"
     }).draw();
 
-    // temp1.value = getRandomFloat(53, 56, 1);
-    // $(".temp1-value").html(temp1.value + " °C");
-    // temp2.value = getRandomFloat(53, 56, 1);
-    // $(".temp2-value").html(temp2.value + " °C");
-    // temp3.value = getRandomFloat(45, 47, 1);
-    // $(".temp3-value").html(temp3.value + " °C");
-    // temp4.value = getRandomFloat(45, 47, 1);
-    // $(".temp4-value").html(temp4.value + " °C");
-    // temp5.value = getRandomFloat(45, 47, 1);
-    // $(".temp5-value").html(temp5.value + " °C");
-    // temp6.value = getRandomFloat(45, 47, 1);
-    // $(".temp6-value").html(temp6.value + " °C");
-    // temp7.value = getRandomFloat(45, 47, 1);
-    // $(".temp7-value").html(temp7.value + " °C");
-    // temp8.value = getRandomFloat(45, 47, 1);
-    // $(".temp8-value").html(temp8.value + " °C");
-    // temp9.value = getRandomFloat(49, 51, 1);
-    // $(".temp9-value").html(temp9.value + " °C");
+    let get_mc_data = JSON.parse("<%= mc_data %>".replace(/&#34;/g,'"'));
 
-    //     setInterval(() => {
+    temp1.value = get_mc_data.data[0].temp_1;
+    $(".temp1-value").html(temp1.value + " °C");
+    $(".badge-rc-1").html("RC Fan 1<br>" + temp1.value + " °C");
+    temp2.value = get_mc_data.data[0].temp_2;
+    $(".temp2-value").html(temp2.value + " °C");
+    $(".badge-rc-2").html("RC Fan 2<br>" + temp2.value + " °C");
+    temp3.value = get_mc_data.data[0].temp_3;
+    $(".temp3-value").html(temp3.value + " °C");
+    $(".badge-rc-3").html("RC Fan 3<br>" + temp3.value + " °C");
+    temp4.value = get_mc_data.data[0].temp_4;
+    $(".temp4-value").html(temp4.value + " °C");
+    $(".badge-rc-4").html("RC Fan 4<br>" + temp4.value + " °C");
+    temp5.value = get_mc_data.data[0].temp_5;
+    $(".temp5-value").html(temp5.value + " °C");
+    $(".badge-rc-5").html("RC Fan 5<br>" + temp5.value + " °C");
+    temp6.value = get_mc_data.data[0].temp_6;
+    $(".temp6-value").html(temp6.value + " °C");
+    $(".badge-rc-6").html("RC Fan 6<br>" + temp6.value + " °C");
+    temp7.value = get_mc_data.data[0].temp_7; 
+    $(".temp7-value").html(temp7.value + " °C");
+    $(".badge-rc-7").html("RC Fan 7<br>" + temp7.value + " °C");
+    temp8.value = get_mc_data.data[0].temp_8;
+    $(".temp8-value").html(temp8.value + " °C");
+    $(".badge-rc-8").html("RC Fan 8<br>" + temp8.value + " °C");
+    temp9.value = get_mc_data.data[0].temp_9;
+    $(".temp9-value").html(temp9.value + " °C");
+    $(".badge-rc-9").html("RC Fan 9<br>" + temp9.value + " °C");
 
-            
-    //       temp1.value = getRandomFloat(53, 56, 1);
-    //       $(".temp1-value").html(temp1.value + " °C");
-    //       $(".badge-rc-1").html("RC Fan 1<br>" + temp1.value + " °C");
-    //       temp2.value = getRandomFloat(53, 56, 1);
-    //       $(".temp2-value").html(temp2.value + " °C");
-    //       $(".badge-rc-2").html("RC Fan 2<br>" + temp2.value + " °C");
-    //       temp3.value = getRandomFloat(45, 47, 1);
-    //       $(".temp3-value").html(temp3.value + " °C");
-    //       $(".badge-rc-3").html("RC Fan 3<br>" + temp3.value + " °C");
-    //       temp4.value = getRandomFloat(45, 47, 1);
-    //       $(".temp4-value").html(temp4.value + " °C");
-    //       $(".badge-rc-4").html("RC Fan 4<br>" + temp4.value + " °C");
-    //       temp5.value = getRandomFloat(45, 47, 1);
-    //       $(".temp5-value").html(temp5.value + " °C");
-    //       $(".badge-rc-5").html("RC Fan 5<br>" + temp5.value + " °C");
-    //       temp6.value = getRandomFloat(45, 47, 1);
-    //       $(".temp6-value").html(temp6.value + " °C");
-    //       $(".badge-rc-6").html("RC Fan 6<br>" + temp6.value + " °C");
-    //       temp7.value = getRandomFloat(45, 47, 1);
-    //       $(".temp7-value").html(temp7.value + " °C");
-    //       $(".badge-rc-7").html("RC Fan 7<br>" + temp7.value + " °C");
-    //       temp8.value = getRandomFloat(45, 47, 1);
-    //       $(".temp8-value").html(temp8.value + " °C");
-    //       $(".badge-rc-8").html("RC Fan 8<br>" + temp8.value + " °C");
-    //       temp9.value = getRandomFloat(49, 51, 1);
-    //       $(".temp9-value").html(temp9.value + " °C");
-    //       $(".badge-rc-9").html("RC Fan 9<br>" + temp9.value + " °C");
+    temp1.draw();
+    temp2.draw();
+    temp3.draw();
+    temp4.draw();
+    temp5.draw();
+    temp6.draw();
+    temp7.draw();
+    temp8.draw();
+    temp9.draw();
 
-    //         temp1.draw();
-    //         temp2.draw();
-    //         temp3.draw();
-    //         temp4.draw();
-    //         temp5.draw();
-    //         temp6.draw();
-    //         temp7.draw();
-    //         temp8.draw();
-    //         temp9.draw();
-    //     },3000);
+    let socket_ = new WebSocket("wss://node-red.ap.ngrok.io/ws/22060050");
 
-    const socket = io('https://ws.ap.ngrok.io' , { transports : ['websocket'] });
-    socket.on('temp', (res) => {
-      temp1.value = res.temp_1;
-      $(".temp1-value").html(res.temp_1 + " °C");
+    socket_.onmessage = function(event) {
+      get_mc_data = JSON.parse(event.data);
+
+      temp1.value = get_mc_data.data[0].temp_1;
+      $(".temp1-value").html(temp1.value + " °C");
       $(".badge-rc-1").html("RC Fan 1<br>" + temp1.value + " °C");
-      temp2.value = res.temp_2;
-      $(".temp2-value").html(res.temp_2 + " °C");
+      temp2.value = get_mc_data.data[0].temp_2;
+      $(".temp2-value").html(temp2.value + " °C");
       $(".badge-rc-2").html("RC Fan 2<br>" + temp2.value + " °C");
-      temp3.value = res.temp_3;
-      $(".temp3-value").html(res.temp_3 + " °C");
+      temp3.value = get_mc_data.data[0].temp_3;
+      $(".temp3-value").html(temp3.value + " °C");
       $(".badge-rc-3").html("RC Fan 3<br>" + temp3.value + " °C");
-      temp4.value = res.temp_4;
-      $(".temp4-value").html(res.temp_4 + " °C");
+      temp4.value = get_mc_data.data[0].temp_4;
+      $(".temp4-value").html(temp4.value + " °C");
       $(".badge-rc-4").html("RC Fan 4<br>" + temp4.value + " °C");
-      temp5.value = res.temp_5;
-      $(".temp5-value").html(res.temp_5 + " °C");
+      temp5.value = get_mc_data.data[0].temp_5;
+      $(".temp5-value").html(temp5.value + " °C");
       $(".badge-rc-5").html("RC Fan 5<br>" + temp5.value + " °C");
-      temp6.value = res.temp_6;
-      $(".temp6-value").html(res.temp_6 + " °C");
+      temp6.value = get_mc_data.data[0].temp_6;
+      $(".temp6-value").html(temp6.value + " °C");
       $(".badge-rc-6").html("RC Fan 6<br>" + temp6.value + " °C");
-      temp7.value = res.temp_7; 
-      $(".temp7-value").html(res.temp_7 + " °C");
+      temp7.value = get_mc_data.data[0].temp_7; 
+      $(".temp7-value").html(temp7.value + " °C");
       $(".badge-rc-7").html("RC Fan 7<br>" + temp7.value + " °C");
-      temp8.value = res.temp_8;
-      $(".temp8-value").html(res.temp_8 + " °C");
+      temp8.value = get_mc_data.data[0].temp_8;
+      $(".temp8-value").html(temp8.value + " °C");
       $(".badge-rc-8").html("RC Fan 8<br>" + temp8.value + " °C");
-      temp9.value = res.temp_9;
-      $(".temp9-value").html(res.temp_9 + " °C");
+      temp9.value = get_mc_data.data[0].temp_9;
+      $(".temp9-value").html(temp9.value + " °C");
       $(".badge-rc-9").html("RC Fan 9<br>" + temp9.value + " °C");
+      
 
       temp1.draw();
       temp2.draw();
@@ -730,9 +709,9 @@ var temp1 = new LinearGauge({
       temp7.draw();
       temp8.draw();
       temp9.draw();
-    });
+    }
 
-    // </script>
+</script>
 
 <script>
   
