@@ -21,7 +21,7 @@ const Data_22060001 = require('../models/Schema')('22060001');
 
 let encodeUrl = express.urlencoded({ extended: false });
 
-var title = 'Denso';
+var title = 'Monitoring';
 
 client.on('connect', () => {
   client.subscribe('22060001/#');
@@ -919,7 +919,8 @@ router.post('/BrazingGIC1/sort-chart', encodeUrl, async (req, res, next) => {
     }
 
     result_month.forEach((element, i) => {
-      date_label.push(element[0]._id)
+      if(!element[0]._id) date_label.push(0)
+      else date_label.push(element[0]._id)
       x_0.push(element[0].vi1_x_max[0]);
       z_0.push(element[0].vi1_z_max[0]);
       x_1.push(element[0].vi2_x_max[0]);
@@ -1169,16 +1170,30 @@ router.post('/BrazingGIC1/sort-chart-temp', encodeUrl, async (req, res, next) =>
     }
 
     result_month.forEach((element, i) => {
-      date_label.push(element[0]._id)
-      temp_1.push(element[0].temp_1[0] || 0);
-      temp_2.push(element[0].temp_2[0] || 0);
-      temp_3.push(element[0].temp_3[0] || 0);
-      temp_4.push(element[0].temp_4[0] || 0);
-      temp_5.push(element[0].temp_5[0] || 0);
-      temp_6.push(element[0].temp_6[0] || 0);
-      temp_7.push(element[0].temp_7[0] || 0);
-      temp_8.push(element[0].temp_8[0] || 0);
-      temp_9.push(element[0].temp_9[0] || 0);
+      if (element[0] === undefined) {
+        date_label.push(0);
+        temp_1.push(0);
+        temp_2.push(0);
+        temp_3.push(0);
+        temp_4.push(0);
+        temp_5.push(0);
+        temp_6.push(0);
+        temp_7.push(0);
+        temp_8.push(0);
+        temp_9.push(0);
+      } 
+      else {
+        date_label.push(element[0]._id);
+        temp_1.push(element[0].temp_1[0] || 0);
+        temp_2.push(element[0].temp_2[0] || 0);
+        temp_3.push(element[0].temp_3[0] || 0);
+        temp_4.push(element[0].temp_4[0] || 0);
+        temp_5.push(element[0].temp_5[0] || 0);
+        temp_6.push(element[0].temp_6[0] || 0);
+        temp_7.push(element[0].temp_7[0] || 0);
+        temp_8.push(element[0].temp_8[0] || 0);
+        temp_9.push(element[0].temp_9[0] || 0);
+      } 
     });
 
 
