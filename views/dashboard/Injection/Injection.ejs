@@ -6,10 +6,35 @@
 
 <% } %>
 
-<% if (page == 'data') { %> 
+<% if (page == 'data' && name != 'MC07') { %> 
 
     <%- include('inj' + inj + '/Injection_inj' + inj + '_' + page) -%>
 
 <% } %>
+
+<% if (page == 'shotdata') { %> 
+
+    <%- include('inj' + inj + '/Injection_inj' + inj + '_' + page) -%>
+
+<% } %>
+
+<% if (page == 'analyze') { %> 
+
+    <%- include('inj' + inj + '/Injection_inj' + inj + '_' + page) -%>
+
+<% } %>
+
+<% if (page == 'graph') { %> 
+
+    <%- include('inj' + inj + '/Injection_inj' + inj + '_' + page) -%>
+
+<% } %>
+
+<% if (page == 'xbar') { %> 
+
+    <%- include('inj' + inj + '/Injection_inj' + inj + '_' + page) -%>
+
+<% } %>
+
 
 <%- include('../../partials/footer') -%>

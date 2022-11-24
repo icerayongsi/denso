@@ -1,5 +1,5 @@
 <a href="/layout/Injection?inj=<%= inj %>&name=<%= name  %>&page=index" class="btn btn-dark btn-grey w-100">Status</a>
-<% const arr = ['1','2','5','7','13','15','16','17','18']
+<% const arr = ['1','2','5','13','15','16','17','18']
     arr.forEach(element => {
         if (inj == element) {
 %>
@@ -7,8 +7,19 @@
 <%
         }
     });
-    
+  
 %> 
+
+<%
+if (name == 'MC07') {
+%>
+
+<a href="/layout/Injection?inj=<%= inj %>&name=<%= name %>&page=shotdata" class="btn btn-dark btn-grey w-100">Shot Data</a>
+<a href="/layout/Injection?inj=<%= inj %>&name=<%= name %>&page=analyze" class="btn btn-dark btn-grey w-100">Statistic Analysis</a>
+<a href="/layout/Injection?inj=<%= inj %>&name=<%= name %>&page=graph" class="btn btn-dark btn-grey w-100">Graph</a>
+<a href="/layout/Injection?inj=<%= inj %>&name=<%= name %>&page=xbar" class="btn btn-dark btn-grey w-100">Xbar-R Chart</a>
+
+<% } %>
 
 
 <!-- Injection4320 -->

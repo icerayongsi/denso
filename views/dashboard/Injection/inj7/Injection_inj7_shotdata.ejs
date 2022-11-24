@@ -1,0 +1,274 @@
+<%- include('../Injection_partials/Injection_header') -%>
+
+  <%- include('../../../partials/navbar_dashboard') -%>
+
+    <%- include('../Injection_partials/Injection_menu') -%>
+
+      </div>
+      </li>
+      </ul>
+
+      </div>
+      </nav>
+      <style>
+        .page-link {
+          margin-top: 1rem;
+        }
+        .dataTables_scrollBody{
+          margin-top: 1rem;
+        }
+      </style>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
+
+        <div class="card card-body margin-5">
+
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
+            <h3 class="text-uppercase" style="font-weight: 700;">Injection <%= inj %> / <%= page %>
+            </h3>
+            <div id="spinner-div">
+              <div class="spinner-border text-primary" role="status">
+              </div>
+           </div>
+
+          </div>
+
+          
+
+          <!-- MAIN -->
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Datetime picker
+          </button>
+
+
+          <!-- Modal -->
+          <form method="GET" id="q-data">
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+              aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Datetime picker</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+
+                    <div class="card-body">
+
+                      <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">From : </label>
+
+                        <div class="input-group date" id="from">
+                          <input type="text" name="fromdate" class="form-control" data-date-format="YYYY-MM-DD HH:mm:ss"
+                            required />
+                          <span class="input-group-text" id="basic-addon2">
+                            <i class="bi bi-calendar"></i>
+                          </span>
+
+                        </div>
+
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">To : </label>
+
+                        <div class="input-group date" id="to">
+                          <input type="text" name="todate" class="form-control" data-date-format="YYYY-MM-DD HH:mm:ss"
+                            required />
+                          <span class="input-group-text" id="basic-addon2">
+                            <i class="bi bi-calendar"></i>
+                          </span>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" type="submit" data-bs-dismiss="modal">Update</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <div class="container-fluid mt-4">
+  
+              <table id="shot-data" class="table table-striped display nowrap" style="width:100%">
+                <thead>
+                  <tr id="header_">
+                    <th>SourceID</th>
+                    <th>PartNumber</th>
+                    <th>DateTime</th>
+                    <th>Cycle Time(s)</th>
+                    <th>Inj. Time(s)</th>
+                    <th>Recovery Time(s)</th>
+                    <th>Inj.start Pos(mm)</th>
+                    <th>H.P Trans Pos(mm)</th>
+                    <th>Hold Comp Pos(mm)</th>
+                    <th>Cushion(mm)</th>
+                    <th>Inj. Press(Mpa)</th>
+                    <th>H.P Trans Prs(Mpa)</th>
+                    <th>Back Press(Mpa)</th>
+                    <th>Cav. Press(OP)(Mpa)</th>
+                    <th>LNH Temp(°C)</th>
+                    <th>NH Temp(°C)</th>
+                    <th>H4 Temp(°C)</th>
+                    <th>H3 Temp(°C)</th>
+                    <th>H2 Temp(°C)</th>
+                    <th>H1 Temp(°C)</th>
+                    <th>Throat Temp(°C)</th>
+                    <th>Hyd. Temp(°C)</th>
+                    <th>Mold Temp(Mov)(°C)</th>
+                    <th>Mold Temp(Fix)(°C)</th>
+                    <th>Panel Temp(°C)</th>
+                    <th>HV Temp(OP)(°C)</th>
+                  </tr>
+                </thead>
+                <tbody id="shot-data_">
+
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+
+          <!-- END MAIN -->
+
+      </main>
+
+
+      <script>
+
+        var t;
+        let current_date = new Date().toLocaleString('fr-CA').slice(0,11);
+        let current_time = new Date().toLocaleString('th-TH').slice(11,19);
+        let current_time_back_1hour = new Date(Date.now() - 3600000 * 15).toLocaleString('th-TH').slice(11,19);
+        
+        $('input[name="fromdate"]').val(current_date + current_time_back_1hour);
+        $('input[name="todate"]').val(current_date + current_time);
+
+
+        $(document).ready(() => {
+
+          t = $('#shot-data').DataTable({scrollX: true});
+          $('#spinner-div').show();
+          $.ajax({
+            url: "https://node-red.ap.ngrok.io/inj/shot-data",
+            type: "GET",
+            data: {
+              'from': current_date + current_time_back_1hour,
+              'to': current_date + current_time,
+            },
+            success: (data) => {
+              console.log(data);
+              data.forEach((element,i) => {
+                t.row.add([
+                element["SourceID"],
+                element["PartNumber"],
+                new Date(element["DateTime"]).toLocaleString('th-TH'),
+                element["Cycle Time(s)"],
+                element["Inj. Time(s)"],
+                element["Recovery Time(s)"] ,
+                element["Inj.start Pos(mm)"],
+                element["H.P Trans Pos(mm)"],
+                element["Hold Comp Pos(mm)"],
+                element["Cushion(mm)"],
+                element["Inj. Press(Mpa)"] ,
+                element["H.P Trans Prs(Mpa)"],
+                element["Back Press(Mpa)"] ,
+                element["Cav. Press(OP)(Mpa)"],
+                element["LNH Temp(°C)"],
+                element["NH Temp(°C)"],
+                element["H4 Temp(°C)"],
+                element["H3 Temp(°C)"],
+                element["H2 Temp(°C)"],
+                element["H1 Temp(°C)"] ,
+                element["Throat Temp(°C)"] ,
+                element["Hyd. Temp(°C)"],
+                element["Mold Temp(Mov)(°C)"],
+                element["Mold Temp(Fix)(°C)"],
+                element["Panel Temp(°C)"],
+                element["HV Temp(OP)(°C)"] ,
+                ]).draw();
+              });
+              
+            },
+            complete: function () {
+                $('#spinner-div').hide();
+            }
+            
+          });
+        });
+
+        $("#q-data").submit((e) => {
+          e.preventDefault();
+          $('#spinner-div').show();
+          $.ajax({
+            url: "https://node-red.ap.ngrok.io/inj/shot-data",
+            type: "GET",
+            data: {
+              'from': $('input[name="fromdate"]').val(),
+              'to': $('input[name="todate"]').val(),
+            },
+            success: (data) => {
+              console.log(data);
+              $('#shot-data').DataTable().clear();
+              //$('#shot-data').DataTable().destroy();
+              data.forEach((element,i) => {
+                t.row.add([
+                element["SourceID"],
+                element["PartNumber"],
+                new Date(element["DateTime"]).toLocaleString('th-TH'),
+                element["Cycle Time(s)"],
+                element["Inj. Time(s)"],
+                element["Recovery Time(s)"] ,
+                element["Inj.start Pos(mm)"],
+                element["H.P Trans Pos(mm)"],
+                element["Hold Comp Pos(mm)"],
+                element["Cushion(mm)"],
+                element["Inj. Press(Mpa)"] ,
+                element["H.P Trans Prs(Mpa)"],
+                element["Back Press(Mpa)"] ,
+                element["Cav. Press(OP)(Mpa)"],
+                element["LNH Temp(°C)"],
+                element["NH Temp(°C)"],
+                element["H4 Temp(°C)"],
+                element["H3 Temp(°C)"],
+                element["H2 Temp(°C)"],
+                element["H1 Temp(°C)"] ,
+                element["Throat Temp(°C)"] ,
+                element["Hyd. Temp(°C)"],
+                element["Mold Temp(Mov)(°C)"],
+                element["Mold Temp(Fix)(°C)"],
+                element["Panel Temp(°C)"],
+                element["HV Temp(OP)(°C)"] ,
+
+              ]).draw();
+              });
+              $('#shot-data').DataTable().draw();
+              
+            },
+            complete: function () {
+                $('#spinner-div').hide();
+            }
+          });
+        });
+
+        $("#test_").click(() => {
+          //$('#shot-data').DataTable().clear();
+          $('#shot-data_').empty();
+        })
+        
+
+      </script>
+
+
+      <%- include('../Injection_partials/Injection_script') -%>

@@ -13,11 +13,13 @@
 
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
 
+        <%- include('../Injection_partials/Injection_mechine_img')  %> 
+
         <div class="card card-body margin-5">
 
           <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
-            <h3 class="text-uppercase" style="font-weight: 700;">Injection <%= inj; %> / <%= page %>
+            <h3 class="text-uppercase" style="font-weight: 700;">Injection <%= inj; %> / <%= page %> (Status)
             </h3>
 
           </div>
@@ -56,6 +58,7 @@
         const socket = io('https://ws.ap.ngrok.io', { transports: ['websocket'] });
 
         socket.on('inj-<%= name %>', (res) => {
+          console.log(res);
           $(".mc_name").html(res.data.Name);
           $(".mc_status").html(res.data.STATUS_NAME);
           let date = new Date(res.data.STATUS_TIMESTAMP).toLocaleDateString('en-US');
