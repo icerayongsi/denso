@@ -87,8 +87,259 @@
             </div>
           </form>
 
+
+          <div class="container-fluid mt-3">
+            <div class="row">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Measure Item</th>
+                    <th scope="col">Min</th>
+                    <th scope="col">Max</th>
+                    <th scope="col">Range</th>
+                    <th scope="col">Average</th>
+                    <th scope="col">Standard Deviation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Cycle Time(s)</th>
+                    <td id="Cycle_Time-min"></td>
+                    <td id="Cycle_Time-max"></td>
+                    <td id="Cycle_Time-Range"></td>
+                    <td id="Cycle_Time-Average"></td>
+                    <td id="Cycle_Time-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Inj. Time(s)</th>
+                    <td id="Inj_Time-min"></td>
+                    <td id="Inj_Time-max"></td>
+                    <td id="Inj_Time-Range"></td>
+                    <td id="Inj_Time-Average"></td>
+                    <td id="Inj_Time-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Recovery Time(s)</th>
+                    <td id="Recovery_Time-min"></td>
+                    <td id="Recovery_Time-max"></td>
+                    <td id="Recovery_Time-Range"></td>
+                    <td id="Recovery_Time-Average"></td>
+                    <td id="Recovery_Time-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Inj.start Pos(mm)</th>
+                    <td id="Inj_start_Pos-min"></td>
+                    <td id="Inj_start_Pos-max"></td>
+                    <td id="Inj_start_Pos-Range"></td>
+                    <td id="Inj_start_Pos-Average"></td>
+                    <td id="Inj_start_Pos-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">H.P Trans Pos(mm)</th>
+                    <td id="H_P_Trans_Pos-min"></td>
+                    <td id="H_P_Trans_Pos-max"></td>
+                    <td id="H_P_Trans_Pos-Range"></td>
+                    <td id="H_P_Trans_Pos-Average"></td>
+                    <td id="H_P_Trans_Pos-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Hold Comp Pos(mm)</th>
+                    <td id="Hold_Comp_Pos-min"></td>
+                    <td id="Hold_Comp_Pos-max"></td>
+                    <td id="Hold_Comp_Pos-Range"></td>
+                    <td id="Hold_Comp_Pos-Average"></td>
+                    <td id="Hold_Comp_Pos-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cushion(mm)</th>
+                    <td id="Cushion-min"></td>
+                    <td id="Cushion-max"></td>
+                    <td id="Cushion-Range"></td>
+                    <td id="Cushion-Average"></td>
+                    <td id="Cushion-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Inj. Press(Mpa)</th>
+                    <td id="Inj_Press-min"></td>
+                    <td id="Inj_Press-max"></td>
+                    <td id="Inj_Press-Range"></td>
+                    <td id="Inj_Press-Average"></td>
+                    <td id="Inj_Press-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">H.P Trans Prs(Mpa)</th>
+                    <td id="H_P_Trans_Prs-min"></td>
+                    <td id="H_P_Trans_Prs-max"></td>
+                    <td id="H_P_Trans_Prs-Range"></td>
+                    <td id="H_P_Trans_Prs-Average"></td>
+                    <td id="H_P_Trans_Prs-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Back Press(Mpa)</th>
+                    <td id="Back_Press-min"></td>
+                    <td id="Back_Press-max"></td>
+                    <td id="Back_Press-Range"></td>
+                    <td id="Back_Press-Average"></td>
+                    <td id="Back_Press-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cav. Press(OP)(Mpa)</th>
+                    <td id="Cav_Press(OP)-min"></td>
+                    <td id="Cav_Press(OP)-max"></td>
+                    <td id="Cav_Press(OP)-Range"></td>
+                    <td id="Cav_Press(OP)-Average"></td>
+                    <td id="Cav_Press(OP)-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">LNH Temp(°C)</th>
+                    <td id="LNH_Temp-min"></td>
+                    <td id="LNH_Temp-max"></td>
+                    <td id="LNH_Temp-Range"></td>
+                    <td id="LNH_Temp-Average"></td>
+                    <td id="LNH_Temp-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">NH Temp(°C)</th>
+                    <td id="NH_Temp-min"></td>
+                    <td id="NH_Temp-max"></td>
+                    <td id="NH_Temp-Range"></td>
+                    <td id="NH_Temp-Average"></td>
+                    <td id="NH_Temp-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">H4 Temp(°C)</th>
+                    <td id="H4_Temp-min"></td>
+                    <td id="H4_Temp-max"></td>
+                    <td id="H4_Temp-Range"></td>
+                    <td id="H4_Temp-Average"></td>
+                    <td id="H4_Temp-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">H3 Temp(°C)</th>
+                    <td id="H3_Temp-min"></td>
+                    <td id="H3_Temp-max"></td>
+                    <td id="H3_Temp-Range"></td>
+                    <td id="H3_Temp-Average"></td>
+                    <td id="H3_Temp-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">H2 Temp(°C)</th>
+                    <td id="H3_Temp-min"></td>
+                    <td id="H3_Temp-max"></td>
+                    <td id="H3_Temp-Range"></td>
+                    <td id="H3_Temp-Average"></td>
+                    <td id="H3_Temp-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">H1 Temp(°C)</th>
+                    <td id="H1_Temp-min"></td>
+                    <td id="H1_Temp-max"></td>
+                    <td id="H1_Temp-Range"></td>
+                    <td id="H1_Temp-Average"></td>
+                    <td id="H1_Temp-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Throat Temp(°C)</th>
+                    <td id="Throat_Temp-min"></td>
+                    <td id="Throat_Temp-max"></td>
+                    <td id="Throat_Temp-Range"></td>
+                    <td id="Throat_Temp-Average"></td>
+                    <td id="Throat_Temp-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Hyd. Temp(°C)</th>
+                    <td id="Hyd_Temp-min"></td>
+                    <td id="Hyd_Temp-max"></td>
+                    <td id="Hyd_Temp-Range"></td>
+                    <td id="Hyd_Temp-Average"></td>
+                    <td id="Hyd_Temp-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Mold Temp(Mov)(°C)</th>
+                    <td id="Mold_Temp(Mov)-min"></td>
+                    <td id="Mold_Temp(Mov)-max"></td>
+                    <td id="Mold_Temp(Mov)-Range"></td>
+                    <td id="Mold_Temp(Mov)-Average"></td>
+                    <td id="Mold_Temp(Mov)-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Mold Temp(Fix)(°C)</th>
+                    <td id="Mold_Temp(Fix)-min"></td>
+                    <td id="Mold_Temp(Fix)-max"></td>
+                    <td id="Mold_Temp(Fix)-Range"></td>
+                    <td id="Mold_Temp(Fix)-Average"></td>
+                    <td id="Mold_Temp(Fix)-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Panel Temp(°C)</th>
+                    <td id="Panel_Temp-min"></td>
+                    <td id="Panel_Temp-max"></td>
+                    <td id="Panel_Temp-Range"></td>
+                    <td id="Panel_Temp-Average"></td>
+                    <td id="Panel_Temp-SD"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">HV Temp(OP)(°C)</th>
+                    <td id="HV_Temp-min"></td>
+                    <td id="HV_Temp-max"></td>
+                    <td id="HV_Temp-Range"></td>
+                    <td id="HV_Temp-Average"></td>
+                    <td id="HV_Temp-SD"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
           <!-- END MAIN -->
 
       </main>
+
+
+      <script>
+
+        let current_date = new Date().toLocaleString('fr-CA').slice(0,11);
+        let current_time = new Date().toLocaleString('th-TH').slice(11,19);
+        let current_time_back_1hour = new Date(Date.now() - 3600000 * 5).toLocaleString('th-TH').slice(11,19);
+        
+        $('input[name="fromdate"]').val(current_date + current_time_back_1hour);
+        $('input[name="todate"]').val(current_date + current_time);
+
+        let Cycle_Time = [];
+
+        const getSD = (array) => {
+          const n = array.length
+          const mean = array.reduce((a, b) => a + b) / n
+          return Math.sqrt(array.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n)
+        }
+
+        $("#q-data").submit((e) => {
+          e.preventDefault();
+          $('#spinner-div').show();
+          $.ajax({
+            url: "https://node-red.ap.ngrok.io/inj/7/analyze",
+            type: "GET",
+            data: {
+              'from': $('input[name="fromdate"]').val(),
+              'to': $('input[name="todate"]').val(),
+            },
+            success: (data) => {
+              data.forEach((element) => {
+                Cycle_Time.push(element["Cycle Time(s)"]);
+              });
+              console.log(Math.max(...Cycle_Time));
+              console.log(Math.min(...Cycle_Time));
+              console.log((Math.max(...Cycle_Time) - Math.min(...Cycle_Time)).toFixed(2));
+              console.log((Cycle_Time.reduce((a, b) => a + b, 0) / Cycle_Time.length).toFixed(2))
+              console.log(getSD(Cycle_Time));
+            },
+            complete: function () {
+                $('#spinner-div').hide();
+            }
+          });
+        });
+
+      </script>
 
       <%- include('../Injection_partials/Injection_script') -%>

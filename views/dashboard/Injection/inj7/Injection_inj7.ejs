@@ -75,17 +75,12 @@
                           <p class="m-0 pt-1 text-center" style="color: rgb(255, 0, 0);">Max Value</p>
 
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-md-8">
                           <div class="card-body p-2">
                             <p class="m-0 fs-5 text-center" id="c-normal-max-value"></p>
                           </div>
                         </div>
 
-                        <div class="col-md-1" style="background-color: var(--bs-tertiary-bg);">
-                          <div class="card-body p-2">
-                            <p class="m-0 pt-1 text-center">s</p>
-                          </div>
-                        </div>
 
                       </div>
                     </div>
@@ -100,17 +95,12 @@
                           <p class="m-0 pt-1 text-center" style="color:rgb(238, 255, 0) ;">Warning Value</p>
 
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-md-8">
                           <div class="card-body p-2">
                             <p class="m-0 fs-5 text-center" id="c-normal-warning-value"></p>
                           </div>
                         </div>
 
-                        <div class="col-md-1" style="background-color: var(--bs-tertiary-bg);">
-                          <div class="card-body p-2">
-                            <p class="m-0 pt-1 text-center">s</p>
-                          </div>
-                        </div>
 
                       </div>
                     </div>
@@ -125,17 +115,12 @@
                           <p class="m-0 pt-1 text-center">Last Value</p>
 
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-md-8">
                           <div class="card-body p-2">
                             <p class="m-0 fs-5 text-center" id="c-normal-last-value"></p>
                           </div>
                         </div>
 
-                        <div class="col-md-1" style="background-color: var(--bs-tertiary-bg);">
-                          <div class="card-body p-2">
-                            <p class="m-0 pt-1 text-center">s</p>
-                          </div>
-                        </div>
 
                       </div>
                     </div>
@@ -268,12 +253,12 @@
                     <div class="card mb-4">
                       <div class="row g-0">
                         <div class="col-md-4 p-2" style="background-color: rgba(255, 0, 0, 0.1);">
-                          <p class="m-0 pt-1 text-center" style="color: rgb(255, 0, 0);">Recov Max</p>
+                          <p class="m-0 pt-1 text-center" style="color: rgb(255, 0, 0);">UCL</p>
 
                         </div>
                         <div class="col-md-8">
                           <div class="card-body p-2">
-                            <p class="m-0 fs-5 text-center" id="c-normal-max-value"></p>
+                            <p class="m-0 fs-5 text-center" id="UCL"></p>
                           </div>
                         </div>
 
@@ -287,23 +272,100 @@
 
                     <div class="card mb-4">
                       <div class="row g-0">
-                        <div class="col-md-4 p-2" style="background-color: rgba(238, 255, 0, 0.1);">
-                          <p class="m-0 pt-1 text-center" style="color:rgb(238, 255, 0) ;">Recov Warning</p>
+                        <div class="col-md-4 p-2" style="background-color: rgba(255, 0, 0, 0.1);">
+                          <p class="m-0 pt-1 text-center" style="color: rgb(255, 0, 0);">LCL</p>
 
                         </div>
                         <div class="col-md-8">
                           <div class="card-body p-2">
-                            <p class="m-0 fs-5 text-center" id="c-normal-warning-value"></p>
+                            <p class="m-0 fs-5 text-center" id="LCL"></p>
                           </div>
                         </div>
-
 
                       </div>
                     </div>
 
                   </div>
 
+                  <div class="flex-shrink-1 p-2 bd-highlight" style="width: 22%;">
 
+                    <div class="card mb-4">
+                      <div class="row g-0">
+                        <div class="col-md-4 p-2" style="background-color: rgba(152, 214, 89, 0.1);">
+                          <p class="m-0 pt-1 text-center" style="color:rgba(152, 214, 89, 1);">CL</p>
+
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body p-2">
+                            <p class="m-0 fs-5 text-center" id="CL"></p>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="flex-shrink-1 p-2 bd-highlight">
+
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-dark btn-grey" data-bs-toggle="modal"
+                      data-bs-target="#xbar-setting">
+                      <i class="bi bi-gear"></i>
+                    </button>
+
+
+                    <!-- Modal -->
+                    <form method="GET" id="xbar-q-setting">
+                      <div class="modal fade" id="xbar-setting" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="staticBackdropLabel">Datetime picker</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                              <div class="card-body">
+
+                                <div class="mb-3">
+                                  <label for="disabledTextInput" class="form-label">UCL : </label>
+
+                                  <input type="text" name="UCL" class="form-control" required />
+
+                                </div>
+
+                                <div class="mb-3">
+                                  <label for="disabledTextInput" class="form-label">LCL : </label>
+
+                                  <input type="text" name="LCL" class="form-control" required />
+
+                                </div>
+
+                                <div class="mb-3">
+                                  <label for="disabledTextInput" class="form-label">CL : </label>
+
+                                  <input type="text" name="CL" class="form-control" required />
+
+                                </div>
+
+                              </div>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button class="btn btn-primary" type="submit" data-bs-dismiss="modal">Update</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                    
+
+                  </div>
 
                 </div>
 
@@ -531,7 +593,7 @@
                     borderColor: 'rgb(255, 65, 65)',
                     label: {
                       enabled: true,
-                      content: 'Alarm',
+                      content: 'UCL',
                       borderWidth: 1,
                       borderColor: 'transparent',
                       position: 'end',
@@ -541,10 +603,23 @@
                     type: 'line',
                     scaleID: 'y',
                     value: 0,
-                    borderColor: 'rgb(255, 192, 65)',
+                    borderColor: 'rgb(255, 65, 65)',
                     label: {
                       enabled: true,
-                      content: 'Warning',
+                      content: 'LCL',
+                      borderWidth: 1,
+                      borderColor: 'transparent',
+                      position: 'end',
+                    }
+                  },
+                  {
+                    type: 'line',
+                    scaleID: 'y',
+                    value: 0,
+                    borderColor: 'rgb(152, 214, 89)',
+                    label: {
+                      enabled: true,
+                      content: 'CL',
                       borderWidth: 1,
                       borderColor: 'transparent',
                       position: 'end',
@@ -571,6 +646,7 @@
             },
             success: (data) => {
               data.forEach((element) => {
+                
                 chart_normal_data.push(element[$("#normal-chart-select option:selected").html()]);
                 chart_normal_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(11, 19));
               });
@@ -578,6 +654,7 @@
               $("#c-normal-max-value").html("0");
               $("#c-normal-warning-value").html("0");
               $("#c-normal-last-value").html(chart_normal_data[0]);
+
 
               chart.data.datasets[0].data = chart_normal_data.reverse();
               chart.data.datasets[0].label = $("#normal-chart-select option:selected").html() + "  (Last 30 data)";
@@ -606,6 +683,11 @@
                   sum = 0;
                 }
               });
+
+              chart2.options.plugins.annotation.annotations[0].value = $('input[name="UCL"]').val();
+              chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
+              chart2.options.plugins.annotation.annotations[2].value = $('input[name="CL"]').val();
+
               chart2.data.datasets[0].data = chart_xbar_data.reverse();
               chart2.data.datasets[0].label = "x̄ of " + $("#xbar-chart-select option:selected").html();
               chart2.data.labels = chart_xbar_label.reverse();
@@ -613,6 +695,19 @@
               chart2.update();
             }
         });
+
+        $.ajax({
+            url: "https://node-red.ap.ngrok.io/inj/7/get-xbar-settings",
+            type: "GET",
+            success: (data) => {
+              $('input[name="UCL"]').val(data.UCL);
+              $('input[name="LCL"]').val(data.LCL);
+              $('input[name="CL"]').val(data.CL);
+              $("#UCL").html(data.UCL);
+              $("#LCL").html(data.LCL);
+              $("#CL").html(data.CL);
+            }
+          });
 
         });
 
@@ -719,6 +814,37 @@
             },
             complete: function () {
                 $('#spinner-div').hide();
+            }
+          });
+        });
+
+
+        $("#xbar-q-setting").submit((e) => {
+          e.preventDefault();
+          $.ajax({
+            url: "https://node-red.ap.ngrok.io/inj/7/xbar-settings",
+            type: "GET",
+            data : {
+              'UCL' : $('input[name="UCL"]').val(),
+              'LCL' : $('input[name="LCL"]').val(),
+              'CL' : $('input[name="CL"]').val(),
+            },
+            success: (data) => {
+              console.log(data);
+
+              $('input[name="UCL"]').val(data.UCL);
+              $('input[name="LCL"]').val(data.LCL);
+              $('input[name="CL"]').val(data.CL);
+              $("#UCL").html(data.UCL);
+              $("#LCL").html(data.LCL);
+              $("#CL").html(data.CL);
+
+              chart2.options.plugins.annotation.annotations[0].value = $('input[name="UCL"]').val();
+              chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
+              chart2.options.plugins.annotation.annotations[2].value = $('input[name="CL"]').val();
+
+              chart2.update();
+
             }
           });
         });
