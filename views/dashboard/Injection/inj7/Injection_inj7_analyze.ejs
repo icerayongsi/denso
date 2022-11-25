@@ -184,11 +184,11 @@
                   </tr>
                   <tr>
                     <th scope="row">Cav. Press(OP)(Mpa)</th>
-                    <td id="Cav_Press(OP)-min"></td>
-                    <td id="Cav_Press(OP)-max"></td>
-                    <td id="Cav_Press(OP)-Range"></td>
-                    <td id="Cav_Press(OP)-Average"></td>
-                    <td id="Cav_Press(OP)-SD"></td>
+                    <td id="Cav_Press_OP-min"></td>
+                    <td id="Cav_Press_OP-max"></td>
+                    <td id="Cav_Press_OP-Range"></td>
+                    <td id="Cav_Press_OP-Average"></td>
+                    <td id="Cav_Press_OP-SD"></td>
                   </tr>
                   <tr>
                     <th scope="row">LNH Temp(°C)</th>
@@ -224,11 +224,11 @@
                   </tr>
                   <tr>
                     <th scope="row">H2 Temp(°C)</th>
-                    <td id="H3_Temp-min"></td>
-                    <td id="H3_Temp-max"></td>
-                    <td id="H3_Temp-Range"></td>
-                    <td id="H3_Temp-Average"></td>
-                    <td id="H3_Temp-SD"></td>
+                    <td id="H2_Temp-min"></td>
+                    <td id="H2_Temp-max"></td>
+                    <td id="H2_Temp-Range"></td>
+                    <td id="H2_Temp-Average"></td>
+                    <td id="H2_Temp-SD"></td>
                   </tr>
                   <tr>
                     <th scope="row">H1 Temp(°C)</th>
@@ -256,19 +256,19 @@
                   </tr>
                   <tr>
                     <th scope="row">Mold Temp(Mov)(°C)</th>
-                    <td id="Mold_Temp(Mov)-min"></td>
-                    <td id="Mold_Temp(Mov)-max"></td>
-                    <td id="Mold_Temp(Mov)-Range"></td>
-                    <td id="Mold_Temp(Mov)-Average"></td>
-                    <td id="Mold_Temp(Mov)-SD"></td>
+                    <td id="Mold_Temp_Mov-min"></td>
+                    <td id="Mold_Temp_Mov-max"></td>
+                    <td id="Mold_Temp_Mov-Range"></td>
+                    <td id="Mold_Temp_Mov-Average"></td>
+                    <td id="Mold_Temp_Mov-SD"></td>
                   </tr>
                   <tr>
                     <th scope="row">Mold Temp(Fix)(°C)</th>
-                    <td id="Mold_Temp(Fix)-min"></td>
-                    <td id="Mold_Temp(Fix)-max"></td>
-                    <td id="Mold_Temp(Fix)-Range"></td>
-                    <td id="Mold_Temp(Fix)-Average"></td>
-                    <td id="Mold_Temp(Fix)-SD"></td>
+                    <td id="Mold_Temp_Fix-min"></td>
+                    <td id="Mold_Temp_Fix-max"></td>
+                    <td id="Mold_Temp_Fix-Range"></td>
+                    <td id="Mold_Temp_Fix-Average"></td>
+                    <td id="Mold_Temp_Fix-SD"></td>
                   </tr>
                   <tr>
                     <th scope="row">Panel Temp(°C)</th>
@@ -306,13 +306,119 @@
         $('input[name="fromdate"]').val(current_date + current_time_back_1hour);
         $('input[name="todate"]').val(current_date + current_time);
 
-        let Cycle_Time = [];
+        let all_row_reid = ["Cycle_Time",
+        "Inj_Time",
+        "Recovery_Time",
+        "Inj_start_Pos",
+        "H_P_Trans_Pos",
+        "Hold_Comp_Pos",
+        "Cushion",
+        "Inj_Press",
+        "H_P_Trans_Prs",
+        "Back_Press",
+        "Cav_Press_OP",
+        "LNH_Temp",
+        "NH_Temp",
+        "H4_Temp",
+        "H3_Temp",
+        "H2_Temp",
+        "H1_Temp",
+        "Throat_Temp",
+        "Hyd_Temp",
+        "Mold_Temp_Mov",
+        "Mold_Temp_Fix",
+        "Panel_Temp",
+        "HV_Temp",
+        ];
 
-        const getSD = (array) => {
-          const n = array.length
-          const mean = array.reduce((a, b) => a + b) / n
-          return Math.sqrt(array.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n)
+        let all_data = {
+          "Cycle_Time" : [],
+          "Inj_Time" : [],
+          "Recovery_Time" : [],
+          "Inj_start_Pos" : [],
+          "H_P_Trans_Pos" : [],
+          "Hold_Comp_Pos" : [],
+          "Cushion" : [],
+          "Inj_Press" : [],
+          "H_P_Trans_Prs" : [],
+          "Back_Press" : [],
+          "Cav_Press_OP" : [],
+          "LNH_Temp" : [],
+          "NH_Temp" : [],
+          "H4_Temp" : [],
+          "H3_Temp" : [],
+          "H2_Temp" : [],
+          "H1_Temp" : [],
+          "Throat_Temp" : [],
+          "Hyd_Temp" : [],
+          "Mold_Temp_Mov" : [],
+          "Mold_Temp_Fix" : [],
+          "Panel_Temp" : [],
+          "HV_Temp" : []
+        };
+
+        const analyze = (type,array) => {
+          if (type == "max") return Math.max(...array);
+          if (type == "min") return Math.min(...array);
+          if (type == "range") return (Math.max(...array) - Math.min(...array)).toFixed(2);
+          if (type == "avg") return (array.reduce((a, b) => a + b, 0) / array.length).toFixed(2);
+          if (type == "SD") {
+            const n = array.length
+            const mean = array.reduce((a, b) => a + b) / n
+          return (Math.sqrt(array.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n)).toFixed(6)
+          }
         }
+
+        $(document).ready(() => {
+          e.preventDefault();
+          $.ajax({
+            url: "https://node-red.ap.ngrok.io/inj/7/analyze",
+            type: "GET",
+            data: {
+              'from': $('input[name="fromdate"]').val(),
+              'to': $('input[name="todate"]').val(),
+            },
+            success: (data) => {
+              data.forEach((element,i) => {
+                all_data["Cycle_Time"].push(element["Cycle Time(s)"]);
+                all_data["Inj_Time"].push(element["Inj. Time(s)"]);
+                all_data["Recovery_Time"].push(element["Recovery Time(s)"]);
+                all_data["Inj_start_Pos"].push(element["Inj.start Pos(mm)"]);
+                all_data["H_P_Trans_Pos"].push(element["H.P Trans Pos(mm)"]);
+                all_data["Hold_Comp_Pos"].push(element["Hold Comp Pos(mm)"]);
+                all_data["Cushion"].push(element["Cushion(mm)"]);
+                all_data["Inj_Press"].push(element["Inj. Press(Mpa)"]);
+                all_data["H_P_Trans_Prs"].push(element["H.P Trans Prs(Mpa)"]);
+                all_data["Back_Press"].push(element["Back Press(Mpa)"]);
+                all_data["Cav_Press_OP"].push(element["Cav. Press(OP)(Mpa)"]);
+                all_data["LNH_Temp"].push(element["LNH Temp(°C)"]);
+                all_data["NH_Temp"].push(element["NH Temp(°C)"]);
+                all_data["H4_Temp"].push(element["H4 Temp(°C)"]);
+                all_data["H3_Temp"].push(element["H3 Temp(°C)"]);
+                all_data["H2_Temp"].push(element["H2 Temp(°C)"]);
+                all_data["H1_Temp"].push(element["H1 Temp(°C)"]);
+                all_data["Throat_Temp"].push(element["Throat Temp(°C)"]);
+                all_data["Hyd_Temp"].push(element["Hyd. Temp(°C)"]);
+                all_data["Mold_Temp_Mov"].push(element["Mold Temp(Mov)(°C)"]);
+                all_data["Mold_Temp_Fix"].push(element["Mold Temp(Fix)(°C)"]);
+                all_data["Panel_Temp"].push(element["Panel Temp(°C)"]);
+                all_data["HV_Temp"].push(element["HV Temp(OP)(°C)"]);
+              });
+
+              all_row_reid.forEach((element) => {
+                $("#" + element + "-min").html(analyze("min",all_data[element]));
+                $("#" + element + "-max").html(analyze("max",all_data[element]));
+                $("#" + element + "-Range").html(analyze("range",all_data[element]));
+                $("#" + element + "-Average").html(analyze("avg",all_data[element]));
+                $("#" + element + "-SD").html(analyze("SD",all_data[element]));
+              }); 
+
+            },
+            complete: function () {
+                $('#spinner-div').hide();
+            }
+          });
+        });
 
         $("#q-data").submit((e) => {
           e.preventDefault();
@@ -325,14 +431,40 @@
               'to': $('input[name="todate"]').val(),
             },
             success: (data) => {
-              data.forEach((element) => {
-                Cycle_Time.push(element["Cycle Time(s)"]);
+              data.forEach((element,i) => {
+                all_data["Cycle_Time"].push(element["Cycle Time(s)"]);
+                all_data["Inj_Time"].push(element["Inj. Time(s)"]);
+                all_data["Recovery_Time"].push(element["Recovery Time(s)"]);
+                all_data["Inj_start_Pos"].push(element["Inj.start Pos(mm)"]);
+                all_data["H_P_Trans_Pos"].push(element["H.P Trans Pos(mm)"]);
+                all_data["Hold_Comp_Pos"].push(element["Hold Comp Pos(mm)"]);
+                all_data["Cushion"].push(element["Cushion(mm)"]);
+                all_data["Inj_Press"].push(element["Inj. Press(Mpa)"]);
+                all_data["H_P_Trans_Prs"].push(element["H.P Trans Prs(Mpa)"]);
+                all_data["Back_Press"].push(element["Back Press(Mpa)"]);
+                all_data["Cav_Press_OP"].push(element["Cav. Press(OP)(Mpa)"]);
+                all_data["LNH_Temp"].push(element["LNH Temp(°C)"]);
+                all_data["NH_Temp"].push(element["NH Temp(°C)"]);
+                all_data["H4_Temp"].push(element["H4 Temp(°C)"]);
+                all_data["H3_Temp"].push(element["H3 Temp(°C)"]);
+                all_data["H2_Temp"].push(element["H2 Temp(°C)"]);
+                all_data["H1_Temp"].push(element["H1 Temp(°C)"]);
+                all_data["Throat_Temp"].push(element["Throat Temp(°C)"]);
+                all_data["Hyd_Temp"].push(element["Hyd. Temp(°C)"]);
+                all_data["Mold_Temp_Mov"].push(element["Mold Temp(Mov)(°C)"]);
+                all_data["Mold_Temp_Fix"].push(element["Mold Temp(Fix)(°C)"]);
+                all_data["Panel_Temp"].push(element["Panel Temp(°C)"]);
+                all_data["HV_Temp"].push(element["HV Temp(OP)(°C)"]);
               });
-              console.log(Math.max(...Cycle_Time));
-              console.log(Math.min(...Cycle_Time));
-              console.log((Math.max(...Cycle_Time) - Math.min(...Cycle_Time)).toFixed(2));
-              console.log((Cycle_Time.reduce((a, b) => a + b, 0) / Cycle_Time.length).toFixed(2))
-              console.log(getSD(Cycle_Time));
+
+              all_row_reid.forEach((element) => {
+                $("#" + element + "-min").html(analyze("min",all_data[element]));
+                $("#" + element + "-max").html(analyze("max",all_data[element]));
+                $("#" + element + "-Range").html(analyze("range",all_data[element]));
+                $("#" + element + "-Average").html(analyze("avg",all_data[element]));
+                $("#" + element + "-SD").html(analyze("SD",all_data[element]));
+              }); 
+
             },
             complete: function () {
                 $('#spinner-div').hide();
