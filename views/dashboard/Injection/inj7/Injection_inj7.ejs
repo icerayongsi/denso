@@ -13,43 +13,318 @@
 
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
 
-        <%- include('../Injection_partials/Injection_mechine_img')  %> 
+        <%- include('../Injection_partials/Injection_mechine_img') %>
 
-        <div class="card card-body margin-5">
+          <div class="card card-body margin-5">
 
-          <div
-            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
-            <h3 class="text-uppercase" style="font-weight: 700;">Injection <%= inj; %> / <%= page %> (Status)
-            </h3>
+            <div
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
+              <h3 class="text-uppercase" style="font-weight: 700;">Injection <%= inj; %> / <%= page %> (Status)
+              </h3>
+            </div>
 
-          </div>
+            <!-- MAIN CONTENT -->
 
-          <!-- MAIN CONTENT -->
+            <div class="container-fluid">
+              <div class="row">
+                <h4>Shot data Chart</h4>
+                <div class="d-flex bd-highlight mb-3">
+                  <div class="p-2 bd-highlight">
 
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-12">
-                <table class="table">
-                  <thead class="fs-5">
-                    <tr>
-                      <th scope="col">Name</th>
-                      <th scope="col">Status</th>
-                      <th scope="col">Timestemp</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="mc_name"></td>
-                      <td class="mc_status"></td>
-                      <td class="mc_time"></td>
-                    </tr>
-                  </tbody>
-                </table>
+                    <form method="GET" id="q-c-normal-data">
+                      <select class="form-select" id="normal-chart-select">
+                        <option selected>Cycle Time(s)</option>
+                        <option>Inj. Time(s)</option>
+                        <option>Recovery Time(s)</option>
+                        <option>Inj.start Pos(mm)</option>
+                        <option>H.P Trans Pos(mm)</option>
+                        <option>Hold Comp Pos(mm)</option>
+                        <option>Cushion(mm)</option>
+                        <option>Inj. Press(Mpa)</option>
+                        <option>H.P Trans Prs(Mpa)</option>
+                        <option>Back Press(Mpa)</option>
+                        <option>Cav. Press(OP)(Mpa)</option>
+                        <option>LNH Temp(°C)</option>
+                        <option>NH Temp(°C)</option>
+                        <option>H4 Temp(°C)</option>
+                        <option>H3 Temp(°C)</option>
+                        <option>H2 Temp(°C)</option>
+                        <option>H1 Temp(°C)</option>
+                        <option>Throat Temp(°C)</option>
+                        <option>Hyd. Temp(°C)</option>
+                        <option>Mold Temp(Mov)(°C)</option>
+                        <option>Mold Temp(Fix)(°C)</option>
+                        <option>Panel Temp(°C)</option>
+                        <option>HV Temp(OP)(°C)</option>
+                      </select>
+                    </form>
+
+                  </div>
+
+                  <div class="p-2 bd-highlight">
+                    <div id="spinner-div">
+                      <div class="spinner-border text-primary" role="status"></div>
+                    </div>
+                  </div>
+
+                  <div class="ms-auto p-2 bd-highlight" style="width: 22%;">
+
+                    <div class="card mb-4">
+                      <div class="row g-0">
+                        <div class="col-md-4 p-2" style="background-color: rgba(255, 0, 0, 0.1);">
+                          <p class="m-0 pt-1 text-center" style="color: rgb(255, 0, 0);">Max Value</p>
+
+                        </div>
+                        <div class="col-md-7">
+                          <div class="card-body p-2">
+                            <p class="m-0 fs-5 text-center" id="c-normal-max-value"></p>
+                          </div>
+                        </div>
+
+                        <div class="col-md-1" style="background-color: var(--bs-tertiary-bg);">
+                          <div class="card-body p-2">
+                            <p class="m-0 pt-1 text-center">s</p>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="flex-shrink-1 p-2 bd-highlight" style="width: 22%;">
+
+                    <div class="card mb-4">
+                      <div class="row g-0">
+                        <div class="col-md-4 p-2" style="background-color: rgba(238, 255, 0, 0.1);">
+                          <p class="m-0 pt-1 text-center" style="color:rgb(238, 255, 0) ;">Warning Value</p>
+
+                        </div>
+                        <div class="col-md-7">
+                          <div class="card-body p-2">
+                            <p class="m-0 fs-5 text-center" id="c-normal-warning-value"></p>
+                          </div>
+                        </div>
+
+                        <div class="col-md-1" style="background-color: var(--bs-tertiary-bg);">
+                          <div class="card-body p-2">
+                            <p class="m-0 pt-1 text-center">s</p>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="flex-shrink-1 p-2 bd-highlight" style="width: 22%;">
+
+                    <div class="card mb-4">
+                      <div class="row g-0">
+                        <div class="col-md-4 p-2" style="background-color: var(--bs-tertiary-bg);">
+                          <p class="m-0 pt-1 text-center">Last Value</p>
+
+                        </div>
+                        <div class="col-md-7">
+                          <div class="card-body p-2">
+                            <p class="m-0 fs-5 text-center" id="c-normal-last-value"></p>
+                          </div>
+                        </div>
+
+                        <div class="col-md-1" style="background-color: var(--bs-tertiary-bg);">
+                          <div class="card-body p-2">
+                            <p class="m-0 pt-1 text-center">s</p>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div style="position: relative; height:20vh;">
+                  <canvas class="my-1 w-100" id="normal-chart"></canvas>
+                </div>
+
+                <h4 class="mt-3 mb-2">Xbar-R Chart</h4>
+
+                <div class="d-flex bd-highlight mb-2">
+                  <div class="p-2 bd-highlight">
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop">
+                      Datetime picker
+                    </button>
+
+
+                    <!-- Modal -->
+                    <form method="GET" id="q-data">
+                      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="staticBackdropLabel">Datetime picker</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                              <div class="card-body">
+
+                                <div class="mb-3">
+                                  <label for="disabledTextInput" class="form-label">From : </label>
+
+                                  <div class="input-group date" id="from">
+                                    <input type="text" name="fromdate" class="form-control"
+                                      data-date-format="YYYY-MM-DD HH:mm:ss" required />
+                                    <span class="input-group-text" id="basic-addon2">
+                                      <i class="bi bi-calendar"></i>
+                                    </span>
+
+                                  </div>
+
+                                </div>
+
+                                <div class="mb-3">
+                                  <label for="disabledTextInput" class="form-label">To : </label>
+
+                                  <div class="input-group date" id="to">
+                                    <input type="text" name="todate" class="form-control"
+                                      data-date-format="YYYY-MM-DD HH:mm:ss" required />
+                                    <span class="input-group-text" id="basic-addon2">
+                                      <i class="bi bi-calendar"></i>
+                                    </span>
+
+                                  </div>
+
+                                </div>
+
+                              </div>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button class="btn btn-primary" type="submit" data-bs-dismiss="modal">Update</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+
+                  </div>
+                  <div class="p-2 bd-highlight">
+
+                    <select class="form-select" id="xbar-chart-select">
+                      <option selected>Cycle Time(s)</option>
+                      <option>Inj. Time(s)</option>
+                      <option>Recovery Time(s)</option>
+                      <option>Inj.start Pos(mm)</option>
+                      <option>H.P Trans Pos(mm)</option>
+                      <option>Hold Comp Pos(mm)</option>
+                      <option>Cushion(mm)</option>
+                      <option>Inj. Press(Mpa)</option>
+                      <option>H.P Trans Prs(Mpa)</option>
+                      <option>Back Press(Mpa)</option>
+                      <option>Cav. Press(OP)(Mpa)</option>
+                      <option>LNH Temp(°C)</option>
+                      <option>NH Temp(°C)</option>
+                      <option>H4 Temp(°C)</option>
+                      <option>H3 Temp(°C)</option>
+                      <option>H2 Temp(°C)</option>
+                      <option>H1 Temp(°C)</option>
+                      <option>Throat Temp(°C)</option>
+                      <option>Hyd. Temp(°C)</option>
+                      <option>Mold Temp(Mov)(°C)</option>
+                      <option>Mold Temp(Fix)(°C)</option>
+                      <option>Panel Temp(°C)</option>
+                      <option>HV Temp(OP)(°C)</option>
+                    </select>
+
+                  </div>
+
+                  <div class="p-2 bd-highlight">
+                    <p class="text-center pt-2">Group size</p>
+                  </div>
+
+                  <div class="p-2 bd-highlight">
+                    
+                    <select class="form-select" id="xbar-chart-select-group">
+                      <option selected>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                    </select>
+
+                  </div>
+
+                  <div class="ms-auto p-2 bd-highlight" style="width: 22%;">
+
+                    <div class="card mb-4">
+                      <div class="row g-0">
+                        <div class="col-md-4 p-2" style="background-color: rgba(255, 0, 0, 0.1);">
+                          <p class="m-0 pt-1 text-center" style="color: rgb(255, 0, 0);">Max Value</p>
+
+                        </div>
+                        <div class="col-md-7">
+                          <div class="card-body p-2">
+                            <p class="m-0 fs-5 text-center" id="c-normal-max-value"></p>
+                          </div>
+                        </div>
+
+                        <div class="col-md-1" style="background-color: var(--bs-tertiary-bg);">
+                          <div class="card-body p-2">
+                            <p class="m-0 pt-1 text-center">s</p>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="flex-shrink-1 p-2 bd-highlight" style="width: 22%;">
+
+                    <div class="card mb-4">
+                      <div class="row g-0">
+                        <div class="col-md-4 p-2" style="background-color: rgba(238, 255, 0, 0.1);">
+                          <p class="m-0 pt-1 text-center" style="color:rgb(238, 255, 0) ;">Warning Value</p>
+
+                        </div>
+                        <div class="col-md-7">
+                          <div class="card-body p-2">
+                            <p class="m-0 fs-5 text-center" id="c-normal-warning-value"></p>
+                          </div>
+                        </div>
+
+                        <div class="col-md-1" style="background-color: var(--bs-tertiary-bg);">
+                          <div class="card-body p-2">
+                            <p class="m-0 pt-1 text-center">s</p>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+
+
+                </div>
+
+                <div style="position: relative; height:20vh;">
+                  <canvas class="my-1 w-100" id="xbar-chart"></canvas>
+                </div>
+
               </div>
             </div>
-          </div>
 
-          <!-- END MAIN -->
+            <!-- END MAIN -->
 
 
       </main>
@@ -57,12 +332,307 @@
       <script>
         const socket = io('https://ws.ap.ngrok.io', { transports: ['websocket'] });
 
+        let socket_ = new WebSocket("wss://node-red.ap.ngrok.io/ws/inj/" + "<%= name %>" + "/net100_data");
+
+        socket_.onmessage = (event) => {
+          let data_ = JSON.parse(event.data);
+          data_.forEach((element) => {
+            if (element.Name == "MC07") {
+              console.log(element["Cycle Time(s)"]);
+              $("#MC-T").html(element["Cycle Time(s)"]);
+            }
+            
+          });
+        }
+
         socket.on('inj-<%= name %>', (res) => {
-          console.log(res);
+          //console.log(res.data);
+          let alram = ['Stop', 'Down', 'Offine'];
+          if (alram.includes(res.data.STATUS_NAME)) {
+            $("#stop").css('fill', '#FF0000');
+            $("#status-text").css('color', '#FF0000');
+            $("#status-text").html(res.data.STATUS_NAME);
+            $("#status-text-background").css('background-color', 'rgba(255,0,0,0.1)');
+            $("#arrange").css('fill', '#808080');
+            $("#production").css('fill', '#808080');
+          } else if (res.data.STATUS_NAME == "Arrange") {
+            $("#status-text").css('color', '#EEFF00');
+            $("#status-text").html(res.data.STATUS_NAME);
+            $("#status-text-background").css('background-color', 'rgba(238,255,0,0.1)');
+            $("#stop").css('fill', '#808080');
+            $("#arrange").css('fill', '#EEFF00');
+            $("#production").css('fill', '#808080');
+          } else if (res.data.STATUS_NAME == "Production") {
+            $("#status-text").css('color', '#98D659');
+            $("#status-text").html(res.data.STATUS_NAME);
+            $("#status-text-background").css('background-color', 'rgba(152,214,89,0.1)');
+            $("#stop").css('fill', '#808080');
+            $("#arrange").css('fill', '#808080');
+            $("#production").css('fill', '#98D659');
+          }
           $(".mc_name").html(res.data.Name);
           $(".mc_status").html(res.data.STATUS_NAME);
           let date = new Date(res.data.STATUS_TIMESTAMP).toLocaleDateString('en-US');
           let time = new Date(res.data.STATUS_TIMESTAMP).toLocaleTimeString('th-Th');
           $(".mc_time").html(date + ' ' + time);
         });
+      </script>
+
+      <script>
+
+        label_day = ['8/13/2022', '8/14/2022', '8/15/2022', '8/16/2022', '8/17/2022', '8/18/2022', '8/19/2022', '8/20/2022', '8/21/2022', '8/22/2022', '8/23/2022', '8/24/2022', '8/25/2022', '8/26/2022', '8/27/2022', '8/28/2022', '8/29/2022', '8/30/2022', '8/31/2022', '9/1/2022', '9/2/2022', '9/3/2022', '9/4/2022', '9/5/2022', '9/6/2022', '9/7/2022', '9/8/2022', '9/9/2022', '9/10/2022', '9/11/2022']
+
+        const ctx = document.getElementById('normal-chart');
+        const ctx2 = document.getElementById('xbar-chart');
+
+        const chart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: [],
+            datasets: [{
+              label: '',
+              data: [],
+              lineTension: 0,
+              backgroundColor: 'transparent',
+              borderColor: '#177D94',
+              borderWidth: 1,
+              pointBackgroundColor: '#177D94'
+            }
+            ]
+          },
+          options: {
+            elements: {
+              point: {
+                borderWidth: 0,
+                radius: 1,
+                backgroundColor: 'rgba(0,0,0,0)'
+              }
+            },
+            legend: {
+              display: true,
+              labels: {
+                color: '#adb5bd',
+              }
+            },
+            scales: {
+              y: {
+                ticks: {
+                  color: '#ADB5BD',
+                  beginAtZero: false
+                }
+              },
+              x: {
+                ticks: {
+                  color: '#ADB5BD',
+                  beginAtZero: false
+                },
+                min: 0,
+                max: 30,
+              },
+
+            },
+
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                labels: {
+                  usePointStyle: true,
+                  pointStyle: 'line',
+                  color: '#adb5bd'
+                }
+              },
+              annotation: {
+                annotations: [
+                  {
+                    type: 'line',
+                    scaleID: 'y',
+                    value: 0,
+                    borderColor: 'rgb(255, 65, 65)',
+                    label: {
+                      enabled: true,
+                      content: 'Alarm',
+                      borderWidth: 1,
+                      borderColor: 'transparent',
+                      position: 'end',
+                    }
+                  },
+                  {
+                    type: 'line',
+                    scaleID: 'y',
+                    value: 0,
+                    borderColor: 'rgb(255, 192, 65)',
+                    label: {
+                      enabled: true,
+                      content: 'Warning',
+                      borderWidth: 1,
+                      borderColor: 'transparent',
+                      position: 'end',
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        });
+
+        const chart2 = new Chart(ctx2, {
+          type: 'line',
+          data: {
+            labels: label_day,
+            datasets: [{
+              label: 'Xbar-R',
+              data: [],
+              lineTension: 0,
+              backgroundColor: 'transparent',
+              borderColor: '#177D94',
+              borderWidth: 1,
+              pointBackgroundColor: '#177D94'
+            }
+            ]
+          },
+          options: {
+            elements: {
+              point: {
+                borderWidth: 0,
+                radius: 1,
+                backgroundColor: 'rgba(0,0,0,0)'
+              }
+            },
+            legend: {
+              display: true,
+              labels: {
+                color: '#adb5bd',
+              }
+            },
+            scales: {
+              y: {
+                ticks: {
+                  color: '#ADB5BD',
+                  beginAtZero: false
+                }
+              },
+              x: {
+                ticks: {
+                  color: '#ADB5BD',
+                  beginAtZero: false
+                },
+                min: 0,
+                max: 30,
+              },
+
+            },
+
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                labels: {
+                  usePointStyle: true,
+                  pointStyle: 'line',
+                  color: '#adb5bd'
+                }
+              },
+              annotation: {
+                annotations: [
+                  {
+                    type: 'line',
+                    scaleID: 'y',
+                    value: 0,
+                    borderColor: 'rgb(255, 65, 65)',
+                    label: {
+                      enabled: true,
+                      content: 'Alarm',
+                      borderWidth: 1,
+                      borderColor: 'transparent',
+                      position: 'end',
+                    }
+                  },
+                  {
+                    type: 'line',
+                    scaleID: 'y',
+                    value: 0,
+                    borderColor: 'rgb(255, 192, 65)',
+                    label: {
+                      enabled: true,
+                      content: 'Warning',
+                      borderWidth: 1,
+                      borderColor: 'transparent',
+                      position: 'end',
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        });
+      </script>
+
+      <script>
+
+        let chart_normal_max_data, chart_normal_warning_data, chart_normal_last_data;
+        let chart_normal_data = [], chart_normal_label = [];
+
+        $(document).ready(() => {
+          $.ajax({
+            url: "https://node-red.ap.ngrok.io/inj/7/normal-chart",
+            type: "GET",
+            data: {
+              "col": $("#normal-chart-select option:selected").html()
+            },
+            success: (data) => {
+              data.forEach((element) => {
+                chart_normal_data.push(element[$("#normal-chart-select option:selected").html()]);
+                chart_normal_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(11, 19));
+              });
+
+              $("#c-normal-max-value").html("0");
+              $("#c-normal-warning-value").html("0");
+              $("#c-normal-last-value").html(chart_normal_data[0]);
+
+              chart.data.datasets[0].data = chart_normal_data.reverse();
+              chart.data.datasets[0].label = $("#normal-chart-select option:selected").html() + "  (Last 30 data)";
+              chart.data.labels = chart_normal_label.reverse();
+
+              chart.update();
+
+
+
+            }
+          });
+        });
+
+
+        $("#normal-chart-select").change((e) => {
+          e.preventDefault();
+          $('#spinner-div').show();
+          $.ajax({
+            url: "https://node-red.ap.ngrok.io/inj/7/normal-chart",
+            type: "GET",
+            data: {
+              "col": $("#normal-chart-select option:selected").html()
+            },
+            success: (data) => {
+              chart_normal_data = [], chart_normal_label = [];
+              data.forEach((element) => {
+                chart_normal_data.push(element[$("#normal-chart-select option:selected").html()]);
+                chart_normal_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(11, 19));
+              });
+
+              $("#c-normal-max-value").html("0");
+              $("#c-normal-warning-value").html("0");
+              $("#c-normal-last-value").html(chart_normal_data[0]);
+
+              chart.data.datasets[0].data = chart_normal_data.reverse();
+              chart.data.datasets[0].label = $("#normal-chart-select option:selected").html() + "  (Last 30 data)";
+              chart.data.labels = chart_normal_label.reverse();
+
+              chart.update();
+            },
+            complete: function () {
+              $('#spinner-div').hide();
+            }
+          });
+        });
+
       </script>
