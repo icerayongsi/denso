@@ -162,7 +162,7 @@
 
 
                     <!-- Modal -->
-                    <form method="GET" id="q-data">
+                    <form method="GET" id="xbar-q-data">
                       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
@@ -220,13 +220,13 @@
                   <div class="p-2 bd-highlight">
 
                     <select class="form-select" id="xbar-chart-select">
-                      <option selected>Cycle Time(s)</option>
+                      <option>Cycle Time(s)</option>
                       <option>Inj. Time(s)</option>
                       <option>Recovery Time(s)</option>
                       <option>Inj.start Pos(mm)</option>
                       <option>H.P Trans Pos(mm)</option>
                       <option>Hold Comp Pos(mm)</option>
-                      <option>Cushion(mm)</option>
+                      <option selected>Cushion(mm)</option>
                       <option>Inj. Press(Mpa)</option>
                       <option>H.P Trans Prs(Mpa)</option>
                       <option>Back Press(Mpa)</option>
@@ -268,20 +268,15 @@
                     <div class="card mb-4">
                       <div class="row g-0">
                         <div class="col-md-4 p-2" style="background-color: rgba(255, 0, 0, 0.1);">
-                          <p class="m-0 pt-1 text-center" style="color: rgb(255, 0, 0);">Max Value</p>
+                          <p class="m-0 pt-1 text-center" style="color: rgb(255, 0, 0);">Recov Max</p>
 
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-md-8">
                           <div class="card-body p-2">
                             <p class="m-0 fs-5 text-center" id="c-normal-max-value"></p>
                           </div>
                         </div>
 
-                        <div class="col-md-1" style="background-color: var(--bs-tertiary-bg);">
-                          <div class="card-body p-2">
-                            <p class="m-0 pt-1 text-center">s</p>
-                          </div>
-                        </div>
 
                       </div>
                     </div>
@@ -293,20 +288,15 @@
                     <div class="card mb-4">
                       <div class="row g-0">
                         <div class="col-md-4 p-2" style="background-color: rgba(238, 255, 0, 0.1);">
-                          <p class="m-0 pt-1 text-center" style="color:rgb(238, 255, 0) ;">Warning Value</p>
+                          <p class="m-0 pt-1 text-center" style="color:rgb(238, 255, 0) ;">Recov Warning</p>
 
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-md-8">
                           <div class="card-body p-2">
                             <p class="m-0 fs-5 text-center" id="c-normal-warning-value"></p>
                           </div>
                         </div>
 
-                        <div class="col-md-1" style="background-color: var(--bs-tertiary-bg);">
-                          <div class="card-body p-2">
-                            <p class="m-0 pt-1 text-center">s</p>
-                          </div>
-                        </div>
 
                       </div>
                     </div>
@@ -338,7 +328,6 @@
           let data_ = JSON.parse(event.data);
           data_.forEach((element) => {
             if (element.Name == "MC07") {
-              console.log(element["Cycle Time(s)"]);
               $("#MC-T").html(element["Cycle Time(s)"]);
             }
             
@@ -479,9 +468,9 @@
         const chart2 = new Chart(ctx2, {
           type: 'line',
           data: {
-            labels: label_day,
+            labels: [],
             datasets: [{
-              label: 'Xbar-R',
+              label: 'x̄',
               data: [],
               lineTension: 0,
               backgroundColor: 'transparent',
@@ -517,8 +506,8 @@
                   color: '#ADB5BD',
                   beginAtZero: false
                 },
-                min: 0,
-                max: 30,
+                //min: 0,
+                //max: 30,
               },
 
             },
@@ -594,12 +583,37 @@
               chart.data.datasets[0].label = $("#normal-chart-select option:selected").html() + "  (Last 30 data)";
               chart.data.labels = chart_normal_label.reverse();
 
-              chart.update();
-
-
-
+              chart.update()
             }
           });
+
+          $.ajax({
+            url: "https://node-red.ap.ngrok.io/inj/7/xbar-chart",
+            type: "GET",
+            data: {
+              "col": $("#xbar-chart-select option:selected").html(),
+              "from": $('input[name="fromdate"]').val(),
+              "to": $('input[name="todate"]').val()
+            },
+            success: (data) => {
+              let sum = 0,group = $("#xbar-chart-select-group option:selected").html();
+              chart_xbar_data = [], chart_xbar_label = [];
+              data.forEach((element,i) => {
+                sum += element[$("#xbar-chart-select option:selected").html()];
+                if (i % group == 0) {
+                  chart_xbar_data.push((sum / data.length).toFixed(2));
+                  chart_xbar_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(11, 19));
+                  sum = 0;
+                }
+              });
+              chart2.data.datasets[0].data = chart_xbar_data.reverse();
+              chart2.data.datasets[0].label = "x̄ of " + $("#xbar-chart-select option:selected").html();
+              chart2.data.labels = chart_xbar_label.reverse();
+
+              chart2.update();
+            }
+        });
+
         });
 
 
@@ -634,5 +648,81 @@
             }
           });
         });
+
+        let current_date = new Date().toLocaleString('fr-CA').slice(0,11);
+        let current_time = new Date().toLocaleString('th-TH').slice(11,19);
+        let current_time_back_1hour = new Date(Date.now() - 3600000 * 1).toLocaleString('th-TH').slice(11,19);
+
+        let chart_xbar_data = [], chart_xbar_label = [];
+        
+        $('input[name="fromdate"]').val(current_date + current_time_back_1hour);
+        $('input[name="todate"]').val(current_date + current_time);
+
+        $("#xbar-chart-select,#xbar-chart-select-group").change((e) => {
+          e.preventDefault();
+          $.ajax({
+            url: "https://node-red.ap.ngrok.io/inj/7/xbar-chart",
+            type: "GET",
+            data: {
+              "col": $("#xbar-chart-select option:selected").html(),
+              "from": $('input[name="fromdate"]').val(),
+              "to": $('input[name="todate"]').val()
+            },
+            success: (data) => {
+              let sum = 0,group = $("#xbar-chart-select-group option:selected").html();
+              chart_xbar_data = [], chart_xbar_label = [];
+              data.forEach((element,i) => {
+                sum += element[$("#xbar-chart-select option:selected").html()];
+                if (i % group == 0) {
+                  chart_xbar_data.push((sum / data.length).toFixed(2));
+                  chart_xbar_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(11, 19));
+                  sum = 0;
+                }
+              });
+              chart2.data.datasets[0].data = chart_xbar_data.reverse();
+              chart2.data.datasets[0].label = "x̄ of " + $("#xbar-chart-select option:selected").html();
+              chart2.data.labels = chart_xbar_label.reverse();
+
+              chart2.update();
+            }
+        });
+      });
+
+      $("#xbar-q-data").submit((e) => {
+          e.preventDefault();
+          $('#spinner-div').show();
+          $.ajax({
+            url: "https://node-red.ap.ngrok.io/inj/7/xbar-chart",
+            type: "GET",
+            data: {
+              "col": $("#xbar-chart-select option:selected").html(),
+              "from": $('input[name="fromdate"]').val(),
+              "to": $('input[name="todate"]').val()
+            },
+            success: (data) => {
+              let sum = 0,group = $("#xbar-chart-select-group option:selected").html();
+              chart_xbar_data = [], chart_xbar_label = [];
+              data.forEach((element,i) => {
+                sum += element[$("#xbar-chart-select option:selected").html()];
+                if (i % group == 0) {
+                  chart_xbar_data.push((sum / data.length).toFixed(2));
+                  chart_xbar_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(11, 19));
+                  sum = 0;
+                }
+              });
+              chart2.data.datasets[0].data = chart_xbar_data.reverse();
+              chart2.data.datasets[0].label = "x̄ of " + $("#xbar-chart-select option:selected").html();
+              chart2.data.labels = chart_xbar_label.reverse();
+
+              chart2.update();
+              
+            },
+            complete: function () {
+                $('#spinner-div').hide();
+            }
+          });
+        });
+
+
 
       </script>
