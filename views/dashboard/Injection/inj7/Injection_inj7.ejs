@@ -681,7 +681,7 @@
               data.forEach((element,i) => {
                 sum += element[$("#xbar-chart-select option:selected").html()];
                 if (i % group == 0) {
-                  chart_xbar_data.push((sum / data.length).toFixed(2));
+                  chart_xbar_data.push((sum / group).toFixed(2));
                   chart_xbar_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(11, 19));
                   sum = 0;
                 }
@@ -803,7 +803,7 @@
               data.forEach((element,i) => {
                 sum += element[$("#xbar-chart-select option:selected").html()];
                 if (i % group == 0) {
-                  chart_xbar_data.push((sum / data.length).toFixed(2));
+                  chart_xbar_data.push((sum / group).toFixed(2));
                   chart_xbar_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(11, 19));
                   sum = 0;
                 }
