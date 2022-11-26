@@ -33,13 +33,13 @@
 
                     <form method="GET" id="q-c-normal-data">
                       <select class="form-select" id="normal-chart-select">
-                        <option selected>Cycle Time(s)</option>
+                        <option>Cycle Time(s)</option>
                         <option>Inj. Time(s)</option>
                         <option>Recovery Time(s)</option>
                         <option>Inj.start Pos(mm)</option>
                         <option>H.P Trans Pos(mm)</option>
                         <option>Hold Comp Pos(mm)</option>
-                        <option>Cushion(mm)</option>
+                        <option selected>Cushion(mm)</option>
                         <option>Inj. Press(Mpa)</option>
                         <option>H.P Trans Prs(Mpa)</option>
                         <option>Back Press(Mpa)</option>
@@ -77,7 +77,7 @@
                         </div>
                         <div class="col-md-8">
                           <div class="card-body p-2">
-                            <p class="m-0 fs-5 text-center" id="c-normal-max-value"></p>
+                            <p class="m-0 fs-5 text-center" id="c-normal-max-value">12</p>
                           </div>
                         </div>
 
@@ -97,7 +97,7 @@
                         </div>
                         <div class="col-md-8">
                           <div class="card-body p-2">
-                            <p class="m-0 fs-5 text-center" id="c-normal-warning-value"></p>
+                            <p class="m-0 fs-5 text-center" id="c-normal-warning-value">10</p>
                           </div>
                         </div>
 
@@ -637,6 +637,9 @@
         let chart_normal_max_data, chart_normal_warning_data, chart_normal_last_data;
         let chart_normal_data = [], chart_normal_label = [];
 
+        chart.options.plugins.annotation.annotations[0].value = 1;
+        chart.options.plugins.annotation.annotations[1].value = 3;
+
         $(document).ready(() => {
           $.ajax({
             url: "https://node-red.ap.ngrok.io/inj/7/normal-chart",
@@ -651,8 +654,8 @@
                 chart_normal_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(11, 19));
               });
 
-              $("#c-normal-max-value").html("0");
-              $("#c-normal-warning-value").html("0");
+              $("#c-normal-max-value").html("1");
+              $("#c-normal-warning-value").html("3");
               $("#c-normal-last-value").html(chart_normal_data[0]);
 
 
@@ -769,7 +772,7 @@
               data.forEach((element,i) => {
                 sum += element[$("#xbar-chart-select option:selected").html()];
                 if (i % group == 0) {
-                  chart_xbar_data.push((sum / data.length).toFixed(2));
+                  chart_xbar_data.push((sum / group).toFixed(2));
                   chart_xbar_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(11, 19));
                   sum = 0;
                 }
