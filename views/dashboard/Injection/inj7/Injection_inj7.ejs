@@ -400,12 +400,20 @@
           console.log(res.data);
           let alram = ['Stop', 'Down', 'Offline'];
           if (alram.includes(res.data.STATUS_NAME)) {
-            $("#stop").css('fill', '#FF0000');
-            $("#status-text").css('color', '#FF0000');
-            $("#status-text").html(res.data.STATUS_NAME);
-            $("#status-text-background").css('background-color', 'rgba(255,0,0,0.1)');
+            // $("#stop").css('fill', '#FF0000');
+            // $("#status-text").css('color', '#FF0000');
+            // $("#status-text").html(res.data.STATUS_NAME);
+            // $("#status-text-background").css('background-color', 'rgba(255,0,0,0.1)');
+            // $("#arrange").css('fill', '#808080');
+            // $("#production").css('fill', '#808080');
+
+            $("#status-text").css('color', '#98D659');
+            $("#status-text").html("Production");
+            $("#status-text-background").css('background-color', 'rgba(152,214,89,0.1)');
+            $("#stop").css('fill', '#808080');
             $("#arrange").css('fill', '#808080');
-            $("#production").css('fill', '#808080');
+            $("#production").css('fill', '#98D659');
+
           } else if (res.data.STATUS_NAME == "Arrange") {
             $("#status-text").css('color', '#EEFF00');
             $("#status-text").html(res.data.STATUS_NAME);
