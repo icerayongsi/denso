@@ -134,7 +134,7 @@
                   <canvas class="my-1 w-100" id="normal-chart"></canvas>
                 </div>
 
-                <h4 class="mt-3 mb-2">Xbar-R Chart</h4>
+                <h4 class="mt-3 mb-2">Xbar Chart</h4>
 
                 <div class="d-flex bd-highlight mb-2">
                   <div class="p-2 bd-highlight">
@@ -397,8 +397,8 @@
         }
 
         socket.on('inj-<%= name %>', (res) => {
-          //console.log(res.data);
-          let alram = ['Stop', 'Down', 'Offine'];
+          console.log(res.data);
+          let alram = ['Stop', 'Down', 'Offline'];
           if (alram.includes(res.data.STATUS_NAME)) {
             $("#stop").css('fill', '#FF0000');
             $("#status-text").css('color', '#FF0000');
