@@ -18,7 +18,7 @@
                     <div
                         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
                         <h3 class="text-uppercase" style="font-weight: 700;">
-                            <%= header %> / <%= page %>
+                            <%= page %>S
                         </h3>
                     </div>
 
@@ -40,7 +40,7 @@
                                             aria-controls="v-pills-Current" aria-selected="false">Current</button>
                                         <button class="nav-link" id="v-pills-Overview-tab" data-bs-toggle="pill"
                                             data-bs-target="#v-pills-Overview" type="button" role="tab"
-                                            aria-controls="v-pills-Overview" aria-selected="false">Overview</button>
+                                            aria-controls="v-pills-Overview" aria-selected="false">Other sensor</button>
                                     </div>
 
                                     <div class="tab-content" id="v-pills-tabContent">
@@ -280,9 +280,238 @@
 
                                         </div>
                                         <div class="tab-pane fade" id="v-pills-Current" role="tabpanel"
-                                            aria-labelledby="v-pills-Current-tab">...</div>
+                                            aria-labelledby="v-pills-Current-tab">
+
+                                            <form onsubmit="return false;" id="target-current-fan">
+                                                <div class="card">
+                                                    <div class="card-body">
+
+                                                        <h4>Current Gauge</h4>
+
+                                                        <p class="ps-2 mb-2">- Current value zones and color</p>
+
+                                                        <!-- Value -->
+
+                                                        <div class="d-flex flex-row bd-highlight">
+                                                            <div class="p-2 bd-highlight">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon1">Normal</span>
+                                                                    </div>
+                                                                    <input id="current-normal-value" type="text"
+                                                                        class="form-control" placeholder="20"
+                                                                        aria-label="Username"
+                                                                        aria-describedby="basic-addon1">
+                                                                </div>
+
+                                                                <input type="color"
+                                                                    class="form-control form-control-color w-100 mt-2"
+                                                                    id="current-NormalColorInput" value="#30B32D"
+                                                                    title="Choose your color">
+
+
+                                                            </div>
+                                                            <div class="p-2 bd-highlight">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon1">Warning</span>
+                                                                    </div>
+                                                                    <input id="current-warning-value" type="text"
+                                                                        class="form-control" placeholder="30"
+                                                                        aria-label="Username"
+                                                                        aria-describedby="basic-addon1">
+                                                                </div>
+                                                                <input type="color"
+                                                                    class="form-control form-control-color w-100 mt-2"
+                                                                    id="current-WarningColorInput" value="#FFDD00"
+                                                                    title="Choose your color">
+                                                            </div>
+                                                            <div class="p-2 bd-highlight">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon1">Alarm</span>
+                                                                    </div>
+                                                                    <input id="current-alarm-value" type="text"
+                                                                        class="form-control" placeholder="50"
+                                                                        aria-label="Username"
+                                                                        aria-describedby="basic-addon1">
+                                                                </div>
+                                                                <input type="color"
+                                                                    class="form-control form-control-color w-100 mt-2"
+                                                                    id="current-AlarmColorInput" value="#F03E3E"
+                                                                    title="Choose your color">
+                                                            </div>
+                                                        </div>
+
+                                                        <p class="ps-2 mb-2 mt-4">- Tricks value</p>
+
+                                                        <div class="d-flex flex-row bd-highlight">
+                                                            <div class="p-2 bd-highlight">
+                                                                <div class="dropdown">
+                                                                    <button
+                                                                        class="btn btn-outline-secondary dropdown-toggle"
+                                                                        type="button" id="dropdownMenuButton1"
+                                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                                        6
+                                                                    </button>
+                                                                    <ul class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuButton1">
+                                                                        <li><a class="dropdown-item" href="#">1</a></li>
+                                                                        <li><a class="dropdown-item" href="#">2</a></li>
+                                                                        <li><a class="dropdown-item" href="#">3</a></li>
+                                                                        <li><a class="dropdown-item" href="#">4</a></li>
+                                                                        <li><a class="dropdown-item" href="#">5</a></li>
+                                                                        <li><a class="dropdown-item" href="#">6</a></li>
+                                                                        <li><a class="dropdown-item" href="#">7</a></li>
+                                                                        <li><a class="dropdown-item" href="#">8</a></li>
+                                                                        <li><a class="dropdown-item" href="#">9</a></li>
+                                                                        <li><a class="dropdown-item" href="#">10</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="p-2 bd-highlight">
+                                                                <p class="m-0">Text color</p>
+                                                                <div class="card p-2"
+                                                                    style="background-color: #FFFFFF;"></div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex flex-row-reverse bd-highlight mt-4">
+                                                            <div class="p-2 bd-highlight">
+                                                                <button type="submit"
+                                                                    class="btn btn-dark btn-grey w-100 btn-md">Update</button>
+                                                            </div>
+                                                            <div class="p-2 bd-highlight">
+                                                                <button type="button"
+                                                                    class="btn btn-dark w-100 btn-md">Reset</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
                                         <div class="tab-pane fade" id="v-pills-Overview" role="tabpanel"
-                                            aria-labelledby="v-pills-Overview-tab">...</div>
+                                            aria-labelledby="v-pills-Overview-tab">
+                                        
+                                            <form onsubmit="return false;" id="target-othersensor-fan">
+                                                <div class="card">
+                                                    <div class="card-body">
+
+                                                        <h4>Other sensor Gauge</h4>
+
+                                                        <p class="ps-2 mb-2">- O2 Density value zones and color</p>
+
+                                                        <!-- Value -->
+
+                                                        <div class="d-flex flex-row bd-highlight">
+                                                            <div class="p-2 bd-highlight">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon1">Normal</span>
+                                                                    </div>
+                                                                    <input id="othersensor-normal-value" type="text"
+                                                                        class="form-control" placeholder="20"
+                                                                        aria-label="Username"
+                                                                        aria-describedby="basic-addon1">
+                                                                </div>
+
+                                                                <input type="color"
+                                                                    class="form-control form-control-color w-100 mt-2"
+                                                                    id="othersensor-NormalColorInput" value="#30B32D"
+                                                                    title="Choose your color">
+
+
+                                                            </div>
+                                                            <div class="p-2 bd-highlight">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon1">Warning</span>
+                                                                    </div>
+                                                                    <input id="othersensor-warning-value" type="text"
+                                                                        class="form-control" placeholder="30"
+                                                                        aria-label="Username"
+                                                                        aria-describedby="basic-addon1">
+                                                                </div>
+                                                                <input type="color"
+                                                                    class="form-control form-control-color w-100 mt-2"
+                                                                    id="othersensor-WarningColorInput" value="#FFDD00"
+                                                                    title="Choose your color">
+                                                            </div>
+                                                            <div class="p-2 bd-highlight">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon1">Alarm</span>
+                                                                    </div>
+                                                                    <input id="othersensor-alarm-value" type="text"
+                                                                        class="form-control" placeholder="50"
+                                                                        aria-label="Username"
+                                                                        aria-describedby="basic-addon1">
+                                                                </div>
+                                                                <input type="color"
+                                                                    class="form-control form-control-color w-100 mt-2"
+                                                                    id="othersensor-AlarmColorInput" value="#F03E3E"
+                                                                    title="Choose your color">
+                                                            </div>
+                                                        </div>
+
+                                                        <p class="ps-2 mb-2 mt-4">- Tricks value</p>
+
+                                                        <div class="d-flex flex-row bd-highlight">
+                                                            <div class="p-2 bd-highlight">
+                                                                <div class="dropdown">
+                                                                    <button
+                                                                        class="btn btn-outline-secondary dropdown-toggle"
+                                                                        type="button" id="dropdownMenuButton1"
+                                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                                        6
+                                                                    </button>
+                                                                    <ul class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuButton1">
+                                                                        <li><a class="dropdown-item" href="#">1</a></li>
+                                                                        <li><a class="dropdown-item" href="#">2</a></li>
+                                                                        <li><a class="dropdown-item" href="#">3</a></li>
+                                                                        <li><a class="dropdown-item" href="#">4</a></li>
+                                                                        <li><a class="dropdown-item" href="#">5</a></li>
+                                                                        <li><a class="dropdown-item" href="#">6</a></li>
+                                                                        <li><a class="dropdown-item" href="#">7</a></li>
+                                                                        <li><a class="dropdown-item" href="#">8</a></li>
+                                                                        <li><a class="dropdown-item" href="#">9</a></li>
+                                                                        <li><a class="dropdown-item" href="#">10</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="p-2 bd-highlight">
+                                                                <p class="m-0">Text color</p>
+                                                                <div class="card p-2"
+                                                                    style="background-color: #FFFFFF;"></div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex flex-row-reverse bd-highlight mt-4">
+                                                            <div class="p-2 bd-highlight">
+                                                                <button type="submit"
+                                                                    class="btn btn-dark btn-grey w-100 btn-md">Update</button>
+                                                            </div>
+                                                            <div class="p-2 bd-highlight">
+                                                                <button type="button"
+                                                                    class="btn btn-dark w-100 btn-md">Reset</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        
+                                        </div>
                                         <!-- </form> -->
                                     </div>
                                 </div>
@@ -318,6 +547,20 @@
                 $("#temp-WarningColorInput").attr("value", "<%= setting.BrazingGIC1.Temp_fan.Zone.Warning.color %>");
                 $("#temp-alarm-value").attr("value", "<%= setting.BrazingGIC1.Temp_fan.Zone.Alarm.value %>");
                 $("#temp-AlarmColorInput").attr("value", "<%= setting.BrazingGIC1.Temp_fan.Zone.Alarm.color %>");
+
+                $("#current-normal-value").attr("value", "<%= setting.BrazingGIC1.Current_fan.Zone.Normal.value %>");
+                $("#current-NormalColorInput").attr("value", "<%= setting.BrazingGIC1.Current_fan.Zone.Normal.color %>");
+                $("#current-warning-value").attr("value", "<%= setting.BrazingGIC1.Current_fan.Zone.Warning.value %>");
+                $("#current-WarningColorInput").attr("value", "<%= setting.BrazingGIC1.Current_fan.Zone.Warning.color %>");
+                $("#current-alarm-value").attr("value", "<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.value %>");
+                $("#current-AlarmColorInput").attr("value", "<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.color %>");
+
+                $("#othersensor-normal-value").attr("value", "<%= setting.BrazingGIC1.Other_sensor.Zone.Normal.value %>");
+                $("#othersensor-NormalColorInput").attr("value", "<%= setting.BrazingGIC1.Other_sensor.Zone.Normal.color %>");
+                $("#othersensor-warning-value").attr("value", "<%= setting.BrazingGIC1.Other_sensor.Zone.Warning.value %>");
+                $("#othersensor-WarningColorInput").attr("value", "<%= setting.BrazingGIC1.Other_sensor.Zone.Warning.color %>");
+                $("#othersensor-alarm-value").attr("value", "<%= setting.BrazingGIC1.Other_sensor.Zone.Alarm.value %>");
+                $("#othersensor-AlarmColorInput").attr("value", "<%= setting.BrazingGIC1.Other_sensor.Zone.Alarm.color %>");
 
                 $("#target-vibrator").submit((e) => {
                     e.preventDefault();
@@ -357,6 +600,56 @@
                             'warning_color': $("#temp-WarningColorInput").val(),
                             'alarm_value': $("#temp-alarm-value").val(),
                             'alarm_color': $("#temp-AlarmColorInput").val(),
+                        },
+                        success: (data) => {
+                            console.log(data);
+                            Swal.fire(
+                                'Success!',
+                                '',
+                                'success'
+                            )
+                        }
+                    });
+                });
+
+                $("#target-current-fan").submit((e) => {
+                    e.preventDefault();
+                    $.ajax({
+                        url: "/layout/BrazingGIC1/setting-update",
+                        type: "POST",
+                        data: {
+                            'tab': 'current-fan',
+                            'normal_value': $("#current-normal-value").val(),
+                            'normal_color': $("#current-NormalColorInput").val(),
+                            'warning_value': $("#current-warning-value").val(),
+                            'warning_color': $("#current-WarningColorInput").val(),
+                            'alarm_value': $("#current-alarm-value").val(),
+                            'alarm_color': $("#current-AlarmColorInput").val(),
+                        },
+                        success: (data) => {
+                            console.log(data);
+                            Swal.fire(
+                                'Success!',
+                                '',
+                                'success'
+                            )
+                        }
+                    });
+                });
+
+                $("#target-othersensor-fan").submit((e) => {
+                    e.preventDefault();
+                    $.ajax({
+                        url: "/layout/BrazingGIC1/setting-update",
+                        type: "POST",
+                        data: {
+                            'tab': 'othersensor',
+                            'normal_value': $("#othersensor-normal-value").val(),
+                            'normal_color': $("#othersensor-NormalColorInput").val(),
+                            'warning_value': $("#othersensor-warning-value").val(),
+                            'warning_color': $("#othersensor-WarningColorInput").val(),
+                            'alarm_value': $("#othersensor-alarm-value").val(),
+                            'alarm_color': $("#othersensor-AlarmColorInput").val(),
                         },
                         success: (data) => {
                             console.log(data);

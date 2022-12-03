@@ -22,7 +22,7 @@
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
 
-          <h3 class="text-uppercase" style="font-weight: 700;">GIC 1 Condenser / current rc Fan </h3>
+          <h3 class="text-uppercase" style="font-weight: 700;">current rc Fan </h3>
 
           <div class="btn-toolbar mb-2 mb-md-0"></div>
 
@@ -227,6 +227,12 @@
     <!-- END WIP NOTIFY  -->
 
 <script>
+
+      const tickLabel = parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.value %>");
+      let tickList = [0];
+      for(let i = 1;i <= 5; i++) {
+        tickList.push((tickLabel / 5) * i);
+      }
       var opts = {
 
         colorStart: "#6fadcf",
@@ -245,7 +251,7 @@
 
         staticLabels: {
           font: "10px sans-serif",
-          labels: [0, 2, 4, 6, 8, 10],
+          labels: tickList,
           color: "#fff",
           fractionDigits: 0
         },
@@ -253,9 +259,9 @@
         staticZones: [
           // {strokeStyle: "#F03E3E", min: 0, max: 200},
           // {strokeStyle: "#FFDD00", min: 200, max: 500},
-          { strokeStyle: "#30B32D", min: 0, max: 6 },
-          { strokeStyle: "#FFDD00", min: 6, max: 8 },
-          { strokeStyle: "#F03E3E", min: 8, max: 10 }
+          { strokeStyle: "<%= setting.BrazingGIC1.Current_fan.Zone.Normal.color %>", min: 0, max: parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Normal.value %>") },
+          { strokeStyle: "<%= setting.BrazingGIC1.Current_fan.Zone.Warning.color %>", min: parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Normal.value %>"), max: parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Warning.value %>")},
+          { strokeStyle: "<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.color %>", min: parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Warning.value %>"), max:parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.value %>") }
         ],
 
         renderTicks: {
@@ -303,23 +309,23 @@
 
       var RC_Fan_9_X = new Gauge(document.getElementById('RC-Fan-9-X')).setOptions(opts);
 
-      RC_Fan_1_X.maxValue = 10;
+      RC_Fan_1_X.maxValue = parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.value %>");
 
-      RC_Fan_2_X.maxValue = 10;
+      RC_Fan_2_X.maxValue = parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.value %>");
 
-      RC_Fan_3_X.maxValue = 10;
+      RC_Fan_3_X.maxValue = parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.value %>");
 
-      RC_Fan_4_X.maxValue = 10;
+      RC_Fan_4_X.maxValue = parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.value %>");
 
-      RC_Fan_5_X.maxValue = 10;
+      RC_Fan_5_X.maxValue = parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.value %>");
 
-      RC_Fan_6_X.maxValue = 10;
+      RC_Fan_6_X.maxValue = parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.value %>");
 
-      RC_Fan_7_X.maxValue = 10;
+      RC_Fan_7_X.maxValue = parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.value %>");
 
-      RC_Fan_8_X.maxValue = 10;
+      RC_Fan_8_X.maxValue = parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.value %>");
 
-      RC_Fan_9_X.maxValue = 10;
+      RC_Fan_9_X.maxValue = parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.value %>");
 
       RC_Fan_1_X.set(getRandomFloat(4, 5, 1));
       $(".current1-value").html(RC_Fan_1_X.value + " A");
@@ -576,8 +582,8 @@ const chart = new Chart(ctx, {
 
 <script>
 
-  chart.options.plugins.annotation.annotations[0].value = 8;
-  chart.options.plugins.annotation.annotations[1].value = 6;
+  chart.options.plugins.annotation.annotations[0].value = parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Warning.value %>");
+  chart.options.plugins.annotation.annotations[1].value = parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.value %>");
   chart.update();
 
   $("#sort-days").click(() => {
