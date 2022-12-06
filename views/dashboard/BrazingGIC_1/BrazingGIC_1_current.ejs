@@ -582,8 +582,8 @@ const chart = new Chart(ctx, {
 
 <script>
 
-  chart.options.plugins.annotation.annotations[0].value = parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Warning.value %>");
-  chart.options.plugins.annotation.annotations[1].value = parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.value %>");
+  chart.options.plugins.annotation.annotations[0].value = parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Alarm.value %>");
+  chart.options.plugins.annotation.annotations[1].value = parseInt("<%= setting.BrazingGIC1.Current_fan.Zone.Warning.value %>");
   chart.update();
 
   $("#sort-days").click(() => {
