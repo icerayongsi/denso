@@ -657,6 +657,32 @@
                       borderColor: 'transparent',
                       position: 'end',
                     }
+                  },
+                  {
+                    type: 'line',
+                    scaleID: 'y',
+                    value: 0,
+                    borderColor: 'rgb(255, 192, 65)',
+                    label: {
+                      enabled: true,
+                      content: '',
+                      borderWidth: 1,
+                      borderColor: 'transparent',
+                      position: 'end',
+                    }
+                  },
+                  {
+                    type: 'line',
+                    scaleID: 'y',
+                    value: 0,
+                    borderColor: 'rgb(255, 192, 65)',
+                    label: {
+                      enabled: true,
+                      content: '',
+                      borderWidth: 1,
+                      borderColor: 'transparent',
+                      position: 'end',
+                    }
                   }
                 ]
               }
@@ -739,6 +765,8 @@
               chart2.options.plugins.annotation.annotations[0].value = $('input[name="UCL"]').val();
               chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
               chart2.options.plugins.annotation.annotations[2].value = $('input[name="CL"]').val();
+              chart2.options.plugins.annotation.annotations[3].value = 9;
+              chart2.options.plugins.annotation.annotations[4].value = 4;
 
               chart2.data.datasets[0].data = chart_xbar_data.reverse();
               chart2.data.datasets[0].label = "x̄ of " + $("#xbar-chart-select option:selected").html();
