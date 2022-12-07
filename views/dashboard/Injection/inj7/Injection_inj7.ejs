@@ -714,17 +714,17 @@
                 chart_normal_data.push(element[$("#normal-chart-select option:selected").html()]);
                 chart_normal_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(11, 19));
               });
-              
+
               $("#c-normal-max-value").html("1");
               $("#c-normal-warning-value").html("3");
               $("#c-normal-last-value").html(chart_normal_data[0]);
-              
+
               if (data[0]["Cushion(mm)"] != null) {
-                chart.options.plugins.annotation.annotations[0].value =  11;
+                chart.options.plugins.annotation.annotations[0].value = 11;
                 chart.options.plugins.annotation.annotations[1].display = true;
                 chart.options.plugins.annotation.annotations[1].value = 1;
 
-                chart.options.plugins.annotation.annotations[2].value =  10;
+                chart.options.plugins.annotation.annotations[2].value = 10;
                 chart.options.plugins.annotation.annotations[3].display = true;
                 chart.options.plugins.annotation.annotations[3].value = 2;
               } else {
@@ -813,19 +813,19 @@
               $("#c-normal-last-value").html(chart_normal_data[0]);
 
               if (data[0]["Recovery Time(s)"] != null) {
-                chart.options.plugins.annotation.annotations[0].value =  18;
+                chart.options.plugins.annotation.annotations[0].value = 18;
                 chart.options.plugins.annotation.annotations[1].display = true;
                 chart.options.plugins.annotation.annotations[1].value = 2;
 
-                chart.options.plugins.annotation.annotations[2].value =  16;
+                chart.options.plugins.annotation.annotations[2].value = 16;
                 chart.options.plugins.annotation.annotations[3].display = true;
                 chart.options.plugins.annotation.annotations[3].value = 4;
               } else if (data[0]["Cushion(mm)"] != null) {
-                chart.options.plugins.annotation.annotations[0].value =  11;
+                chart.options.plugins.annotation.annotations[0].value = 11;
                 chart.options.plugins.annotation.annotations[1].display = true;
                 chart.options.plugins.annotation.annotations[1].value = 1;
 
-                chart.options.plugins.annotation.annotations[2].value =  10;
+                chart.options.plugins.annotation.annotations[2].value = 10;
                 chart.options.plugins.annotation.annotations[3].display = true;
                 chart.options.plugins.annotation.annotations[3].value = 2;
               } else {
@@ -879,24 +879,26 @@
                 }
               });
 
-              
+
 
               if (data[0]["Recovery Time(s)"] != null) {
 
                 chart2.options.plugins.annotation.annotations[0].value = (parseInt($('input[name="UCL"]').val()) + 7).toString();
+                chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
                 chart2.options.plugins.annotation.annotations[3].value = 16;
+                chart2.options.plugins.annotation.annotations[4].value = 3;
               } else {
                 chart2.options.plugins.annotation.annotations[0].value = $('input[name="UCL"]').val();
                 chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
                 chart2.options.plugins.annotation.annotations[2].value = $('input[name="CL"]').val();
                 chart2.options.plugins.annotation.annotations[3].value = 10;
-                chart2.options.plugins.annotation.annotations[4].value = 4;
+                chart2.options.plugins.annotation.annotations[4].value = 2;
               }
               chart2.data.datasets[0].data = chart_xbar_data.reverse();
               chart2.data.datasets[0].label = "x̄ of " + $("#xbar-chart-select option:selected").html();
               chart2.data.labels = chart_xbar_label.reverse();
 
-              
+
 
               chart2.update();
             }
@@ -917,7 +919,7 @@
             success: (data) => {
               let sum = 0, group = $("#xbar-chart-select-group option:selected").html();
               chart_xbar_data = [], chart_xbar_label = [];
-              
+
               data.forEach((element, i) => {
                 sum += element[$("#xbar-chart-select option:selected").html()];
                 if (i % group == 0) {
@@ -926,9 +928,24 @@
                   sum = 0;
                 }
               });
+
+              if (data[0]["Recovery Time(s)"] != null) {
+                chart2.options.plugins.annotation.annotations[0].value = (parseInt($('input[name="UCL"]').val()) + 7).toString();
+                chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
+                chart2.options.plugins.annotation.annotations[3].value = 16;
+                chart2.options.plugins.annotation.annotations[4].value = 3;
+              } else {
+                chart2.options.plugins.annotation.annotations[0].value = $('input[name="UCL"]').val();
+                chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
+                chart2.options.plugins.annotation.annotations[2].value = $('input[name="CL"]').val();
+                chart2.options.plugins.annotation.annotations[3].value = 10;
+                chart2.options.plugins.annotation.annotations[4].value = 2;
+              }
               chart2.data.datasets[0].data = chart_xbar_data.reverse();
               chart2.data.datasets[0].label = "x̄ of " + $("#xbar-chart-select option:selected").html();
               chart2.data.labels = chart_xbar_label.reverse();
+
+
 
               chart2.update();
 
