@@ -720,11 +720,11 @@
               $("#c-normal-last-value").html(chart_normal_data[0]);
               
               if (data[0]["Cushion(mm)"] != null) {
-                chart.options.plugins.annotation.annotations[0].value =  9;
+                chart.options.plugins.annotation.annotations[0].value =  11;
                 chart.options.plugins.annotation.annotations[1].display = true;
                 chart.options.plugins.annotation.annotations[1].value = 1;
 
-                chart.options.plugins.annotation.annotations[2].value =  7;
+                chart.options.plugins.annotation.annotations[2].value =  10;
                 chart.options.plugins.annotation.annotations[3].display = true;
                 chart.options.plugins.annotation.annotations[3].value = 2;
               } else {
@@ -765,7 +765,7 @@
               chart2.options.plugins.annotation.annotations[0].value = $('input[name="UCL"]').val();
               chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
               chart2.options.plugins.annotation.annotations[2].value = $('input[name="CL"]').val();
-              chart2.options.plugins.annotation.annotations[3].value = 9;
+              chart2.options.plugins.annotation.annotations[3].value = 10;
               chart2.options.plugins.annotation.annotations[4].value = 4;
 
               chart2.data.datasets[0].data = chart_xbar_data.reverse();
@@ -821,11 +821,11 @@
                 chart.options.plugins.annotation.annotations[3].display = true;
                 chart.options.plugins.annotation.annotations[3].value = 4;
               } else if (data[0]["Cushion(mm)"] != null) {
-                chart.options.plugins.annotation.annotations[0].value =  9;
+                chart.options.plugins.annotation.annotations[0].value =  11;
                 chart.options.plugins.annotation.annotations[1].display = true;
                 chart.options.plugins.annotation.annotations[1].value = 1;
 
-                chart.options.plugins.annotation.annotations[2].value =  7;
+                chart.options.plugins.annotation.annotations[2].value =  10;
                 chart.options.plugins.annotation.annotations[3].display = true;
                 chart.options.plugins.annotation.annotations[3].value = 2;
               } else {
