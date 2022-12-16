@@ -1,0 +1,116 @@
+<%- include('IF_GIC_1_partials/IF_GIC_1_header') -%>
+
+<%- include('../../partials/navbar_dashboard') -%>
+
+<%- include('IF_GIC_1_partials/IF_GIC_1_menu') -%>
+
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
+
+    <div class="card card-body margin-5">
+
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
+        <h3 class="text-uppercase" style="font-weight: 700;"><%= mc_name  %> / <%= page %> </h3>
+        
+      </div>
+    </div>
+
+      <table class="table">
+        <tr>
+            <canvas id="myChart" width="400" height="400"></canvas>
+              <script>
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: ['KM_Last_Station', 'OT1', 'OT2', 'OT3', 'OT4', 'V_Guide_1'],
+                  datasets: [{
+                    label: ' ',
+                    data: [15937,19167, 19167, 19167, 19167, 103777],
+                    backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                  }]
+                },
+                options: {
+                  scales: {
+                    yAxes: [{
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    }]
+                  }
+                }
+              });
+            </script>
+        </tr>
+      </table>
+</main>
+
+<script>
+    const socket = io('https://ws.ap.ngrok.io', { transports: ['websocket'] });
+        data = ["Status",
+          "Product_Volume",
+          "Fault1_16",
+          "Fault17_32",
+          "Fault33_48",
+          "Fault49_64",
+          "Fault65_80",
+          "Fault81_96",
+          "Fault97_112",
+          "Fault113_128",
+          "Fault129_144",
+          "Fault145_160",
+          "Fault161_176",
+          "Fault177_192",
+          "Fault193_208",
+          "KM_Last_Station",
+          "OT1",
+          "OT2",
+          "OT3",
+          "OT4",
+          "V_Guide_1",
+          "V_Guide_2",
+          "V_Guide_3",
+          "V_Bend",
+          "Closing",
+          "Caulking_60",
+          "Caulking_15",
+          "Main_Caulking",
+          "Sizing_1",
+          "Sizing_2",
+          "Sizing_3",
+          "Cutting_Count_Operator_Side",
+          "Cutting_Count_MC_Side"];
+
+        socket.on('if-gic-1', (res) => {
+
+          data.forEach(element => {
+            $('.' + element).html(res.data.data[0][element]);
+          });
+
+        });
+</script>
+
+  
