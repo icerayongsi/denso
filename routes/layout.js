@@ -382,8 +382,7 @@ router.get('/BrazingGIC1', encodeUrl, async (req, res, next) => {
   // if (!req.session.userid) res.redirect('/login');
 
   let mc_data;
-  let setting = await Setting_Schema.findOne({}, { _id: 0 });
-
+  let setting = await Setting_Schema.find({}, { _id: 0});
   if (req.query.page == "index" || req.query.page == "vibrator" || req.query.page == "temp") {
     mc_data = await Data_22060050.findOne({},{"data" : 1 , "_id" : 0}).limit(1).sort({$natural:-1});
     mc_data = JSON.stringify(mc_data._doc);
@@ -438,9 +437,9 @@ router.get('/BrazingGIC1', encodeUrl, async (req, res, next) => {
       name: 'BrazingGIC1',
       header: 'BrazingGIC 1',
       page: req.query.page,
-      setting: setting,
+      setting: setting[0],
       mc_data : mc_data});
-});
+}); 
 
 router.post('/BrazingGIC1/setting-update', encodeUrl, async (req, res, next) => {
 
@@ -587,8 +586,8 @@ router.post('/BrazingGIC1/history', encodeUrl, async (req, res, next) => {
     },
       select_query
     );
-    console.log(req.query.fromdate);
-    console.log(fromdate_);
+    // console.log(req.query.fromdate);
+    // console.log(fromdate_);
   }
 
   // data_1.forEach(element => {

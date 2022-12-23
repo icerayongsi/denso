@@ -12,65 +12,99 @@
     </nav>
 
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
+  <%- include('IF_GIC_1_partials/IF_GIC_1_machine_img')  %> 
 
     <div class="card card-body margin-5">
 
       <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
-        <h3 class="text-uppercase" style="font-weight: 700;"><%= mc_name  %> / <%= page %> </h3>
+        <h3 class="text-uppercase" style="font-weight: 700;">I/F TUBE GIC1 / ROLLER TOOL LIFE </h3>
         
       </div>
-    </div>
-
-      <table class="table">
-        <tr>
-            <canvas id="myChart" width="400" height="400"></canvas>
-              <script>
-                var ctx = document.getElementById('myChart').getContext('2d');
-                var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                  labels: ['KM_Last_Station', 'OT1', 'OT2', 'OT3', 'OT4', 'V_Guide_1'],
-                  datasets: [{
-                    label: ' ',
-                    data: [15937,19167, 19167, 19167, 19167, 103777],
-                    backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(255, 206, 86, 0.2)',
-                      'rgba(75, 192, 192, 0.2)',
-                      'rgba(153, 102, 255, 0.2)',
-                      'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                      'rgba(255, 99, 132, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(255, 206, 86, 1)',
-                      'rgba(75, 192, 192, 1)',
-                      'rgba(153, 102, 255, 1)',
-                      'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                  }]
+      <div>
+        <canvas class="my-4 w-100" id="myChart" style="width: 100%;height: 35vh"></canvas>
+        <script>
+          var ctx = document.getElementById('myChart').getContext('2d');
+          var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: ['KM_Last_Station','OT1', 'OT2', 'OT3', 'OT4', 'V_Guide_1', 'V_Guide_2', 'V_Guide_3','V_Bend','Closing','Caulking_60','Caulking_15',
+                'Main_Caulking','Sizing_1','Sizing_2','Sizing_3','Cutting_Count_Operator_Side','Cutting_Count_MC_Side'],
+              datasets: [{
+                // label: [],
+                data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                backgroundColor: [],
+                borderColor: [],
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  ticks: {
+                    beginAtZero : true,
+                    max : 100,
+                    min : 0
+                  }
                 },
-                options: {
-                  scales: {
-                    yAxes: [{
-                      ticks: {
-                        beginAtZero: true
-                      }
-                    }]
+                x:{
+                  ticks:{
+                    min : 0,
+                    max : 20
                   }
                 }
-              });
-            </script>
-        </tr>
-      </table>
+              },
+              responsive: true,
+              maintainAspectRatio : false,
+              plugins: {
+                legend : {
+                  labels : {
+                    usePointStyle : true,
+                    pointStyle : 'line',
+                    color: '#adb5bd'              
+                  }
+                },
+                annotation: {
+                  annotations: [
+                    {
+                      type: 'line',
+                      scaleID: 'y',
+                      value: 100,
+                      borderColor: 'rgb(255, 65, 65)',
+                      label: {
+                        enabled: true, 
+                        content: 'Alarm',
+                        borderWidth: 2,
+                        borderColor: 'transparent',
+                        position: 'end',
+                      }
+                    },
+                    {
+                      type: 'line',
+                      scaleID: 'y',
+                      value: 50,
+                      borderColor: 'rgb(255, 192, 65)',
+                      label: { 
+                        enabled: true, 
+                        content: 'Warning',
+                        borderWidth: 2,
+                        borderColor: 'transparent',
+                        position: 'end',
+                      }
+                    }
+                  ]
+                }
+              },
+            }
+          });
+        </script>
+      </div>
+    </div>
 </main>
 
 <script>
-    const socket = io('https://ws.ap.ngrok.io', { transports: ['websocket'] });
-        data = ["Status",
+  const socket = io('https://ws.ap.ngrok.io', { transports: ['websocket'] });
+  data = ["Status",
           "Product_Volume",
           "Fault1_16",
           "Fault17_32",
@@ -104,13 +138,232 @@
           "Cutting_Count_Operator_Side",
           "Cutting_Count_MC_Side"];
 
-        socket.on('if-gic-1', (res) => {
+  socket.on('if-gic-1', (res) => {
+    data.forEach(element => {
+      $('.' + element).html(res.data.data[0][element]);
+    });
 
-          data.forEach(element => {
-            $('.' + element).html(res.data.data[0][element]);
-          });
+          myChart.data.datasets[0].data[0] = (res.data.data[0]["KM_Last_Station"] / 100000) * 100;
+          myChart.data.datasets[0].data[1] = (res.data.data[0]["OT1"] / 100000) * 100;
+          myChart.data.datasets[0].data[2] = (res.data.data[0]["OT2"] / 100000) * 100;
+          myChart.data.datasets[0].data[3] = (res.data.data[0]["OT3"] / 100000) * 100;
+          myChart.data.datasets[0].data[4] = (res.data.data[0]["OT4"] / 100000) * 100;
+          myChart.data.datasets[0].data[5] = (res.data.data[0]["V_Guide_1"] / 100000) * 100;
+          myChart.data.datasets[0].data[6] = (res.data.data[0]["V_Guide_2"] / 100000) * 100;
+          myChart.data.datasets[0].data[7] = (res.data.data[0]["V_Guide_3"] / 100000) * 100;
+          myChart.data.datasets[0].data[8] = (res.data.data[0]["V_Bend"] / 100000) * 100;
+          myChart.data.datasets[0].data[9] = (res.data.data[0]["Closing"] / 100000) * 100;
+          myChart.data.datasets[0].data[10] = (res.data.data[0]["Caulking_60"] / 100000) * 100;
+          myChart.data.datasets[0].data[11] = (res.data.data[0]["Caulking_15"] / 100000) * 100;
+          myChart.data.datasets[0].data[12] = (res.data.data[0]["Main_Caulking"] / 100000) * 100;
+          myChart.data.datasets[0].data[13] = (res.data.data[0]["Sizing_1"] / 100000) * 100;
+          myChart.data.datasets[0].data[14] = (res.data.data[0]["Sizing_2"] / 100000) * 100;
+          myChart.data.datasets[0].data[15] = (res.data.data[0]["Sizing_3"] / 100000) * 100;
+          myChart.data.datasets[0].data[16] = (res.data.data[0]["Cutting_Count_Operator_Side"] / 100000) * 100;
+          myChart.data.datasets[0].data[17] = (res.data.data[0]["Cutting_Count_MC_Side"] / 100000) * 100;
 
-        });
+    if (myChart.data.datasets[0].data[0] <= 50){
+      myChart.data.datasets[0].backgroundColor[0] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[0] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[0] > 100) {
+      myChart.data.datasets[0].backgroundColor[0] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[0] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[0] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[0] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[1] <= 50){
+      myChart.data.datasets[0].backgroundColor[1] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[1] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[1] > 100) {
+      myChart.data.datasets[0].backgroundColor[1] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[1] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[1] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[1] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[2] <= 50){
+      myChart.data.datasets[0].backgroundColor[2] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[2] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[2] > 100) {
+      myChart.data.datasets[0].backgroundColor[2] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[2] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[2] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[2] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[3] <= 50){
+      myChart.data.datasets[0].backgroundColor[3] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[3] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[3] > 100) {
+      myChart.data.datasets[0].backgroundColor[3] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[3] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[3] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[3] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[4] <= 50){
+      myChart.data.datasets[0].backgroundColor[4] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[4] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[4] > 100) {
+      myChart.data.datasets[0].backgroundColor[4] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[4] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[4] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[4] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[5] <= 50){
+      myChart.data.datasets[0].backgroundColor[5] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[5] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[5] > 100) {
+      myChart.data.datasets[0].backgroundColor[5] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[5] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[5] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[5] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[6] <= 50){
+      myChart.data.datasets[0].backgroundColor[6] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[6] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[6] > 100) {
+      myChart.data.datasets[0].backgroundColor[6] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[6] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[6] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[6] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[7] <= 50){
+      myChart.data.datasets[0].backgroundColor[7] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[7] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[7] > 100) {
+      myChart.data.datasets[0].backgroundColor[7] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[7] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[7] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[7] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[8] <= 50){
+      myChart.data.datasets[0].backgroundColor[8] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[8] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[8] > 100) {
+      myChart.data.datasets[0].backgroundColor[8] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[8] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[8] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[8] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[9] <= 50){
+      myChart.data.datasets[0].backgroundColor[9] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[9] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[9] > 100) {
+      myChart.data.datasets[0].backgroundColor[9] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[9] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[9] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[9] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[10] <= 50){
+      myChart.data.datasets[0].backgroundColor[10] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[10] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[10] > 100) {
+      myChart.data.datasets[0].backgroundColor[10] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[10] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[10] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[10] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[11] <= 50){
+      myChart.data.datasets[0].backgroundColor[11] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[11] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[11] > 100) {
+      myChart.data.datasets[0].backgroundColor[11] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[11] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[11] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[11] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[12] <= 50){
+      myChart.data.datasets[0].backgroundColor[12] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[12] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[12] > 100) {
+      myChart.data.datasets[0].backgroundColor[12] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[12] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[12] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[12] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[13] <= 50){
+      myChart.data.datasets[0].backgroundColor[13] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[13] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[13] > 100) {
+      myChart.data.datasets[0].backgroundColor[13] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[13] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[13] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[13] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[14] <= 50){
+      myChart.data.datasets[0].backgroundColor[14] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[14] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[14] > 100) {
+      myChart.data.datasets[0].backgroundColor[14] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[14] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[14] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[14] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[15] <= 50){
+      myChart.data.datasets[0].backgroundColor[15] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[15] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[15] > 100) {
+      myChart.data.datasets[0].backgroundColor[15] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[15] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[15] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[15] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[16] <= 50){
+      myChart.data.datasets[0].backgroundColor[16] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[16] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[16] > 100) {
+      myChart.data.datasets[0].backgroundColor[16] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[16] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[16] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[16] = 'rgba(255,255,0,1)';
+    }
+
+    if (myChart.data.datasets[0].data[17] <= 50){
+      myChart.data.datasets[0].backgroundColor[17] = 'rgba(0,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[17] = 'rgba(0,255,0,1)';
+    } else if (myChart.data.datasets[0].data[17] > 100) {
+      myChart.data.datasets[0].backgroundColor[17] = 'rgba(255,0,0,0.2)';
+      myChart.data.datasets[0].borderColor[17] = 'rgba(255,0,0,1)';
+    } else {
+      myChart.data.datasets[0].backgroundColor[17] = 'rgba(255,255,0,0.2)';
+      myChart.data.datasets[0].borderColor[17] = 'rgba(255,255,0,1)';
+    }
+
+    myChart.update();
+    console.log(res);
+
+  });
 </script>
 
   

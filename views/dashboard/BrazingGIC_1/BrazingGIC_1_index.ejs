@@ -271,7 +271,8 @@
     &#34;
     <script>
 
-  
+    console.log("<%= setting._IF %>");
+      
 
       const tickLabel = parseInt("<%= setting.BrazingGIC1.Vibrator.Zone.Alarm.value %>");
       let tickList = [0];
@@ -1006,6 +1007,8 @@
                 }
           });
       });
+
+      
       </script>
   
       <!-- END CHART AJAX -->
