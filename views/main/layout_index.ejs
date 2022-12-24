@@ -24,7 +24,7 @@
 
     @media screen and (max-width: 575.98px) {
         p {
-            font-size: 0.45rem;
+            /* font-size: 0.45rem; */
             margin: 0;
         }
 
@@ -40,7 +40,7 @@
 
     @media screen and (min-width: 575.98px) {
         p {
-            font-size: 0.45rem;
+            /* font-size: 0.45rem; */
             margin: 0;
         }
 
@@ -55,7 +55,7 @@
 
     @media screen and (min-width: 767.98px) {
         p {
-            font-size: 0.45rem;
+            /* font-size: 0.45rem; */
             margin: 0;
         }
 
@@ -71,7 +71,7 @@
 
     @media screen and (min-width: 991.98px) {
         p {
-            font-size: 0.45rem;
+            /* font-size: 0.45rem; */
             margin: 0;
         }
 
@@ -187,7 +187,7 @@
                 <img src="../images/map.png" alt="" height="70%">
             </div>
 
-            <div class="col-xxl-8 col-lg-12 col-md-12 col-sm-12 text-cen"
+            <div class="col-xxl-8 col-lg-12 col-md-12 col-sm-12 tw-text-4xl max-lg:tw-text-center"
                 style="margin-top:1rem;margin-bottom:1rem;padding: 0;">
                 <h1 class="fw-bold layout-header">
                     Machine Performance WGR. Plant
@@ -197,32 +197,32 @@
 
             <div class="col-xxl-3 col-lg-12 col-md-12 col-sm-12 text-cen mt-2 mb-2 pe-2" style="padding: 0;">
                 <div class="card h-100 w-100">
-                    <div class="card-body d-flex align-items-center justify-content-center">
-                        <div class="d-inline">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="currentColor"
-                                class="bi-square-fill" viewBox="0 0 16 16">
+                    <div class="card-body tw-flex tw-py-3 tw-justify-center">
+                        <div class="tw-contents">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                class="bi-square-fill tw-w-8 tw-h-8" viewBox="0 0 16 16">
                                 <path style="fill:#98D659;"
                                     d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"></path>
                             </svg>
-                            <span class="pe-3 ps-3" style="font-size: 1.3rem;">Normal</span>
+                            <span class="ps-3 pe-3 md:tw-text-base">Normal</span>
                         </div>
 
-                        <div class="d-inline">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="currentColor"
-                                class="bi-square-fill" viewBox="0 0 16 16">
+                        <div class="tw-contents">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                class="bi-square-fill tw-w-8 tw-h-8" viewBox="0 0 16 16">
                                 <path style="fill:#ffe000;"
                                     d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"></path>
                             </svg>
-                            <span class="pe-3 ps-3" style="font-size: 1.3rem;">Warning</span>
+                            <span class="pe-3 ps-3 md:tw-text-base">Warning</span>
                         </div>
 
-                        <div class="d-inline">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="currentColor"
-                                class="bi-square-fill" viewBox="0 0 16 16">
+                        <div class="tw-contents">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                class="bi-square-fill tw-w-8 tw-h-8" viewBox="0 0 16 16">
                                 <path style="fill:#f00000;"
                                     d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"></path>
                             </svg>
-                            <span class="pe-3 ps-3" style="font-size: 1.3rem;">Abnormal</span>
+                            <span class="ps-3 md:tw-text-base">Abnormal</span>
                         </div>
 
 
@@ -233,7 +233,7 @@
 
             <!-- <div class="col-1" style="padding: 0;"></div> -->
 
-            <div class="col-10" style="padding: 0;">
+            <div class="col-12" style="padding: 0;">
                 <!-- 87.401610937vh -->
                 <div id="wellgrow">
                     <%- include('layout_wellgrow')  %> 
@@ -244,20 +244,20 @@
                 
             </div>
 
-            <div class="col-2" style="padding-left: 0.3rem;padding-right: 0.3rem;">
+            <div class="col-12 max-md:tw-hidden" style="padding-left: 0.3rem;padding-right: 0.3rem;">
                 
-                <div class="h-100">
-                    <button class="btn btn-dark btn-grey w-100 fs-3 fw-bold" type="submit"
-                        style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/home.png);background-repeat: no-repeat;background-size: cover;">HOME</button>
-                    <button class="btn btn-dark btn-grey w-100 fs-3 fw-bold" type="submit"
-                        style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/cmms.png);background-repeat: no-repeat;background-size: cover;">CMMS</button>
-                    <button class="btn btn-dark btn-grey w-100 fs-3 fw-bold" type="submit"
-                        style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/cbm.png);background-repeat: no-repeat;background-size: cover;">CBM</button>
-                    <button class="btn btn-dark btn-grey w-100 fs-3 fw-bold" type="submit"
-                        style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/energy.png);background-repeat: no-repeat;background-size: cover;">ENERGY</button>
-                    <button class="btn btn-dark btn-grey w-100 fs-3 fw-bold" type="submit"
-                        style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/support.png);background-repeat: no-repeat;background-size: cover;">SUPPORT</button>
-                    <button class="btn btn-dark btn-grey w-100 fs-3 fw-bold" type="submit" style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/last.png);background-repeat: no-repeat;background-size: cover;">-</button>
+                <div>
+                    <button class="btn btn-dark btn-grey fs-3 fw-bold" type="submit"
+                        style="width: calc(100% / 6);background-image: url(../../images/layout_buttons/home.png);background-repeat: no-repeat;background-size: cover;">HOME</button>
+                    <button class="btn btn-dark btn-grey fs-3 fw-bold" type="submit"
+                        style="width: calc(100% / 6);background-image: url(../../images/layout_buttons/cmms.png);background-repeat: no-repeat;background-size: cover;">CMMS</button>
+                    <button class="btn btn-dark btn-grey fs-3 fw-bold" type="submit"
+                        style="width: calc(100% / 6);background-image: url(../../images/layout_buttons/cbm.png);background-repeat: no-repeat;background-size: cover;">CBM</button>
+                    <button class="btn btn-dark btn-grey  fs-3 fw-bold" type="submit"
+                        style="width: calc(100% / 6);background-image: url(../../images/layout_buttons/energy.png);background-repeat: no-repeat;background-size: cover;">ENERGY</button>
+                    <button class="btn btn-dark btn-grey fs-3 fw-bold" type="submit"
+                        style="width: calc(100% / 6);background-image: url(../../images/layout_buttons/support.png);background-repeat: no-repeat;background-size: cover;">SUPPORT</button>
+                    <button class="btn btn-dark btn-grey fs-3 fw-bold" type="submit" style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/last.png);background-repeat: no-repeat;background-size: cover;">-</button>
                 </div>
 
             </div>

@@ -25,5 +25,8 @@
   "main": "app.js",
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  }
 }
