@@ -88,22 +88,50 @@
 
 
 
-<div class="container-fluid">
+<div class="container-fluid ">
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse" style="margin-bottom: 0px;">
-      <div class="position-sticky sidebar-sticky">
+    <% if (typeof(page) != "undefined")  { %> 
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse tw-fixed  lg:tw-bg-black-rgb lg:tw-h-full lg:tw-z-10" style="margin-bottom: 0px;">
+      <% } else { %>
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse tw-fixed md:tw-hidden sm:tw-w-full max-lg:tw-bg-black-rgb tw-h-full tw-z-10 tw-top-0 " style="margin-bottom: 0px;">
+      <% } %> 
+      <div class="tw-sticky tw-mt-56">
 
         <ul class="nav flex-column">
 
           <li class="nav-item">
-            <div class="d-grid gap-2 nav-link max-md:tw-mt-40 max-lg:tw-mt-32" style="margin-top: 2rem;">
+            <% if (typeof(page) != "undefined")  {  %>
+                <div class="d-grid gap-2 nav-link max-md:tw-mt-40 max-lg:tw-mt-32" style="margin-top: 2rem;">
+                  <a href="/layout">
+                    <button class="btn btn-dark btn-grey w-100 btn-lg" type="submit">
+                      <i class="bi bi-arrow-left-short"></i>
+                      Mechine layout
+                    </button>
+                  </a>
+              <% } else { %> 
+                <div class="d-grid gap-2 nav-link">
+                    <button class="tw-bg-old-gray tw-w-full tw-rounded-lg tw-p-3">
+                      <p class="tw-text-white/80 hover:tw-text-white tw-transition-all">HOME</p>
+                    </button>
+                    <button class="tw-bg-old-gray tw-w-full tw-rounded-lg tw-p-3">
+                      <p class="tw-text-white/80 hover:tw-text-white tw-transition-all">CMMS</p>
+                    </button>
+                    <button class="tw-bg-old-gray tw-w-full tw-rounded-lg tw-p-3">
+                      <p class="tw-text-white/80 hover:tw-text-white tw-transition-all">CBM</p>
+                    </button>
+                    <button class="tw-bg-old-gray tw-w-full tw-rounded-lg tw-p-3">
+                      <p class="tw-text-white/80 hover:tw-text-white tw-transition-all">ENERGY</p>
+                    </button>
+                    <button class="tw-bg-old-gray tw-w-full tw-rounded-lg tw-p-3">
+                      <p class="tw-text-white/80 hover:tw-text-white tw-transition-all">SUPPORT</p>
+                    </button>
+                    <button class="tw-bg-old-gray tw-w-full tw-rounded-lg tw-p-3">
+                      <p class="tw-text-white/80 hover:tw-text-white tw-transition-all">-</p>
+                    </button>
 
-              <a href="/layout">
-                <button class="btn btn-dark btn-grey w-100 btn-lg" type="submit">
-                  <i class="bi bi-arrow-left-short"></i>
-                  Mechine layout
-                </button>
-              </a>
+              <% } %> 
+              
+
 
               <% if (typeof name !== 'undefined') { if (name == "BrazingGIC1") { %> 
 
@@ -132,17 +160,13 @@
                 </button>
 
               <% } } %> 
-              
-              <h6
-                class="sidebar-heading d-flex justify-content-between align-items-center mt-4 mb-1 text-muted text-uppercase">
-                <span>MENU</span>
-              </h6>
 
-              <!-- <%- //include('../dashboard/BrazingGIC_1/BrazingGIC_1_partials/BrazingGIC_menu') -%>
-
+              <!-- <%- //include('../dashboard/BrazingGIC_1/BrazingGIC_1_partials/BrazingGIC_menu') -%> -->
+<% if (typeof(page) == "undefined")  {  %>
             </div>
           </li>
         </ul>
 
       </div>
-    </nav> -->
+    </nav>
+    <% } %>

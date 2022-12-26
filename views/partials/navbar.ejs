@@ -2,43 +2,67 @@
   <!-- ;box-shadow: 0 0px 0px;background-position: 0% 92.4%; -->
     <div class="container-fluid max-md:tw-justify-center">
       <a class="navbar-brand" href="/layout"><img src="/images/denso-logo-white.png" alt="" width="200px"></a>
-       <ul class="navbar-nav mb-2 mb-lg-0">
-        <!-- <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/layout"><button type="button" class="btn btn-light" style="color:var(--bs-body-bg)">Mechine layout</button></a>
-        </li> -->
+       <ul class="navbar-nav mb-2 mb-lg-0 max-md:tw-w-full tw-items-center">
+        
         <% try { if (sw == 1) { %> 
-        <li class="ms-3">
+        <li class="ms-3 md:tw-inline-flex">
+          
           <div class="form-check form-switch" style="margin-top: 0.75rem;">
             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="width: 2.5em;height: 1.5em;">
-            <p class="mb-0 mt-0 pt-1 me-2 ms-3" style="margin-top: 0.4rem;">wellgrow/samrong layout</p>
+            <p class="mb-0 mt-0 pt-1 me-2 ms-3 tw-mr-5" style="margin-top: 0.4rem;">wellgrow/samrong layout</p>
         </div>
+
+        
+        
         </li>
         <% } } catch { 
           
         } %> 
-      </ul>
-      
-      <button class="navbar-toggler position-absolute d-md-none collapsed" style="margin-top: .5rem;" type="button"
+        <li class="nav-item max-md:tw-w-full ">
+          <button class="navbar-toggler collapsed tw-w-full tw-border-gray-50/10 tw-flex tw-justify-center md:tw-hidden" style="margin-top: .5rem;" type="button"
       data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
       aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="tw-w-8 tw-h-8 tw-fill-gray-50/5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+      
+      </button>
+          <!-- <a class="nav-link active" aria-current="page" href="/layout"><button type="button" class="btn btn-light" style="color:var(--bs-body-bg)">Mechine layout</button></a> -->
+          
+        </li>
+      </ul>
+      
+      
       <div class="navbar-collapse" id="navbarSupportedContent">
+        <!-- <button class="navbar-toggler d-md-none collapsed tw-justify-end" style="margin-top: .5rem;" type="button"
+      data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon "></span>
+    </button> -->
         <div class="navbar-collapse justify-content-end" id="navbarResponsive">
           <div style="margin-top: 0.5rem;"></div>
+          
+          
           <div class="card">
+            
             <div class="card-body text-end" style="padding: 0.3rem;">
               <p style="margin-bottom: 0px;font-size: 0.7rem;" id="date"></p>
               <h6 style="margin-bottom: 0px;font-size: 0.8rem;" id="time"></h6>
             </div>
           </div>
           <div style="margin-right: 0.3rem;margin-bottom: 0.6rem;"></div>
+          <% if (typeof(page) != "undefined")  { %> 
           <div class="card">
             <div class="card-body text-end" style="padding: 0.3rem;">
               <p style="margin-bottom: 0px;font-size: 0.7rem;">LoRa Node ID : null</p>
+              
               <h6 style="margin-bottom: 0px;font-size: 0.8rem;">RSSI : null SNR : null</h6>
+              
             </div>
+            <% } %> 
           </div>
+
+          
         
       </div>
     </div>

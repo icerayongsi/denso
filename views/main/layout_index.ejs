@@ -180,6 +180,7 @@
 
     <div class="container-fluid" style="height: 92.4vh;">
 
+    
         <div class="row ms-2 me-2" style="margin-top: 0.2%;">
 
             <div class="col-xxl-1 col-lg-12 col-md-12 col-sm-12 d-flex align-items-center justify-content-center"
@@ -197,8 +198,8 @@
 
             <div class="col-xxl-3 col-lg-12 col-md-12 col-sm-12 text-cen mt-2 mb-2 pe-2" style="padding: 0;">
                 <div class="card h-100 w-100">
-                    <div class="card-body tw-flex tw-py-3 tw-justify-center">
-                        <div class="tw-contents">
+                    <div class="card-body tw-flex max-md:tw-inline-block tw-py-3 tw-justify-center">
+                        <div class="tw-contents ">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                 class="bi-square-fill tw-w-8 tw-h-8" viewBox="0 0 16 16">
                                 <path style="fill:#98D659;"
@@ -232,36 +233,39 @@
             </div>
 
             <!-- <div class="col-1" style="padding: 0;"></div> -->
+            <div class="tw-flex tw-flex-nowrap">
 
-            <div class="col-12" style="padding: 0;">
-                <!-- 87.401610937vh -->
-                <div id="wellgrow">
-                    <%- include('layout_wellgrow')  %> 
+                <div class="max-lg:tw-flex-1 max-lg:tw-w-5/6" style="padding: 0;">
+                    <!-- 87.401610937vh -->
+                    <div id="wellgrow">
+                        <%- include('layout_wellgrow')  %> 
+                    </div>
+                    <div id="samrong" >
+                        <%- include('layout_samrong')  %> 
+                    </div>
+                    
                 </div>
-                <div id="samrong" >
-                    <%- include('layout_samrong')  %> 
+    
+                <div class="lg:tw-flex-none lg:tw-w-1/6 max-lg:tw-hidden" style="padding-left: 0.3rem;padding-right: 0.3rem;">
+                    
+                    <div class="tw-h-full">
+                        <button class="btn btn-dark btn-grey tw-w-full fs-3 fw-bold" type="submit"
+                            style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/home.png);background-repeat: no-repeat;background-size: cover;">HOME</button>
+                        <button class="btn btn-dark btn-grey tw-w-full  fs-3 fw-bold" type="submit"
+                            style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/cmms.png);background-repeat: no-repeat;background-size: cover;">CMMS</button>
+                        <button class="btn btn-dark btn-grey tw-w-full  fs-3 fw-bold" type="submit"
+                            style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/cbm.png);background-repeat: no-repeat;background-size: cover;">CBM</button>
+                        <button class="btn btn-dark btn-grey tw-w-full   fs-3 fw-bold" type="submit"
+                            style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/energy.png);background-repeat: no-repeat;background-size: cover;">ENERGY</button>
+                        <button class="btn btn-dark btn-grey tw-w-full  fs-3 fw-bold" type="submit"
+                            style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/support.png);background-repeat: no-repeat;background-size: cover;">SUPPORT</button>
+                        <button class="btn btn-dark btn-grey tw-w-full  fs-3 fw-bold" type="submit" style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/last.png);background-repeat: no-repeat;background-size: cover;">-</button>
+                    </div>
+    
                 </div>
-                
+
             </div>
-
-            <div class="col-12 max-md:tw-hidden" style="padding-left: 0.3rem;padding-right: 0.3rem;">
-                
-                <div>
-                    <button class="btn btn-dark btn-grey fs-3 fw-bold" type="submit"
-                        style="width: calc(100% / 6);background-image: url(../../images/layout_buttons/home.png);background-repeat: no-repeat;background-size: cover;">HOME</button>
-                    <button class="btn btn-dark btn-grey fs-3 fw-bold" type="submit"
-                        style="width: calc(100% / 6);background-image: url(../../images/layout_buttons/cmms.png);background-repeat: no-repeat;background-size: cover;">CMMS</button>
-                    <button class="btn btn-dark btn-grey fs-3 fw-bold" type="submit"
-                        style="width: calc(100% / 6);background-image: url(../../images/layout_buttons/cbm.png);background-repeat: no-repeat;background-size: cover;">CBM</button>
-                    <button class="btn btn-dark btn-grey  fs-3 fw-bold" type="submit"
-                        style="width: calc(100% / 6);background-image: url(../../images/layout_buttons/energy.png);background-repeat: no-repeat;background-size: cover;">ENERGY</button>
-                    <button class="btn btn-dark btn-grey fs-3 fw-bold" type="submit"
-                        style="width: calc(100% / 6);background-image: url(../../images/layout_buttons/support.png);background-repeat: no-repeat;background-size: cover;">SUPPORT</button>
-                    <button class="btn btn-dark btn-grey fs-3 fw-bold" type="submit" style="height: calc(100% / 6);background-image: url(../../images/layout_buttons/last.png);background-repeat: no-repeat;background-size: cover;">-</button>
-                </div>
-
-            </div>
-
+            
 
 
         </div> <!-- Main Row -->
@@ -269,7 +273,7 @@
             <div class="col" style="margin-top: 0.5rem;padding: 0;">
                 <div class="card h-100">
                     <div class="card-body d-flex align-items-center">
-                        <h1 class="w-100" style="color: var(--color-normal);font-weight: 700;">
+                        <h1 class="w-100 tw-text-4xl" style="color: var(--color-normal);font-weight: 700;">
                             <marquee behavior="" direction="">Normal</marquee>
                         </h1>
 
