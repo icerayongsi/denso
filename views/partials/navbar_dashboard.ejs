@@ -92,10 +92,13 @@
   <div class="row">
     <% if (typeof(page) != "undefined")  { %> 
       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse tw-fixed  lg:tw-bg-black-rgb lg:tw-h-full lg:tw-z-10" style="margin-bottom: 0px;">
+        <div class="tw-sticky">
       <% } else { %>
+        
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse tw-fixed md:tw-hidden sm:tw-w-full max-lg:tw-bg-black-rgb tw-h-full tw-z-10 tw-top-0 " style="margin-bottom: 0px;">
+          <div class="tw-sticky tw-mt-56">
       <% } %> 
-      <div class="tw-sticky tw-mt-56">
+      
 
         <ul class="nav flex-column">
 
@@ -144,14 +147,13 @@
 
               <% } else if (name.substring(0, 2) == "MC") { %> 
 
-                <a href="/layout/Injection?inj=<%= inj %>&name=<%= name  %>&page=settings">
+                <a href="/layout/Injection?inj=<%= inj %>&name=<%= name  %>&page=settings&tab=index">
                   <button class="btn btn-dark btn-grey w-100 btn-lg" type="submit">
                     <i class="bi bi-sliders2"></i>
                     Setting
                   </button>
                 </a>
                 
-
               <% } else { %>
 
                 <button class="btn btn-dark btn-grey w-100 btn-lg" type="submit">

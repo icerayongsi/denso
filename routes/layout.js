@@ -1372,15 +1372,122 @@ router.get('/BrazingOIL', function (req, res, next) {
 
 // BrazingBRS
 
-router.get('/Injection', function (req, res, next) {
+router.get('/Injection', async (req, res, next) => {
   // if (!req.session.userid) res.redirect('/login');
 
-  res.render('dashboard/Injection/Injection', { title: title, header: 'Injection', inj: req.query.inj, name: req.query.name, page: req.query.page });
+  let setting = await Setting_Schema.findOne({}, { "_id" : 0 ,});
+
+  let setting_data;
+  //console.log(setting.Injection.net100[`inj_${req.query.inj}`]["Cycle Time(s)"]);
+
+  try {
+    typeof setting.Injection.net100[`inj_${req.query.inj}`]["Cycle Time(s)"]
+    setting_data = setting.Injection.net100[`inj_${req.query.inj}`]["Cycle Time(s)"];
+  } catch {
+    setting_data = 0;
+  }
+
+
+  if(req.query.page == "settings") {
+    res.render('dashboard/Injection/Injection', { title: title,
+      header: 'Injection',
+      inj: req.query.inj,
+      name: req.query.name,
+      page: req.query.page,
+      setting_data : setting_data
+    });
+  } else {
+    res.render('dashboard/Injection/Injection', { title: title,
+      header: 'Injection',
+      inj: req.query.inj,
+      name: req.query.name,
+      page: req.query.page
+    });
+  }
+  
+});
+
+router.post('/Injection/SET_SHOT_DATA', async (req, res, next) => {
+
+  await Setting_Schema.updateOne({ _id: "636b9a65c28241d39c9319d1" }, {
+    $set : { 
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.fix_x`] : JSON.parse(req.body.fix_x),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.max`] : +req.body.max,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.min`] : +req.body.min,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.settings.0.enabled`] : JSON.parse(req.body.shot_1_enabled),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.settings.1.enabled`] : JSON.parse(req.body.shot_2_enabled),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.settings.2.enabled`] : JSON.parse(req.body.shot_3_enabled),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.settings.3.enabled`] : JSON.parse(req.body.shot_4_enabled),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.settings.4.enabled`] : JSON.parse(req.body.shot_5_enabled),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.settings.0.value`] : +req.body.shot_1_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.settings.1.value`] : +req.body.shot_2_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.settings.2.value`] : +req.body.shot_3_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.settings.3.value`] : +req.body.shot_4_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.settings.4.value`] : +req.body.shot_5_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.settings.0.label`] : req.body.shot_label_1_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.settings.1.label`] : req.body.shot_label_2_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.settings.2.label`] : req.body.shot_label_3_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.settings.3.label`] : req.body.shot_label_4_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.chart.settings.4.label`] : req.body.shot_label_5_data,
+    },
+  });
+
+  res.status(200).send({result : "success"});
+});
+
+router.post('/Injection/CHANGE_SHOT_DATA', async (req, res, next) => {
+  let setting = await Setting_Schema.findOne({}, { "_id" : 0 ,});
+
+  try {
+    res.status(200).send({result : setting.Injection.net100[`inj_${req.body.inj}`][`${req.body.select_data}`]});
+  } catch {
+    res.status(200).send({result : "DATA NOT FOUND"});
+  }
+    
+});
+
+router.post('/Injection/SET_XBAR_DATA', async (req, res, next) => {
+
+  await Setting_Schema.updateOne({ _id: "636b9a65c28241d39c9319d1" }, {
+    $set : { 
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.fix_x`] : JSON.parse(req.body.fix_x),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.max`] : +req.body.max,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.min`] : +req.body.min,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.settings.0.enabled`] : JSON.parse(req.body.xbar_1_enabled),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.settings.1.enabled`] : JSON.parse(req.body.xbar_2_enabled),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.settings.2.enabled`] : JSON.parse(req.body.xbar_3_enabled),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.settings.3.enabled`] : JSON.parse(req.body.xbar_4_enabled),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.settings.4.enabled`] : JSON.parse(req.body.xbar_5_enabled),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.settings.0.value`] : +req.body.xbar_1_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.settings.1.value`] : +req.body.xbar_2_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.settings.2.value`] : +req.body.xbar_3_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.settings.3.value`] : +req.body.xbar_4_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.settings.4.value`] : +req.body.xbar_5_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.settings.0.label`] : req.body.xbar_label_1_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.settings.1.label`] : req.body.xbar_label_2_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.settings.2.label`] : req.body.xbar_label_3_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.settings.3.label`] : req.body.xbar_label_4_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.xbar_chart.settings.4.label`] : req.body.xbar_label_5_data,
+    },
+  });
+
+  res.status(200).send({result : "success"});
+});
+
+router.post('/Injection/CHANGE_XBAR_DATA', async (req, res, next) => {
+  let setting = await Setting_Schema.findOne({}, { "_id" : 0 ,});
+
+  try {
+    res.status(200).send({result : setting.Injection.net100[`inj_${req.body.inj}`][`${req.body.select_data}`]});
+  } catch {
+    res.status(200).send({result : "DATA NOT FOUND"});
+  }
+    
 });
 
 // END BrazingGIC2
 
-// IF-BRS-2
+// IF-BRS-2 
 
 router.get('/IF-BRS-2', function (req, res, next) {
 

@@ -1,35 +1,225 @@
 <%- include('../Injection_partials/Injection_header') -%>
 
-<%- include('../../../partials/navbar_dashboard') -%>
+  <%- include('../../../partials/navbar_dashboard') -%>
 
-<%- include('../Injection_partials/Injection_menu') -%>
+    <%- include('../Injection_partials/Injection_menu') -%>
 
+      </div>
+      </li>
+      </ul>
+
+      </div>
+      </nav>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+        <p class="text-uppercase tw-text-2xl lg:tw-text-3xl tw-flex max-lg:tw-justify-center tw-font-semibold">
+          Standard Deviation
+        </p>
+
+        <div class="tw-pt-4 tw-text-base tw-flex max-lg:tw-justify-center">
+
+          <a href="/layout/Injection?inj=<%= inj %>&name=<%= name %>&page=index"
+            class="tw-text-gray-500 hover:tw-underline">Injection
+            <%= inj %>
+          </a>
+
+          <span class="tw-mx-3 tw-text-gray-500">
+            /
+          </span>
+
+          <span>Standard Deviation</span>
+
+        </div>
+
+        <div class="card card-body tw-mt-5 tw-mx-full max-md:tw-mx-3">
+
+          <h4 class="tw-text-lg max-lg:tw-text-center tw-pb-4 tw-font-bold">Chart</h4>
+          <hr class="tw-h-px tw-bg-gray-200 tw-border-0 tw-mb-4">
+
+          <div class="tw-flex tw-flex-col lg:tw-flex-row tw-mt-1 tw-items-center">
+
+            <div class="tw-mr-2 lg:tw-my-0 tw-my-2">
+              <label class="tw-block tw-text-sm tw-font-medium">Select data :</label>
             </div>
-          </li>
-        </ul>
+            <div class="lg:tw-mr-4 tw-w-full lg:tw-w-48">
+              <form method="GET" id="q-c-normal-data">
+                <select class="form-select tw-w-full lg:tw-w-52" id="shot-data-select">
+                  <option selected>Cycle Time(s)</option>
+                  <option>Inj Time(s)</option>
+                  <option>Recovery Time(s)</option>
+                  <option>Inj start Pos(mm)</option>
+                  <option>HP Trans Pos(mm)</option>
+                  <option>Hold Comp Pos(mm)</option>
+                  <option>Cushion(mm)</option>
+                  <option>Inj Press(Mpa)</option>
+                  <option>HP Trans Prs(Mpa)</option>
+                  <option>Back Press(Mpa)</option>
+                  <option>Cav Press(OP)(Mpa)</option>
+                  <option>LNH Temp(°C)</option>
+                  <option>NH Temp(°C)</option>
+                  <option>H4 Temp(°C)</option>
+                  <option>H3 Temp(°C)</option>
+                  <option>H2 Temp(°C)</option>
+                  <option>H1 Temp(°C)</option>
+                  <option>Throat Temp(°C)</option>
+                  <option>Hyd Temp(°C)</option>
+                  <option>Mold Temp(Mov)(°C)</option>
+                  <option>Mold Temp(Fix)(°C)</option>
+                  <option>Panel Temp(°C)</option>
+                  <option>HV Temp(OP)(°C)</option>
+                </select>
+              </form>
+            </div>
 
-      </div>
-    </nav>
+          </div>
 
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
+          <div class="tw-flex tw-flex-col lg:tw-flex-row">
+            <div class="tw-w-full lg:tw-w-5/6">
+              <canvas class="tw-h-96" id="sd-chart"></canvas>
+            </div>
+          </div>
+
+        </div>
 
 
+        </div>
+      </main>
 
-    <div class="card card-body margin-5">
+      <script>
 
-      <div
-        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
-        <h3 class="text-uppercase" style="font-weight: 700;">Injection <%= inj %>  / <%= page %>  </h3>
-        
-      </div>
-      
-      
-      <!-- MAIN -->
+        const chart = new Chart($('#sd-chart'), {
+          type: 'line',
+          data: {
+            labels: [],
+            datasets: [{
+              label: '',
+              data: [],
+              lineTension: 0,
+              backgroundColor: 'transparent',
+              borderColor: '#177D94',
+              borderWidth: 1,
+              pointBackgroundColor: '#177D94'
+            }
+            ]
+          },
+          options: {
+            elements: {
+              point: {
+                borderWidth: 0,
+                radius: 1,
+                backgroundColor: 'rgba(0,0,0,0)'
+              }
+            },
+            legend: {
+              display: true,
+              labels: {
+                color: '#adb5bd',
+              }
+            },
+            scales: {
+              y: {
+                min: 0,
+                max: 0,
+                ticks: {
+                  color: '#ADB5BD',
+                  beginAtZero: false,
+                }
+              },
+              x: {
+                ticks: {
+                  color: '#ADB5BD',
+                  beginAtZero: false
+                },
+                min: 0,
+                max: 30,
+              },
 
-      
+            },
 
-      <!-- END MAIN -->
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: false,
+                labels: {
+                  usePointStyle: true,
+                  pointStyle: 'line',
+                  color: '#adb5bd'
+                }
+              },
+              annotation: {
+                annotations: [
+                  {
+                    type: 'line',
+                    scaleID: 'y',
+                    value: 0,
+                    borderColor: 'rgb(255, 65, 65)',
+                    label: {
+                      enabled: true,
+                      content: '',
+                      borderWidth: 1,
+                      borderColor: 'transparent',
+                      position: 'end',
+                    }
+                  },
+                  {
+                    type: 'line',
+                    scaleID: 'y',
+                    value: 0,
+                    borderColor: 'rgb(255, 192, 65)',
+                    label: {
+                      enabled: true,
+                      content: '',
+                      borderWidth: 1,
+                      borderColor: 'transparent',
+                      position: 'end',
+                    }
+                  },
+                  {
+                    type: 'line',
+                    scaleID: 'y',
+                    value: 0,
+                    borderColor: 'rgb(152, 214, 89)',
+                    label: {
+                      enabled: true,
+                      content: '',
+                      borderWidth: 1,
+                      borderColor: 'transparent',
+                      position: 'end',
+                    }
+                  },
+                  {
+                    type: 'line',
+                    scaleID: 'y',
+                    value: 0,
+                    borderColor: 'rgb(255, 192, 65)',
+                    label: {
+                      enabled: true,
+                      content: '',
+                      borderWidth: 1,
+                      borderColor: 'transparent',
+                      position: 'end',
+                    }
+                  },
+                  {
+                    type: 'line',
+                    scaleID: 'y',
+                    value: 0,
+                    borderColor: 'rgb(255, 65, 65)',
+                    label: {
+                      enabled: true,
+                      content: '',
+                      borderWidth: 1,
+                      borderColor: 'transparent',
+                      position: 'end',
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        });
+      </script>
 
-  </main>
-
-  <%- include('../Injection_partials/Injection_script') -%>
+      <%- include('../Injection_partials/Injection_script') -%>
