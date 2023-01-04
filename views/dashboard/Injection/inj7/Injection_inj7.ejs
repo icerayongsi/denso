@@ -19,7 +19,8 @@
 
             <div
               class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-2 mb-3 border-bottom">
-              <h3 class="text-uppercase tw-text-3xl" style="font-weight: 700;">Injection <%= inj; %> / <%= page %> (Status)
+              <h3 class="text-uppercase tw-text-3xl" style="font-weight: 700;">Injection <%= inj; %> / <%= page %>
+                    (Status)
               </h3>
             </div>
 
@@ -29,7 +30,7 @@
               <div class="row">
                 <h4 class="tw-text-lg max-lg:tw-text-center tw-pb-4">&#187; Shot data Chart</h4>
                 <hr class="tw-h-px tw-bg-gray-200 tw-border-0 dark:tw-bg-gray-200 tw-mb-4">
-                <div class="d-flex bd-highlight mb-3">
+                <div class="tw-flex max-lg:tw-flex-col bd-highlight mb-3">
                   <div class="p-2 bd-highlight">
 
                     <form method="GET" id="q-c-normal-data">
@@ -68,7 +69,7 @@
                     </div>
                   </div>
 
-                  <div class="ms-auto p-2 bd-highlight" style="width: 22%;">
+                  <!-- <div class="ms-auto p-2 bd-highlight" style="width: 22%;">
 
                     <div class="card mb-4">
                       <div class="row g-0">
@@ -81,7 +82,6 @@
                             <p class="m-0 fs-5 text-center" id="c-normal-max-value">12</p>
                           </div>
                         </div>
-
 
                       </div>
                     </div>
@@ -106,11 +106,11 @@
                       </div>
                     </div>
 
-                  </div>
+                  </div> -->
 
-                  <div class="flex-shrink-1 p-2 bd-highlight" style="width: 22%;">
+                  <div class="tw-flex max-lg:tw-flex-col  tw-grow tw-justify-end p-2 bd-highlight">
 
-                    <div class="card mb-4">
+                    <div class="card mb-4 tw-w-1/3 max-lg:tw-w-full">
                       <div class="row g-0">
                         <div class="col-md-4 p-2" style="background-color: var(--bs-tertiary-bg);">
                           <p class="m-0 pt-1 text-center">Last Value</p>
@@ -130,7 +130,6 @@
 
                 </div>
 
-
                 <div style="position: relative;height: 300px">
                   <canvas class="my-1 w-100" id="normal-chart"></canvas>
                 </div>
@@ -138,12 +137,13 @@
                 <h4 class="tw-text-lg max-lg:tw-text-center tw-py-4 tw-pt-8">&#187; Xbar Chart</h4>
                 <hr class="tw-h-px tw-bg-gray-200 tw-border-0 dark:tw-bg-gray-200 tw-mb-4">
 
-                <div class="d-md-inline-flex bd-highlight mb-2 tw-justify-around">
+                <div class="d-md-inline-flex bd-highlight mb-2">
                   <div class="p-2 bd-highlight ">
 
                     <!-- Button trigger modal -->
-                    <button type="button" class="tw-bg-transparent tw-p-2 tw-border-2 tw-rounded-lg tw-border-gray-500 tw-w-full" data-bs-toggle="modal"
-                      data-bs-target="#staticBackdrop">
+                    <button type="button"
+                      class="tw-bg-transparent tw-p-1.5 tw-border-2 tw-rounded-md tw-border-old-gray/40  tw-w-full"
+                      data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                       Datetime picker
                     </button>
 
@@ -234,140 +234,144 @@
 
                   </div>
 
-                  <div class="p-2 bd-highlight">
-                    <p class="text-center pt-2">Group size</p>
-                  </div>
-
-                  <div class="p-2 bd-highlight">
-
-                    <select class="form-select" id="xbar-chart-select-group">
-                      <option selected>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
-                    </select>
-
-                  </div>
-                    <div class="p-2 bd-highlight tw-w-1/5 max-md:tw-w-full">
-
-                      <div class="card">
-                        <div class="row g-0">
-                          <div class="col-md-4 p-2" style="background-color: rgba(255, 0, 0, 0.1);">
-                            <p class="m-0 pt-1 text-center" style="color: rgb(255, 0, 0);">UCL</p>
-  
-                          </div>
-                          <div class="col-md-8">
-                            <div class="card-body p-2">
-                              <p class="m-0 fs-5 text-center" id="UCL"></p>
-                            </div>
-                          </div>
-  
-  
-                        </div>
-                      </div>
+                  
+                  
+                  <div class="tw-flex max-lg:tw-flex-col tw-grow tw-justify-end">
+                    <div class="p-2 bd-highlight">
+                      <p class="text-center pt-2">Group size</p>
+                    </div>
+                    <div class="p-2 bd-highlight max-lg:tw-w-full">
+                      <select class="form-select" id="xbar-chart-select-group">
+                        <option selected>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                      </select>
   
                     </div>
-  
-                    <div class="flex-shrink-1 p-2 bd-highlight tw-w-1/5 max-md:tw-w-full">
-  
-                      <div class="card">
-                        <div class="row g-0">
-                          <div class="col-md-4 p-2" style="background-color: rgba(255, 0, 0, 0.1);">
-                            <p class="m-0 pt-1 text-center" style="color: rgb(255, 0, 0);">LCL</p>
-  
-                          </div>
-                          <div class="col-md-8">
-                            <div class="card-body p-2">
-                              <p class="m-0 fs-5 text-center" id="LCL"></p>
-                            </div>
-                          </div>
-  
-                        </div>
-                      </div>
-  
-                    </div>
-  
-                    <div class="flex-shrink-1 p-2 bd-highlight tw-w-1/5 max-md:tw-w-full">
-  
-                      <div class="card">
-                        <div class="row g-0">
-                          <div class="col-md-4 p-2" style="background-color: rgba(152, 214, 89, 0.1);">
-                            <p class="m-0 pt-1 text-center" style="color:rgba(152, 214, 89, 1);">CL</p>
-  
-                          </div>
-                          <div class="col-md-8">
-                            <div class="card-body p-2">
-                              <p class="m-0 fs-5 text-center" id="CL"></p>
-                            </div>
-                          </div>
-  
-                        </div>
-                      </div>
-  
-                    </div>
-  
-                    <div class="flex-shrink-1 p-2 bd-highlight">
-  
-  
-                      <!-- Button trigger modal -->
-                      <button type="button" class="tw-bg-gray-500 tw-p-4 tw-rounded tw-py-2.5 max-md:tw-w-full" data-bs-toggle="modal"
-                        data-bs-target="#xbar-setting">
-                        <i class="bi bi-gear tw-text-white tw-text-lg"></i>
-                      </button>
-  
                   </div>
                   
+                  
 
-                    <!-- Modal -->
-                    <form method="GET" id="xbar-q-setting">
-                      <div class="modal fade" id="xbar-setting" data-bs-backdrop="static" data-bs-keyboard="false"
-                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h1 class="modal-title fs-5" id="staticBackdropLabel">Xbar-R setting</h1>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
 
-                              <div class="card-body">
+                </div>
 
-                                <div class="mb-3">
-                                  <label for="disabledTextInput" class="form-label">UCL : </label>
+                <div class="tw-flex max-lg:tw-flex-col">
+                  <div class="p-2 bd-highlight tw-w-1/5 max-md:tw-w-full">
 
-                                  <input type="text" name="UCL" class="form-control" required />
+                    <div class="card">
+                      <div class="row g-0">
+                        <div class="col-md-4 p-2" style="background-color: rgba(255, 0, 0, 0.1);">
+                          <p class="m-0 pt-1 text-center" style="color: rgb(255, 0, 0);">UCL</p>
 
-                                </div>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body p-2">
+                            <p class="m-0 fs-5 text-center" id="UCL"></p>
+                          </div>
+                        </div>
 
-                                <div class="mb-3">
-                                  <label for="disabledTextInput" class="form-label">LCL : </label>
 
-                                  <input type="text" name="LCL" class="form-control" required />
+                      </div>
+                    </div>
 
-                                </div>
+                  </div>
 
-                                <div class="mb-3">
-                                  <label for="disabledTextInput" class="form-label">CL : </label>
+                  <div class="flex-shrink-1 p-2 bd-highlight tw-w-1/5 max-md:tw-w-full">
 
-                                  <input type="text" name="CL" class="form-control" required />
+                    <div class="card">
+                      <div class="row g-0">
+                        <div class="col-md-4 p-2" style="background-color: rgba(255, 0, 0, 0.1);">
+                          <p class="m-0 pt-1 text-center" style="color: rgb(255, 0, 0);">LCL</p>
 
-                                </div>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body p-2">
+                            <p class="m-0 fs-5 text-center" id="LCL"></p>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="flex-shrink-1 p-2 bd-highlight tw-w-1/5 max-md:tw-w-full">
+
+                    <div class="card">
+                      <div class="row g-0">
+                        <div class="col-md-4 p-2" style="background-color: rgba(152, 214, 89, 0.1);">
+                          <p class="m-0 pt-1 text-center" style="color:rgba(152, 214, 89, 1);">CL</p>
+
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body p-2">
+                            <p class="m-0 fs-5 text-center" id="CL"></p>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- <div class="flex-shrink-1 p-2 bd-highlight">
+
+                    <button type="button" class="tw-bg-gray-500 tw-p-4 tw-rounded tw-py-2.5 max-md:tw-w-full"
+                      data-bs-toggle="modal" data-bs-target="#xbar-setting">
+                      <i class="bi bi-gear tw-text-white tw-text-lg"></i>
+                    </button>
+
+                  </div> -->
+
+
+                  <!-- Modal -->
+                  <form method="GET" id="xbar-q-setting">
+                    <div class="modal fade" id="xbar-setting" data-bs-backdrop="static" data-bs-keyboard="false"
+                      tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Xbar-R setting</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+
+                            <div class="card-body">
+
+                              <div class="mb-3">
+                                <label for="disabledTextInput" class="form-label">UCL : </label>
+
+                                <input type="text" name="UCL" class="form-control" required />
+
+                              </div>
+
+                              <div class="mb-3">
+                                <label for="disabledTextInput" class="form-label">LCL : </label>
+
+                                <input type="text" name="LCL" class="form-control" required />
+
+                              </div>
+
+                              <div class="mb-3">
+                                <label for="disabledTextInput" class="form-label">CL : </label>
+
+                                <input type="text" name="CL" class="form-control" required />
 
                               </div>
 
                             </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <button class="btn btn-primary" type="submit" data-bs-dismiss="modal">Update</button>
-                            </div>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button class="btn btn-primary" type="submit" data-bs-dismiss="modal">Update</button>
                           </div>
                         </div>
                       </div>
-                    </form>
-
-
+                    </div>
+                  </form>
                 </div>
 
                 <div style="position: relative; height: 300px">
@@ -510,7 +514,7 @@
                     borderColor: 'rgb(255, 65, 65)',
                     label: {
                       enabled: true,
-                      content: 'Alarm',
+                      content: '',
                       borderWidth: 1,
                       borderColor: 'transparent',
                       position: 'end',
@@ -519,37 +523,50 @@
                   {
                     type: 'line',
                     scaleID: 'y',
-                    value: 15,
+                    value: 0,
+                    borderColor: 'rgb(255, 192, 65)',
+                    label: {
+                      enabled: true,
+                      content: '',
+                      borderWidth: 1,
+                      borderColor: 'transparent',
+                      position: 'end',
+                    }
+                  },
+                  {
+                    type: 'line',
+                    scaleID: 'y',
+                    value: 0,
+                    borderColor: 'rgb(152, 214, 89)',
+                    label: {
+                      enabled: true,
+                      content: '',
+                      borderWidth: 1,
+                      borderColor: 'transparent',
+                      position: 'end',
+                    }
+                  },
+                  {
+                    type: 'line',
+                    scaleID: 'y',
+                    value: 0,
+                    borderColor: 'rgb(255, 192, 65)',
+                    label: {
+                      enabled: true,
+                      content: '',
+                      borderWidth: 1,
+                      borderColor: 'transparent',
+                      position: 'end',
+                    }
+                  },
+                  {
+                    type: 'line',
+                    scaleID: 'y',
+                    value: 0,
                     borderColor: 'rgb(255, 65, 65)',
                     label: {
                       enabled: true,
-                      content: 'Alarm',
-                      borderWidth: 1,
-                      borderColor: 'transparent',
-                      position: 'end',
-                    }
-                  },
-                  {
-                    type: 'line',
-                    scaleID: 'y',
-                    value: 6,
-                    borderColor: 'rgb(255, 192, 65)',
-                    label: {
-                      enabled: true,
-                      content: 'Warning',
-                      borderWidth: 1,
-                      borderColor: 'transparent',
-                      position: 'end',
-                    }
-                  },
-                  {
-                    type: 'line',
-                    scaleID: 'y',
-                    value: 6,
-                    borderColor: 'rgb(255, 192, 65)',
-                    label: {
-                      enabled: true,
-                      content: 'Warning',
+                      content: '',
                       borderWidth: 1,
                       borderColor: 'transparent',
                       position: 'end',
@@ -636,7 +653,7 @@
                     type: 'line',
                     scaleID: 'y',
                     value: 0,
-                    borderColor: 'rgb(255, 65, 65)',
+                    borderColor: 'rgb(255, 192, 65)',
                     label: {
                       enabled: true,
                       content: 'LCL',
@@ -662,7 +679,7 @@
                     type: 'line',
                     scaleID: 'y',
                     value: 0,
-                    borderColor: 'rgb(255, 192, 65)',
+                    borderColor: 'rgb(255, 65, 65)',
                     label: {
                       enabled: true,
                       content: '',
@@ -696,12 +713,69 @@
         let chart_normal_max_data, chart_normal_warning_data, chart_normal_last_data;
         let chart_normal_data = [], chart_normal_label = [];
 
-        chart.options.plugins.annotation.annotations[0].value = 1;
-        chart.options.plugins.annotation.annotations[1].display = false;
-        chart.options.plugins.annotation.annotations[2].value = 3;
-        chart.options.plugins.annotation.annotations[3].display = false;
+        // chart.options.plugins.annotation.annotations[0].value = 1;
+        // chart.options.plugins.annotation.annotations[1].display = false;
+        // chart.options.plugins.annotation.annotations[2].value = 3;
+        // chart.options.plugins.annotation.annotations[3].display = false;
+
+        function getGuidelineShotChart() {
+          $.ajax({
+            url: "Injection/CHANGE_SHOT_DATA",
+            type: "POST",
+            data: {
+              "inj": "<%= inj %>",
+              "select_data": $("#normal-chart-select option:selected").html() == "Inj.start Pos(mm)"
+                ? "Inj start Pos(mm)"
+                : ($("#normal-chart-select option:selected").html()).replace('.', ''),
+            },
+            success: (data) => {
+              for (i = 0; i < 5; i++) {
+                chart.options.plugins.annotation.annotations[i].display = data.result.chart.settings[i].enabled;
+                chart.options.plugins.annotation.annotations[i].value = data.result.chart.settings[i].value;
+                chart.options.plugins.annotation.annotations[i].label.content = data.result.chart.settings[i].label;
+              }
+              // chart.options.scales.y.max = +$("#shot-max-chart").val();
+              // chart.options.scales.y.min = +$("#shot-min-chart").val();
+
+              chart.update();
+            }
+          });
+        }
+
+        function getGuidelineXbarChart() {
+          $.ajax({
+            url: "Injection/CHANGE_SHOT_DATA",
+            type: "POST",
+            data: {
+              "inj": "<%= inj %>",
+              "select_data": $("#xbar-chart-select option:selected").html() == "Inj.start Pos(mm)"
+                ? "Inj start Pos(mm)"
+                : ($("#xbar-chart-select option:selected").html()).replace('.', ''),
+            },
+            success: (data) => {
+              for (i = 0; i < 5; i++) {
+                chart2.options.plugins.annotation.annotations[i].display = data.result.xbar_chart.settings[i].enabled;
+                chart2.options.plugins.annotation.annotations[i].value = data.result.xbar_chart.settings[i].value;
+                chart2.options.plugins.annotation.annotations[i].label.content = data.result.xbar_chart.settings[i].label;
+              }
+              // chart.options.scales.y.max = +$("#shot-max-chart").val();
+              // chart.options.scales.y.min = +$("#shot-min-chart").val();
+
+              chart2.update();
+            }
+          });
+        }
 
         $(document).ready(() => {
+
+          let current_date = new Date().toLocaleString('fr-CA').slice(0, 11);
+          let current_time = new Date().toLocaleString('th-TH').slice(9, 19);
+          let current_time_back_1hour = new Date(Date.now() - 3600000 * 1).toLocaleString('th-TH').slice(9, 19);
+
+          let chart_xbar_data = [], chart_xbar_label = [];
+
+          $('input[name="fromdate"]').val(current_date + current_time_back_1hour);
+          $('input[name="todate"]').val(current_date + current_time);
           $.ajax({
             url: "https://node-red.ap.ngrok.io/inj/7/normal-chart",
             type: "GET",
@@ -709,30 +783,30 @@
               "col": $("#normal-chart-select option:selected").html()
             },
             success: (data) => {
+              getGuidelineShotChart();
               data.forEach((element) => {
-
                 chart_normal_data.push(element[$("#normal-chart-select option:selected").html()]);
-                chart_normal_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(11, 19));
+                chart_normal_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(9, 19));
               });
 
               $("#c-normal-max-value").html("1");
               $("#c-normal-warning-value").html("3");
               $("#c-normal-last-value").html(chart_normal_data[0]);
 
-              if (data[0]["Cushion(mm)"] != null) {
-                chart.options.plugins.annotation.annotations[0].value = 11;
-                chart.options.plugins.annotation.annotations[1].display = true;
-                chart.options.plugins.annotation.annotations[1].value = 1;
+              // if (data[0]["Cushion(mm)"] != null) {
+              //   chart.options.plugins.annotation.annotations[0].value = 11;
+              //   chart.options.plugins.annotation.annotations[1].display = true;
+              //   chart.options.plugins.annotation.annotations[1].value = 1;
 
-                chart.options.plugins.annotation.annotations[2].value = 10;
-                chart.options.plugins.annotation.annotations[3].display = true;
-                chart.options.plugins.annotation.annotations[3].value = 2;
-              } else {
-                chart.options.plugins.annotation.annotations[0].value = 1;
-                chart.options.plugins.annotation.annotations[1].display = false;
-                chart.options.plugins.annotation.annotations[2].value = 3;
-                chart.options.plugins.annotation.annotations[3].display = false;
-              }
+              //   chart.options.plugins.annotation.annotations[2].value = 10;
+              //   chart.options.plugins.annotation.annotations[3].display = true;
+              //   chart.options.plugins.annotation.annotations[3].value = 2;
+              // } else {
+              //   chart.options.plugins.annotation.annotations[0].value = 1;
+              //   chart.options.plugins.annotation.annotations[1].display = false;
+              //   chart.options.plugins.annotation.annotations[2].value = 3;
+              //   chart.options.plugins.annotation.annotations[3].display = false;
+              // }
 
               chart.data.datasets[0].data = chart_normal_data.reverse();
               chart.data.datasets[0].label = $("#normal-chart-select option:selected").html() + "  (Last 30 data)";
@@ -751,17 +825,19 @@
               "to": $('input[name="todate"]').val()
             },
             success: (data) => {
+              getGuidelineXbarChart();
               let sum = 0, group = $("#xbar-chart-select-group option:selected").html();
               chart_xbar_data = [], chart_xbar_label = [];
               data.forEach((element, i) => {
                 sum += element[$("#xbar-chart-select option:selected").html()];
                 if (i % group == 0) {
                   chart_xbar_data.push((sum / group).toFixed(2));
-                  chart_xbar_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(11, 19));
+                  chart_xbar_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(9, 19));
                   sum = 0;
                 }
+                
               });
-
+              chart_xbar_label.pop();
               chart2.options.plugins.annotation.annotations[0].value = $('input[name="UCL"]').val();
               chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
               chart2.options.plugins.annotation.annotations[2].value = $('input[name="CL"]').val();
@@ -802,38 +878,39 @@
               "col": $("#normal-chart-select option:selected").html()
             },
             success: (data) => {
+              getGuidelineShotChart();
               chart_normal_data = [], chart_normal_label = [];
               data.forEach((element) => {
                 chart_normal_data.push(element[$("#normal-chart-select option:selected").html()]);
-                chart_normal_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(11, 19));
+                chart_normal_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(9, 19));
               });
 
               $("#c-normal-max-value").html("0");
               $("#c-normal-warning-value").html("0");
               $("#c-normal-last-value").html(chart_normal_data[0]);
 
-              if (data[0]["Recovery Time(s)"] != null) {
-                chart.options.plugins.annotation.annotations[0].value = 24;
-                chart.options.plugins.annotation.annotations[1].display = true;
-                chart.options.plugins.annotation.annotations[1].value = 1;
+              // if (data[0]["Recovery Time(s)"] != null) {
+              //   chart.options.plugins.annotation.annotations[0].value = 24;
+              //   chart.options.plugins.annotation.annotations[1].display = true;
+              //   chart.options.plugins.annotation.annotations[1].value = 1;
 
-                chart.options.plugins.annotation.annotations[2].value = 22;
-                chart.options.plugins.annotation.annotations[3].display = true;
-                chart.options.plugins.annotation.annotations[3].value = 3;
-              } else if (data[0]["Cushion(mm)"] != null) {
-                chart.options.plugins.annotation.annotations[0].value = 11;
-                chart.options.plugins.annotation.annotations[1].display = true;
-                chart.options.plugins.annotation.annotations[1].value = 1;
+              //   chart.options.plugins.annotation.annotations[2].value = 22;
+              //   chart.options.plugins.annotation.annotations[3].display = true;
+              //   chart.options.plugins.annotation.annotations[3].value = 3;
+              // } else if (data[0]["Cushion(mm)"] != null) {
+              //   chart.options.plugins.annotation.annotations[0].value = 11;
+              //   chart.options.plugins.annotation.annotations[1].display = true;
+              //   chart.options.plugins.annotation.annotations[1].value = 1;
 
-                chart.options.plugins.annotation.annotations[2].value = 10;
-                chart.options.plugins.annotation.annotations[3].display = true;
-                chart.options.plugins.annotation.annotations[3].value = 2;
-              } else {
-                chart.options.plugins.annotation.annotations[0].value = 1;
-                chart.options.plugins.annotation.annotations[1].display = false;
-                chart.options.plugins.annotation.annotations[2].value = 3;
-                chart.options.plugins.annotation.annotations[3].display = false;
-              }
+              //   chart.options.plugins.annotation.annotations[2].value = 10;
+              //   chart.options.plugins.annotation.annotations[3].display = true;
+              //   chart.options.plugins.annotation.annotations[3].value = 2;
+              // } else {
+              //   chart.options.plugins.annotation.annotations[0].value = 1;
+              //   chart.options.plugins.annotation.annotations[1].display = false;
+              //   chart.options.plugins.annotation.annotations[2].value = 3;
+              //   chart.options.plugins.annotation.annotations[3].display = false;
+              // }
 
               chart.data.datasets[0].data = chart_normal_data.reverse();
               chart.data.datasets[0].label = $("#normal-chart-select option:selected").html() + "  (Last 30 data)";
@@ -847,14 +924,6 @@
           });
         });
 
-        let current_date = new Date().toLocaleString('fr-CA').slice(0, 11);
-        let current_time = new Date().toLocaleString('th-TH').slice(11, 19);
-        let current_time_back_1hour = new Date(Date.now() - 3600000 * 1).toLocaleString('th-TH').slice(11, 19);
-
-        let chart_xbar_data = [], chart_xbar_label = [];
-
-        $('input[name="fromdate"]').val(current_date + current_time_back_1hour);
-        $('input[name="todate"]').val(current_date + current_time);
 
         $("#xbar-chart-select,#xbar-chart-select-group").change((e) => {
           e.preventDefault();
@@ -867,37 +936,36 @@
               "to": $('input[name="todate"]').val()
             },
             success: (data) => {
+              getGuidelineXbarChart();
               let sum = 0, group = $("#xbar-chart-select-group option:selected").html();
               chart_xbar_data = [], chart_xbar_label = [];
-              console.log(data);
+
               data.forEach((element, i) => {
                 sum += element[$("#xbar-chart-select option:selected").html()];
                 if (i % group == 0) {
                   chart_xbar_data.push((sum / group).toFixed(2));
-                  chart_xbar_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(11, 19));
+                  chart_xbar_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(9, 19));
                   sum = 0;
                 }
+                
               });
+              chart_xbar_label.pop();
+              // if (data[0]["Recovery Time(s)"] != null) {
 
-
-
-              if (data[0]["Recovery Time(s)"] != null) {
-
-                chart2.options.plugins.annotation.annotations[0].value = (parseInt($('input[name="UCL"]').val()) + 13).toString();
-                chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
-                chart2.options.plugins.annotation.annotations[3].value = 22;
-                chart2.options.plugins.annotation.annotations[4].value = 3;
-              } else {
-                chart2.options.plugins.annotation.annotations[0].value = $('input[name="UCL"]').val();
-                chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
-                chart2.options.plugins.annotation.annotations[2].value = $('input[name="CL"]').val();
-                chart2.options.plugins.annotation.annotations[3].value = 10;
-                chart2.options.plugins.annotation.annotations[4].value = 2;
-              }
+              //   chart2.options.plugins.annotation.annotations[0].value = (parseInt($('input[name="UCL"]').val()) + 13).toString();
+              //   chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
+              //   chart2.options.plugins.annotation.annotations[3].value = 22;
+              //   chart2.options.plugins.annotation.annotations[4].value = 3;
+              // } else {
+              //   chart2.options.plugins.annotation.annotations[0].value = $('input[name="UCL"]').val();
+              //   chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
+              //   chart2.options.plugins.annotation.annotations[2].value = $('input[name="CL"]').val();
+              //   chart2.options.plugins.annotation.annotations[3].value = 10;
+              //   chart2.options.plugins.annotation.annotations[4].value = 2;
+              // }
               chart2.data.datasets[0].data = chart_xbar_data.reverse();
               chart2.data.datasets[0].label = "x̄ of " + $("#xbar-chart-select option:selected").html();
               chart2.data.labels = chart_xbar_label.reverse();
-
 
 
               chart2.update();
@@ -917,6 +985,7 @@
               "to": $('input[name="todate"]').val()
             },
             success: (data) => {
+              getGuidelineXbarChart();
               let sum = 0, group = $("#xbar-chart-select-group option:selected").html();
               chart_xbar_data = [], chart_xbar_label = [];
 
@@ -924,28 +993,27 @@
                 sum += element[$("#xbar-chart-select option:selected").html()];
                 if (i % group == 0) {
                   chart_xbar_data.push((sum / group).toFixed(2));
-                  chart_xbar_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(11, 19));
+                  chart_xbar_label.push(new Date(element["DateTime"]).toLocaleString('th-TH').slice(9, 19));
                   sum = 0;
                 }
+                
               });
-
-              if (data[0]["Recovery Time(s)"] != null) {
-                chart2.options.plugins.annotation.annotations[0].value = (parseInt($('input[name="UCL"]').val()) + 7).toString();
-                chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
-                chart2.options.plugins.annotation.annotations[3].value = 16;
-                chart2.options.plugins.annotation.annotations[4].value = 3;
-              } else {
-                chart2.options.plugins.annotation.annotations[0].value = $('input[name="UCL"]').val();
-                chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
-                chart2.options.plugins.annotation.annotations[2].value = $('input[name="CL"]').val();
-                chart2.options.plugins.annotation.annotations[3].value = 10;
-                chart2.options.plugins.annotation.annotations[4].value = 2;
-              }
+              chart_xbar_label.pop();
+              // if (data[0]["Recovery Time(s)"] != null) {
+              //   chart2.options.plugins.annotation.annotations[0].value = (parseInt($('input[name="UCL"]').val()) + 7).toString();
+              //   chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
+              //   chart2.options.plugins.annotation.annotations[3].value = 16;
+              //   chart2.options.plugins.annotation.annotations[4].value = 3;
+              // } else {
+              //   chart2.options.plugins.annotation.annotations[0].value = $('input[name="UCL"]').val();
+              //   chart2.options.plugins.annotation.annotations[1].value = $('input[name="LCL"]').val();
+              //   chart2.options.plugins.annotation.annotations[2].value = $('input[name="CL"]').val();
+              //   chart2.options.plugins.annotation.annotations[3].value = 10;
+              //   chart2.options.plugins.annotation.annotations[4].value = 2;
+              // }
               chart2.data.datasets[0].data = chart_xbar_data.reverse();
               chart2.data.datasets[0].label = "x̄ of " + $("#xbar-chart-select option:selected").html();
               chart2.data.labels = chart_xbar_label.reverse();
-
-
 
               chart2.update();
 
@@ -968,7 +1036,6 @@
               'CL': $('input[name="CL"]').val(),
             },
             success: (data) => {
-              console.log(data);
 
               $('input[name="UCL"]').val(data.UCL);
               $('input[name="LCL"]').val(data.LCL);
@@ -986,7 +1053,5 @@
             }
           });
         });
-
-
 
       </script>

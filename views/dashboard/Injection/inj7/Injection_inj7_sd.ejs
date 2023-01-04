@@ -39,46 +39,125 @@
 
           <div class="tw-flex tw-flex-col lg:tw-flex-row tw-mt-1 tw-items-center">
 
+            <div class="lg:tw-mx-4 tw-w-full lg:tw-w-48 max-lg:tw-mt-4">
+              <button type="button"
+                class="tw-bg-transparent tw-p-1.5 tw-border-2 tw-rounded-md tw-border-old-gray/40  tw-w-full"
+                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Datetime picker
+              </button>
+            </div>
+
             <div class="tw-mr-2 lg:tw-my-0 tw-my-2">
               <label class="tw-block tw-text-sm tw-font-medium">Select data :</label>
             </div>
             <div class="lg:tw-mr-4 tw-w-full lg:tw-w-48">
-              <form method="GET" id="q-c-normal-data">
-                <select class="form-select tw-w-full lg:tw-w-52" id="shot-data-select">
-                  <option selected>Cycle Time(s)</option>
-                  <option>Inj Time(s)</option>
-                  <option>Recovery Time(s)</option>
-                  <option>Inj start Pos(mm)</option>
-                  <option>HP Trans Pos(mm)</option>
-                  <option>Hold Comp Pos(mm)</option>
-                  <option>Cushion(mm)</option>
-                  <option>Inj Press(Mpa)</option>
-                  <option>HP Trans Prs(Mpa)</option>
-                  <option>Back Press(Mpa)</option>
-                  <option>Cav Press(OP)(Mpa)</option>
-                  <option>LNH Temp(°C)</option>
-                  <option>NH Temp(°C)</option>
-                  <option>H4 Temp(°C)</option>
-                  <option>H3 Temp(°C)</option>
-                  <option>H2 Temp(°C)</option>
-                  <option>H1 Temp(°C)</option>
-                  <option>Throat Temp(°C)</option>
-                  <option>Hyd Temp(°C)</option>
-                  <option>Mold Temp(Mov)(°C)</option>
-                  <option>Mold Temp(Fix)(°C)</option>
-                  <option>Panel Temp(°C)</option>
-                  <option>HV Temp(OP)(°C)</option>
+              <form method="GET" id="">
+                <select class="form-select tw-w-full lg:tw-w-52" id="sd-data-select">
+                      <option selected>Cycle Time(s)</option>
+                      <option>Inj. Time(s)</option>
+                      <option>Recovery Time(s)</option>
+                      <option>Inj.start Pos(mm)</option>
+                      <option>H.P Trans Pos(mm)</option>
+                      <option>Hold Comp Pos(mm)</option>
+                      <option >Cushion(mm)</option>
+                      <option>Inj. Press(Mpa)</option>
+                      <option>H.P Trans Prs(Mpa)</option>
+                      <option>Back Press(Mpa)</option>
+                      <option>Cav. Press(OP)(Mpa)</option>
+                      <option>LNH Temp(°C)</option>
+                      <option>NH Temp(°C)</option>
+                      <option>H4 Temp(°C)</option>
+                      <option>H3 Temp(°C)</option>
+                      <option>H2 Temp(°C)</option>
+                      <option>H1 Temp(°C)</option>
+                      <option>Throat Temp(°C)</option>
+                      <option>Hyd. Temp(°C)</option>
+                      <option>Mold Temp(Mov)(°C)</option>
+                      <option>Mold Temp(Fix)(°C)</option>
+                      <option>Panel Temp(°C)</option>
+                      <option>HV Temp(OP)(°C)</option>
                 </select>
               </form>
             </div>
 
+            <div class="tw-flex tw-grow tw-justify-end tw-mr-2">
+              <p class="text-center pt-2">Group size :</p>
+            </div>
+
+            <div class="tw-flex tw-justify-end tw-mr-4 max-lg:tw-mr-0 max-lg:tw-mt-2  tw-w-full lg:tw-w-auto">
+              <select class="form-select" id="sd-chart-select-group">
+                <option selected>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+              </select>
+            </div>
+
+            <!-- Modal -->
+            <form method="GET" id="sd-datetime-data">
+              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="staticBackdropLabel">Datetime picker</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                      <div class="card-body">
+
+                        <div class="mb-3">
+                          <label for="disabledTextInput" class="form-label">From : </label>
+
+                          <div class="input-group date" id="from">
+                            <input type="text" name="fromdate" class="form-control"
+                              data-date-format="YYYY-MM-DD HH:mm:ss" required />
+                            <span class="input-group-text" id="basic-addon2">
+                              <i class="bi bi-calendar"></i>
+                            </span>
+
+                          </div>
+
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="disabledTextInput" class="form-label">To : </label>
+
+                          <div class="input-group date" id="to">
+                            <input type="text" name="todate" class="form-control" data-date-format="YYYY-MM-DD HH:mm:ss"
+                              required />
+                            <span class="input-group-text" id="basic-addon2">
+                              <i class="bi bi-calendar"></i>
+                            </span>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button class="btn btn-primary" type="submit" data-bs-dismiss="modal">Update</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+
           </div>
 
-          <div class="tw-flex tw-flex-col lg:tw-flex-row">
-            <div class="tw-w-full lg:tw-w-5/6">
+          <div class="tw-flex tw-flex-col lg:tw-flex-row tw-mt-4">
+            <div class="tw-w-full">
               <canvas class="tw-h-96" id="sd-chart"></canvas>
             </div>
           </div>
+
 
         </div>
 
@@ -119,8 +198,6 @@
             },
             scales: {
               y: {
-                min: 0,
-                max: 0,
                 ticks: {
                   color: '#ADB5BD',
                   beginAtZero: false,
@@ -131,8 +208,7 @@
                   color: '#ADB5BD',
                   beginAtZero: false
                 },
-                min: 0,
-                max: 30,
+
               },
 
             },
@@ -155,6 +231,7 @@
                     scaleID: 'y',
                     value: 0,
                     borderColor: 'rgb(255, 65, 65)',
+                    display : false,
                     label: {
                       enabled: true,
                       content: '',
@@ -168,6 +245,7 @@
                     scaleID: 'y',
                     value: 0,
                     borderColor: 'rgb(255, 192, 65)',
+                    display : false,
                     label: {
                       enabled: true,
                       content: '',
@@ -181,6 +259,7 @@
                     scaleID: 'y',
                     value: 0,
                     borderColor: 'rgb(152, 214, 89)',
+                    display : false,
                     label: {
                       enabled: true,
                       content: '',
@@ -194,6 +273,7 @@
                     scaleID: 'y',
                     value: 0,
                     borderColor: 'rgb(255, 192, 65)',
+                    display : false,
                     label: {
                       enabled: true,
                       content: '',
@@ -207,6 +287,7 @@
                     scaleID: 'y',
                     value: 0,
                     borderColor: 'rgb(255, 65, 65)',
+                    display : false,
                     label: {
                       enabled: true,
                       content: '',
@@ -219,6 +300,115 @@
               }
             }
           }
+        });
+      </script>
+
+      <script>
+
+        function analyze(type, array) {
+          if (type == "max") return Math.max(...array);
+          if (type == "min") return Math.min(...array);
+          if (type == "range") return (Math.max(...array) - Math.min(...array)).toFixed(2);
+          if (type == "avg") return (array.reduce((a, b) => a + b, 0) / array.length).toFixed(2);
+          if (type == "SD") {
+            const n = array.length
+            const mean = array.reduce((a, b) => a + b) / n
+            return (Math.sqrt(array.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n)).toFixed(6);
+          }
+        }
+
+        $(document).ready((e) => {
+
+          let current_date = new Date().toLocaleString('fr-CA').slice(0, 11);
+          let current_time = new Date().toLocaleString('th-TH').slice(9, 19);
+          let current_time_back_1hour = new Date(Date.now() - 3600000 * 1).toLocaleString('th-TH').slice(9, 19);
+
+          let chart_xbar_data = [], chart_xbar_label = [];
+
+          $('input[name="fromdate"]').val(current_date + current_time_back_1hour);
+          $('input[name="todate"]').val(current_date + current_time);
+
+          $.ajax({
+            url: "https://node-red.ap.ngrok.io/inj/7/xbar-chart",
+            type: "GET",
+            data: {
+              "inj": "<%= inj %>",
+              "col": $("#sd-data-select option:selected").html(),
+              "from": $('input[name="fromdate"]').val(),
+              "to": $('input[name="todate"]').val()
+            },
+            success: (data) => {
+              let result = [],process_ = [data[0][[$("#sd-data-select option:selected").html()]]];
+              data.forEach((element,i) => {
+                if (i % $("#sd-chart-select-group option:selected").val() == 0) {
+                  if (process_.length < $("#sd-chart-select-group option:selected").val()) return;
+                  result.push(analyze("SD",process_));
+                  process_ = [];
+                }
+                process_.push(element[$("#sd-data-select option:selected").html()]);
+              });
+              chart.data.labels = result;
+              chart.data.datasets[0].data = result.map(Number);
+              chart.update();
+            }
+          });
+        });
+
+        $("#sd-data-select,#sd-chart-select-group").change((e) => {
+          e.preventDefault();
+
+          $.ajax({
+            url: "https://node-red.ap.ngrok.io/inj/7/xbar-chart",
+            type: "GET",
+            data: {
+              "inj": "<%= inj %>",
+              "col": $("#sd-data-select option:selected").html(),
+              "from": $('input[name="fromdate"]').val(),
+              "to": $('input[name="todate"]').val()
+            },
+            success: (data) => {
+              let result = [],process_ = [data[0][[$("#sd-data-select option:selected").html()]]];
+              data.forEach((element,i) => {
+                if (i % $("#sd-chart-select-group option:selected").val() == 0) {
+                  if (process_.length < $("#sd-chart-select-group option:selected").val()) return;
+                  result.push(analyze("SD",process_));
+                  process_ = [];
+                }
+                process_.push(element[$("#sd-data-select option:selected").html()]);
+              });
+              chart.data.labels = result;
+              chart.data.datasets[0].data = result.map(Number);
+              chart.update();
+            }
+          });
+        });
+
+        $("#sd-datetime-data").submit((e) => {
+          e.preventDefault();
+          $.ajax({
+            url: "https://node-red.ap.ngrok.io/inj/7/xbar-chart",
+            type: "GET",
+            data: {
+              "inj": "<%= inj %>",
+              "col": $("#sd-data-select option:selected").html(),
+              "from": $('input[name="fromdate"]').val(),
+              "to": $('input[name="todate"]').val()
+            },
+            success: (data) => {
+              let result = [],process_ = [data[0][[$("#sd-data-select option:selected").html()]]];
+              data.forEach((element,i) => {
+                if (i % $("#sd-chart-select-group option:selected").val() == 0) {
+                  if (process_.length < $("#sd-chart-select-group option:selected").val()) return;
+                  result.push(analyze("SD",process_));
+                  process_ = [];
+                }
+                process_.push(element[$("#sd-data-select option:selected").html()]);
+              });
+              chart.data.labels = result;
+              chart.data.datasets[0].data = result.map(Number);
+              chart.update();
+            }
+          });
         });
       </script>
 

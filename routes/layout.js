@@ -464,7 +464,7 @@ router.post('/BrazingGIC1/setting-update', encodeUrl, async (req, res, next) => 
               'BrazingGIC1.Temp_fan.Zone.Alarm.value' : parseInt(req.body.alarm_value),
               'BrazingGIC1.Temp_fan.Zone.Alarm.color' : req.body.alarm_color},
     });
-  } 
+  }
 
   if (req.body.tab == "current-fan") {
     await Setting_Schema.updateOne({ _id: "636b9a65c28241d39c9319d1" }, {
@@ -1381,7 +1381,7 @@ router.get('/Injection', async (req, res, next) => {
   //console.log(setting.Injection.net100[`inj_${req.query.inj}`]["Cycle Time(s)"]);
 
   try {
-    typeof setting.Injection.net100[`inj_${req.query.inj}`]["Cycle Time(s)"]
+    typeof setting.Injection.net100[`inj_${req.query.inj}`]["Cycle Time(s)"];
     setting_data = setting.Injection.net100[`inj_${req.query.inj}`]["Cycle Time(s)"];
   } catch {
     setting_data = 0;

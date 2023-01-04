@@ -300,8 +300,8 @@
       <script>
 
         let current_date = new Date().toLocaleString('fr-CA').slice(0,11);
-        let current_time = new Date().toLocaleString('th-TH').slice(11,19);
-        let current_time_back_1hour = new Date(Date.now() - 3600000 * 5).toLocaleString('th-TH').slice(11,19);
+        let current_time = new Date().toLocaleString('th-TH').slice(9,19);
+        let current_time_back_1hour = new Date(Date.now() - 3600000 * 2).toLocaleString('th-TH').slice(9,19);
         
         $('input[name="fromdate"]').val(current_date + current_time_back_1hour);
         $('input[name="todate"]').val(current_date + current_time);
