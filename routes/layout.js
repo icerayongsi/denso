@@ -1485,6 +1485,46 @@ router.post('/Injection/CHANGE_XBAR_DATA', async (req, res, next) => {
     
 });
 
+
+router.post('/Injection/SET_SD_DATA', async (req, res, next) => {
+
+  await Setting_Schema.updateOne({ _id: "636b9a65c28241d39c9319d1" }, {
+    $set : { 
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.fix_x`] : JSON.parse(req.body.fix_x),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.max`] : +req.body.max,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.min`] : +req.body.min,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.settings.0.enabled`] : JSON.parse(req.body.sd_1_enabled),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.settings.1.enabled`] : JSON.parse(req.body.sd_2_enabled),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.settings.2.enabled`] : JSON.parse(req.body.sd_3_enabled),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.settings.3.enabled`] : JSON.parse(req.body.sd_4_enabled),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.settings.4.enabled`] : JSON.parse(req.body.sd_5_enabled),
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.settings.0.value`] : +req.body.sd_1_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.settings.1.value`] : +req.body.sd_2_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.settings.2.value`] : +req.body.sd_3_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.settings.3.value`] : +req.body.sd_4_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.settings.4.value`] : +req.body.sd_5_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.settings.0.label`] : req.body.sd_label_1_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.settings.1.label`] : req.body.sd_label_2_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.settings.2.label`] : req.body.sd_label_3_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.settings.3.label`] : req.body.sd_label_4_data,
+      [`Injection.net100.inj_${req.body.inj}.${req.body.select_data}.sd_chart.settings.4.label`] : req.body.sd_label_5_data,
+    },
+  });
+
+  res.status(200).send({result : "success"});
+});
+
+router.post('/Injection/CHANGE_SD_DATA', async (req, res, next) => {
+  let setting = await Setting_Schema.findOne({}, { "_id" : 0 ,});
+  console.log(req.body.select_data)
+  try {
+    res.status(200).send({result : setting.Injection.net100[`inj_${req.body.inj}`][`${req.body.select_data}`]});
+  } catch {
+    res.status(200).send({result : "DATA NOT FOUND"});
+  }
+    
+});
+
 // END BrazingGIC2
 
 // IF-BRS-2 

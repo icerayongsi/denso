@@ -502,6 +502,238 @@
 
         </div>
 
+        <div class="card card-body tw-mt-5"> <!-- SD chart -->
+
+          <h4 class="tw-text-lg max-lg:tw-text-center tw-pb-4 tw-font-bold">Standard Deviation Chart</h4>
+          <hr class="tw-h-px tw-bg-gray-200 tw-border-0 dark:tw-bg-gray-200 tw-mb-4">
+
+          <div class="tw-flex tw-flex-col lg:tw-flex-row tw-mt-1 tw-items-center">
+
+            <div class="lg:tw-mr-4 tw-w-full lg:tw-w-48">
+              <form method="GET" id="q-c-normal-data">
+                <select class="form-select tw-w-full lg:tw-w-52" id="sd-data-select">
+                  <option selected>Cycle Time(s)</option>
+                  <option>Inj Time(s)</option>
+                  <option>Recovery Time(s)</option>
+                  <option>Inj start Pos(mm)</option>
+                  <option>HP Trans Pos(mm)</option>
+                  <option>Hold Comp Pos(mm)</option>
+                  <option>Cushion(mm)</option>
+                  <option>Inj Press(Mpa)</option>
+                  <option>HP Trans Prs(Mpa)</option>
+                  <option>Back Press(Mpa)</option>
+                  <option>Cav Press(OP)(Mpa)</option>
+                  <option>LNH Temp(°C)</option>
+                  <option>NH Temp(°C)</option>
+                  <option>H4 Temp(°C)</option>
+                  <option>H3 Temp(°C)</option>
+                  <option>H2 Temp(°C)</option>
+                  <option>H1 Temp(°C)</option>
+                  <option>Throat Temp(°C)</option>
+                  <option>Hyd Temp(°C)</option>
+                  <option>Mold Temp(Mov)(°C)</option>
+                  <option>Mold Temp(Fix)(°C)</option>
+                  <option>Panel Temp(°C)</option>
+                  <option>HV Temp(OP)(°C)</option>
+                </select>
+              </form>
+            </div>
+
+
+            <div class="tw-mx-4 lg:tw-my-0 tw-my-2">
+              <label class="tw-block tw-text-sm tw-font-medium">MAX</label>
+            </div>
+            <div class="tw-w-full lg:tw-w-24">
+              <input id="sd-max-chart" type="number"
+                class="tw-w-full lg:tw-w-24 tw-px-4 tw-py-2 tw-bg-transparent tw-border tw-border-old-gray tw-rounded-md focus:tw-ring-old-gray focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-background focus:tw-ring-offset-2">
+            </div>
+
+            <div class="tw-mx-4 lg:tw-my-0 tw-my-2">
+              <label class="tw-block tw-text-sm tw-font-medium ">MIN</label>
+            </div>
+            <div class="tw-w-full lg:tw-w-24">
+              <input id="sd-min-chart" type="number"
+                class="tw-w-full lg:tw-w-24 tw-px-4 tw-py-2 tw-bg-transparent tw-border tw-border-old-gray tw-rounded-md focus:tw-ring-old-gray focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-background focus:tw-ring-offset-2">
+            </div>
+
+            <div class="tw-ml-4 lg:tw-my-0 tw-my-2 tw-flex-row">
+              <input id="sd-enabled-maxmin" type="checkbox"
+                class="tw-bg-black tw-border-gray-300 focus:tw-ring-3 focus:tw-ring-blue-300 tw-h-4 tw-w-4 tw-rounded tw-mt-2">
+              <span class="tw-ml-3 tw-text-sm tw-font-medium ">Enabled Max/Min</span>
+            </div>
+
+          </div> <!--  Input -->
+
+          <div class="tw-flex tw-flex-col">
+            <div class="tw-overflow-x-auto sm:tw-mx-0.5 lg:tw-mx-0.5">
+              <div class="tw-py-2 tw-inline-block tw-min-w-full">
+                <div class="tw-overflow-hidden">
+                  <table class="tw-min-w-full tw-table-fixed">
+                    <thead class="tw-bg-transparent tw-border-b tw-border-gray-500">
+                      <tr class="">
+                        <th scope="col" class="tw-w-1/12">
+                        </th>
+                        <th scope="col" class="tw-w-1/12 tw-text-sm tw-font-bold tw-px-6 tw-py-4 tw-text-center">
+                          Enabled
+                        </th>
+                        <th scope="col" class="tw-w-1/6 tw-text-sm tw-font-bold tw-px-6 tw-py-4 tw-text-left">
+                          Value
+                        </th>
+                        <th scope="col" class="tw-w-3/6 tw-text-sm tw-font-bold tw-px-6 tw-py-4 tw-text-left">
+                          Label
+                        </th>
+                        <th scope="col" class="tw-w-1/12 tw-text-sm tw-font-bold tw-px-6 tw-py-4 tw-text-left">
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr class="tw-bg-transparent tw-border-b tw-border-gray-500/20">
+                        <td class="tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-bg-red-500">
+                        </td>
+                        <td
+                          class="tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-flex tw-justify-center">
+                          <input id="sd-1-enabled" type="checkbox"
+                            class="tw-bg-black tw-border-gray-300 focus:tw-ring-3 focus:tw-ring-blue-300 tw-h-4 tw-w-4 tw-rounded tw-mt-2">
+                        </td>
+                        <td class="tw-text-sm tw-font-light tw-px-6 tw-py-4 tw-whitespace-nowrap">
+                          <input id="sd-1-data" type="number"
+                            class="tw-block tw-w-28 lg:tw-w-full tw-px-4 tw-py-2 tw-bg-transparent tw-border tw-border-old-gray tw-rounded-md focus:tw-ring-old-gray focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-background focus:tw-ring-offset-2">
+                        </td>
+                        <td class="tw-text-sm tw-font-light tw-px-6 tw-py-4 tw-whitespace-nowrap">
+                          <input id="sd-label-1-data" type="text"
+                            class="tw-block tw-w-64 lg:tw-w-full tw-px-4 tw-py-2 tw-bg-transparent tw-border tw-border-old-gray tw-rounded-md focus:tw-ring-old-gray focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-background focus:tw-ring-offset-2">
+                        </td>
+                        <td class="tw-text-sm tw-font-light tw-px-6 tw-py-4 tw-whitespace-nowrap">
+                          <button type="button" class="tw-bg-gray-500 tw-p-4 tw-rounded tw-py-1.5 max-md:tw-w-full">
+                            <i class="bi bi-gear tw-text-white tw-text-lg"></i>
+                          </button>
+                        </td>
+                      </tr>
+
+                      <tr class="tw-bg-transparent tw-border-b tw-border-gray-500/20">
+                        <td class="tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-bg-yellow-500">
+                        </td>
+                        <td
+                          class="tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-flex tw-justify-center">
+                          <input id="sd-2-enabled" type="checkbox"
+                            class="tw-bg-black tw-border-gray-300 focus:tw-ring-3 focus:tw-ring-blue-300 tw-h-4 tw-w-4 tw-rounded tw-mt-2">
+                        </td>
+                        <td class="tw-text-sm tw-font-light tw-px-6 tw-py-4 tw-whitespace-nowrap">
+                          <input id="sd-2-data" type="number"
+                            class="tw-block tw-w-28 lg:tw-w-full tw-px-4 tw-py-2 tw-bg-transparent tw-border tw-border-old-gray tw-rounded-md focus:tw-ring-old-gray focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-background focus:tw-ring-offset-2">
+                        </td>
+                        <td class="tw-text-sm tw-font-light tw-px-6 tw-py-4 tw-whitespace-nowrap">
+                          <input id="sd-label-2-data" type="text"
+                            class="tw-block tw-w-64 lg:tw-w-full tw-px-4 tw-py-2 tw-bg-transparent tw-border tw-border-old-gray tw-rounded-md focus:tw-ring-old-gray focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-background focus:tw-ring-offset-2">
+                        </td>
+                        <td class="tw-text-sm tw-font-light tw-px-6 tw-py-4 tw-whitespace-nowrap">
+                          <button type="button" class="tw-bg-gray-500 tw-p-4 tw-rounded tw-py-1.5 max-md:tw-w-full">
+                            <i class="bi bi-gear tw-text-white tw-text-lg"></i>
+                          </button>
+                        </td>
+                      </tr>
+
+                      <tr class="tw-bg-transparent tw-border-b tw-border-gray-500/20">
+                        <td class="tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-bg-green-500">
+                        </td>
+                        <td
+                          class="tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-flex tw-justify-center">
+                          <input id="sd-3-enabled" type="checkbox"
+                            class="tw-bg-black tw-border-gray-300 focus:tw-ring-3 focus:tw-ring-blue-300 tw-h-4 tw-w-4 tw-rounded tw-mt-2">
+                        </td>
+                        <td class="tw-text-sm tw-font-light tw-px-6 tw-py-4 tw-whitespace-nowrap">
+                          <input id="sd-3-data" type="number"
+                            class="tw-block tw-w-28 lg:tw-w-full tw-px-4 tw-py-2 tw-bg-transparent tw-border tw-border-old-gray tw-rounded-md focus:tw-ring-old-gray focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-background focus:tw-ring-offset-2">
+                        </td>
+                        <td class="tw-text-sm tw-font-light tw-px-6 tw-py-4 tw-whitespace-nowrap">
+                          <input id="sd-label-3-data" type="text"
+                            class="tw-block tw-w-64 lg:tw-w-full tw-px-4 tw-py-2 tw-bg-transparent tw-border tw-border-old-gray tw-rounded-md focus:tw-ring-old-gray focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-background focus:tw-ring-offset-2">
+                        </td>
+                        <td class="tw-text-sm tw-font-light tw-px-6 tw-py-4 tw-whitespace-nowrap">
+                          <button type="button" class="tw-bg-gray-500 tw-p-4 tw-rounded tw-py-1.5 max-md:tw-w-full">
+                            <i class="bi bi-gear tw-text-white tw-text-lg"></i>
+                          </button>
+                        </td>
+                      </tr>
+
+                      <tr class="tw-bg-transparent tw-border-b tw-border-gray-500/20">
+                        <td class="tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-bg-yellow-500">
+                        </td>
+                        <td
+                          class="tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-flex tw-justify-center">
+                          <input id="sd-4-enabled" type="checkbox"
+                            class="tw-bg-black tw-border-gray-300 focus:tw-ring-3 focus:tw-ring-blue-300 tw-h-4 tw-w-4 tw-rounded tw-mt-2">
+                        </td>
+                        <td class="tw-text-sm tw-font-light tw-px-6 tw-py-4 tw-whitespace-nowrap">
+                          <input id="sd-4-data" type="number"
+                            class="tw-block tw-w-28 lg:tw-w-full tw-px-4 tw-py-2 tw-bg-transparent tw-border tw-border-old-gray tw-rounded-md focus:tw-ring-old-gray focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-background focus:tw-ring-offset-2">
+                        </td>
+                        <td class="tw-text-sm tw-font-light tw-px-6 tw-py-4 tw-whitespace-nowrap">
+                          <input id="sd-label-4-data" type="text"
+                            class="tw-block tw-w-64 lg:tw-w-full tw-px-4 tw-py-2 tw-bg-transparent tw-border tw-border-old-gray tw-rounded-md focus:tw-ring-old-gray focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-background focus:tw-ring-offset-2">
+                        </td>
+                        <td class="tw-text-sm tw-font-light tw-px-6 tw-py-4 tw-whitespace-nowrap">
+                          <button type="button" class="tw-bg-gray-500 tw-p-4 tw-rounded tw-py-1.5 max-md:tw-w-full">
+                            <i class="bi bi-gear tw-text-white tw-text-lg"></i>
+                          </button>
+                        </td>
+                      </tr>
+
+                      <tr class="tw-bg-transparent tw-border-b tw-border-gray-500">
+                        <td class="tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-bg-red-500">
+                        </td>
+                        <td
+                          class="tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-flex tw-justify-center">
+                          <input id="sd-5-enabled" type="checkbox"
+                            class="tw-bg-black tw-border-gray-300 focus:tw-ring-3 focus:tw-ring-blue-300 tw-h-4 tw-w-4 tw-rounded tw-mt-2">
+                        </td>
+                        <td class="tw-text-sm tw-font-light tw-px-6 tw-py-4 tw-whitespace-nowrap">
+                          <input id="sd-5-data" type="number"
+                            class="tw-block tw-w-28 lg:tw-w-full tw-px-4 tw-py-2 tw-bg-transparent tw-border tw-border-old-gray tw-rounded-md focus:tw-ring-old-gray focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-background focus:tw-ring-offset-2">
+                        </td>
+                        <td class="tw-text-sm tw-font-light tw-px-6 tw-py-4 tw-whitespace-nowrap">
+                          <input id="sd-label-5-data" type="text"
+                            class="tw-block tw-w-64 lg:tw-w-full tw-px-4 tw-py-2 tw-bg-transparent tw-border tw-border-old-gray tw-rounded-md focus:tw-ring-old-gray focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-background focus:tw-ring-offset-2">
+                        </td>
+                        <td class="tw-text-sm tw-font-light tw-px-6 tw-py-4 tw-whitespace-nowrap">
+                          <button type="button" class="tw-bg-gray-500 tw-p-4 tw-rounded tw-py-1.5 max-md:tw-w-full">
+                            <i class="bi bi-gear tw-text-white tw-text-lg"></i>
+                          </button>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tw-flex tw-flex-col lg:tw-flex-row">
+
+            <div class="tw-w-full lg:tw-w-5/6">
+              <canvas class="tw-h-96" id="sd-setting-chart"></canvas>
+            </div>
+
+            <div class="tw-w-full lg:tw-w-1/6 tw-px-4 tw-mt-4">
+              <button type="button" id="sd-preview-chart"
+                class="tw-bg-gray-500 tw-p-4 tw-rounded tw-py-1.5 tw-w-full tw-text-base tw-mb-2">
+                Preview
+              </button>
+              <button type="button" class="tw-bg-gray-500 tw-p-4 tw-rounded tw-py-1.5 tw-w-full tw-text-base tw-mb-2">
+                Reset
+              </button>
+              <button id="sd-data-confirm" type="button"
+                class="tw-bg-blue-500 tw-text-white tw-p-4 tw-rounded tw-py-1.5 tw-w-full tw-text-base">
+                Confirm
+              </button>
+            </div>
+
+          </div> <!--  Chart -->
+
+        </div>
+
         </div>
 
 
@@ -643,393 +875,655 @@
           }
         });
 
-        </script>
-        <% if(setting_data != "0") { %> 
+      </script>
+      <% if(setting_data !="0" ) { %>
         <script>
 
-        $(document).ready(() => {
-          console.log('<%= setting_data.chart.max %>');
-          $("#shot-max-chart").val(+"<%= setting_data.chart.max %>");
-          $("#shot-min-chart").val(+"<%= setting_data.chart.min %>");
-          $("#shot-enabled-maxmin").prop("checked", JSON.parse("<%= setting_data.chart.fix_x %>"));
+          $(document).ready(() => {
+            console.log('<%= setting_data.chart.max %>');
+            $("#shot-max-chart").val(+"<%= setting_data.chart.max %>");
+            $("#shot-min-chart").val(+"<%= setting_data.chart.min %>");
+            $("#shot-enabled-maxmin").prop("checked", JSON.parse("<%= setting_data.chart.fix_x %>"));
 
-          $("#shot-1-enabled").prop("checked", JSON.parse("<%= setting_data.chart.settings[0].enabled %>"));
-          $("#shot-2-enabled").prop("checked", JSON.parse("<%= setting_data.chart.settings[1].enabled %>"));
-          $("#shot-3-enabled").prop("checked", JSON.parse("<%= setting_data.chart.settings[2].enabled %>"));
-          $("#shot-4-enabled").prop("checked", JSON.parse("<%= setting_data.chart.settings[3].enabled %>"));
-          $("#shot-5-enabled").prop("checked", JSON.parse("<%= setting_data.chart.settings[4].enabled %>"));
+            $("#shot-1-enabled").prop("checked", JSON.parse("<%= setting_data.chart.settings[0].enabled %>"));
+            $("#shot-2-enabled").prop("checked", JSON.parse("<%= setting_data.chart.settings[1].enabled %>"));
+            $("#shot-3-enabled").prop("checked", JSON.parse("<%= setting_data.chart.settings[2].enabled %>"));
+            $("#shot-4-enabled").prop("checked", JSON.parse("<%= setting_data.chart.settings[3].enabled %>"));
+            $("#shot-5-enabled").prop("checked", JSON.parse("<%= setting_data.chart.settings[4].enabled %>"));
 
-          $(`#shot-1-data`).val(+"<%= setting_data.chart.settings[0].value %>");
-          $(`#shot-2-data`).val(+"<%= setting_data.chart.settings[1].value %>");
-          $(`#shot-3-data`).val(+"<%= setting_data.chart.settings[2].value %>");
-          $(`#shot-4-data`).val(+"<%= setting_data.chart.settings[3].value %>");
-          $(`#shot-5-data`).val(+"<%= setting_data.chart.settings[4].value %>");
+            $(`#shot-1-data`).val(+"<%= setting_data.chart.settings[0].value %>");
+            $(`#shot-2-data`).val(+"<%= setting_data.chart.settings[1].value %>");
+            $(`#shot-3-data`).val(+"<%= setting_data.chart.settings[2].value %>");
+            $(`#shot-4-data`).val(+"<%= setting_data.chart.settings[3].value %>");
+            $(`#shot-5-data`).val(+"<%= setting_data.chart.settings[4].value %>");
 
-          $(`#shot-label-1-data`).val("<%= setting_data.chart.settings[0].label %>");
-          $(`#shot-label-2-data`).val("<%= setting_data.chart.settings[1].label %>");
-          $(`#shot-label-3-data`).val("<%= setting_data.chart.settings[2].label %>");
-          $(`#shot-label-4-data`).val("<%= setting_data.chart.settings[3].label %>");
-          $(`#shot-label-5-data`).val("<%= setting_data.chart.settings[4].label %>");
+            $(`#shot-label-1-data`).val("<%= setting_data.chart.settings[0].label %>");
+            $(`#shot-label-2-data`).val("<%= setting_data.chart.settings[1].label %>");
+            $(`#shot-label-3-data`).val("<%= setting_data.chart.settings[2].label %>");
+            $(`#shot-label-4-data`).val("<%= setting_data.chart.settings[3].label %>");
+            $(`#shot-label-5-data`).val("<%= setting_data.chart.settings[4].label %>");
 
-          $("#shot-preview-chart").click();
+            $("#shot-preview-chart").click();
 
-        });
-
-      </script>
-        <% } %> 
-      <script>
-
-        $("#shot-data-confirm").click((e) => {
-          e.preventDefault();
-
-          $.ajax({
-            url: "Injection/SET_SHOT_DATA",
-            type: "POST",
-            data: {
-              "inj": "<%= inj %>",
-              "page": "<%= page %>",
-              "select_data": $("#shot-data-select option:selected").html(),
-              "fix_x": $("#shot-enabled-maxmin").is(":checked"),
-              "max": $("#shot-max-chart").val(),
-              "min": $("#shot-min-chart").val(),
-              "shot_1_enabled": $("#shot-1-enabled").is(":checked"),
-              "shot_2_enabled": $("#shot-2-enabled").is(":checked"),
-              "shot_3_enabled": $("#shot-3-enabled").is(":checked"),
-              "shot_4_enabled": $("#shot-4-enabled").is(":checked"),
-              "shot_5_enabled": $("#shot-5-enabled").is(":checked"),
-              "shot_1_data": $("#shot-1-data").val(),
-              "shot_2_data": $("#shot-2-data").val(),
-              "shot_3_data": $("#shot-3-data").val(),
-              "shot_4_data": $("#shot-4-data").val(),
-              "shot_5_data": $("#shot-5-data").val(),
-              "shot_label_1_data": $("#shot-label-1-data").val(),
-              "shot_label_2_data": $("#shot-label-2-data").val(),
-              "shot_label_3_data": $("#shot-label-3-data").val(),
-              "shot_label_4_data": $("#shot-label-4-data").val(),
-              "shot_label_5_data": $("#shot-label-5-data").val(),
-            },
-            success: (data) => {
-              $("#shot-preview-chart").click();
-              console.log(data);
-            }
           });
-        });
 
-        $("#shot-preview-chart").click(() => {
+        </script>
+        <% } %>
+          <script>
 
-          for (i = 0; i < 5; i++) {
-            $(`#shot-${i + 1}-enabled`).is(":checked") ? chart.options.plugins.annotation.annotations[i].display = true : chart.options.plugins.annotation.annotations[i].display = false;
-            chart.options.plugins.annotation.annotations[i].value = $(`#shot-${i + 1}-data`).val();
-            chart.options.plugins.annotation.annotations[i].label.content = $(`#shot-label-${i + 1}-data`).val();
-          }
-          chart.options.scales.y.max = +$("#shot-max-chart").val();
-          chart.options.scales.y.min = +$("#shot-min-chart").val();
+            $("#shot-data-confirm").click((e) => {
+              e.preventDefault();
 
-          chart.update();
-
-        });
-
-        $("#shot-data-select").change((e) => {
-          e.preventDefault();
-
-          $.ajax({
-            url: "Injection/CHANGE_SHOT_DATA",
-            type: "POST",
-            data: {
-              "inj": "<%= inj %>",
-              "page": "<%= page %>",
-              "select_data": $("#shot-data-select option:selected").html(),
-            },
-            success: (data) => {
-              //console.log(data.result.chart.settings);
-              $("#shot-max-chart").val(data.result.chart.max);
-              $("#shot-min-chart").val(data.result.chart.min);
-              $("#shot-enabled-maxmin").prop("checked", data.result.chart.fix_x);
-
-              $("#shot-1-enabled").prop("checked", data.result.chart.settings[0].enabled);
-              $("#shot-2-enabled").prop("checked", data.result.chart.settings[1].enabled);
-              $("#shot-3-enabled").prop("checked", data.result.chart.settings[2].enabled);
-              $("#shot-4-enabled").prop("checked", data.result.chart.settings[3].enabled);
-              $("#shot-5-enabled").prop("checked", data.result.chart.settings[4].enabled);
-
-              $(`#shot-1-data`).val(data.result.chart.settings[0].value);
-              $(`#shot-2-data`).val(data.result.chart.settings[1].value);
-              $(`#shot-3-data`).val(data.result.chart.settings[2].value);
-              $(`#shot-4-data`).val(data.result.chart.settings[3].value);
-              $(`#shot-5-data`).val(data.result.chart.settings[4].value);
-
-              $(`#shot-label-1-data`).val(data.result.chart.settings[0].label);
-              $(`#shot-label-2-data`).val(data.result.chart.settings[0].label);
-              $(`#shot-label-3-data`).val(data.result.chart.settings[0].label);
-              $(`#shot-label-4-data`).val(data.result.chart.settings[0].label);
-              $(`#shot-label-5-data`).val(data.result.chart.settings[0].label);
-
-              $("#shot-preview-chart").click();
-              console.log(data);
-            }
-          });
-        });
-      </script>
-
-      <script>
-
-
-        const xbar_chart = new Chart($('#xbar-setting-chart'), {
-          type: 'line',
-          data: {
-            labels: [],
-            datasets: [{
-              label: '',
-              data: [],
-              lineTension: 0,
-              backgroundColor: 'transparent',
-              borderColor: '#177D94',
-              borderWidth: 1,
-              pointBackgroundColor: '#177D94'
-            }
-            ]
-          },
-          options: {
-            elements: {
-              point: {
-                borderWidth: 0,
-                radius: 1,
-                backgroundColor: 'rgba(0,0,0,0)'
-              }
-            },
-            legend: {
-              display: true,
-              labels: {
-                color: '#adb5bd',
-              }
-            },
-            scales: {
-              y: {
-                min: 0,
-                max: 0,
-                ticks: {
-                  color: '#ADB5BD',
-                  beginAtZero: false,
-                }
-              },
-              x: {
-                ticks: {
-                  color: '#ADB5BD',
-                  beginAtZero: false
+              $.ajax({
+                url: "Injection/SET_SHOT_DATA",
+                type: "POST",
+                data: {
+                  "inj": "<%= inj %>",
+                  "page": "<%= page %>",
+                  "select_data": $("#shot-data-select option:selected").html(),
+                  "fix_x": $("#shot-enabled-maxmin").is(":checked"),
+                  "max": $("#shot-max-chart").val(),
+                  "min": $("#shot-min-chart").val(),
+                  "shot_1_enabled": $("#shot-1-enabled").is(":checked"),
+                  "shot_2_enabled": $("#shot-2-enabled").is(":checked"),
+                  "shot_3_enabled": $("#shot-3-enabled").is(":checked"),
+                  "shot_4_enabled": $("#shot-4-enabled").is(":checked"),
+                  "shot_5_enabled": $("#shot-5-enabled").is(":checked"),
+                  "shot_1_data": $("#shot-1-data").val(),
+                  "shot_2_data": $("#shot-2-data").val(),
+                  "shot_3_data": $("#shot-3-data").val(),
+                  "shot_4_data": $("#shot-4-data").val(),
+                  "shot_5_data": $("#shot-5-data").val(),
+                  "shot_label_1_data": $("#shot-label-1-data").val(),
+                  "shot_label_2_data": $("#shot-label-2-data").val(),
+                  "shot_label_3_data": $("#shot-label-3-data").val(),
+                  "shot_label_4_data": $("#shot-label-4-data").val(),
+                  "shot_label_5_data": $("#shot-label-5-data").val(),
                 },
-                min: 0,
-                max: 30,
-              },
-
-            },
-
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                display: false,
-                labels: {
-                  usePointStyle: true,
-                  pointStyle: 'line',
-                  color: '#adb5bd'
+                success: (data) => {
+                  $("#shot-preview-chart").click();
+                  console.log(data);
                 }
+              });
+            });
+
+            $("#shot-preview-chart").click(() => {
+
+              for (i = 0; i < 5; i++) {
+                $(`#shot-${i + 1}-enabled`).is(":checked") ? chart.options.plugins.annotation.annotations[i].display = true : chart.options.plugins.annotation.annotations[i].display = false;
+                chart.options.plugins.annotation.annotations[i].value = $(`#shot-${i + 1}-data`).val();
+                chart.options.plugins.annotation.annotations[i].label.content = $(`#shot-label-${i + 1}-data`).val();
+              }
+              chart.options.scales.y.max = +$("#shot-max-chart").val();
+              chart.options.scales.y.min = +$("#shot-min-chart").val();
+
+              chart.update();
+
+            });
+
+            $("#shot-data-select").change((e) => {
+              e.preventDefault();
+
+              $.ajax({
+                url: "Injection/CHANGE_SHOT_DATA",
+                type: "POST",
+                data: {
+                  "inj": "<%= inj %>",
+                  "page": "<%= page %>",
+                  "select_data": $("#shot-data-select option:selected").html(),
+                },
+                success: (data) => {
+                  //console.log(data.result.chart.settings);
+                  $("#shot-max-chart").val(data.result.chart.max);
+                  $("#shot-min-chart").val(data.result.chart.min);
+                  $("#shot-enabled-maxmin").prop("checked", data.result.chart.fix_x);
+
+                  $("#shot-1-enabled").prop("checked", data.result.chart.settings[0].enabled);
+                  $("#shot-2-enabled").prop("checked", data.result.chart.settings[1].enabled);
+                  $("#shot-3-enabled").prop("checked", data.result.chart.settings[2].enabled);
+                  $("#shot-4-enabled").prop("checked", data.result.chart.settings[3].enabled);
+                  $("#shot-5-enabled").prop("checked", data.result.chart.settings[4].enabled);
+
+                  $(`#shot-1-data`).val(data.result.chart.settings[0].value);
+                  $(`#shot-2-data`).val(data.result.chart.settings[1].value);
+                  $(`#shot-3-data`).val(data.result.chart.settings[2].value);
+                  $(`#shot-4-data`).val(data.result.chart.settings[3].value);
+                  $(`#shot-5-data`).val(data.result.chart.settings[4].value);
+
+                  $(`#shot-label-1-data`).val(data.result.chart.settings[0].label);
+                  $(`#shot-label-2-data`).val(data.result.chart.settings[0].label);
+                  $(`#shot-label-3-data`).val(data.result.chart.settings[0].label);
+                  $(`#shot-label-4-data`).val(data.result.chart.settings[0].label);
+                  $(`#shot-label-5-data`).val(data.result.chart.settings[0].label);
+
+                  $("#shot-preview-chart").click();
+                  console.log(data);
+                }
+              });
+            });
+          </script>
+
+          <script>
+
+            const xbar_chart = new Chart($('#xbar-setting-chart'), {
+              type: 'line',
+              data: {
+                labels: [],
+                datasets: [{
+                  label: '',
+                  data: [],
+                  lineTension: 0,
+                  backgroundColor: 'transparent',
+                  borderColor: '#177D94',
+                  borderWidth: 1,
+                  pointBackgroundColor: '#177D94'
+                }
+                ]
               },
-              annotation: {
-                annotations: [
-                  {
-                    type: 'line',
-                    scaleID: 'y',
-                    value: 0,
-                    borderColor: 'rgb(255, 65, 65)',
-                    label: {
-                      enabled: true,
-                      content: '',
-                      borderWidth: 1,
-                      borderColor: 'transparent',
-                      position: 'end',
+              options: {
+                elements: {
+                  point: {
+                    borderWidth: 0,
+                    radius: 1,
+                    backgroundColor: 'rgba(0,0,0,0)'
+                  }
+                },
+                legend: {
+                  display: true,
+                  labels: {
+                    color: '#adb5bd',
+                  }
+                },
+                scales: {
+                  y: {
+                    min: 0,
+                    max: 0,
+                    ticks: {
+                      color: '#ADB5BD',
+                      beginAtZero: false,
                     }
                   },
-                  {
-                    type: 'line',
-                    scaleID: 'y',
-                    value: 0,
-                    borderColor: 'rgb(255, 192, 65)',
-                    label: {
-                      enabled: true,
-                      content: '',
-                      borderWidth: 1,
-                      borderColor: 'transparent',
-                      position: 'end',
+                  x: {
+                    ticks: {
+                      color: '#ADB5BD',
+                      beginAtZero: false
+                    },
+                    min: 0,
+                    max: 30,
+                  },
+
+                },
+
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: false,
+                    labels: {
+                      usePointStyle: true,
+                      pointStyle: 'line',
+                      color: '#adb5bd'
                     }
                   },
-                  {
-                    type: 'line',
-                    scaleID: 'y',
-                    value: 0,
-                    borderColor: 'rgb(152, 214, 89)',
-                    label: {
-                      enabled: true,
-                      content: '',
-                      borderWidth: 1,
-                      borderColor: 'transparent',
-                      position: 'end',
+                  annotation: {
+                    annotations: [
+                      {
+                        type: 'line',
+                        scaleID: 'y',
+                        value: 0,
+                        borderColor: 'rgb(255, 65, 65)',
+                        label: {
+                          enabled: true,
+                          content: '',
+                          borderWidth: 1,
+                          borderColor: 'transparent',
+                          position: 'end',
+                        }
+                      },
+                      {
+                        type: 'line',
+                        scaleID: 'y',
+                        value: 0,
+                        borderColor: 'rgb(255, 192, 65)',
+                        label: {
+                          enabled: true,
+                          content: '',
+                          borderWidth: 1,
+                          borderColor: 'transparent',
+                          position: 'end',
+                        }
+                      },
+                      {
+                        type: 'line',
+                        scaleID: 'y',
+                        value: 0,
+                        borderColor: 'rgb(152, 214, 89)',
+                        label: {
+                          enabled: true,
+                          content: '',
+                          borderWidth: 1,
+                          borderColor: 'transparent',
+                          position: 'end',
+                        }
+                      },
+                      {
+                        type: 'line',
+                        scaleID: 'y',
+                        value: 0,
+                        borderColor: 'rgb(255, 192, 65)',
+                        label: {
+                          enabled: true,
+                          content: '',
+                          borderWidth: 1,
+                          borderColor: 'transparent',
+                          position: 'end',
+                        }
+                      },
+                      {
+                        type: 'line',
+                        scaleID: 'y',
+                        value: 0,
+                        borderColor: 'rgb(255, 65, 65)',
+                        label: {
+                          enabled: true,
+                          content: '',
+                          borderWidth: 1,
+                          borderColor: 'transparent',
+                          position: 'end',
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            });
+
+          </script>
+          <% if(setting_data !="0" ) { %>
+            <script>
+
+              $(document).ready(() => {
+                $("#xbar-max-chart").val(+"<%= setting_data.xbar_chart.max %>");
+                $("#xbar-min-chart").val(+"<%= setting_data.xbar_chart.min %>");
+                $("#xbar-enabled-maxmin").prop("checked", JSON.parse("<%= setting_data.xbar_chart.fix_x %>"));
+
+                $("#xbar-1-enabled").prop("checked", JSON.parse("<%= setting_data.xbar_chart.settings[0].enabled %>"));
+                $("#xbar-2-enabled").prop("checked", JSON.parse("<%= setting_data.xbar_chart.settings[1].enabled %>"));
+                $("#xbar-3-enabled").prop("checked", JSON.parse("<%= setting_data.xbar_chart.settings[2].enabled %>"));
+                $("#xbar-4-enabled").prop("checked", JSON.parse("<%= setting_data.xbar_chart.settings[3].enabled %>"));
+                $("#xbar-5-enabled").prop("checked", JSON.parse("<%= setting_data.xbar_chart.settings[4].enabled %>"));
+
+                $(`#xbar-1-data`).val(+"<%= setting_data.xbar_chart.settings[0].value %>");
+                $(`#xbar-2-data`).val(+"<%= setting_data.xbar_chart.settings[1].value %>");
+                $(`#xbar-3-data`).val(+"<%= setting_data.xbar_chart.settings[2].value %>");
+                $(`#xbar-4-data`).val(+"<%= setting_data.xbar_chart.settings[3].value %>");
+                $(`#xbar-5-data`).val(+"<%= setting_data.xbar_chart.settings[4].value %>");
+
+                $(`#xbar-label-1-data`).val("<%= setting_data.xbar_chart.settings[0].label %>");
+                $(`#xbar-label-2-data`).val("<%= setting_data.xbar_chart.settings[1].label %>");
+                $(`#xbar-label-3-data`).val("<%= setting_data.xbar_chart.settings[2].label %>");
+                $(`#xbar-label-4-data`).val("<%= setting_data.xbar_chart.settings[3].label %>");
+                $(`#xbar-label-5-data`).val("<%= setting_data.xbar_chart.settings[4].label %>");
+
+                $("#xbar-preview-chart").click();
+              });
+
+            </script>
+            <% } %>
+              <script>
+
+                $("#xbar-preview-chart").click(() => {
+
+                  for (i = 0; i < 5; i++) {
+                    $(`#xbar-${i + 1}-enabled`).is(":checked") ? xbar_chart.options.plugins.annotation.annotations[i].display = true : xbar_chart.options.plugins.annotation.annotations[i].display = false;
+                    xbar_chart.options.plugins.annotation.annotations[i].value = $(`#xbar-${i + 1}-data`).val();
+                    xbar_chart.options.plugins.annotation.annotations[i].label.content = $(`#xbar-label-${i + 1}-data`).val();
+                  }
+                  xbar_chart.options.scales.y.max = +$("#xbar-max-chart").val();
+                  xbar_chart.options.scales.y.min = +$("#xbar-min-chart").val();
+
+                  xbar_chart.update();
+
+                });
+
+
+                $("#xbar-data-confirm").click((e) => {
+                  e.preventDefault();
+
+                  $.ajax({
+                    url: "Injection/SET_XBAR_DATA",
+                    type: "POST",
+                    data: {
+                      "inj": "<%= inj %>",
+                      "page": "<%= page %>",
+                      "select_data": $("#xbar-data-select option:selected").html(),
+                      "fix_x": $("#xbar-enabled-maxmin").is(":checked"),
+                      "max": $("#xbar-max-chart").val(),
+                      "min": $("#xbar-min-chart").val(),
+                      "xbar_1_enabled": $("#xbar-1-enabled").is(":checked"),
+                      "xbar_2_enabled": $("#xbar-2-enabled").is(":checked"),
+                      "xbar_3_enabled": $("#xbar-3-enabled").is(":checked"),
+                      "xbar_4_enabled": $("#xbar-4-enabled").is(":checked"),
+                      "xbar_5_enabled": $("#xbar-5-enabled").is(":checked"),
+                      "xbar_1_data": $("#xbar-1-data").val(),
+                      "xbar_2_data": $("#xbar-2-data").val(),
+                      "xbar_3_data": $("#xbar-3-data").val(),
+                      "xbar_4_data": $("#xbar-4-data").val(),
+                      "xbar_5_data": $("#xbar-5-data").val(),
+                      "xbar_label_1_data": $("#xbar-label-1-data").val(),
+                      "xbar_label_2_data": $("#xbar-label-2-data").val(),
+                      "xbar_label_3_data": $("#xbar-label-3-data").val(),
+                      "xbar_label_4_data": $("#xbar-label-4-data").val(),
+                      "xbar_label_5_data": $("#xbar-label-5-data").val(),
+                    },
+                    success: (data) => {
+                      $("#xbar-preview-chart").click();
+                      console.log(data);
                     }
-                  },
-                  {
-                    type: 'line',
-                    scaleID: 'y',
-                    value: 0,
-                    borderColor: 'rgb(255, 192, 65)',
-                    label: {
-                      enabled: true,
-                      content: '',
-                      borderWidth: 1,
-                      borderColor: 'transparent',
-                      position: 'end',
+                  });
+                });
+
+                $("#xbar-data-select").change((e) => {
+                  e.preventDefault();
+
+                  $.ajax({
+                    url: "Injection/CHANGE_XBAR_DATA",
+                    type: "POST",
+                    data: {
+                      "inj": "<%= inj %>",
+                      "page": "<%= page %>",
+                      "select_data": $("#xbar-data-select option:selected").html(),
+                    },
+                    success: (data) => {
+                      //console.log(data.result.chart.settings);
+                      $("#xbar-max-chart").val(data.xbar_result.chart.max);
+                      $("#xbar-min-chart").val(data.xbar_result.chart.min);
+                      $("#xbar-enabled-maxmin").prop("checked", data.xbar_result.chart.fix_x);
+
+                      $("#xbar-1-enabled").prop("checked", data.result.xbar_chart.settings[0].enabled);
+                      $("#xbar-2-enabled").prop("checked", data.result.xbar_chart.settings[1].enabled);
+                      $("#xbar-3-enabled").prop("checked", data.result.xbar_chart.settings[2].enabled);
+                      $("#xbar-4-enabled").prop("checked", data.result.xbar_chart.settings[3].enabled);
+                      $("#xbar-5-enabled").prop("checked", data.result.xbar_chart.settings[4].enabled);
+
+                      $(`#xbar-1-data`).val(data.result.xbar_chart.settings[0].value);
+                      $(`#xbar-2-data`).val(data.result.xbar_chart.settings[1].value);
+                      $(`#xbar-3-data`).val(data.result.xbar_chart.settings[2].value);
+                      $(`#xbar-4-data`).val(data.result.xbar_chart.settings[3].value);
+                      $(`#xbar-5-data`).val(data.result.xbar_chart.settings[4].value);
+
+                      $(`#xbar-label-1-data`).val(data.result.xbar_chart.settings[0].label);
+                      $(`#xbar-label-2-data`).val(data.result.xbar_chart.settings[0].label);
+                      $(`#xbar-label-3-data`).val(data.result.xbar_chart.settings[0].label);
+                      $(`#xbar-label-4-data`).val(data.result.xbar_chart.settings[0].label);
+                      $(`#xbar-label-5-data`).val(data.result.xbar_chart.settings[0].label);
+
+                      $("#xbar-preview-chart").click();
                     }
-                  },
-                  {
-                    type: 'line',
-                    scaleID: 'y',
-                    value: 0,
-                    borderColor: 'rgb(255, 65, 65)',
-                    label: {
-                      enabled: true,
-                      content: '',
+                  });
+                });
+
+              </script>
+
+              <script> // SD chart options
+
+                const sd_chart = new Chart($('#sd-setting-chart'), {
+                  type: 'line',
+                  data: {
+                    labels: [],
+                    datasets: [{
+                      label: '',
+                      data: [],
+                      lineTension: 0,
+                      backgroundColor: 'transparent',
+                      borderColor: '#177D94',
                       borderWidth: 1,
-                      borderColor: 'transparent',
-                      position: 'end',
+                      pointBackgroundColor: '#177D94'
+                    }
+                    ]
+                  },
+                  options: {
+                    elements: {
+                      point: {
+                        borderWidth: 0,
+                        radius: 1,
+                        backgroundColor: 'rgba(0,0,0,0)'
+                      }
+                    },
+                    legend: {
+                      display: true,
+                      labels: {
+                        color: '#adb5bd',
+                      }
+                    },
+                    scales: {
+                      y: {
+                        min: 0,
+                        max: 0,
+                        ticks: {
+                          color: '#ADB5BD',
+                          beginAtZero: false,
+                        }
+                      },
+                      x: {
+                        ticks: {
+                          color: '#ADB5BD',
+                          beginAtZero: false
+                        },
+                        min: 0,
+                        max: 30,
+                      },
+
+                    },
+
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                      legend: {
+                        display: false,
+                        labels: {
+                          usePointStyle: true,
+                          pointStyle: 'line',
+                          color: '#adb5bd'
+                        }
+                      },
+                      annotation: {
+                        annotations: [
+                          {
+                            type: 'line',
+                            scaleID: 'y',
+                            value: 0,
+                            borderColor: 'rgb(255, 65, 65)',
+                            label: {
+                              enabled: true,
+                              content: '',
+                              borderWidth: 1,
+                              borderColor: 'transparent',
+                              position: 'end',
+                            }
+                          },
+                          {
+                            type: 'line',
+                            scaleID: 'y',
+                            value: 0,
+                            borderColor: 'rgb(255, 192, 65)',
+                            label: {
+                              enabled: true,
+                              content: '',
+                              borderWidth: 1,
+                              borderColor: 'transparent',
+                              position: 'end',
+                            }
+                          },
+                          {
+                            type: 'line',
+                            scaleID: 'y',
+                            value: 0,
+                            borderColor: 'rgb(152, 214, 89)',
+                            label: {
+                              enabled: true,
+                              content: '',
+                              borderWidth: 1,
+                              borderColor: 'transparent',
+                              position: 'end',
+                            }
+                          },
+                          {
+                            type: 'line',
+                            scaleID: 'y',
+                            value: 0,
+                            borderColor: 'rgb(255, 192, 65)',
+                            label: {
+                              enabled: true,
+                              content: '',
+                              borderWidth: 1,
+                              borderColor: 'transparent',
+                              position: 'end',
+                            }
+                          },
+                          {
+                            type: 'line',
+                            scaleID: 'y',
+                            value: 0,
+                            borderColor: 'rgb(255, 65, 65)',
+                            label: {
+                              enabled: true,
+                              content: '',
+                              borderWidth: 1,
+                              borderColor: 'transparent',
+                              position: 'end',
+                            }
+                          }
+                        ]
+                      }
                     }
                   }
-                ]
-              }
-            }
-          }
-        });
+                });
 
-      </script>
-        <% if(setting_data != "0") { %> 
-        <script>
+              </script>
 
-        $(document).ready(() => {
-          $("#xbar-max-chart").val(+"<%= setting_data.xbar_chart.max %>");
-          $("#xbar-min-chart").val(+"<%= setting_data.xbar_chart.min %>");
-          $("#xbar-enabled-maxmin").prop("checked", JSON.parse("<%= setting_data.xbar_chart.fix_x %>"));
+              <% if(setting_data !="0" ) { %>
+                <script>
+                  $(document).ready(() => {
+                  $("#sd-max-chart").val(+"<%= setting_data.sd_chart.max %>");
+                  $("#sd-min-chart").val(+"<%= setting_data.sd_chart.min %>");
+                  $("#sd-enabled-maxmin").prop("checked", JSON.parse("<%= setting_data.sd_chart.fix_x %>"));
 
-          $("#xbar-1-enabled").prop("checked", JSON.parse("<%= setting_data.xbar_chart.settings[0].enabled %>"));
-          $("#xbar-2-enabled").prop("checked", JSON.parse("<%= setting_data.xbar_chart.settings[1].enabled %>"));
-          $("#xbar-3-enabled").prop("checked", JSON.parse("<%= setting_data.xbar_chart.settings[2].enabled %>"));
-          $("#xbar-4-enabled").prop("checked", JSON.parse("<%= setting_data.xbar_chart.settings[3].enabled %>"));
-          $("#xbar-5-enabled").prop("checked", JSON.parse("<%= setting_data.xbar_chart.settings[4].enabled %>"));
+                  $("#sd-1-enabled").prop("checked", JSON.parse("<%= setting_data.sd_chart.settings[0].enabled %>"));
+                  $("#sd-2-enabled").prop("checked", JSON.parse("<%= setting_data.sd_chart.settings[1].enabled %>"));
+                  $("#sd-3-enabled").prop("checked", JSON.parse("<%= setting_data.sd_chart.settings[2].enabled %>"));
+                  $("#sd-4-enabled").prop("checked", JSON.parse("<%= setting_data.sd_chart.settings[3].enabled %>"));
+                  $("#sd-5-enabled").prop("checked", JSON.parse("<%= setting_data.sd_chart.settings[4].enabled %>"));
 
-          $(`#xbar-1-data`).val(+"<%= setting_data.xbar_chart.settings[0].value %>");
-          $(`#xbar-2-data`).val(+"<%= setting_data.xbar_chart.settings[1].value %>");
-          $(`#xbar-3-data`).val(+"<%= setting_data.xbar_chart.settings[2].value %>");
-          $(`#xbar-4-data`).val(+"<%= setting_data.xbar_chart.settings[3].value %>");
-          $(`#xbar-5-data`).val(+"<%= setting_data.xbar_chart.settings[4].value %>");
+                  $(`#sd-1-data`).val(+"<%= setting_data.sd_chart.settings[0].value %>");
+                  $(`#sd-2-data`).val(+"<%= setting_data.sd_chart.settings[1].value %>");
+                  $(`#sd-3-data`).val(+"<%= setting_data.sd_chart.settings[2].value %>");
+                  $(`#sd-4-data`).val(+"<%= setting_data.sd_chart.settings[3].value %>");
+                  $(`#sd-5-data`).val(+"<%= setting_data.sd_chart.settings[4].value %>");
 
-          $(`#xbar-label-1-data`).val("<%= setting_data.xbar_chart.settings[0].label %>");
-          $(`#xbar-label-2-data`).val("<%= setting_data.xbar_chart.settings[1].label %>");
-          $(`#xbar-label-3-data`).val("<%= setting_data.xbar_chart.settings[2].label %>");
-          $(`#xbar-label-4-data`).val("<%= setting_data.xbar_chart.settings[3].label %>");
-          $(`#xbar-label-5-data`).val("<%= setting_data.xbar_chart.settings[4].label %>");
+                  $(`#sd-label-1-data`).val("<%= setting_data.sd_chart.settings[0].label %>");
+                  $(`#sd-label-2-data`).val("<%= setting_data.sd_chart.settings[1].label %>");
+                  $(`#sd-label-3-data`).val("<%= setting_data.sd_chart.settings[2].label %>");
+                  $(`#sd-label-4-data`).val("<%= setting_data.sd_chart.settings[3].label %>");
+                  $(`#sd-label-5-data`).val("<%= setting_data.sd_chart.settings[4].label %>");
 
-          $("#xbar-preview-chart").click();
-        });
+                  $("#sd-preview-chart").click();
+                });
+                </script>
 
-      </script>
-        <% } %> 
-        <script>
+                <% } %>
 
-        $("#xbar-preview-chart").click(() => {
+                  <script>
 
-          for (i = 0; i < 5; i++) {
-            $(`#xbar-${i + 1}-enabled`).is(":checked") ? xbar_chart.options.plugins.annotation.annotations[i].display = true : xbar_chart.options.plugins.annotation.annotations[i].display = false;
-            xbar_chart.options.plugins.annotation.annotations[i].value = $(`#xbar-${i + 1}-data`).val();
-            xbar_chart.options.plugins.annotation.annotations[i].label.content = $(`#xbar-label-${i + 1}-data`).val();
-          }
-          xbar_chart.options.scales.y.max = +$("#xbar-max-chart").val();
-          xbar_chart.options.scales.y.min = +$("#xbar-min-chart").val();
+                    $("#sd-data-confirm").click((e) => {
+                      e.preventDefault();
 
-          xbar_chart.update();
+                      $.ajax({
+                        url: "Injection/SET_SD_DATA",
+                        type: "POST",
+                        data: {
+                          "inj": "<%= inj %>",
+                          "page": "<%= page %>",
+                          "select_data": $("#sd-data-select option:selected").html(),
+                          "fix_x": $("#sd-enabled-maxmin").is(":checked"),
+                          "max": $("#sd-max-chart").val(),
+                          "min": $("#sd-min-chart").val(),
+                          "sd_1_enabled": $("#sd-1-enabled").is(":checked"),
+                          "sd_2_enabled": $("#sd-2-enabled").is(":checked"),
+                          "sd_3_enabled": $("#sd-3-enabled").is(":checked"),
+                          "sd_4_enabled": $("#sd-4-enabled").is(":checked"),
+                          "sd_5_enabled": $("#sd-5-enabled").is(":checked"),
+                          "sd_1_data": $("#sd-1-data").val(),
+                          "sd_2_data": $("#sd-2-data").val(),
+                          "sd_3_data": $("#sd-3-data").val(),
+                          "sd_4_data": $("#sd-4-data").val(),
+                          "sd_5_data": $("#sd-5-data").val(),
+                          "sd_label_1_data": $("#sd-label-1-data").val(),
+                          "sd_label_2_data": $("#sd-label-2-data").val(),
+                          "sd_label_3_data": $("#sd-label-3-data").val(),
+                          "sd_label_4_data": $("#sd-label-4-data").val(),
+                          "sd_label_5_data": $("#sd-label-5-data").val(),
+                        },
+                        success: (data) => {
+                          $("#sd-preview-chart").click();
+                          console.log(data);
+                        }
+                      });
+                    });
 
-        });
+                    $("#sd-preview-chart").click(() => {
+
+                      for (i = 0; i < 5; i++) {
+                        $(`#sd-${i + 1}-enabled`).is(":checked") ? sd_chart.options.plugins.annotation.annotations[i].display = true : sd_chart.options.plugins.annotation.annotations[i].display = false;
+                        sd_chart.options.plugins.annotation.annotations[i].value = $(`#sd-${i + 1}-data`).val();
+                        sd_chart.options.plugins.annotation.annotations[i].label.content = $(`#sd-label-${i + 1}-data`).val();
+                      }
+                      sd_chart.options.scales.y.max = +$("#sd-max-chart").val();
+                      sd_chart.options.scales.y.min = +$("#sd-min-chart").val();
+
+                      sd_chart.update();
+
+                    });
+
+                    $("#sd-data-select").change((e) => {
+                      e.preventDefault();
+
+                      $.ajax({
+                        url: "Injection/CHANGE_SD_DATA",
+                        type: "POST",
+                        data: {
+                          "inj": "<%= inj %>",
+                          "page": "<%= page %>",
+                          "select_data": $("#sd-data-select option:selected").html(),
+                        },
+                        success: (data) => {
+                          console.log(data.result);
+                          $("#sd-max-chart").val(data.result.sd_chart.max);
+                          $("#sd-min-chart").val(data.result.sd_chart.min);
+                          $("#sd-enabled-maxmin").prop("checked", data.result.sd_chart.fix_x);
+
+                          $("#sd-1-enabled").prop("checked", data.result.sd_chart.settings[0].enabled);
+                          $("#sd-2-enabled").prop("checked", data.result.sd_chart.settings[1].enabled);
+                          $("#sd-3-enabled").prop("checked", data.result.sd_chart.settings[2].enabled);
+                          $("#sd-4-enabled").prop("checked", data.result.sd_chart.settings[3].enabled);
+                          $("#sd-5-enabled").prop("checked", data.result.sd_chart.settings[4].enabled);
+
+                          $(`#sd-1-data`).val(data.result.sd_chart.settings[0].value);
+                          $(`#sd-2-data`).val(data.result.sd_chart.settings[1].value);
+                          $(`#sd-3-data`).val(data.result.sd_chart.settings[2].value);
+                          $(`#sd-4-data`).val(data.result.sd_chart.settings[3].value);
+                          $(`#sd-5-data`).val(data.result.sd_chart.settings[4].value);
+
+                          $(`#sd-label-1-data`).val(data.result.sd_chart.settings[0].label);
+                          $(`#sd-label-2-data`).val(data.result.sd_chart.settings[1].label);
+                          $(`#sd-label-3-data`).val(data.result.sd_chart.settings[2].label);
+                          $(`#sd-label-4-data`).val(data.result.sd_chart.settings[3].label);
+                          $(`#sd-label-5-data`).val(data.result.sd_chart.settings[4].label);
+
+                          $("#sd-preview-chart").click();
+                        }
+                      });
+                    });
 
 
-        $("#xbar-data-confirm").click((e) => {
-          e.preventDefault();
-
-          $.ajax({
-            url: "Injection/SET_XBAR_DATA",
-            type: "POST",
-            data: {
-              "inj": "<%= inj %>",
-              "page": "<%= page %>",
-              "select_data": $("#xbar-data-select option:selected").html(),
-              "fix_x": $("#xbar-enabled-maxmin").is(":checked"),
-              "max": $("#xbar-max-chart").val(),
-              "min": $("#xbar-min-chart").val(),
-              "xbar_1_enabled": $("#xbar-1-enabled").is(":checked"),
-              "xbar_2_enabled": $("#xbar-2-enabled").is(":checked"),
-              "xbar_3_enabled": $("#xbar-3-enabled").is(":checked"),
-              "xbar_4_enabled": $("#xbar-4-enabled").is(":checked"),
-              "xbar_5_enabled": $("#xbar-5-enabled").is(":checked"),
-              "xbar_1_data": $("#xbar-1-data").val(),
-              "xbar_2_data": $("#xbar-2-data").val(),
-              "xbar_3_data": $("#xbar-3-data").val(),
-              "xbar_4_data": $("#xbar-4-data").val(),
-              "xbar_5_data": $("#xbar-5-data").val(),
-              "xbar_label_1_data": $("#xbar-label-1-data").val(),
-              "xbar_label_2_data": $("#xbar-label-2-data").val(),
-              "xbar_label_3_data": $("#xbar-label-3-data").val(),
-              "xbar_label_4_data": $("#xbar-label-4-data").val(),
-              "xbar_label_5_data": $("#xbar-label-5-data").val(),
-            },
-            success: (data) => {
-              $("#xbar-preview-chart").click();
-              console.log(data);
-            }
-          });
-        });
-
-        $("#xbar-data-select").change((e) => {
-          e.preventDefault();
-
-          $.ajax({
-            url: "Injection/CHANGE_XBAR_DATA",
-            type: "POST",
-            data: {
-              "inj": "<%= inj %>",
-              "page": "<%= page %>",
-              "select_data": $("#xbar-data-select option:selected").html(),
-            },
-            success: (data) => {
-              //console.log(data.result.chart.settings);
-              $("#xbar-max-chart").val(data.xbar_result.chart.max);
-              $("#xbar-min-chart").val(data.xbar_result.chart.min);
-              $("#xbar-enabled-maxmin").prop("checked", data.xbar_result.chart.fix_x);
-
-              $("#xbar-1-enabled").prop("checked", data.result.xbar_chart.settings[0].enabled);
-              $("#xbar-2-enabled").prop("checked", data.result.xbar_chart.settings[1].enabled);
-              $("#xbar-3-enabled").prop("checked", data.result.xbar_chart.settings[2].enabled);
-              $("#xbar-4-enabled").prop("checked", data.result.xbar_chart.settings[3].enabled);
-              $("#xbar-5-enabled").prop("checked", data.result.xbar_chart.settings[4].enabled);
-
-              $(`#xbar-1-data`).val(data.result.xbar_chart.settings[0].value);
-              $(`#xbar-2-data`).val(data.result.xbar_chart.settings[1].value);
-              $(`#xbar-3-data`).val(data.result.xbar_chart.settings[2].value);
-              $(`#xbar-4-data`).val(data.result.xbar_chart.settings[3].value);
-              $(`#xbar-5-data`).val(data.result.xbar_chart.settings[4].value);
-
-              $(`#xbar-label-1-data`).val(data.result.xbar_chart.settings[0].label);
-              $(`#xbar-label-2-data`).val(data.result.xbar_chart.settings[0].label);
-              $(`#xbar-label-3-data`).val(data.result.xbar_chart.settings[0].label);
-              $(`#xbar-label-4-data`).val(data.result.xbar_chart.settings[0].label);
-              $(`#xbar-label-5-data`).val(data.result.xbar_chart.settings[0].label);
-
-              $("#xbar-preview-chart").click();
-            }
-          });
-        });
-
-      </script>
+                  </script>

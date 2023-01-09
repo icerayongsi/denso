@@ -86,7 +86,7 @@
 
             <div class="tw-flex tw-justify-end tw-mr-4 max-lg:tw-mr-0 max-lg:tw-mt-2  tw-w-full lg:tw-w-auto">
               <select class="form-select" id="sd-chart-select-group">
-                <option selected>2</option>
+                <option selected>50</option>
                 <option>3</option>
                 <option>4</option>
                 <option>5</option>
@@ -186,7 +186,7 @@
             elements: {
               point: {
                 borderWidth: 0,
-                radius: 1,
+                radius: 0,
                 backgroundColor: 'rgba(0,0,0,0)'
               }
             },
@@ -235,7 +235,7 @@
                     label: {
                       enabled: true,
                       content: '',
-                      borderWidth: 1,
+                      borderWidth: 2,
                       borderColor: 'transparent',
                       position: 'end',
                     }
@@ -249,7 +249,7 @@
                     label: {
                       enabled: true,
                       content: '',
-                      borderWidth: 1,
+                      borderWidth: 2,
                       borderColor: 'transparent',
                       position: 'end',
                     }
@@ -263,7 +263,7 @@
                     label: {
                       enabled: true,
                       content: '',
-                      borderWidth: 1,
+                      borderWidth: 2,
                       borderColor: 'transparent',
                       position: 'end',
                     }
@@ -277,7 +277,7 @@
                     label: {
                       enabled: true,
                       content: '',
-                      borderWidth: 1,
+                      borderWidth: 2,
                       borderColor: 'transparent',
                       position: 'end',
                     }
@@ -304,6 +304,30 @@
       </script>
 
       <script>
+
+      function getGuidelineSDChart() {
+          $.ajax({
+            url: "Injection/CHANGE_SD_DATA",
+            type: "POST",
+            data: {
+              "inj": "<%= inj %>",
+              "select_data": $("#sd-data-select option:selected").html() == "Inj.start Pos(mm)"
+                ? "Inj start Pos(mm)"
+                : ($("#sd-data-select option:selected").html()).replace('.', '')
+            },
+            success: (data) => {
+              for (i = 0; i < 5; i++) {
+                chart.options.plugins.annotation.annotations[i].display = data.result.sd_chart.settings[i].enabled;
+                chart.options.plugins.annotation.annotations[i].value = data.result.sd_chart.settings[i].value;
+                chart.options.plugins.annotation.annotations[i].label.content = data.result.sd_chart.settings[i].label;
+              }
+              // chart.options.scales.y.max = +$("#shot-max-chart").val();
+              // chart.options.scales.y.min = +$("#shot-min-chart").val();
+
+              chart.update();
+            }
+          });
+        }
 
         function analyze(type, array) {
           if (type == "max") return Math.max(...array);
@@ -338,14 +362,19 @@
               "to": $('input[name="todate"]').val()
             },
             success: (data) => {
+              getGuidelineSDChart();
               let result = [],process_ = [data[0][[$("#sd-data-select option:selected").html()]]];
+              console.log(data);
               data.forEach((element,i) => {
-                if (i % $("#sd-chart-select-group option:selected").val() == 0) {
-                  if (process_.length < $("#sd-chart-select-group option:selected").val()) return;
-                  result.push(analyze("SD",process_));
+                for (j = 0; j < $("#sd-chart-select-group option:selected").val() ; j++) {
+                    try {
+                      process_.push(data[j + i][[$("#sd-data-select option:selected").html()]]);
+                    } catch {
+                      break;
+                    }
+                  }
+                  if (process_.length == $("#sd-chart-select-group option:selected").val()) result.push(analyze("SD",process_));
                   process_ = [];
-                }
-                process_.push(element[$("#sd-data-select option:selected").html()]);
               });
               chart.data.labels = result;
               chart.data.datasets[0].data = result.map(Number);
@@ -367,14 +396,18 @@
               "to": $('input[name="todate"]').val()
             },
             success: (data) => {
+              getGuidelineSDChart();
               let result = [],process_ = [data[0][[$("#sd-data-select option:selected").html()]]];
               data.forEach((element,i) => {
-                if (i % $("#sd-chart-select-group option:selected").val() == 0) {
-                  if (process_.length < $("#sd-chart-select-group option:selected").val()) return;
-                  result.push(analyze("SD",process_));
+                for (j = 0; j < $("#sd-chart-select-group option:selected").val() ; j++) {
+                    try {
+                      process_.push(data[j + i][[$("#sd-data-select option:selected").html()]]);
+                    } catch {
+                      break;
+                    }
+                  }
+                  if (process_.length == $("#sd-chart-select-group option:selected").val()) result.push(analyze("SD",process_));
                   process_ = [];
-                }
-                process_.push(element[$("#sd-data-select option:selected").html()]);
               });
               chart.data.labels = result;
               chart.data.datasets[0].data = result.map(Number);
@@ -395,15 +428,27 @@
               "to": $('input[name="todate"]').val()
             },
             success: (data) => {
-              let result = [],process_ = [data[0][[$("#sd-data-select option:selected").html()]]];
+              getGuidelineSDChart();
+              let result = [],process_ = [data[0][[$("#sd-data-select option:selected").html()]]],process__ = [];
+              console.log(data);
               data.forEach((element,i) => {
-                if (i % $("#sd-chart-select-group option:selected").val() == 0) {
-                  if (process_.length < $("#sd-chart-select-group option:selected").val()) return;
-                  result.push(analyze("SD",process_));
+                  for (j = 0; j < $("#sd-chart-select-group option:selected").val() ; j++) {
+                    try {
+                      process_.push(data[j + i][[$("#sd-data-select option:selected").html()]]);
+                    } catch {
+                      break;
+                    }
+                  }
+                  if (process_.length == $("#sd-chart-select-group option:selected").val()) result.push(analyze("SD",process_));
                   process_ = [];
-                }
-                process_.push(element[$("#sd-data-select option:selected").html()]);
+                // if (i % $("#sd-chart-select-group option:selected").val() == 0) {
+                //   if (process_.length < $("#sd-chart-select-group option:selected").val()) return;
+                //   result.push(analyze("SD",process_));
+                //   process_ = [];
+                // }
+                // process_.push(element[$("#sd-data-select option:selected").html()]);
               });
+              console.log(result);
               chart.data.labels = result;
               chart.data.datasets[0].data = result.map(Number);
               chart.update();
