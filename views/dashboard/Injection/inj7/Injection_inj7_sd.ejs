@@ -80,7 +80,7 @@
               </form>
             </div>
 
-            <div class="tw-flex tw-grow tw-justify-end tw-mr-2">
+            <!-- <div class="tw-flex tw-grow tw-justify-end tw-mr-2">
               <p class="text-center pt-2">Group size :</p>
             </div>
 
@@ -94,7 +94,7 @@
                 <option>7</option>
                 <option>8</option>
               </select>
-            </div>
+            </div> -->
 
             <!-- Modal -->
             <form method="GET" id="sd-datetime-data">
@@ -341,15 +341,18 @@
           }
         }
 
+        const group = 50;
+
         $(document).ready((e) => {
 
           let current_date = new Date().toLocaleString('fr-CA').slice(0, 11);
+          let current_date_last_day = new Date(Date.now() - 3600000 * 24).toLocaleString('fr-CA').slice(0, 11);
           let current_time = new Date().toLocaleString('th-TH').slice(9, 19);
-          let current_time_back_1hour = new Date(Date.now() - 3600000 * 1).toLocaleString('th-TH').slice(9, 19);
+          let current_time_back_1hour = new Date(Date.now() - 3600000 * 2).toLocaleString('th-TH').slice(9, 19);
 
           let chart_xbar_data = [], chart_xbar_label = [];
 
-          $('input[name="fromdate"]').val(current_date + current_time_back_1hour);
+          $('input[name="fromdate"]').val(current_date_last_day + current_time);
           $('input[name="todate"]').val(current_date + current_time);
 
           $.ajax({
@@ -366,14 +369,14 @@
               let result = [],process_ = [data[0][[$("#sd-data-select option:selected").html()]]];
               console.log(data);
               data.forEach((element,i) => {
-                for (j = 0; j < $("#sd-chart-select-group option:selected").val() ; j++) {
+                for (j = 0; j < group ; j++) {
                     try {
                       process_.push(data[j + i][[$("#sd-data-select option:selected").html()]]);
                     } catch {
                       break;
                     }
                   }
-                  if (process_.length == $("#sd-chart-select-group option:selected").val()) result.push(analyze("SD",process_));
+                  if (process_.length == group) result.push(analyze("SD",process_));
                   process_ = [];
               });
               chart.data.labels = result;
@@ -399,14 +402,14 @@
               getGuidelineSDChart();
               let result = [],process_ = [data[0][[$("#sd-data-select option:selected").html()]]];
               data.forEach((element,i) => {
-                for (j = 0; j < $("#sd-chart-select-group option:selected").val() ; j++) {
+                for (j = 0; j < group ; j++) {
                     try {
                       process_.push(data[j + i][[$("#sd-data-select option:selected").html()]]);
                     } catch {
                       break;
                     }
                   }
-                  if (process_.length == $("#sd-chart-select-group option:selected").val()) result.push(analyze("SD",process_));
+                  if (process_.length == group) result.push(analyze("SD",process_));
                   process_ = [];
               });
               chart.data.labels = result;
@@ -432,14 +435,14 @@
               let result = [],process_ = [data[0][[$("#sd-data-select option:selected").html()]]],process__ = [];
               console.log(data);
               data.forEach((element,i) => {
-                  for (j = 0; j < $("#sd-chart-select-group option:selected").val() ; j++) {
+                  for (j = 0; j < group ; j++) {
                     try {
                       process_.push(data[j + i][[$("#sd-data-select option:selected").html()]]);
                     } catch {
                       break;
                     }
                   }
-                  if (process_.length == $("#sd-chart-select-group option:selected").val()) result.push(analyze("SD",process_));
+                  if (process_.length == group) result.push(analyze("SD",process_));
                   process_ = [];
                 // if (i % $("#sd-chart-select-group option:selected").val() == 0) {
                 //   if (process_.length < $("#sd-chart-select-group option:selected").val()) return;

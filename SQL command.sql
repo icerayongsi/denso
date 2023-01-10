@@ -29,12 +29,34 @@ WHERE
 			status_log_info_net100 as status_net100
 		GROUP BY
 			status_net100.MC_NameID
-	) 
-	
-	--
+	) --
 	-- END
+
+	
 SELECT
-	status_net100.*,
+	MAX(status_net100.STATUS_TIMESTAMP) AS datetime_,
+	mc_name.Name,
+	mc_name.Type,
+	code.STATUS_NAME
+FROM
+	status_log_info_net100 as status_net100
+	JOIN mc_name ON status_net100.MC_NameID = mc_name.No
+	JOIN status_code_net100 AS code ON status_net100.STATUS_CODE = code.STATUS_CODE
+GROUP BY
+	MC_NameID
+
+
+
+WHERE
+	status_net100.ID IN(
+		SELECT
+			max(status_net100.ID)
+		FROM
+			status_log_info_net100 as status_net100
+		GROUP BY
+			status_net100.MC_NameID
+	) -- 
+SELECT
 	mc_name.Name,
 	mc_name.Type,
 	code.STATUS_NAME
@@ -50,5 +72,24 @@ WHERE
 			status_log_info_net100 as status_net100
 		GROUP BY
 			status_net100.MC_NameID
-	)
+	) 
+	
+-- NET 100 DATA 1/10/23
 
+SELECT
+	data_net100.*,
+	mc_name.Name
+FROM
+	shotdata_net100 as data_net100
+	JOIN mc_name ON data_net100.MC_NameID = mc_name.No
+WHERE
+	data_net100.ID IN(
+		SELECT
+			max(data_net100.ID)
+		FROM
+			shotdata_net100 as data_net100
+		GROUP BY
+			data_net100.MC_NameID
+	) 
+
+-- END
